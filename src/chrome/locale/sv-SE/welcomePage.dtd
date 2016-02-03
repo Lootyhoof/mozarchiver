@@ -1,0 +1,22 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "Välkommen">
+<!ENTITY welcome.label "Tack för att du installerar MozArchiver!">
+<!ENTITY features.header.label "Flera funktioner i $brandShortName har förbättrats m.h.a. det här tillägget.">
+<!ENTITY features.headerfromupdate.label "Ditt tillägg har uppdaterats till den senaste huvudversionen.">
+<!ENTITY features.item1.label "Webbsidor sparas mer exakt, vad du ser är vad du får.">
+<!ENTITY features.item2.label "Du kan spara en eller flera flikar i en enda fil (webbarkiv).">
+<!ENTITY features.item3.label "Rubriken på dokumentet är numera standardfilnamn.">
+<!ENTITY features.item4.label "Du kan spara HTML5-video och -ljud, och mycket mer!">
+<!ENTITY features.footer.label "Du kan styra vilka funktioner som är aktiverade i tilläggets inställningar.">
+<!ENTITY features.link.label "Besök webbplatsen för att upptäcka alla de andra funktionerna.">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "Vill du öppna de här webbarkivfiltyperna med $brandShortName?">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "Om du är osäker, markera då båda alternativen. De kommer att träda i kraft när den här sidan stängs.">
+<!ENTITY associate.explanation2.label "Du kan ändra den här inställningen när som helst från kontrollpanelen för ditt operativsystem.">
+<!ENTITY associate.error.title "Fel under registrering av filassociationer">
+<!ENTITY associate.error.msg "Ett fel inträffade under konfigurering av din filhanterare: $1.">
+<!ENTITY associate.errortip.msg "För att kunna öppna webbarkiv med $brandShortName måste du skapa de filassociationer som krävs manuellt, från kontrollpanelen för ditt operativsystem, eller försöka att göra om operationen från MozArchivers inställningar-fönster.">

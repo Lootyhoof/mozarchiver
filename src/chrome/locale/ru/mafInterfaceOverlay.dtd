@@ -1,0 +1,10 @@
+<!-- *** Archive information popup *** -->
+<!-- Status of the current page -->
+<!ENTITY archiveinfo.status.normal.label "Этой страницы в архиве нет.">
+<!ENTITY archiveinfo.status.archived.label "Это страница из архива.">
+<!-- Original address the page was saved from -->
+<!ENTITY archiveinfo.maforiginalurl.label "Адрес оригинала:">
+<!ENTITY archiveinfo.maforiginalurl.missing.label "(неизвестен)">
+<!-- Date and time the page was archived -->
+<!ENTITY archiveinfo.mafdatearchived.label "Время сохранения:">
+<!ENTITY archiveinfo.mafdatearchived.missing.label "(неизвестно)">

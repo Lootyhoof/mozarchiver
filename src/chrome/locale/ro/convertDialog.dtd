@@ -1,0 +1,72 @@
+<!-- *** Note *** -->
+<!-- This page is a wizard. When assigning access keys, pay attention to the possible conflicts with the default access keys for the Back, Next, Continue and Finish buttons. -->
+<!-- *** General window controls *** -->
+<!ENTITY window.title "MAF - Asistent pentru conversia paginilor arhivate">
+<!ENTITY browsebutton.label "Răsfoiește…">
+<!ENTITY continue.label "Apăsați „$1” pentru a continua.">
+<!-- *** Introduction *** -->
+<!ENTITY introduction.pagelabel "Bun venit în asistentul pentru conversia paginilor arhivate">
+<!ENTITY introduction.para1.description "Acest asistent vă va îndruma în procesul de conversie într-un nou format a paginilor arhivate anterior.">
+<!ENTITY introduction.para2.description "Această procedură este potrivită pentru conversia simultană a mai multor pagini. Dacă doriți să convertiți pagini individuale, este suficient să le deschideți în navigator și să le salvați într-un alt format.">
+<!ENTITY introduction.visitwebsite.description "Deși procesul de conversie funcționează în cele mai multe cazuri corect, uneori rezultatul conversiei ar putea să nu fie în totalitate asemănător cu originalul, acest lucru depinzând de formatele de fișier selectate și de opțiunile de arhivare. Mai mult, atunci când se convertește o arhivă cu mai multe pagini într-un format cu o singură pagină, numai prima pagină este păstrată. Este recomandat să păstrați o copie a fișierelor originale chiar și după o conversie reușită.">
+<!ENTITY introduction.visitwebsite.label "Pentru detalii, citiți documentația online (în engleză).">
+<!ENTITY introduction.continue.label "Apăsați „$1” pentru a începe.">
+<!-- *** File format selection *** -->
+<!ENTITY formats.pagelabel "Formate de intrare și de ieșire">
+<!ENTITY formats.source.grouplabel "Conversie din (format de intrare):">
+<!ENTITY formats.source.complete.label "Pagini web complete (cu foldere și fișiere asociate)">
+<!ENTITY formats.source.complete.accesskey "c">
+<!ENTITY formats.source.plain.label "Toate paginile web (cu sau fără foldere și fișiere asociate)">
+<!ENTITY formats.source.plain.accesskey "T">
+<!ENTITY formats.source.mhtml.label "Arhive MHTML">
+<!ENTITY formats.source.mhtml.accesskey "M">
+<!ENTITY formats.source.maff.label "Arhive MAFF">
+<!ENTITY formats.source.maff.accesskey "F">
+<!ENTITY formats.dest.grouplabel "Conversie în (format de ieşire):">
+<!ENTITY formats.dest.maff.label "Arhive MAFF">
+<!ENTITY formats.dest.maff.accesskey "A">
+<!ENTITY formats.dest.mhtml.label "Arhive MHTML">
+<!ENTITY formats.dest.mhtml.accesskey "H">
+<!ENTITY formats.dest.complete.label "Pagini web complete (cu foldere și fișiere asociate dacă este necesar)">
+<!ENTITY formats.dest.complete.accesskey "w">
+<!ENTITY formats.invalid.label "Selectați pentru ieşire un format diferit de cel de intrare!">
+<!-- *** Source folder selection *** -->
+<!ENTITY folders.source.pagelabel "Folder sursă">
+<!ENTITY folders.source.label "Locaţia fișierelor de convertit:">
+<!ENTITY folders.source.accesskey "F">
+<!ENTITY folders.source.subfolders.label "Se includ subfolderele">
+<!ENTITY folders.source.subfolders.accesskey "s">
+<!ENTITY folders.source.invalid.label "Selectați un folder sursă existent!">
+<!-- *** Destination folder selection *** -->
+<!ENTITY folders.dest.pagelabel "Folder destinație">
+<!ENTITY folders.dest.grouplabel "Locaţia de stocare a fișierelor convertite:">
+<!ENTITY folders.dest.original.label "În același folder cu fișierele originale">
+<!ENTITY folders.dest.original.accesskey "a">
+<!ENTITY folders.dest.folder.label "În folderul specificat (păstrând căile relative):">
+<!ENTITY folders.dest.folder.accesskey "s">
+<!ENTITY folders.bin.grouplabel "Acțiune după finalizarea conversiei:">
+<!ENTITY folders.bin.original.label "Se păstrează originalele în aceeași locaţie">
+<!ENTITY folders.bin.original.accesskey "o">
+<!ENTITY folders.bin.folder.label "Se mută originalele în folderul specificat (păstrând căile relative):">
+<!ENTITY folders.bin.folder.accesskey "m">
+<!ENTITY folders.dest.invalid.label "Specificați o cale completă şi corectă pentru folder!">
+<!-- *** Candidates selection and conversion *** -->
+<!ENTITY candidates.pagelabel "Conversie">
+<!ENTITY candidates.description "Fișiere de convertit:">
+<!ENTITY candidates.sourcename.header "Denumire fișier sursă">
+<!ENTITY candidates.sourcedatafoldername.header "Denumire folder asociat">
+<!ENTITY candidates.relativepath.header "Subfolder">
+<!ENTITY candidates.sourcepath.header "Cale sursă">
+<!ENTITY candidates.destpath.header "Cale destinație">
+<!ENTITY candidates.binpath.header "Cale de mutare">
+<!ENTITY candidates.all.label "Toate fișierele">
+<!ENTITY candidates.searchingcounts.label "- total: $1; deja convertite: $2; selectate: $3">
+<!ENTITY candidates.convertingcounts.label "- total: $1; deja convertite: $2; selectate: $3; convertite cu succes: $4; eșuate: $5">
+<!ENTITY candidates.searching.label "Se caută fișiere sursă…">
+<!ENTITY candidates.none.label "Nu sau găsit fișiere convertibile. Pentru a modifica parametrii de căutare, apăsați „$1”.">
+<!ENTITY candidates.invalid.label "Selectați cel puțin un fișier pentru a fi convertit!">
+<!ENTITY candidates.convert.label "Apăsați „Convertește” pentru a începe procesul.">
+<!ENTITY candidates.converting.label "Se convertesc fișierele…">
+<!ENTITY candidates.finish.label "Verificați rezultatele conversiei, apoi apăsați „$1” pentru a închide caseta.">
+<!ENTITY candidates.convertbutton.label "Convertește">
+<!ENTITY candidates.convertbutton.accesskey "C">

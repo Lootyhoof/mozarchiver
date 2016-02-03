@@ -1,0 +1,533 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+<?xml-stylesheet href="chrome://mza/skin/general/general.css" type="text/css"?>
+<?xml-stylesheet href="chrome://mza/skin/convert/convertDialog.css" type="text/css"?>
+<!DOCTYPE wizard SYSTEM "chrome://mza/locale/convertDialog.dtd">
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1/GPL 2.0/LGPL 2.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Mozilla Archive Format.
+   -
+   - The Initial Developer of the Original Code is
+   - Paolo Amadini <http://www.amadzone.org/>.
+   - Portions created by the Initial Developer are Copyright (C) 2009
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - Alternatively, the contents of this file may be used under the terms of
+   - either the GNU General Public License Version 2 or later (the "GPL"), or
+   - the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+   - in which case the provisions of the GPL or the LGPL are applicable instead
+   - of those above. If you wish to allow use of your version of this file only
+   - under the terms of either the GPL or the LGPL, and not to allow others to
+   - use your version of this file under the terms of the MPL, indicate your
+   - decision by deleting the provisions above and replace them with the notice
+   - and other provisions required by the LGPL or the GPL. If you do not delete
+   - the provisions above, a recipient may use your version of this file under
+   - the terms of any one of the MPL, the GPL or the LGPL.
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<!--
+   - This modeless window allows the conversion of saved pages between different
+   -  file formats.
+   -
+   - The window type "Maf:Convert" is used to find and focus the window if it is
+   -  already opened, instead of opening a new one.
+   -->
+
+<wizard
+ id=            "convertDialog"
+ title=         "&window.title;"
+ windowtype=    "Maf:Convert"
+ xmlns=         "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ style=         "width: 45em; height: 32em;"
+ persist=       "screenX screenY width height"
+ onload=        "ConvertDialog.onLoadDialog();"
+ onwizardfinish="return ConvertDialog.onWizardFinish();"
+ onwizardcancel="return ConvertDialog.onWizardCancel();"
+ >
+  <!-- Dialog machinery -->
+  <script type="application/x-javascript" src="convertDialog.js" />
+
+  <!-- Introduction -->
+  <wizardpage label=     "&introduction.pagelabel;"
+              onpageshow="ConvertDialog.checkIntroductionControls();"
+              >
+    <description>
+      &introduction.para1.description;
+    </description>
+    <description>
+      &introduction.para2.description;
+    </description>
+    <spacer flex="1" />
+    <description>
+      &introduction.visitwebsite.description;
+    </description>
+    <label value="&introduction.visitwebsite.label;"
+           href= "http://maf.mozdev.org/"
+           class="text-link header"
+           />
+
+    <!-- Page footer -->
+    <spacer flex="1" />
+    <label id=   "lblIntroductionContinue"
+           value="&introduction.continue.label;"
+           />
+  </wizardpage>
+
+  <!-- Source and destination format selection -->
+  <wizardpage label=     "&formats.pagelabel;"
+              onpageshow="ConvertDialog.checkFormatsControls();"
+              >
+    <label value="&formats.source.grouplabel;" />
+    <radiogroup id=       "rgrFormatsSource"
+                oncommand="ConvertDialog.checkFormatsControls();"
+                >
+      <radio value="complete"   label=    "&formats.source.complete.label;"
+                                accesskey="&formats.source.complete.accesskey;"
+                                />
+      <radio value="plain"      label=    "&formats.source.plain.label;"
+                                accesskey="&formats.source.plain.accesskey;"
+                                />
+      <radio value="mhtml"      label=    "&formats.source.mhtml.label;"
+                                accesskey="&formats.source.mhtml.accesskey;"
+                                />
+      <radio value="maff"       label=    "&formats.source.maff.label;"
+                                accesskey="&formats.source.maff.accesskey;"
+                                />
+    </radiogroup>
+    <spacer height="15" />
+    <label value="&formats.dest.grouplabel;" />
+    <radiogroup id=       "rgrFormatsDest"
+                oncommand="ConvertDialog.checkFormatsControls();"
+                >
+      <radio value="maff"       label=    "&formats.dest.maff.label;"
+                                accesskey="&formats.dest.maff.accesskey;"
+                                />
+      <radio value="mhtml"      label=    "&formats.dest.mhtml.label;"
+                                accesskey="&formats.dest.mhtml.accesskey;"
+                                />
+      <radio value="complete"   label=    "&formats.dest.complete.label;"
+                                accesskey="&formats.dest.complete.accesskey;"
+                                />
+    </radiogroup>
+
+    <!-- Page footer -->
+    <spacer flex="1" />
+    <label id=   "lblFormatsInvalid"
+           value="&formats.invalid.label;"
+           />
+    <label id=   "lblFormatsContinue"
+           value="&continue.label;"
+           />
+  </wizardpage>
+
+  <!-- Source folder selection -->
+  <wizardpage label=     "&folders.source.pagelabel;"
+              onpageshow="ConvertDialog.checkFoldersSourceControls();"
+              >
+    <label control=  "txtFoldersSource"
+           value=    "&folders.source.label;"
+           accesskey="&folders.source.accesskey;"
+           />
+    <hbox align="center">
+      <textbox id=     "txtFoldersSource"
+               flex=   "1"
+               oninput="ConvertDialog.checkFoldersSourceControls();"
+               />
+      <button control=  "txtFoldersSource"
+              label=    "&browsebutton.label;"
+              oncommand="ConvertDialog.browseForFolder(event);"
+              />
+    </hbox>
+    <checkbox id=       "chkFoldersSourceSubfolders"
+              checked=  "true"
+              label=    "&folders.source.subfolders.label;"
+              accesskey="&folders.source.subfolders.accesskey;"
+              oncommand="ConvertDialog.checkFoldersSourceControls();"
+              />
+
+    <!-- Page footer -->
+    <spacer flex="1" />
+    <label id=   "lblFoldersSourceInvalid"
+           value="&folders.source.invalid.label;"
+           />
+    <label id=   "lblFoldersSourceContinue"
+           value="&continue.label;"
+           />
+  </wizardpage>
+
+  <!-- Destination folder selection -->
+  <wizardpage label=     "&folders.dest.pagelabel;"
+              onpageshow="ConvertDialog.checkFoldersDestControls();"
+              >
+    <label value="&folders.dest.grouplabel;" />
+    <radiogroup id=       "rgrFoldersDest"
+                oncommand="ConvertDialog.checkFoldersDestControls();"
+                >
+      <radio value="original"   label=    "&folders.dest.original.label;"
+                                accesskey="&folders.dest.original.accesskey;"
+                                />
+      <radio value="folder"     label=    "&folders.dest.folder.label;"
+                                accesskey="&folders.dest.folder.accesskey;"
+                                />
+      <hbox align="center"
+            class="indent"
+            >
+        <textbox id=      "txtFoldersDest"
+                 flex=    "1"
+                 oninput="ConvertDialog.checkFoldersDestControls();"
+                 />
+        <button id=       "btnFoldersDest"
+                control=  "txtFoldersDest"
+                label=    "&browsebutton.label;"
+                oncommand="ConvertDialog.browseForFolder(event);"
+                />
+      </hbox>
+    </radiogroup>
+    <spacer height="15" />
+    <label value="&folders.bin.grouplabel;" />
+    <radiogroup id=       "rgrFoldersBin"
+                oncommand="ConvertDialog.checkFoldersDestControls();"
+                >
+      <radio value="original"   label=    "&folders.bin.original.label;"
+                                accesskey="&folders.bin.original.accesskey;"
+                                />
+      <radio value="folder"     label=    "&folders.bin.folder.label;"
+                                accesskey="&folders.bin.folder.accesskey;"
+                                />
+      <hbox align="center"
+            class="indent"
+            >
+        <textbox id=     "txtFoldersBin"
+                 flex=   "1"
+                 oninput="ConvertDialog.checkFoldersDestControls();"
+                 />
+        <button id=       "btnFoldersBin"
+                control=  "txtFoldersBin"
+                label=    "&browsebutton.label;"
+                oncommand="ConvertDialog.browseForFolder(event);"
+                />
+      </hbox>
+    </radiogroup>
+
+    <!-- Page footer -->
+    <spacer flex="1" />
+    <label id=   "lblFoldersDestInvalid"
+           value="&folders.dest.invalid.label;"
+           />
+    <label id=   "lblFoldersDestContinue"
+           value="&continue.label;"
+           />
+  </wizardpage>
+
+  <!-- Candidates selection -->
+  <wizardpage label=        "&candidates.pagelabel;"
+              onpageshow=   "ConvertDialog.onCandidatesPageShow();"
+              onpagerewound="ConvertDialog.onCandidatesPageRewound();"
+              >
+    <description>
+      &candidates.description;
+    </description>
+
+    <!--
+       - This tree is designed to work with the candidates data source. The tree
+       -  accesses the data source directly (has flags="dont-build-content")
+       -  since in this way the underlying RDF resources can be accessed using
+       -  the getResourceAtIndex method of the view, and modified directly.
+       -
+       - The tree uses checkbox columns (has editable="true" and treecol
+       -  elements with type="checkbox"). All the columns except the one of the
+       -  checkbox have editable="false" explicitly defined.
+       -
+       - The tree columns, including the one of the checkbox, can be rearranged
+       -  by the user (the tree has enableColumnDrag="true"), and their state is
+       -  persisted.
+       -->
+    <tree id="treeCandidates"
+          flex="1"
+          datasources="rdf:null"
+          ref="urn:root"
+          flags="dont-build-content"
+          statedatasource="rdf:null"
+          enableColumnDrag="true"
+          editable="true"
+          onkeypress="ConvertDialog.onTreeKeyPress(event);"
+          >
+      <treecols>
+        <!-- The checkbox column is always visible -->
+        <treecol id="tcChecked"
+                 type="checkbox" editable="true" ignoreincolumnpicker="true"
+                 width="20" fixed="true"
+                 persist="width ordinal hidden" />
+        <splitter class="tree-splitter" />
+        <!-- The following columns are shown by default -->
+        <treecol id="tcSourceName"
+                 primary="true"
+                 editable="false"
+                 flex="1"
+                 label="&candidates.sourcename.header;"
+                 sort="urn:maf:vocabulary#sourceName"
+                 persist="width ordinal hidden sortActive sortDirection" />
+        <splitter class="tree-splitter" />
+        <treecol id="tcSourceDataFolderName"
+                 editable="false"
+                 flex="1"
+                 label="&candidates.sourcedatafoldername.header;"
+                 sort="urn:maf:vocabulary#sourceDataFolderName"
+                 persist="width ordinal hidden sortActive sortDirection" />
+        <splitter class="tree-splitter" />
+        <treecol id="tcRelativePath"
+                 editable="false"
+                 flex="1"
+                 label="&candidates.relativepath.header;"
+                 sort="urn:maf:vocabulary#relativePath"
+                 persist="width ordinal hidden sortActive sortDirection" />
+        <splitter class="tree-splitter" />
+        <!-- The following columns are hidden by default -->
+        <treecol id="tcSourcePath"
+                 editable="false"
+                 flex="1"
+                 label="&candidates.sourcepath.header;"
+                 sort="urn:maf:vocabulary#sourcePath"
+                 hidden="true"
+                 persist="width ordinal hidden sortActive sortDirection" />
+        <splitter class="tree-splitter" />
+        <treecol id="tcDestPath"
+                 editable="false"
+                 flex="1"
+                 label="&candidates.destpath.header;"
+                 sort="urn:maf:vocabulary#destPath"
+                 hidden="true"
+                 persist="width ordinal hidden sortActive sortDirection" />
+        <splitter class="tree-splitter" />
+        <treecol id="tcBinPath"
+                 editable="false"
+                 flex="1"
+                 label="&candidates.binpath.header;"
+                 sort="urn:maf:vocabulary#binPath"
+                 hidden="true"
+                 persist="width ordinal hidden sortActive sortDirection" />
+      </treecols>
+      <template>
+
+        <!--
+           - This template query handles the "candidates" resource in the data
+           -  source. The triple checks that the object we are starting from is
+           -  actually an instance of "root", the parent of the "candidates" 
+           -  resource. If this is the case, then the single child resource is
+           -  examined, assigning it to the ?candidates template variable.
+           -
+           - Since the "uri" attribute in the treeitem points to ?candidates,
+           -  the next iteration in the template recursive generation will start
+           -  again from the "candidates" resource. At that point, the triple
+           -  for this query will not match using the new starting point, and
+           -  only the next query will be used.
+           -->
+        <queryset>
+          <query>
+            <content uri="?start" />
+            <triple subject="?start"
+                    predicate="http://www.w3.org/1999/02/22-rdf-syntax-ns#instanceOf"
+                    object="urn:root" />
+            <member container="?start" child="?candidates" />
+          </query>
+          <rule>
+            <bindings>
+              <!-- Bind the properties associated with the container. The
+                    "checked" property is always present and is designed to be
+                    used as a value for the checkbox column in the tree. -->
+              <binding subject="?candidates"
+                       predicate="urn:maf:vocabulary#checked"
+                       object="?checked" />
+              <!-- The following properties provide additional information about
+                    the state of the item. This information is used to style the
+                    checkbox column appropriately. -->
+              <binding subject="?candidates"
+                       predicate="urn:maf:vocabulary#disabled"
+                       object="?disabled" />
+              <binding subject="?candidates"
+                       predicate="urn:maf:vocabulary#obstructed"
+                       object="?obstructed" />
+              <binding subject="?candidates"
+                       predicate="urn:maf:vocabulary#enqueued"
+                       object="?enqueued" />
+              <binding subject="?candidates"
+                       predicate="urn:maf:vocabulary#converting"
+                       object="?converting" />
+              <binding subject="?candidates"
+                       predicate="urn:maf:vocabulary#converted"
+                       object="?converted" />
+              <binding subject="?candidates"
+                       predicate="urn:maf:vocabulary#failed"
+                       object="?failed" />
+            </bindings>
+            <action>
+              <treechildren>
+                <treeitem uri="?candidates">
+                  <!-- Display one row with fixed content and the checkbox -->
+                  <treerow>
+                    <treecell value="?checked" properties="?disabled ?obstructed ?enqueued ?converting ?converted ?failed" />
+                    <treecell editable="false" label="&candidates.all.label;" />
+                    <treecell editable="false" />
+                    <treecell editable="false" />
+                    <treecell editable="false" />
+                    <treecell editable="false" />
+                    <treecell editable="false" />
+                  </treerow>
+                </treeitem>
+              </treechildren>
+            </action>
+          </rule>
+        </queryset>
+
+        <!--
+           - This template query handles the "candidate" resource in the data
+           -  source. The triple checks that the object we are starting from is
+           -  actually an instance of "candidates", the container of "candidate"
+           -  resources. If this is the case, then each child resource is
+           -  examined, assigning it to the ?candidate template variable.
+           -
+           - The next iteration in the template recursive generation will start
+           -  from the "candidate" resource, that will not match any other
+           -  query, thus leaving candidates as leaf nodes.
+           -->
+        <queryset>
+          <query>
+            <content uri="?start" />
+            <triple subject="?start"
+                     predicate="http://www.w3.org/1999/02/22-rdf-syntax-ns#instanceOf"
+                     object="urn:maf:candidates" />
+            <member container="?start" child="?candidate" />
+          </query>
+          <rule>
+            <bindings>
+              <!-- Bind the properties associated with the candidate. The
+                    "checked" property is always present and is designed to be
+                    used as a value for the checkbox column in the tree. -->
+              <binding subject="?candidate"
+                       predicate="urn:maf:vocabulary#checked"
+                       object="?checked" />
+              <binding subject="?candidate"
+                       predicate="urn:maf:vocabulary#sourceName"
+                       object="?sourceName" />
+              <binding subject="?candidate"
+                       predicate="urn:maf:vocabulary#sourceDataFolderName"
+                       object="?sourceDataFolderName" />
+              <binding subject="?candidate"
+                       predicate="urn:maf:vocabulary#relativePath"
+                       object="?relativePath" />
+              <binding subject="?candidate"
+                       predicate="urn:maf:vocabulary#sourcePath"
+                       object="?sourcePath" />
+              <binding subject="?candidate"
+                       predicate="urn:maf:vocabulary#destPath"
+                       object="?destPath" />
+              <binding subject="?candidate"
+                       predicate="urn:maf:vocabulary#binPath"
+                       object="?binPath" />
+              <!-- The following properties provide additional information about
+                    the state of the item. This information is used to style the
+                    checkbox column appropriately. -->
+              <binding subject="?candidate"
+                       predicate="urn:maf:vocabulary#disabled"
+                       object="?disabled" />
+              <binding subject="?candidate"
+                       predicate="urn:maf:vocabulary#obstructed"
+                       object="?obstructed" />
+              <binding subject="?candidate"
+                       predicate="urn:maf:vocabulary#enqueued"
+                       object="?enqueued" />
+              <binding subject="?candidate"
+                       predicate="urn:maf:vocabulary#converting"
+                       object="?converting" />
+              <binding subject="?candidate"
+                       predicate="urn:maf:vocabulary#converted"
+                       object="?converted" />
+              <binding subject="?candidate"
+                       predicate="urn:maf:vocabulary#failed"
+                       object="?failed" />
+            </bindings>
+            <action>
+              <treechildren>
+                <treeitem uri="?candidate">
+                  <treerow>
+                    <!-- Display rows with candidate details and checkboxes -->
+                    <treecell value="?checked" properties="?disabled ?obstructed ?enqueued ?converting ?converted ?failed" />
+                    <treecell editable="false" label="?sourceName" />
+                    <treecell editable="false" label="?sourceDataFolderName" />
+                    <treecell editable="false" label="?relativePath" />
+                    <treecell editable="false" label="?sourcePath" />
+                    <treecell editable="false" label="?destPath" />
+                    <treecell editable="false" label="?binPath" />
+                  </treerow>
+                </treeitem>
+              </treechildren>
+            </action>
+          </rule>
+        </queryset>
+
+      </template>
+    </tree>
+
+    <!-- Dynamically generated item counts for the tree -->
+    <description id=             "descCandidatesCounts"
+                 valuesearching= "&candidates.searchingcounts.label;"
+                 valueconverting="&candidates.convertingcounts.label;"
+                 >
+      This text node will be replaced with the value to be displayed.
+    </description>
+
+    <!-- Hidden frame and support scripts used for conversion -->
+    <script type="application/x-javascript"
+            src= "chrome://global/content/contentAreaUtils.js"
+            />
+    <script type="application/x-javascript"
+            src= "chrome://mza/content/integration/contentAreaUtils.js"
+            />
+    <iframe id=    "frmConvert"
+            type=  "content"
+            hidden="true"
+            />
+
+    <!-- Page footer -->
+    <spacer height="10" />
+    <label id=   "lblCandidatesSearching"
+           value="&candidates.searching.label;"
+           />
+    <label id=   "lblCandidatesNone"
+           value="&candidates.none.label;"
+           />
+    <label id=   "lblCandidatesInvalid"
+           value="&candidates.invalid.label;"
+           />
+    <label id=   "lblCandidatesConvert"
+           value="&candidates.convert.label;"
+           />
+    <label id=   "lblCandidatesConverting"
+           value="&candidates.converting.label;"
+           />
+    <label id=   "lblCandidatesFinish"
+           value="&candidates.finish.label;"
+           />
+
+    <!-- Hidden button that replaces the standard Finish button -->
+    <button id=       "btnCandidatesConvert"
+            label=    "&candidates.convertbutton.label;"
+            accesskey="&candidates.convertbutton.accesskey;"
+            hidden=   "true"
+            />
+  </wizardpage>
+</wizard>

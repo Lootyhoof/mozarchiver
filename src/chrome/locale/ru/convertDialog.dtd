@@ -1,0 +1,72 @@
+<!-- *** Note *** -->
+<!-- This page is a wizard. When assigning access keys, pay attention to the possible conflicts with the default access keys for the Back, Next, Continue and Finish buttons. -->
+<!-- *** General window controls *** -->
+<!ENTITY window.title "Мастер преобразования сохраненных страниц">
+<!ENTITY browsebutton.label "Обзор...">
+<!ENTITY continue.label "Щелкните $1, чтобы продолжить.">
+<!-- *** Introduction *** -->
+<!ENTITY introduction.pagelabel "Вас приветствует Мастер преобразования сохраненных страниц">
+<!ENTITY introduction.para1.description "Этот мастер поможет вам изменить формат файлов ранее сохраненных веб-страниц.">
+<!ENTITY introduction.para2.description "Мастер предназначен для обработки нескольких страниц, чтобы преобразовать единственную страницу, просто откройте ее в браузере и сохраните в другом формате.">
+<!ENTITY introduction.visitwebsite.description "Хотя преобразование в большинстве случаев проходит гладко, иногда, в зависимости от выбранного формата и настроек сохранения, результат не полностью соответствует оригиналу. Кроме того, при преобразовании многостраничного архива в одностраничный формат сохраняется только первая страница. Поэтому не рекомендуется удалять оригинальные файлы даже после успешного преобразования.">
+<!ENTITY introduction.visitwebsite.label "Подробная информация на веб-сайте MAF">
+<!ENTITY introduction.continue.label "Щелкните $1, чтобы начать.">
+<!-- *** File format selection *** -->
+<!ENTITY formats.pagelabel "Входные и выходные форматы">
+<!ENTITY formats.source.grouplabel "Преобразовать из:">
+<!ENTITY formats.source.complete.label "Веб-страницы полностью (с папкой для дополнительных файлов)">
+<!ENTITY formats.source.complete.accesskey "В">
+<!ENTITY formats.source.plain.label "Все веб-страницы (с дополнительными папками и без них)">
+<!ENTITY formats.source.plain.accesskey "с">
+<!ENTITY formats.source.mhtml.label "Архивы MHTML">
+<!ENTITY formats.source.mhtml.accesskey "M">
+<!ENTITY formats.source.maff.label "Архивы MAFF">
+<!ENTITY formats.source.maff.accesskey "F">
+<!ENTITY formats.dest.grouplabel "Преобразовать в:">
+<!ENTITY formats.dest.maff.label "Архивы MAFF">
+<!ENTITY formats.dest.maff.accesskey "A">
+<!ENTITY formats.dest.mhtml.label "Архивы MHTML">
+<!ENTITY formats.dest.mhtml.accesskey "H">
+<!ENTITY formats.dest.complete.label "Веб-страницы полностью (с дополнительными папками, если нужно)">
+<!ENTITY formats.dest.complete.accesskey "п">
+<!ENTITY formats.invalid.label "Пожалуйста, выберите два разных формата файлов.">
+<!-- *** Source folder selection *** -->
+<!ENTITY folders.source.pagelabel "Входные данные">
+<!ENTITY folders.source.label "Искать файлы в папке:">
+<!ENTITY folders.source.accesskey "И">
+<!ENTITY folders.source.subfolders.label "Включая подпапки">
+<!ENTITY folders.source.subfolders.accesskey "п">
+<!ENTITY folders.source.invalid.label "Пожалуйста, выберите существующую папку.">
+<!-- *** Destination folder selection *** -->
+<!ENTITY folders.dest.pagelabel "Выходные данные">
+<!ENTITY folders.dest.grouplabel "Поместить преобразованные файлы:">
+<!ENTITY folders.dest.original.label "в папку с оригинальными файлами">
+<!ENTITY folders.dest.original.accesskey "о">
+<!ENTITY folders.dest.folder.label "в эту папку (сохраняя относительные пути):">
+<!ENTITY folders.dest.folder.accesskey "в">
+<!ENTITY folders.bin.grouplabel "После успешного преобразования:">
+<!ENTITY folders.bin.original.label "оставить оригиналы на месте">
+<!ENTITY folders.bin.original.accesskey "м">
+<!ENTITY folders.bin.folder.label "переместить оригиналы в эту папку (сохраняя относительные пути):">
+<!ENTITY folders.bin.folder.accesskey "п">
+<!ENTITY folders.dest.invalid.label "Пожалуйста, укажите полное имя папки.">
+<!-- *** Candidates selection and conversion *** -->
+<!ENTITY candidates.pagelabel "Преобразование">
+<!ENTITY candidates.description "Пожалуйста, выберите из списка файлы для преобразования.">
+<!ENTITY candidates.sourcename.header "Исходный файл">
+<!ENTITY candidates.sourcedatafoldername.header "Дополнительная папка">
+<!ENTITY candidates.relativepath.header "Подпапка">
+<!ENTITY candidates.sourcepath.header "Путь исходного файла">
+<!ENTITY candidates.destpath.header "Путь назначения">
+<!ENTITY candidates.binpath.header "Путь для перемещения">
+<!ENTITY candidates.all.label "Все файлы">
+<!ENTITY candidates.searchingcounts.label "$1 всего, $2 уже обработано, $3 выбрано">
+<!ENTITY candidates.convertingcounts.label "$1 всего, $2 уже обработано, $3 выбрано, $4 преобразовано успешно, $5 преобразовать не удалось">
+<!ENTITY candidates.searching.label "Поиск исходных файлов...">
+<!ENTITY candidates.none.label "Подходящих для преобразования файлов не найдено. Чтобы изменить параметры поиска, щелкните $1.">
+<!ENTITY candidates.invalid.label "Выберите хотя бы один файл для преобразования.">
+<!ENTITY candidates.convert.label "Щелкните Преобразовать, чтобы начать преобразование.">
+<!ENTITY candidates.converting.label "Преобразование файлов...">
+<!ENTITY candidates.finish.label "Пожалуйста, просмотрите результаты и щелкните $1, чтобы закрыть окно.">
+<!ENTITY candidates.convertbutton.label "Преобразовать">
+<!ENTITY candidates.convertbutton.accesskey "П">

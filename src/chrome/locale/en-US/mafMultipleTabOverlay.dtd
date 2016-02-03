@@ -1,0 +1,4 @@
+﻿<!-- Additional menu items for "Multiple Tab Handler" integration -->
+
+<!ENTITY menuitem.saveselectedtabsinarchiveas.label "Save Selected Tabs In Archive As…">
+<!ENTITY menuitem.saveselectedtabsinarchive.accesskey.tabselectionmenu "b">

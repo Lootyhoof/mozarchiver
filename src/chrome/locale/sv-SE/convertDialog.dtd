@@ -1,0 +1,72 @@
+<!-- *** Note *** -->
+<!-- This page is a wizard. When assigning access keys, pay attention to the possible conflicts with the default access keys for the Back, Next, Continue and Finish buttons. -->
+<!-- *** General window controls *** -->
+<!ENTITY window.title "Konverteringsguiden för sparade sidor">
+<!ENTITY browsebutton.label "Bläddra...">
+<!ENTITY continue.label "För att fortsätta, klicka på $1.">
+<!-- *** Introduction *** -->
+<!ENTITY introduction.pagelabel "Välkommen till konverteringsguiden för sparade sidor">
+<!ENTITY introduction.para1.description "Den här guiden kommer att leda dig igenom konverteringen av dina tidigare sparade webbsidor till ett annat filformat.">
+<!ENTITY introduction.para2.description "Den här metoden är lämplig vid konvertering av flera sidor på samma gång. Om du vill konvertera enstaka sidor, så öppnar du dem helt enkelt i webbläsaren och sparar dem i ett annat format.">
+<!ENTITY introduction.visitwebsite.description "Även om konverteringsprocessen i de flesta fall fungerar smidigt kan ibland resultatet skilja sig en del från originalet, beroende på de filformat och sparalternativ som valts. Dessutom bevaras endast den första sidan vid konvertering av ett flersidesarkiv till ett ensidesformat. Det rekommenderas att du behåller en kopia av dina originalfiler även efter en lyckad konvertering.">
+<!ENTITY introduction.visitwebsite.label "Läs onlinedokumentationen för närmare detaljer.">
+<!ENTITY introduction.continue.label "För att sätta igång, klicka på $1.">
+<!-- *** File format selection *** -->
+<!ENTITY formats.pagelabel "Indata- och utdataformat">
+<!ENTITY formats.source.grouplabel "Konvertera från:">
+<!ENTITY formats.source.complete.label "Fullständiga webbsidor (med stödmappar för datafiler)">
+<!ENTITY formats.source.complete.accesskey "u">
+<!ENTITY formats.source.plain.label "Alla webbsidor (med eller utan stödmappar för datafiler)">
+<!ENTITY formats.source.plain.accesskey "A">
+<!ENTITY formats.source.mhtml.label "MHTML-arkiv">
+<!ENTITY formats.source.mhtml.accesskey "M">
+<!ENTITY formats.source.maff.label "MAFF-arkiv">
+<!ENTITY formats.source.maff.accesskey "F">
+<!ENTITY formats.dest.grouplabel "Konvertera till:">
+<!ENTITY formats.dest.maff.label "MAFF-arkiv">
+<!ENTITY formats.dest.maff.accesskey "r">
+<!ENTITY formats.dest.mhtml.label "MHTML-arkiv">
+<!ENTITY formats.dest.mhtml.accesskey "H">
+<!ENTITY formats.dest.complete.label "Fullständiga webbsidor (med stödmappar om så krävs)">
+<!ENTITY formats.dest.complete.accesskey "l">
+<!ENTITY formats.invalid.label "Var vänlig välj två olika filformat.">
+<!-- *** Source folder selection *** -->
+<!ENTITY folders.source.pagelabel "Källmapp">
+<!ENTITY folders.source.label "Sök i den här mappen efter källfiler:">
+<!ENTITY folders.source.accesskey "ö">
+<!ENTITY folders.source.subfolders.label "Inkludera undermappar">
+<!ENTITY folders.source.subfolders.accesskey "n">
+<!ENTITY folders.source.invalid.label "Var vänlig välj en befintlig källmapp.">
+<!-- *** Destination folder selection *** -->
+<!ENTITY folders.dest.pagelabel "Målmappar">
+<!ENTITY folders.dest.grouplabel "Placera konverterade filer:">
+<!ENTITY folders.dest.original.label "I samma mapp som originalfilerna">
+<!ENTITY folders.dest.original.accesskey "s">
+<!ENTITY folders.dest.folder.label "I den här mappen (bevarar relativa sökvägar):">
+<!ENTITY folders.dest.folder.accesskey "d">
+<!ENTITY folders.bin.grouplabel "Efter en felfri konvertering:">
+<!ENTITY folders.bin.original.label "Lämna kvar originalen där de är">
+<!ENTITY folders.bin.original.accesskey "L">
+<!ENTITY folders.bin.folder.label "Flytta originalen till den här mappen (bevarar relativa sökvägar):">
+<!ENTITY folders.bin.folder.accesskey "y">
+<!ENTITY folders.dest.invalid.label "Var vänlig ange det fullständiga mappnamnet.">
+<!-- *** Candidates selection and conversion *** -->
+<!ENTITY candidates.pagelabel "Konvertering">
+<!ENTITY candidates.description "Var vänlig granska listan nedan och markera filerna som du vill konvertera.">
+<!ENTITY candidates.sourcename.header "Källfilens namn">
+<!ENTITY candidates.sourcedatafoldername.header "Stödmappens namn">
+<!ENTITY candidates.relativepath.header "Undermapp">
+<!ENTITY candidates.sourcepath.header "Källsökväg">
+<!ENTITY candidates.destpath.header "Målsökväg">
+<!ENTITY candidates.binpath.header "Flytta till sökväg">
+<!ENTITY candidates.all.label "Alla filer">
+<!ENTITY candidates.searchingcounts.label "Totalt $1: $2 redan konverterade, $3 markerade">
+<!ENTITY candidates.convertingcounts.label "Totalt $1: $2 redan konverterade, $3 markerade, $4 felfritt konverterade, $5 misslyckade">
+<!ENTITY candidates.searching.label "Söker efter källfiler...">
+<!ENTITY candidates.none.label "Inga konverterbara filer hittades. För att modifiera sökparametrarna, klicka på $1.">
+<!ENTITY candidates.invalid.label "Du måste markera åtminstone en fil för att kunna konvertera.">
+<!ENTITY candidates.convert.label "Klicka på Konvertera för att konvertera dina filer.">
+<!ENTITY candidates.converting.label "Konverterar dina filer...">
+<!ENTITY candidates.finish.label "Var vänlig granska konverteringsresultatet och klicka sedan på $1 för att stänga fönstret.">
+<!ENTITY candidates.convertbutton.label "Konvertera">
+<!ENTITY candidates.convertbutton.accesskey "K">

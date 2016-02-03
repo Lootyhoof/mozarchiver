@@ -1,0 +1,72 @@
+<!-- *** Note *** -->
+<!-- This page is a wizard. When assigning access keys, pay attention to the possible conflicts with the default access keys for the Back, Next, Continue and Finish buttons. -->
+<!-- *** General window controls *** -->
+<!ENTITY window.title "保存ページ変換ウィザード">
+<!ENTITY browsebutton.label "選択...">
+<!ENTITY continue.label "続けるには $1 をクリックします。">
+<!-- *** Introduction *** -->
+<!ENTITY introduction.pagelabel "保存ページ変換ウィザードへようこそ">
+<!ENTITY introduction.para1.description "このウィザードで以前に保存した Web ページを別のファイル形式に変換できます。">
+<!ENTITY introduction.para2.description "この手順は多数のページを一度に変換する場合に適しています。ページをひとつだけ変換したい場合は、ブラウザでそのページを開き、別のフォーマットで保存します。">
+<!ENTITY introduction.visitwebsite.description "多くの場合は問題なく変換できますが、ファイル形式やオプションによっては変換結果が完全には忠実にならない場合もあります。さらに、複数ページ形式を単一ページ形式に変換する場合は、最初のページのみが変換されます。変換が成功した場合でも元のファイルは取っておくことをお勧めします。">
+<!ENTITY introduction.visitwebsite.label "詳細をオンラインドキュメントで読む">
+<!ENTITY introduction.continue.label "開始するには $1 をクリックします。">
+<!-- *** File format selection *** -->
+<!ENTITY formats.pagelabel "入出力の形式">
+<!ENTITY formats.source.grouplabel "変換元:">
+<!ENTITY formats.source.complete.label "完全な Web ページ (データ用の補助フォルダ付き)">
+<!ENTITY formats.source.complete.accesskey "o">
+<!ENTITY formats.source.plain.label "すべての Web ページ (データ用の補助フォルダ付き、もしくはなし)">
+<!ENTITY formats.source.plain.accesskey "A">
+<!ENTITY formats.source.mhtml.label "MHTML アーカイブ">
+<!ENTITY formats.source.mhtml.accesskey "M">
+<!ENTITY formats.source.maff.label "MAFF アーカイブ">
+<!ENTITY formats.source.maff.accesskey "F">
+<!ENTITY formats.dest.grouplabel "変換先:">
+<!ENTITY formats.dest.maff.label "MAFF アーカイブ">
+<!ENTITY formats.dest.maff.accesskey "r">
+<!ENTITY formats.dest.mhtml.label "MHTML アーカイブ">
+<!ENTITY formats.dest.mhtml.accesskey "H">
+<!ENTITY formats.dest.complete.label "完全な Web ページ (必要ならば補助フォルダを付ける)">
+<!ENTITY formats.dest.complete.accesskey "p">
+<!ENTITY formats.invalid.label "変換元と変換先は異なるファイル形式を選択してください。">
+<!-- *** Source folder selection *** -->
+<!ENTITY folders.source.pagelabel "変換元フォルダ">
+<!ENTITY folders.source.label "変換元ファイルを探すフォルダ:">
+<!ENTITY folders.source.accesskey "e">
+<!ENTITY folders.source.subfolders.label "下層フォルダを含む">
+<!ENTITY folders.source.subfolders.accesskey "s">
+<!ENTITY folders.source.invalid.label "存在するフォルダを選択してください。">
+<!-- *** Destination folder selection *** -->
+<!ENTITY folders.dest.pagelabel "変換先フォルダ">
+<!ENTITY folders.dest.grouplabel "変換したファイルの保存場所:">
+<!ENTITY folders.dest.original.label "元ファイルと同じフォルダ">
+<!ENTITY folders.dest.original.accesskey "s">
+<!ENTITY folders.dest.folder.label "指定したフォルダ (相対パスを維持します):">
+<!ENTITY folders.dest.folder.accesskey "t">
+<!ENTITY folders.bin.grouplabel "変換が成功した場合:">
+<!ENTITY folders.bin.original.label "元ファイルを保持する">
+<!ENTITY folders.bin.original.accesskey "L">
+<!ENTITY folders.bin.folder.label "元ファイルを移動する (相対パスを維持します):">
+<!ENTITY folders.bin.folder.accesskey "M">
+<!ENTITY folders.dest.invalid.label "フォルダ名を指定してください。">
+<!-- *** Candidates selection and conversion *** -->
+<!ENTITY candidates.pagelabel "変換">
+<!ENTITY candidates.description "一覧を確認して変換したいファイルをチェックしてください。">
+<!ENTITY candidates.sourcename.header "元ファイル名">
+<!ENTITY candidates.sourcedatafoldername.header "補助フォルダ名">
+<!ENTITY candidates.relativepath.header "親フォルダ">
+<!ENTITY candidates.sourcepath.header "変換元">
+<!ENTITY candidates.destpath.header "保存先">
+<!ENTITY candidates.binpath.header "移動先">
+<!ENTITY candidates.all.label "すべてのファイル">
+<!ENTITY candidates.searchingcounts.label "合計 $1 項目、$2 項目が変換済み、$3 項目を選択中">
+<!ENTITY candidates.convertingcounts.label "合計 $1 項目、$2 項目が変換済み、$3 項目を選択中、$4 項目が成功、$5 項目が失敗">
+<!ENTITY candidates.searching.label "元ファイルを検索中...">
+<!ENTITY candidates.none.label "変換できるファイルが見つかりませんでした。$1 をクリックすると検索条件を変更できます。">
+<!ENTITY candidates.invalid.label "変換するファイルを選択してください。">
+<!ENTITY candidates.convert.label "変換 をクリックしてファイルを変換します。">
+<!ENTITY candidates.converting.label "Converting your files...">
+<!ENTITY candidates.finish.label "変換結果を確認したら、$1 をクリックしてウインドウを閉じます。">
+<!ENTITY candidates.convertbutton.label "変換">
+<!ENTITY candidates.convertbutton.accesskey "C">

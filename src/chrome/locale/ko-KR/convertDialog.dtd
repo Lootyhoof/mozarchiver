@@ -1,0 +1,72 @@
+<!-- *** Note *** -->
+<!-- This page is a wizard. When assigning access keys, pay attention to the possible conflicts with the default access keys for the Back, Next, Continue and Finish buttons. -->
+<!-- *** General window controls *** -->
+<!ENTITY window.title "저장된 페이지 변환 마법사">
+<!ENTITY browsebutton.label "찾아보기">
+<!ENTITY continue.label "계속하려면 '$1'을 클릭하십시오.">
+<!-- *** Introduction *** -->
+<!ENTITY introduction.pagelabel "저장된 페이지 변환 마법사에 오신 것을 환영합니다">
+<!ENTITY introduction.para1.description "이 마법사는 저장된 웹페이지들을 다른 파일 형식으로 변환하도록 안내할 것입니다.">
+<!ENTITY introduction.para2.description "이 절차는 한 번에 많은 페이지들을 변환하기에 적합합니다. 하나의 페이지만을 변환하려면 브라우저로 연 뒤 다른 파일 형식으로 저장하시면 됩니다.">
+<!ENTITY introduction.visitwebsite.description "대부분의 경우 변환은 성공적으로 이루어질 것입니다. 그러나 가끔씩 파일 형식와 저장 옵션에 따라 원본과 완전히 같지 않은 경우가 발생합니다. 또한 다중 페이지 아카이브를 단일 파일 형식으로 변활할 경우, 오직 첫 번째 페이지만이 보존됩니다. 성공적으로 변환이 완료된 경우라도 원본 파일을 유지하는 것을 추천합니다.">
+<!ENTITY introduction.visitwebsite.label "온라인으로 세부사항을 읽어보세요.">
+<!ENTITY introduction.continue.label "시작하려면 '$1'을 클릭하세요.">
+<!-- *** File format selection *** -->
+<!ENTITY formats.pagelabel "페이지 변환 형식">
+<!ENTITY formats.source.grouplabel "다음 형식을 변환:">
+<!ENTITY formats.source.complete.label "전체 웹페이지들 (보조 데이터 폴더가 포함된 경우)">
+<!ENTITY formats.source.complete.accesskey "o">
+<!ENTITY formats.source.plain.label "모든 웹페이지들 (보조 데이터 폴더가 포함되거나 포함되지 않은 경우)">
+<!ENTITY formats.source.plain.accesskey "A">
+<!ENTITY formats.source.mhtml.label "MHTML 형식">
+<!ENTITY formats.source.mhtml.accesskey "M">
+<!ENTITY formats.source.maff.label "MAFF 형식">
+<!ENTITY formats.source.maff.accesskey "F">
+<!ENTITY formats.dest.grouplabel "다음 형식으로 변환:">
+<!ENTITY formats.dest.maff.label "MAFF 형식">
+<!ENTITY formats.dest.maff.accesskey "r">
+<!ENTITY formats.dest.mhtml.label "MHTML 형식">
+<!ENTITY formats.dest.mhtml.accesskey "H">
+<!ENTITY formats.dest.complete.label "전체 웹 페이지들 (필요한 경우 보조 데이터 폴더 생성)">
+<!ENTITY formats.dest.complete.accesskey "p">
+<!ENTITY formats.invalid.label "다른 파일 형식으로 선택해 주십시오.">
+<!-- *** Source folder selection *** -->
+<!ENTITY folders.source.pagelabel "원본 폴더">
+<!ENTITY folders.source.label "변환하려는 파일이 있는 폴더를 선택하십시오:">
+<!ENTITY folders.source.accesskey "e">
+<!ENTITY folders.source.subfolders.label "하위 폴더 포함">
+<!ENTITY folders.source.subfolders.accesskey "s">
+<!ENTITY folders.source.invalid.label "존재하는 폴더를 선택해 주세요.">
+<!-- *** Destination folder selection *** -->
+<!ENTITY folders.dest.pagelabel "출력 폴더">
+<!ENTITY folders.dest.grouplabel "변환된 파일들의 위치:">
+<!ENTITY folders.dest.original.label "원본 파일들과 같은 폴더에">
+<!ENTITY folders.dest.original.accesskey "s">
+<!ENTITY folders.dest.folder.label "지정된 폴더에 (상대 경로 유지):">
+<!ENTITY folders.dest.folder.accesskey "t">
+<!ENTITY folders.bin.grouplabel "변환 성공 후:">
+<!ENTITY folders.bin.original.label "원본을 같은 위치에 유지합니다">
+<!ENTITY folders.bin.original.accesskey "L">
+<!ENTITY folders.bin.folder.label "원본을 지정된 폴더로 이동합니다 (상대 경로 유지):">
+<!ENTITY folders.bin.folder.accesskey "M">
+<!ENTITY folders.dest.invalid.label "완전한 폴더 경로를 지정해 주십시오.">
+<!-- *** Candidates selection and conversion *** -->
+<!ENTITY candidates.pagelabel "변환">
+<!ENTITY candidates.description "아래의 목록을 검토하고 변환하길 원하는 파일을 선택하십시오.">
+<!ENTITY candidates.sourcename.header "원본 파일 이름">
+<!ENTITY candidates.sourcedatafoldername.header "보조 폴더 이름">
+<!ENTITY candidates.relativepath.header "하위 폴더">
+<!ENTITY candidates.sourcepath.header "원본 경로">
+<!ENTITY candidates.destpath.header "출력 경로">
+<!ENTITY candidates.binpath.header "이동할 경로">
+<!ENTITY candidates.all.label "모든 파일들">
+<!ENTITY candidates.searchingcounts.label "$1 전체, $2 이미 변환됨, $3 선택됨">
+<!ENTITY candidates.convertingcounts.label "$1 전체, $2 이미 변환됨, $3 선택됨, $4 성공적으로 변환됨, $5 실패함">
+<!ENTITY candidates.searching.label "원본 파일들을 찾고 있습니다...">
+<!ENTITY candidates.none.label "변환이 가능한 파일을 찾지 못했습니다. 검색 변수를 조정하려면 '$1'를 클릭하십시오.">
+<!ENTITY candidates.invalid.label "변환하려는 파일을 선택하십시오.">
+<!ENTITY candidates.convert.label "변환을 클릭하면 석택한 파일들을 변환합니다.">
+<!ENTITY candidates.converting.label "선택한 파일들을 변환 중입니다...">
+<!ENTITY candidates.finish.label "변환 결과를 검토해 주세요. '$1'을 클릭하면 창이 닫힙니다.">
+<!ENTITY candidates.convertbutton.label "변환">
+<!ENTITY candidates.convertbutton.accesskey "C">

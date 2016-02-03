@@ -1,0 +1,3 @@
+<!-- Additional menu items for "Multiple Tab Handler" integration -->
+<!ENTITY menuitem.saveselectedtabsinarchiveas.label "保存所选的标签页至档案 (b)…">
+<!ENTITY menuitem.saveselectedtabsinarchive.accesskey.tabselectionmenu "b">

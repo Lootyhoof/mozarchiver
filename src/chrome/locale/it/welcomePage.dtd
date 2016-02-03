@@ -1,0 +1,22 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "Benvenuti">
+<!ENTITY welcome.label "Grazie per aver installato MozArchiver!">
+<!ENTITY features.header.label "Molte caratteristiche di $brandShortName sono state migliorate da questa aggiunta.">
+<!ENTITY features.headerfromupdate.label "L'aggiunta è stata aggiornata all'ultima versione principale.">
+<!ENTITY features.item1.label "Le pagine web sono salvate più accuratamente, ciò che vedi è ciò che ottieni.">
+<!ENTITY features.item2.label "È possibile salvare una o più schede in un file unico (archivio web).">
+<!ENTITY features.item3.label "Il titolo del documento è ora il nome di file predefinito.">
+<!ENTITY features.item4.label "È possibile salvare video e audio HTML5, e molto di più!">
+<!ENTITY features.footer.label "È possibile controllare quali caratteristiche sono abilitate tramite le opzioni dell'aggiunta.">
+<!ENTITY features.link.label "Visita il sito web per scoprire tutte le altre caratteristiche.">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "Si desidera aprire questi tipi di file di archivio web con $brandShortName?">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "In caso di dubbio, lasciare selezionare entrambe le opzioni. Diventeranno operative alla chiusura di questa pagina.">
+<!ENTITY associate.explanation2.label "È possibile cambiare la propria preferenza in ogni momento tramite il pannello di controllo del sistema operativo.">
+<!ENTITY associate.error.title "Errore durante la creazione delle associazioni dei file">
+<!ENTITY associate.error.msg "Si è verificato un errore durante la configurazione del gestore dei file: $1.">
+<!ENTITY associate.errortip.msg "Per aprire gli archivi web con $brandShortName, è necessario creare a mano le associazioni di file richieste tramite il pannello di controllo del sistema operativo, oppure riprovare l'operazione tramite la finestra delle opzioni di MozArchiver.">

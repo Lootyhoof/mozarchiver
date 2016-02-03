@@ -1,0 +1,34 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* Address bar integration */
+
+#mafArchiveInfoUrlbarButton {
+  list-style-image: url("page-archived.png");
+}
+
+#mafArchiveInfoUrlbarButton:hover {
+  list-style-image: url("page-archived-hover.png");
+}
+
+/* Archive information popup */
+
+#mafArchiveInfoPopupIcon {
+  margin: 3px 0;
+  -moz-margin-end: 15px;
+  width: 64px;
+  height: 64px;
+  list-style-image: url("page-info.png");
+}
+
+#mafPageStatusLabel {
+  margin-bottom: 8px;
+  font-size: 130%;
+}
+
+#mafOriginalUrlDescription {
+  padding-top: 1px;
+}
+
+#mafArchiveInfoDetails {
+  margin-bottom: 2px;
+}

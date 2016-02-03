@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE overlay>
+<!--
+   - This overlay loads the global utility functions of Firefox.
+   -
+   - This file is in the public domain :-)
+   -->
+<overlay
+ id="prefsDialogBrowserOverlay"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ >
+  <script type="application/javascript"
+          src= "chrome://browser/content/utilityOverlay.js"
+          />
+</overlay>

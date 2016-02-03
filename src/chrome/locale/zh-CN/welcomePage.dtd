@@ -1,0 +1,22 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "欢迎">
+<!ENTITY welcome.label "感谢您安装 MozArchiver！">
+<!ENTITY features.header.label "本附加组件将改善 $brandShortName 的的诸多功能。">
+<!ENTITY features.headerfromupdate.label "本插件已是最新版本。">
+<!ENTITY features.item1.label "网页将被更加完整、精确、所见即所得地保存。">
+<!ENTITY features.item2.label "可将单个或多个标签页存至单个文件（Web 档案）。">
+<!ENTITY features.item3.label "文档标题将成为默认的保存文件名。">
+<!ENTITY features.item4.label "HTML5 视频与音频等将被存入！">
+<!ENTITY features.footer.label "您可在 MozArchiver 设置窗口中选择启用哪些特性。">
+<!ENTITY features.link.label "访问我们的网站以探寻更多功能（英文）。">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "您想让您的操作系统用 $brandShortName 打开下列 Web 档案文件吗？">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "如果不确定，就都选上吧。这些选项将在本页面被关闭时生效。">
+<!ENTITY associate.explanation2.label "您可随时在您的操作系统控制面板中改变这些设定。">
+<!ENTITY associate.error.title "创建文件关联错误">
+<!ENTITY associate.error.msg "设置您的文件管理器时出错：$1。">
+<!ENTITY associate.errortip.msg "为使用 $brandShortName 打开 Web 档案，您需要在操作系统控制面板中手动创建这些关联，或者在 MozArchiver 设置窗口中重试这一设定。">

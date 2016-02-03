@@ -1,0 +1,10 @@
+<!-- *** Archive information popup *** -->
+<!-- Status of the current page -->
+<!ENTITY archiveinfo.status.normal.label "Tuto stránku archiv neobsahuje.">
+<!ENTITY archiveinfo.status.archived.label "Archivovaná stránka.">
+<!-- Original address the page was saved from -->
+<!ENTITY archiveinfo.maforiginalurl.label "Uloženo z:">
+<!ENTITY archiveinfo.maforiginalurl.missing.label "(není k dispozici)">
+<!-- Date and time the page was archived -->
+<!ENTITY archiveinfo.mafdatearchived.label "Datum archivace:">
+<!ENTITY archiveinfo.mafdatearchived.missing.label "(není k dispozici)">

@@ -1,0 +1,29 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/**
+ * Checkbox in tree cell, in unchecked state.
+ */
+treechildren::-moz-tree-checkbox {
+  list-style-image: url("cbox.gif");
+}
+
+/**
+ * Checkbox in tree cell, in checked state.
+ */
+treechildren::-moz-tree-checkbox(checked) {
+  list-style-image: url("cbox-check.gif");
+}
+
+/**
+ * Checkbox in tree cell, in unchecked disabled state.
+ */
+treechildren::-moz-tree-checkbox(disabled) {
+  list-style-image: url("cbox-dis.gif");
+}
+
+/**
+ * Checkbox in tree cell, in checked disabled state.
+ */
+treechildren::-moz-tree-checkbox(disabled, checked) {
+  list-style-image: url("cbox-dis-check.gif");
+}

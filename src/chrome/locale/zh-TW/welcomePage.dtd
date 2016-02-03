@@ -1,0 +1,22 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "歡迎">
+<!ENTITY welcome.label "感謝你安裝 MozArchiver！">
+<!ENTITY features.header.label "$brandShortName 很多功能已被這個附加元件改善。">
+<!ENTITY features.headerfromupdate.label "你的附加元件已被更新到最新的主要版本。">
+<!ENTITY features.item1.label "更精準地儲存網頁，所見即所得。">
+<!ENTITY features.item2.label "你可以儲存一個或多個分頁在同一個檔案（網絡檔案集）裡。">
+<!ENTITY features.item3.label "這份文件的標題現成爲默認檔案名。">
+<!ENTITY features.item4.label "你不但可以儲存 HTML5 影片和音信，還有更多其他儲存特質！">
+<!ENTITY features.footer.label "你可以在附加元件選項中選擇要啟動哪個功能。">
+<!ENTITY features.link.label "請瀏覽到網站去認識更多其他功能。">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "你想使用 $brandShortName 來開啟這些網絡檔案集嗎？">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "如果不肯定，請保留兩個項目都選取。當這頁面關閉時，選項會生效。">
+<!ENTITY associate.explanation2.label "你可以在任何時候在你的作業系統的控制台裡更改你的設定。">
+<!ENTITY associate.error.title "建立檔案類型關連時遇上錯誤">
+<!ENTITY associate.error.msg "當設置你的檔案管理員時遇上錯誤：$1。">
+<!ENTITY associate.errortip.msg "爲了能使 $brandShortName 開啟網路檔案集，你須要自行在你的作業系統的控制台裡建立檔案類型關連，或者在 MozArchiver 的選項視窗內重試程序。">

@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "Markera flikar som skall sparas">
+<!ENTITY savebutton.label "Spara">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "Rubrik">
+<!ENTITY tabs.location.header "Plats">
+<!ENTITY tabs.all.label "Alla flikar i fönstret">

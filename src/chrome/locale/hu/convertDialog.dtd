@@ -1,0 +1,72 @@
+<!-- *** Note *** -->
+<!-- This page is a wizard. When assigning access keys, pay attention to the possible conflicts with the default access keys for the Back, Next, Continue and Finish buttons. -->
+<!-- *** General window controls *** -->
+<!ENTITY window.title "Mentett Oldalakat Konvertáló Varázsló">
+<!ENTITY browsebutton.label "Tallózás...">
+<!ENTITY continue.label "A folytatáshoz kattints a $1 gombra.">
+<!-- *** Introduction *** -->
+<!ENTITY introduction.pagelabel "Üdvözlünk a Mentett Oldalakat Konvertáló Varázslóban">
+<!ENTITY introduction.para1.description "Ez a varázsló végigvezet a korábban elmentett weboldalak más formátumba konvertálásának lépésein.">
+<!ENTITY introduction.para2.description "Ez az eljárás több oldal egyidejű konvertálását teszi lehetővé. Ha egy oldalt kívánsz konvertálni, akkor nyisd meg azt a böngészőben és mentsd el más formátumban.">
+<!ENTITY introduction.visitwebsite.description "Bár az átalakítási eljárás a legtöbb esetben simán működik, a kiválasztott állományformátumoktól és a mentési beállításoktól függően néha nem ad teljesen hű eredményt. Ráadásul, amikor egy több oldalból álló archívumot konvertál egy oldalas formátummá, csak az első oldalt őrzi meg. Ajánlott ezért még sikeres átalakítás után is tartani az eredeti fájlok másolatát.">
+<!ENTITY introduction.visitwebsite.label "A részletekért olvasd az online dokumentációt">
+<!ENTITY introduction.continue.label "A folytatáshoz kattints a $1 gombra.">
+<!-- *** File format selection *** -->
+<!ENTITY formats.pagelabel "Bemeneti és kimeneti formátumok kiválasztása">
+<!ENTITY formats.source.grouplabel "Konvertálás innen:">
+<!ENTITY formats.source.complete.label "Teljes weboldalak (Segédmappákba mentett adatfájlokkal)">
+<!ENTITY formats.source.complete.accesskey "T">
+<!ENTITY formats.source.plain.label "Minden weboldal (Segédmappákba mentett adatfájlokkal, vagy nélkülük)">
+<!ENTITY formats.source.plain.accesskey "M">
+<!ENTITY formats.source.mhtml.label "MHTML archívumok">
+<!ENTITY formats.source.mhtml.accesskey "H">
+<!ENTITY formats.source.maff.label "MAFF archívumok">
+<!ENTITY formats.source.maff.accesskey "F">
+<!ENTITY formats.dest.grouplabel "Konvertálás ide:">
+<!ENTITY formats.dest.maff.label "MAFF archívumok">
+<!ENTITY formats.dest.maff.accesskey "A">
+<!ENTITY formats.dest.mhtml.label "MHTML archívumok">
+<!ENTITY formats.dest.mhtml.accesskey "H">
+<!ENTITY formats.dest.complete.label "Teljes weboldalak (Segédmappákba mentett adatfájlokkal, ha szükséges)">
+<!ENTITY formats.dest.complete.accesskey "e">
+<!ENTITY formats.invalid.label "Kérlek válassz két eltérő fájlformátumot.">
+<!-- *** Source folder selection *** -->
+<!ENTITY folders.source.pagelabel "Forrásmappa kiválasztása">
+<!ENTITY folders.source.label "Ebben a mappában keresse a forrásfájlokat:">
+<!ENTITY folders.source.accesskey "f">
+<!ENTITY folders.source.subfolders.label "Almappákban is">
+<!ENTITY folders.source.subfolders.accesskey "A">
+<!ENTITY folders.source.invalid.label "Kérlek válassz egy létező forrásmappát.">
+<!-- *** Destination folder selection *** -->
+<!ENTITY folders.dest.pagelabel "Célmappa kiválasztása">
+<!ENTITY folders.dest.grouplabel "Konvertált fájlok helye:">
+<!ENTITY folders.dest.original.label "Eredeti fájlokkal azonos mappába">
+<!ENTITY folders.dest.original.accesskey "A">
+<!ENTITY folders.dest.folder.label "Ide, ebbe a mappába (megtartva a relatív elérési útvonalat):">
+<!ENTITY folders.dest.folder.accesskey "I">
+<!ENTITY folders.bin.grouplabel "A sikeres konvertálás után:">
+<!ENTITY folders.bin.original.label "Az eredetik maradjanak a helyükön">
+<!ENTITY folders.bin.original.accesskey "M">
+<!ENTITY folders.bin.folder.label "Helyezze át az eredetiket ebbe a mappába (megtartva a relatív elérési útvonalat):">
+<!ENTITY folders.bin.folder.accesskey "H">
+<!ENTITY folders.dest.invalid.label "Kérlek válassz egy mappanevet.">
+<!-- *** Candidates selection and conversion *** -->
+<!ENTITY candidates.pagelabel "Konvertálás">
+<!ENTITY candidates.description "Kérlek nézd meg a lenti listát, és válaszd ki a konvertálandó fájlokat.">
+<!ENTITY candidates.sourcename.header "Forrásfájl neve">
+<!ENTITY candidates.sourcedatafoldername.header "Segédmappa neve">
+<!ENTITY candidates.relativepath.header "Almappa">
+<!ENTITY candidates.sourcepath.header "Forrás elérési útvonala">
+<!ENTITY candidates.destpath.header "Eredmény elérési útvonala">
+<!ENTITY candidates.binpath.header "Áthelyezés elérési útvonala">
+<!ENTITY candidates.all.label "Minden fájl">
+<!ENTITY candidates.searchingcounts.label "Összes elem $1, már konvertálva $2, kiválasztva $3.">
+<!ENTITY candidates.convertingcounts.label "Összes elem $1, már konvertálva $2, kiválasztva $3, sikeresen konvertálva $4, hibás $5.">
+<!ENTITY candidates.searching.label "Forrásfájlok keresése...">
+<!ENTITY candidates.none.label "Nem találtunk konvertálható fájlt. A keresési feltételek módosításához kattints a $1 gombra.">
+<!ENTITY candidates.invalid.label "Kérlek válassz ki legalább egy fájlt a konvertáláshoz.">
+<!ENTITY candidates.convert.label "Kattints a Konvertálás gombra a feladat elvégzéséhez.">
+<!ENTITY candidates.converting.label "Fájlok konvertálása...">
+<!ENTITY candidates.finish.label "Kérlek nézd meg a konvertálás eredményét, aztán kattints a $1 gombra az ablak bezárásához.">
+<!ENTITY candidates.convertbutton.label "Konvertálás">
+<!ENTITY candidates.convertbutton.accesskey "K">

@@ -1,0 +1,8 @@
+<!-- General window controls -->
+<!ENTITY window.title "Select tabs to save">
+<!ENTITY savebutton.label "Save">
+
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "Title">
+<!ENTITY tabs.location.header "Location">
+<!ENTITY tabs.all.label "All tabs in the window">

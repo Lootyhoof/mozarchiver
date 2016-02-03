@@ -1,0 +1,3 @@
+<!-- Additional menu items for "Multiple Tab Handler" integration -->
+<!ENTITY menuitem.saveselectedtabsinarchiveas.label "Kiválasztott lapok mentése...">
+<!ENTITY menuitem.saveselectedtabsinarchive.accesskey.tabselectionmenu "K">

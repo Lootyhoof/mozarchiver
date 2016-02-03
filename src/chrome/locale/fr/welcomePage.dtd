@@ -1,0 +1,22 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "Bienvenue">
+<!ENTITY welcome.label "Merci d'avoir installé MozArchiver !">
+<!ENTITY features.header.label "De nombreuses fonctionnalités de $brandShortName ont été améliorées par cette extension.">
+<!ENTITY features.headerfromupdate.label "Votre extension a été mise à jour à la dernière version majeure.">
+<!ENTITY features.item1.label "Les pages web sont enregistrées plus correctement, ce que vous voyez est ce que vous obtenez.">
+<!ENTITY features.item2.label "Vous pouvez enregistrer plus qu'un onglet dans un seul fichier (archive web)">
+<!ENTITY features.item3.label "Le titre du document est maintenant le nom du fichier par défaut.">
+<!ENTITY features.item4.label "Vous pouvez enregistrer les sons et vidéos HTML5, et bien plus encore !">
+<!ENTITY features.footer.label "Vous pouvez contrôler quelles fonctionnalités sont activées depuis les options de l'extension.">
+<!ENTITY features.link.label "Visitez le site web pour découvrir toutes les autres fonctionnalités.">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "Souhaitez-vous ouvrir ces types d'archives web avec $brandShortName ?">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "Si vous ne savez pas, laissez les deux options sélectionnées. Elles seront appliquées lorsque cette page sera fermée.">
+<!ENTITY associate.explanation2.label "Vous pouvez changer vos préférences à tout moment depuis le panneau de configuration de votre système d'exploitation.">
+<!ENTITY associate.error.title "Erreur lors de la création des associations de fichier">
+<!ENTITY associate.error.msg "Une erreur est survenue lors de la configuration de votre gestionnaire de fichiers: $1.">
+<!ENTITY associate.errortip.msg "Pour ouvrir les archives web avec $brandShortName, vous devriez créer les associations de fichiers manuellement depuis le panneau de configuration de votre système d'exploitation, ou réessayer d'effectuer cette opération depuis la fenêtre d'options de MozArchiver.">

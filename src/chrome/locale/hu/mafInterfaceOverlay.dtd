@@ -1,0 +1,10 @@
+<!-- *** Archive information popup *** -->
+<!-- Status of the current page -->
+<!ENTITY archiveinfo.status.normal.label "Ez nem archivált oldal.">
+<!ENTITY archiveinfo.status.archived.label "Ez egy archivált oldal.">
+<!-- Original address the page was saved from -->
+<!ENTITY archiveinfo.maforiginalurl.label "Mentve innen:">
+<!ENTITY archiveinfo.maforiginalurl.missing.label "(nem elérhető)">
+<!-- Date and time the page was archived -->
+<!ENTITY archiveinfo.mafdatearchived.label "Mentve ekkor:">
+<!ENTITY archiveinfo.mafdatearchived.missing.label "(nem elérhető)">

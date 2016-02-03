@@ -1,0 +1,72 @@
+<!-- *** Note *** -->
+<!-- This page is a wizard. When assigning access keys, pay attention to the possible conflicts with the default access keys for the Back, Next, Continue and Finish buttons. -->
+<!-- *** General window controls *** -->
+<!ENTITY window.title "轉換已存網頁精靈">
+<!ENTITY browsebutton.label "瀏覽…">
+<!ENTITY continue.label "按 $1 繼續。">
+<!-- *** Introduction *** -->
+<!ENTITY introduction.pagelabel "歡迎來到轉換已存網頁精靈">
+<!ENTITY introduction.para1.description "這個精靈會指導你如何轉換你以前儲存過的網頁到其他檔案格式。">
+<!ENTITY introduction.para2.description "這個程序適合同時間轉換多個網頁。如果你希望只轉換一個網頁，你可以直接用瀏覽器打開它再儲存爲其他檔案格式。">
+<!ENTITY introduction.visitwebsite.description "雖然轉換程序通常會正常無誤，但是視乎檔案格式和儲存選項，有時候轉換結果未必會和原來檔案一模一樣。再者，當轉換多頁的檔案集時，只有首頁會被保留。即使轉換成功，我們會建議你保留一份原來的檔案。">
+<!ENTITY introduction.visitwebsite.label "如需要更多細節，請小心閱讀網上使用說明。">
+<!ENTITY introduction.continue.label "請按 $1 開始。">
+<!-- *** File format selection *** -->
+<!ENTITY formats.pagelabel "輸入和輸出檔案格式">
+<!ENTITY formats.source.grouplabel "原來檔案格式：">
+<!ENTITY formats.source.complete.label "完整的網頁（連支援資料夾和檔案）">
+<!ENTITY formats.source.complete.accesskey "o">
+<!ENTITY formats.source.plain.label "全部網頁（連或不連支援資料夾和檔案）">
+<!ENTITY formats.source.plain.accesskey "A">
+<!ENTITY formats.source.mhtml.label "MHTML 檔案集">
+<!ENTITY formats.source.mhtml.accesskey "M">
+<!ENTITY formats.source.maff.label "MAFF 檔案集">
+<!ENTITY formats.source.maff.accesskey "F">
+<!ENTITY formats.dest.grouplabel "轉換檔案格式到：">
+<!ENTITY formats.dest.maff.label "MAFF 檔案集">
+<!ENTITY formats.dest.maff.accesskey "r">
+<!ENTITY formats.dest.mhtml.label "MHTML 檔案集">
+<!ENTITY formats.dest.mhtml.accesskey "H">
+<!ENTITY formats.dest.complete.label "完整的網頁（如需要，連支援資料夾和檔案）">
+<!ENTITY formats.dest.complete.accesskey "p">
+<!ENTITY formats.invalid.label "請選擇兩個不同的檔案格式。">
+<!-- *** Source folder selection *** -->
+<!ENTITY folders.source.pagelabel "原來資料夾">
+<!ENTITY folders.source.label "在這個資料夾尋找原來檔案：">
+<!ENTITY folders.source.accesskey "e">
+<!ENTITY folders.source.subfolders.label "包括子資料夾">
+<!ENTITY folders.source.subfolders.accesskey "s">
+<!ENTITY folders.source.invalid.label "請選擇有效的原來資料夾。">
+<!-- *** Destination folder selection *** -->
+<!ENTITY folders.dest.pagelabel "目標資料夾">
+<!ENTITY folders.dest.grouplabel "把轉換檔案放置到：">
+<!ENTITY folders.dest.original.label "在原來檔案的相同資料夾內">
+<!ENTITY folders.dest.original.accesskey "s">
+<!ENTITY folders.dest.folder.label "在這個資料夾內（保留相對路徑）：">
+<!ENTITY folders.dest.folder.accesskey "t">
+<!ENTITY folders.bin.grouplabel "成功轉換後：">
+<!ENTITY folders.bin.original.label "保留原來檔案">
+<!ENTITY folders.bin.original.accesskey "L">
+<!ENTITY folders.bin.folder.label "移動原來檔案到這個資料夾（保留相對路徑）：">
+<!ENTITY folders.bin.folder.accesskey "M">
+<!ENTITY folders.dest.invalid.label "請指明完整資料夾名稱。">
+<!-- *** Candidates selection and conversion *** -->
+<!ENTITY candidates.pagelabel "格式轉換">
+<!ENTITY candidates.description "請細看下面列表，選擇你希望轉換的檔案。">
+<!ENTITY candidates.sourcename.header "原來檔案名稱">
+<!ENTITY candidates.sourcedatafoldername.header "支援資料夾名稱">
+<!ENTITY candidates.relativepath.header "子資料夾">
+<!ENTITY candidates.sourcepath.header "原來位置">
+<!ENTITY candidates.destpath.header "目標位置">
+<!ENTITY candidates.binpath.header "到該路徑">
+<!ENTITY candidates.all.label "所有檔案">
+<!ENTITY candidates.searchingcounts.label "總共 $1 個，已轉換 $2 個，已選 $3 個">
+<!ENTITY candidates.convertingcounts.label "總共 $1 個，已轉換 $2 個，已選 $3 個，成功轉換 $4 個，$5 個轉換失敗">
+<!ENTITY candidates.searching.label "正在尋找原來檔案…">
+<!ENTITY candidates.none.label "沒有找到可轉換檔案。如需更改尋找選項，請按 $1。">
+<!ENTITY candidates.invalid.label "請選擇最少一個檔案來轉換。">
+<!ENTITY candidates.convert.label "請按「轉換」來轉換你的檔案。">
+<!ENTITY candidates.converting.label "正在轉換你的檔案…">
+<!ENTITY candidates.finish.label "請細看轉換結果，再按「$1」來關閉視窗。">
+<!ENTITY candidates.convertbutton.label "轉換">
+<!ENTITY candidates.convertbutton.accesskey "C">

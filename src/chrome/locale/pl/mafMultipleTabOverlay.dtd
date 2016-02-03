@@ -1,0 +1,3 @@
+<!--    Additional menu items for "Multiple Tab Handler" integration    -->
+<!ENTITY menuitem.saveselectedtabsinarchiveas.label "Zapisz w archiwum wybrane karty jako…">
+<!ENTITY menuitem.saveselectedtabsinarchive.accesskey.tabselectionmenu "b">

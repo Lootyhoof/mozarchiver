@@ -1,0 +1,22 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "Welcome">
+<!ENTITY welcome.label "MozArchiver のご利用ありがとうございます!">
+<!ENTITY features.header.label "このアドオンは $brandShortName のたくさんの機能を改善します。">
+<!ENTITY features.headerfromupdate.label "アドオンは最新版に更新されました。">
+<!ENTITY features.item1.label "Web ページはより正確に保存されます。見たままが手に入る (WYSIWYG) のです。">
+<!ENTITY features.item2.label "複数のタブもひとつのファイル (Web アーカイブ) に保存されます。">
+<!ENTITY features.item3.label "ページのタイトルが既定のファイル名になります。">
+<!ENTITY features.item4.label "HTML5 の動画や音声などを保存できます!">
+<!ENTITY features.footer.label "どの機能を有効にするかは拡張機能のオプションから指定できます。">
+<!ENTITY features.link.label "ぜひ Web サイトを訪れて他の機能を知ってください。">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "$brandShortName で以下の Web アーカイブを開きますか?">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "もしよくわからない場合は両方をチェックしたままにしてください。このページを閉じると設定が更新されます。">
+<!ENTITY associate.explanation2.label "この設定はオペレーティングシステムのコントロールパネルよりいつでも変更できます。">
+<!ENTITY associate.error.title "ファイルの関連付け設定エラー">
+<!ENTITY associate.error.msg "ファイルマネージャを設定する際にエラーが起きました: $1">
+<!ENTITY associate.errortip.msg "Web アーカイブを $brandShortName で開くには、オペレーティングシステムのコントロールパネルからファイルの関連付けを設定します。もしくは MozArchiver のオプション画面から再試行します。">

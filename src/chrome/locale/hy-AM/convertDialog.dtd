@@ -1,0 +1,72 @@
+<!-- *** Note *** -->
+<!-- This page is a wizard. When assigning access keys, pay attention to the possible conflicts with the default access keys for the Back, Next, Continue and Finish buttons. -->
+<!-- *** General window controls *** -->
+<!ENTITY window.title "Պահպանված էջի Փոխարկման Վարպետ">
+<!ENTITY browsebutton.label "Ընտրել…">
+<!ENTITY continue.label "Շարունակելու համար սեղմեք $1։">
+<!-- *** Introduction *** -->
+<!ENTITY introduction.pagelabel "Բարի Գալուստ Փոխարկման Վարպետ">
+<!ENTITY introduction.para1.description "Այս Վարպետը կուղեկցի Ձեզ արդեն պահպանված էջերի փոխարկման ընթացքում։">
+<!ENTITY introduction.para2.description "Սա շատ հարմար է մեծ քանակով էջերը միաժամանակ փոխարկելիս։ Եթե ցանկանում ք փոխարկել մեկ էջ, ապա զուտ բացեք այն դիտարկիչում և պահպանեք այլ ձևաչափով։">
+<!ENTITY introduction.visitwebsite.description "Շատ դեպքերում փոխարկումը հստակ է աշխատում, երբեմն փոխարկված ֆայլը ոչ ամբողջովին է համապատասխանում օրիգինալին։ Բացի դա մի քանի էջերով արխիվը մեկ էջանիի փոխարկելիս պահպանում է միայն առաջին էջը։ Ուստի խորհուրդ ենք տալիս պահել փոխարկվող ֆայլի օրիգինալը։">
+<!ENTITY introduction.visitwebsite.label "Մանրամասների համար կարդացեք առցանց օգնությունը։">
+<!ENTITY introduction.continue.label "Սկսելու համար սեղմեք $1։">
+<!-- *** File format selection *** -->
+<!ENTITY formats.pagelabel "Ներմուծման և արտածման տեսակները">
+<!ENTITY formats.source.grouplabel "Փոխարկել՝">
+<!ENTITY formats.source.complete.label "Վեբ էջերը ամբողջությամբ (թղթապանակների աջակցմամբ)">
+<!ENTITY formats.source.complete.accesskey "o">
+<!ENTITY formats.source.plain.label "Բոլոր վեբ էջերը (առանց կամ ներառյալ թղթապանակների աջակցումը)">
+<!ENTITY formats.source.plain.accesskey "A">
+<!ENTITY formats.source.mhtml.label "MHTML արխիվներ">
+<!ENTITY formats.source.mhtml.accesskey "M">
+<!ENTITY formats.source.maff.label "MAFF արխիվներ">
+<!ENTITY formats.source.maff.accesskey "F">
+<!ENTITY formats.dest.grouplabel "Փոխարկել՝">
+<!ENTITY formats.dest.maff.label "MAFF արխիվներ">
+<!ENTITY formats.dest.maff.accesskey "r">
+<!ENTITY formats.dest.mhtml.label "MHTML արխիվներ">
+<!ENTITY formats.dest.mhtml.accesskey "H">
+<!ENTITY formats.dest.complete.label "Վեբ էջերը ամբողջութմաբ (պահ. է թղթապանակների աջակցում)">
+<!ENTITY formats.dest.complete.accesskey "p">
+<!ENTITY formats.invalid.label "Ընտրեք ֆայլերի երկու տարբեր տեսակներ։">
+<!-- *** Source folder selection *** -->
+<!ENTITY folders.source.pagelabel "Աղբյուրը">
+<!ENTITY folders.source.label "Փնտրել աղբյու ֆայլերում.">
+<!ENTITY folders.source.accesskey "e">
+<!ENTITY folders.source.subfolders.label "Նաև ենթաթղթապանակներում">
+<!ENTITY folders.source.subfolders.accesskey "s">
+<!ENTITY folders.source.invalid.label "Նշեք աղբյուր-թղթապանակը։">
+<!-- *** Destination folder selection *** -->
+<!ENTITY folders.dest.pagelabel "Արդյունքը">
+<!ENTITY folders.dest.grouplabel "Փոխարկված ֆայլերի տեղը.">
+<!ENTITY folders.dest.original.label "Թողնել նույն թղթապանակում">
+<!ENTITY folders.dest.original.accesskey "s">
+<!ENTITY folders.dest.folder.label "Այս թղթապանակում">
+<!ENTITY folders.dest.folder.accesskey "t">
+<!ENTITY folders.bin.grouplabel "Փոխարկումից հետո՝">
+<!ENTITY folders.bin.original.label "Թողնել օրիգինալները իրենց տեղում">
+<!ENTITY folders.bin.original.accesskey "L">
+<!ENTITY folders.bin.folder.label "Տեղափոխել օրիգինալները այս թղթապանակ.">
+<!ENTITY folders.bin.folder.accesskey "M">
+<!ENTITY folders.dest.invalid.label "Նշեք թղթապանակի անունը։">
+<!-- *** Candidates selection and conversion *** -->
+<!ENTITY candidates.pagelabel "Փոխարկում">
+<!ENTITY candidates.description "Կրկին դիտեք ցանկը և ընտրեք փոխարկվող ֆայլերը։">
+<!ENTITY candidates.sourcename.header "Ֆայլի անունը">
+<!ENTITY candidates.sourcedatafoldername.header "Թղթապանակի անունը">
+<!ENTITY candidates.relativepath.header "Ենթաթղթապանակը">
+<!ENTITY candidates.sourcepath.header "Աղբյուրը՝">
+<!ENTITY candidates.destpath.header "Արդյունքը՝">
+<!ENTITY candidates.binpath.header "Տեղափոխել՝">
+<!ENTITY candidates.all.label "Բոլոր ֆայլերը">
+<!ENTITY candidates.searchingcounts.label "Ընդամենը $1, $2-ը արդեն փոխարկվել են, ընտրված են $3-ը">
+<!ENTITY candidates.convertingcounts.label "Ընդամենը $1, $2-ը արդեն փոխարկվել են, ընտրված են $3-ը, $4-ը հաջողությամբ փոխարկվել են, $5-ը ձախողվել են">
+<!ENTITY candidates.searching.label "Փնտրվում է աղբյուրը...">
+<!ENTITY candidates.none.label "Չկան փոխակերպելի ֆայլեր։ Փոխելու համար փնտրման ցուցիչները սեղմեք $1։">
+<!ENTITY candidates.invalid.label "Ընտրեք գոնե մեկ ֆայլ։">
+<!ENTITY candidates.convert.label "Սեղմեք Փոխարկել՝ սկսելու համար">
+<!ENTITY candidates.converting.label "Ֆայլերը փոխարկվում են...">
+<!ENTITY candidates.finish.label "Կրկին դիտեք փոխարկման արդյունքները, ապա սեղմեք $1՝ պատուհանը փակելու համար։">
+<!ENTITY candidates.convertbutton.label "Փոխարկել">
+<!ENTITY candidates.convertbutton.accesskey "C">

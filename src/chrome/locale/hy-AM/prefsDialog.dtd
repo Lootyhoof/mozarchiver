@@ -1,0 +1,50 @@
+<!-- General window controls -->
+<!ENTITY window.title.v2 "MozArchiver-ի կարգավորումները">
+<!-- Main pane -->
+<!ENTITY pane.main.label "Հիմնականը">
+<!ENTITY save.format.grouplabel "Ծրագրային տեսակի, երբ պահպանվում է մեկ ֆայլում.">
+<!ENTITY save.format.maff.label "MAFF (հիմնված ZIP-ի վրա, աջակցում է տեսանյութ և ձայն)">
+<!ENTITY save.format.maff.accesskey "M">
+<!ENTITY save.format.mhtml.full.label "MHTML (կարող է բացվել ուղղակիորեն այլ դիտարկիչներով)">
+<!ENTITY save.format.mhtml.partial.label "MHTML (սահմանափակ համատեղելիությամբ տարբերակ)">
+<!ENTITY save.format.mhtml.accesskey "H">
+<!ENTITY save.method.grouplabel "Էջը ամբողջությամբ պահպանելիս.">
+<!ENTITY save.method.snapshot.label "Ստեղծել պատկերումը">
+<!ENTITY save.method.snapshot.accesskey "k">
+<!ENTITY save.method.standard.label "Օգտագործել դիտարկիչի ստանդարտ համակարգը">
+<!ENTITY save.method.standard.accesskey "b">
+<!ENTITY save.namingstrategy.grouplabel "Ֆայլի առաջարկվող անունը.">
+<!ENTITY save.namingstrategy.title.label "Օգտագործել էջի անունը">
+<!ENTITY save.namingstrategy.title.accesskey "g">
+<!ENTITY save.namingstrategy.standard.label "Օգտագործել դիտարկիչի ընտրածը">
+<!ENTITY save.namingstrategy.standard.accesskey "w">
+<!-- Interface pane -->
+<!ENTITY pane.interface.label "Տեսքը">
+<!ENTITY info.grouplabel "Երբ արխիվի էջը բացված է.">
+<!ENTITY info.icon.label "Ցուցադրել պատկերը տեղադրության վահանակում">
+<!ENTITY info.icon.accesskey "S">
+<!ENTITY info.bar.label "Ցուցադրել տեղեկացման վահանակը">
+<!ENTITY info.bar.accesskey "D">
+<!ENTITY menu.grouplabel "Ցուցադրել MozArchiver-ը.">
+<!ENTITY menu.app.label "$brandShortName ընտրացանկում">
+<!ENTITY menu.app.accesskey "m">
+<!ENTITY menu.file.label "Ֆայլ ընտրացանկում">
+<!ENTITY menu.file.accesskey "F">
+<!ENTITY menu.tools.label "Գործիքներ ընտրացանկում">
+<!ENTITY menu.tools.accesskey "l">
+<!ENTITY menu.pagecontext.label "Էջի ընտրացանկում">
+<!ENTITY menu.pagecontext.accesskey "p">
+<!ENTITY menu.pagecontext.tabs.label "Ցուցադրել պահպանվող էջերի կետերը">
+<!ENTITY menu.pagecontext.tabs.accesskey "h">
+<!ENTITY menu.tabscontext.label "Էջի ընտրացանկի վահանակում">
+<!ENTITY menu.tabscontext.accesskey "x">
+<!-- Actions pane -->
+<!ENTITY pane.actions.label "Գործողությունները">
+<!ENTITY action.convertsavedpages.label "Փոխարկել պահպանված էջերը">
+<!ENTITY action.convertsavedpages.description "Պահպանված էջերի Փոխարկման Վարպետը կուղեկցի Ձեզ արդեն պահպանված վեբ էջերի փոխարկման ընթացքում։">
+<!ENTITY action.showwelcomepage.label "Ցուցադրել Ողջյունի պատուհանը">
+<!ENTITY action.showwelcomepage.description "Ողջյունի պատուհանը ցուցադրվում է, երբ առաջին անգամ տեղադրվում է այս հավելումը և ներկայացնում է հիմնական հնարավորությունները։ Նրա">
+<!ENTITY action.showwelcomepageassociate.label "Թարմացնել ֆայլերի ասոցիացումները">
+<!ENTITY action.showwelcomepageassociate.description "Ողջյունի պատուհանում Դուք կարող եք ընտրել, թե որ տեսակի վեբ արխիվն եք ցանկանում բացել $brandShortName-ով և թարմացնել ֆայլերի ասոցիացումները, եթե իհարկե դրանք փոխվել են այլ ծրագրի կողմից։">
+<!ENTITY action.visitwebsite.label "Անցնել վեբ կայքին">
+<!ENTITY action.visitwebsite.description "MozArchiver-ը ինտեգրվում է $brandShortName-ում և զգալիորեն ընդլայնում է նրա հնարավորությունները։ Հավելման հնարավորությունների նկարագրության,MAFF տեսակի մասին լրացուցիչ տեղեկություններ իմանալու համար կարող եք այցելել պաշտոնական վեբ կայքը։">

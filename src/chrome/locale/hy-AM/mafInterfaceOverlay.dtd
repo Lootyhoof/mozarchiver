@@ -1,0 +1,10 @@
+<!-- *** Archive information popup *** -->
+<!-- Status of the current page -->
+<!ENTITY archiveinfo.status.normal.label "Այս էջում չկան արխիվներ։">
+<!ENTITY archiveinfo.status.archived.label "Սա արխիվացված էջ է։">
+<!-- Original address the page was saved from -->
+<!ENTITY archiveinfo.maforiginalurl.label "Պահպանվել է՝">
+<!ENTITY archiveinfo.maforiginalurl.missing.label "(հասանելի չէ)">
+<!-- Date and time the page was archived -->
+<!ENTITY archiveinfo.mafdatearchived.label "Պահպանել՝">
+<!ENTITY archiveinfo.mafdatearchived.missing.label "(հասանելի չէ)">

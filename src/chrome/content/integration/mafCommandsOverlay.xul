@@ -1,0 +1,298 @@
+<?xml version="1.0"?>
+<!DOCTYPE overlay SYSTEM "chrome://mza/locale/mafCommandsOverlay.dtd">
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1/GPL 2.0/LGPL 2.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Mozilla Archive Format.
+   -
+   - The Initial Developer of the Original Code is
+   - Paolo Amadini <http://www.amadzone.org/>.
+   - Portions created by the Initial Developer are Copyright (C) 2009
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - Alternatively, the contents of this file may be used under the terms of
+   - either the GNU General Public License Version 2 or later (the "GPL"), or
+   - the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+   - in which case the provisions of the GPL or the LGPL are applicable instead
+   - of those above. If you wish to allow use of your version of this file only
+   - under the terms of either the GPL or the LGPL, and not to allow others to
+   - use your version of this file under the terms of the MPL, indicate your
+   - decision by deleting the provisions above and replace them with the notice
+   - and other provisions required by the LGPL or the GPL. If you do not delete
+   - the provisions above, a recipient may use your version of this file under
+   - the terms of any one of the MPL, the GPL or the LGPL.
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<!--
+   - This overlay and the associated JavaScript file handle both the generic
+   -  user interface commands and the specific browser window integration
+   -  based on the user interface preferences.
+   -->
+
+<overlay
+ id="mafCommandsOverlay"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ >
+
+  <!-- Overlay machinery -->
+  <script type="application/x-javascript"
+          src="chrome://mza/content/integration/browser.js"
+          />
+  <script type="application/x-javascript"
+          src="chrome://mza/content/integration/contentAreaUtils.js"
+          />
+  <script type="application/x-javascript"
+          src="chrome://mza/content/integration/defaultFileNameOverlay.js"
+          />
+  <script type="application/x-javascript"
+          src="chrome://mza/content/integration/mafCommandsOverlay.js"
+          />
+
+  <!-- User interface commands -->
+  <commandset>
+    <command id=       "mafCmdBrowseOpenArchives"
+             oncommand="MafCommandsOverlay.browseOpenArchives();"
+             />
+    <command id=       "mafCmdConvertSavedPages"
+             oncommand="MafCommandsOverlay.convertSavedPages();"
+             />
+    <command id=       "mafCmdPreferences"
+             oncommand="MafCommandsOverlay.preferences();"
+             />
+    <command id=       "mafCmdSaveTabsInArchive"
+             oncommand="MafCommandsOverlay.saveTabsInArchive();"
+             />
+    <command id=       "mafCmdSaveAllTabsInArchive"
+             oncommand="MafCommandsOverlay.saveAllTabsInArchive();"
+             />
+    <command id=       "mafCmdSavePageInArchive"
+             oncommand="MafCommandsOverlay.savePageInArchive();"
+             />
+    <command id=       "mafCmdSaveFrameInArchiveFromWindow"
+             oncommand="MafCommandsOverlay.saveFrameInArchiveFromWindow();"
+             />
+    <command id=       "mafCmdSaveFrameInArchiveFromContext"
+             oncommand="MafCommandsOverlay.saveFrameInArchiveFromContext();"
+             />
+  </commandset>
+
+  <!-- Shortcut keys -->
+  <keyset>
+    <key id=       "mafKeyBrowseOpenArchives"
+         key=      "&command.browseopenarchives.key;"
+         modifiers="&command.browseopenarchives.modifiers;"
+         command=  "mafCmdBrowseOpenArchives"
+         />
+  </keyset>
+
+  <!-- Application button -->
+  <vbox id="appmenuPrimaryPane">
+    <splitmenu id=         "mafMenuSavePage_appMenu"
+               command=    "Browser:SavePage"
+               insertafter="appmenu_savePage"
+               >
+      <menupopup>
+        <menuitem id=     "mafMenuSavePage_appMenu_popup"
+                  command="Browser:SavePage"
+                  key=    "key_savePage"
+                  />
+        <menuitem id=     "mafMenuSavePageInArchive_appMenu"
+                  label=  "&menuitem.savepageinarchiveas.label;"
+                  command="mafCmdSavePageInArchive"
+                  />
+        <menuitem id=     "mafMenuSaveTabsInArchive_appMenu"
+                  label=  "&menuitem.savetabsinarchiveas.label;"
+                  command="mafCmdSaveTabsInArchive"
+                  />
+        <menuitem id=     "mafMenuSaveAllTabsInArchive_appMenu"
+                  label=  "&menuitem.savealltabsinarchiveas.label;"
+                  command="mafCmdSaveAllTabsInArchive"
+                  />
+        <menuseparator />
+        <menuitem id=     "mafMenuConvertSavedPages_appMenu"
+                  label=  "&menuitem.convertsavedpages.label;"
+                  command="mafCmdConvertSavedPages"
+                  />
+        <menuseparator />
+        <menuitem id=     "mafMenuPreferences_appMenu"
+                  label=  "&menuitem.options.label;"
+                  command="mafCmdPreferences"
+                  />
+      </menupopup>
+    </splitmenu>
+  </vbox>
+
+  <!-- Navigator's or Browser's File menu -->
+  <menupopup id="menu_FilePopup">
+    <menuitem id=          "mafMenuSavePageInArchive_fileMenu"
+              insertafter= "savepage,menu_savePage,menu_saveFrame"
+              labelsaveas= "&menuitem.savepageinarchiveas.label;"
+              labelsave=   "&menuitem.savepageinarchive.label.v2;"
+              accesskey=   "&menuitem.savepageinarchive.accesskey.filemenu;"
+              command=     "mafCmdSavePageInArchive"
+              />
+    <menuitem id=          "mafMenuSaveFrameInArchive_fileMenu"
+              insertafter= "saveframe,menu_saveFrame"
+              labelsaveas= "&menuitem.saveframeinarchiveas.label;"
+              labelsave=   "&menuitem.saveframeinarchive.label.v2;"
+              accesskey=   "&menuitem.saveframeinarchive.accesskey.filemenu;"
+              command=     "mafCmdSaveFrameInArchiveFromWindow"
+              />
+    <menuitem id=          "mafMenuSaveTabsInArchive_fileMenu"
+              insertbefore="saveMenuBlockEnd,menu_sendLink"
+              labelsaveas= "&menuitem.savetabsinarchiveas.label;"
+              labelsave=   "&menuitem.savetabsinarchive.label;"
+              accesskey=   "&menuitem.savetabsinarchive.accesskey.filemenu;"
+              command=     "mafCmdSaveTabsInArchive"
+              />
+    <menuitem id=          "mafMenuSaveAllTabsInArchive_fileMenu"
+              insertbefore="saveMenuBlockEnd,menu_sendLink"
+              labelsaveas= "&menuitem.savealltabsinarchiveas.label;"
+              labelsave=   "&menuitem.savealltabsinarchive.label;"
+              accesskey=   "&menuitem.savealltabsinarchive.accesskey.filemenu;"
+              command=     "mafCmdSaveAllTabsInArchive"
+              />
+    <menuseparator id=          "mafMenuSaveSeparator_fileMenu"
+                   insertbefore="menu_sendLink"
+                   />
+    <menuitem id=          "mafMenuConvertSavedPages_fileMenu"
+              insertbefore="menu_sendLink"
+              label=       "&menuitem.convertsavedpages.label;"
+              accesskey=   "&menuitem.convertsavedpages.accesskey.filemenu;"
+              command=     "mafCmdConvertSavedPages"
+              />
+    <menuseparator id=          "mafMenuConvertSeparator_fileMenu"
+                   insertbefore="menu_sendLink"
+                   />
+  </menupopup>
+
+  <!-- Browser's Tools menu, applied depending on the host application -->
+  <menu id="mafMenuMafSubMenu_toolsMenu"
+        label=      "&menuitem.mafsubmenu.label;"
+        accesskey=  "&menuitem.mafsubmenu.accesskey.toolsmenu;"
+        >
+    <menupopup id="mafMenuPopupMafSubMenu_toolsMenu">
+      <menuitem label=      "&menuitem.browseopenarchives.label;"
+                accesskey=  "&menuitem.browseopenarchives.accesskey.toolsmenu;"
+                key=        "mafKeyBrowseOpenArchives"
+                command=    "mafCmdBrowseOpenArchives"
+                />
+      <menuseparator />
+      <menuitem id=         "mafMenuSavePageInArchive_toolsMenu"
+                labelsaveas="&menuitem.savepageinarchiveas.label;"
+                labelsave=  "&menuitem.savepageinarchive.label.v2;"
+                accesskey=  "&menuitem.savepageinarchive.accesskey.toolsmenu;"
+                command=    "mafCmdSavePageInArchive"
+                />
+      <menuitem id=         "mafMenuSaveFrameInArchive_toolsMenu"
+                labelsaveas="&menuitem.saveframeinarchiveas.label;"
+                labelsave=  "&menuitem.saveframeinarchive.label.v2;"
+                accesskey=  "&menuitem.saveframeinarchive.accesskey.toolsmenu;"
+                command=    "mafCmdSaveFrameInArchiveFromWindow"
+                />
+      <menuitem id=         "mafMenuSaveTabsInArchive_toolsMenu"
+                labelsaveas="&menuitem.savetabsinarchiveas.label;"
+                labelsave=  "&menuitem.savetabsinarchive.label;"
+                accesskey=  "&menuitem.savetabsinarchive.accesskey.toolsmenu;"
+                command=    "mafCmdSaveTabsInArchive"
+                />
+      <menuitem id=         "mafMenuSaveAllTabsInArchive_toolsMenu"
+                labelsaveas="&menuitem.savealltabsinarchiveas.label;"
+                labelsave=  "&menuitem.savealltabsinarchive.label;"
+                accesskey=  "&menuitem.savealltabsinarchive.accesskey.toolsmenu;"
+                command=    "mafCmdSaveAllTabsInArchive"
+                />
+      <menuseparator />
+      <menuitem id=         "mafMenuConvertSavedPages_toolsMenu"
+                label=      "&menuitem.convertsavedpages.label;"
+                accesskey=  "&menuitem.convertsavedpages.accesskey.toolsmenu;"
+                command=    "mafCmdConvertSavedPages"
+                />
+      <menuseparator />
+      <menuitem id=         "mafMenuPreferences_toolsMenu"
+                label=      "&menuitem.options.label;"
+                accesskey=  "&menuitem.options.accesskey.toolsmenu;"
+                command=    "mafCmdPreferences"
+                />
+    </menupopup>
+  </menu>
+
+  <!-- Browser's page context menu -->
+  <popup id="contentAreaContextMenu">
+    <menuitem id=          "mafMenuSavePageInArchive_pageContextMenu"
+              insertafter= "context-savepage"
+              labelsaveas= "&menuitem.savepageinarchiveas.label;"
+              labelsave=   "&menuitem.savepageinarchive.label.v2;"
+              accesskey=   "&menuitem.savepageinarchive.accesskey.pagecontextmenu;"
+              command=     "mafCmdSavePageInArchive"
+              />
+    <menuitem id=          "mafMenuSaveTabsInArchive_pageContextMenu"
+              insertbefore="context-sendpage"
+              labelsaveas= "&menuitem.savetabsinarchiveas.label;"
+              labelsave=   "&menuitem.savetabsinarchive.label;"
+              accesskey=   "&menuitem.savetabsinarchive.accesskey.pagecontextmenu;"
+              command=     "mafCmdSaveTabsInArchive"
+              />
+    <menuitem id=          "mafMenuSaveAllTabsInArchive_pageContextMenu"
+              insertbefore="context-sendpage"
+              labelsaveas= "&menuitem.savealltabsinarchiveas.label;"
+              labelsave=   "&menuitem.savealltabsinarchive.label;"
+              accesskey=   "&menuitem.savealltabsinarchive.accesskey.pagecontextmenu;"
+              command=     "mafCmdSaveAllTabsInArchive"
+              />
+  </popup>
+
+  <!--
+     - Frame submenu of the browser's page context menu. Since the element to
+     -  be overlaid does not have an ID, the integration is not done using the
+     -  standard XUL overlay mechanism, but using a specific JavaScript routine
+     -  on load.
+     -->
+  <popupset>
+    <menupopup id="mafFrameContextSubmenu">
+      <menuitem id=         "mafMenuSaveFrameInArchive_pageContextMenu"
+                labelsaveas="&menuitem.saveframeinarchiveas.label;"
+                labelsave=  "&menuitem.saveframeinarchive.label.v2;"
+                accesskey=  "&menuitem.saveframeinarchive.accesskey.pagecontextmenu;"
+                command=    "mafCmdSaveFrameInArchiveFromContext"
+                />
+    </menupopup>
+  </popupset>
+
+  <!--
+     - Browser's tab bar context menu. Since the context menu is defined inside
+     -  the "tabbrowser" XBL binding, the integration is not done using the
+     -  standard XUL overlay mechanism, but using a specific JavaScript routine
+     -  on load.
+     -->
+  <popupset>
+    <menupopup id="mafTabContextMenu">
+      <menuitem id=          "mafMenuSaveTabsInArchive_tabsContextMenu"
+                labelsaveas= "&menuitem.savetabsinarchiveas.label;"
+                labelsave=   "&menuitem.savetabsinarchive.label;"
+                accesskey=   "&menuitem.savetabsinarchive.accesskey.tabscontextmenu;"
+                command=     "mafCmdSaveTabsInArchive"
+                />
+      <menuitem id=          "mafMenuSaveAllTabsInArchive_tabsContextMenu"
+                labelsaveas= "&menuitem.savealltabsinarchiveas.label;"
+                labelsave=   "&menuitem.savealltabsinarchive.label;"
+                accesskey=   "&menuitem.savealltabsinarchive.accesskey.tabscontextmenu;"
+                command=     "mafCmdSaveAllTabsInArchive"
+                />
+      <menuseparator id="mafMenuSaveSeparator_tabsContextMenu" />
+    </menupopup>
+  </popupset>
+</overlay>

@@ -1,0 +1,28 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/**
+ * Default icons for the elements that represent tabs.
+ */
+treechildren::-moz-tree-image(tcTitle) {
+  list-style-image: url("chrome://mozapps/skin/places/defaultFavicon.png");
+  padding-right: 2px;
+  margin: 0px 2px;
+  width: 16px;
+  height: 16px;
+}
+
+/**
+ * Do not reserve space for the icon of the root element.
+ */
+treechildren::-moz-tree-image(tcTitle, container) {
+  list-style-image: none;
+  width: 0px;
+  height: 0px;
+}
+
+/**
+ * Do not indent the elements in the tabs tree, since it has only one level.
+ */
+treechildren::-moz-tree-indentation {
+  width: 0px;
+}

@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "保存するタブを選択">
+<!ENTITY savebutton.label "保存">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "タイトル">
+<!ENTITY tabs.location.header "URL">
+<!ENTITY tabs.all.label "ウインドウのすべてのタブ">

@@ -1,0 +1,22 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "환영합니다">
+<!ENTITY welcome.label "MozArchiver을 설치해 주셔서 감사합니다!">
+<!ENTITY features.header.label "이 부가기능으로 인해 $brandShortName의 많은 기능이 향상되었습니다.">
+<!ENTITY features.headerfromupdate.label "최신 정규 버전으로 업데이트 되었습니다.">
+<!ENTITY features.item1.label "웹페이지를 더욱 정확하게, 보이는 그대로 저장합니다.">
+<!ENTITY features.item2.label "하나 혹은 그 이상의 탭을 단일 파일로 저장할 수 있습니다(웹아카이브).">
+<!ENTITY features.item3.label "파일 이름은 이제 문서 제목으로 기본 지정됩니다.">
+<!ENTITY features.item4.label "HTML5 형식의 동영상과 오디오, 그 밖의 것들을 저장할 수 있습니다!">
+<!ENTITY features.footer.label "확장 설정에서 지원되는 기능을 조절할 수 있습니다.">
+<!ENTITY features.link.label "웹사이트를 방문하여 다른 모든 기능에 대해 알아보세요.">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "이 파일 형식들을 $brandShortName로 열길 원하십니까?">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "확실하지 않으면 둘 다 선택하세요. 페이지를 닫으면 적용될 것입니다.">
+<!ENTITY associate.explanation2.label "운영체제의 제어판에서 언제라도 설정을 바꿀 수 있습니다.">
+<!ENTITY associate.error.title "파일을 등록하는 동안 오류가 발생했습니다">
+<!ENTITY associate.error.msg "An error occurred while configuring your file manager: $1.">
+<!ENTITY associate.errortip.msg "In order to open web archives with $brandShortName, you should create the required file associations manually from the control panel of your operating system, or retry the operation from the MozArchiver options window.">

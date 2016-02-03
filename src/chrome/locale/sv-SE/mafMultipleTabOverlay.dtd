@@ -1,0 +1,3 @@
+<!-- Additional menu items for "Multiple Tab Handler" integration -->
+<!ENTITY menuitem.saveselectedtabsinarchiveas.label "Spara markerade flikar i arkiv som…">
+<!ENTITY menuitem.saveselectedtabsinarchive.accesskey.tabselectionmenu "f">

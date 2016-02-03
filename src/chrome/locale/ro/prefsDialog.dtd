@@ -1,0 +1,50 @@
+<!-- General window controls -->
+<!ENTITY window.title.v2 "Opțiuni MozArchiver">
+<!-- Main pane -->
+<!ENTITY pane.main.label "Principal">
+<!ENTITY save.format.grouplabel "Format implicit pentru salvarea într-un singur fișier:">
+<!ENTITY save.format.maff.label "MAFF (bazat pe ZIP, suportă video și audio)">
+<!ENTITY save.format.maff.accesskey "M">
+<!ENTITY save.format.mhtml.full.label "MHTML (poate fi deschis direct în alte navigatoare, ex.: IE)">
+<!ENTITY save.format.mhtml.partial.label "MHTML (variantă cu compatibilitate limitată)">
+<!ENTITY save.format.mhtml.accesskey "H">
+<!ENTITY save.method.grouplabel "Mod de salvare a unei pagini complete:">
+<!ENTITY save.method.snapshot.label "Se salvează o imagine exactă a paginii">
+<!ENTITY save.method.snapshot.accesskey "x">
+<!ENTITY save.method.standard.label "Se salvează o copie prin metoda standard a navigatorului">
+<!ENTITY save.method.standard.accesskey "s">
+<!ENTITY save.namingstrategy.grouplabel "Sugestie de denumire a arhivei:">
+<!ENTITY save.namingstrategy.title.label "Se folosește titlul paginii">
+<!ENTITY save.namingstrategy.title.accesskey "t">
+<!ENTITY save.namingstrategy.standard.label "Se folosește strategia de denumire standard a navigatorului">
+<!ENTITY save.namingstrategy.standard.accesskey "n">
+<!-- Interface pane -->
+<!ENTITY pane.interface.label "Interfață">
+<!ENTITY info.grouplabel "La deschiderea unei pagini arhivate:">
+<!ENTITY info.icon.label "Se afișează o pictogramă în bara de adrese">
+<!ENTITY info.icon.accesskey "p">
+<!ENTITY info.bar.label "Se afișează o bară cu informații">
+<!ENTITY info.bar.accesskey "b">
+<!ENTITY menu.grouplabel "Meniul MozArchiver se afișează în:">
+<!ENTITY menu.app.label "Meniul $brandShortName">
+<!ENTITY menu.app.accesskey "M">
+<!ENTITY menu.file.label "Meniul „Fișier”">
+<!ENTITY menu.file.accesskey "F">
+<!ENTITY menu.tools.label "Meniul „Unelte”">
+<!ENTITY menu.tools.accesskey "U">
+<!ENTITY menu.pagecontext.label "Meniul contextual al paginii">
+<!ENTITY menu.pagecontext.accesskey "c">
+<!ENTITY menu.pagecontext.tabs.label "Se afișează opțiuni de salvare a filelor">
+<!ENTITY menu.pagecontext.tabs.accesskey "s">
+<!ENTITY menu.tabscontext.label "Meniul contextual al filei">
+<!ENTITY menu.tabscontext.accesskey "x">
+<!-- Actions pane -->
+<!ENTITY pane.actions.label "Acțiuni">
+<!ENTITY action.convertsavedpages.label "Conversie pagini salvate">
+<!ENTITY action.convertsavedpages.description "Asistentul pentru conversia paginilor salvate vă va îndruma în procesul de conversie într-un nou format a paginilor salvate anterior.">
+<!ENTITY action.showwelcomepage.label "Se afișează pagina de bun venit">
+<!ENTITY action.showwelcomepage.description "Pagina de bun venit este afișată prima dată după ce acest supliment este instalat și oferă o prezentare generală a caracteristicilor sale. Afișarea ulterioară este utilă în special traducătorilor care doresc să verifice calitatea muncii lor.">
+<!ENTITY action.showwelcomepageassociate.label "Refacere asocieri tipuri de fișiere">
+<!ENTITY action.showwelcomepageassociate.description "În pagina de bun venit aveți posibilitatea să alegeți ce tipuri de arhive web doriți să deschideți cu $brandShortName și să refaceți asocierile tipurilor de fișiere în cazul în care acestea au fost modificate de alte aplicații.">
+<!ENTITY action.visitwebsite.label "Vizitare sait web">
+<!ENTITY action.visitwebsite.description "MozArchiver se integrează perfect în $brandShortName și oferă o mulțime de îmbunătățiri în plus față de caracteristicile uzuale. Pentru o descriere completă a caracteristicilor, alte informații cu privire la formatul de fișier MAFF sau o documentare a opțiunilor de configurare avansate, puteți vizita saitul oficial (în limba engleză).">

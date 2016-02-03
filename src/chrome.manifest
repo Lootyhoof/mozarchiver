@@ -1,0 +1,55 @@
+content mza chrome/content/
+
+locale mza en-US chrome/locale/en-US/
+
+locale mza cs chrome/locale/cs/
+locale mza da chrome/locale/da/
+locale mza de chrome/locale/de/
+locale mza es-ES chrome/locale/es-ES/
+locale mza fr chrome/locale/fr/
+locale mza hu chrome/locale/hu/
+locale mza hy-AM chrome/locale/hy-AM/
+locale mza it chrome/locale/it/
+locale mza ja-JP chrome/locale/ja-JP/
+locale mza ko-KR chrome/locale/ko-KR/
+locale mza mk-MK chrome/locale/mk-MK/
+locale mza pl chrome/locale/pl/
+locale mza pt-BR chrome/locale/pt-BR/
+locale mza ro chrome/locale/ro/
+locale mza ru chrome/locale/ru/
+locale mza sv-SE chrome/locale/sv-SE/
+locale mza tr chrome/locale/tr/
+locale mza zh-CN chrome/locale/zh-CN/
+locale mza zh-TW chrome/locale/zh-TW/
+
+skin mza classic/1.0 chrome/skin/
+skin mza-icons classic/1.0 ./
+
+component {3b2f1177-d918-44ee-91a6-ba95954064bb} components/DocumentLoaderFactory.js
+contract @mozarchiver/document-loader-factory;1 {3b2f1177-d918-44ee-91a6-ba95954064bb}
+
+component {37116274-8df3-4d48-8533-00eae60c844c} components/Startup.js
+contract @mozarchiver/startup;1 {37116274-8df3-4d48-8533-00eae60c844c}
+category profile-after-change MozArchiver @mozarchiver/startup;1
+
+component {7380f280-ab36-4a23-b213-35c64f8586a0} components/ContentPolicy.js
+contract @mozarchiver/content-policy;1 {7380f280-ab36-4a23-b213-35c64f8586a0}
+category content-policy MozArchiver @mozarchiver/content-policy;1
+
+# Integration with the browsing windows
+overlay chrome://browser/content/browser.xul chrome://mza/content/integration/mafBaseBrowserOverlay.xul
+
+# Integration with the "Multiple Tab Handler" extension
+overlay chrome://multipletab/content/multipletab.xul chrome://mza/content/integration/mafMultipleTabOverlay.xul
+
+# The Archives dialog
+overlay chrome://mza/content/archives/archivesDialog.xul chrome://mza/content/archives/archivesDialogBrowserOverlay.xul application={8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}
+
+# The preferences dialog
+overlay chrome://mza/content/preferences/prefsDialog.xul chrome://mza/content/preferences/prefsDialogBrowserOverlay.xul application={8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}
+
+# Use the preferences image file from the current theme
+override chrome://mza/skin/preferences/Options.png chrome://browser/skin/preferences/Options.png application={8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}
+
+# Once loaded, use the 48x48 pixels application icon instead of the 32x32 pixels one
+override chrome://mza-icons/skin/icon.png chrome://mza-icons/skin/icon48.png

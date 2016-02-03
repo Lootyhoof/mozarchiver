@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "Kaydedilecek sekmeleri seç">
+<!ENTITY savebutton.label "Kaydet">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "Başlık">
+<!ENTITY tabs.location.header "Konum">
+<!ENTITY tabs.all.label "Penceredeki tüm sekmeler">

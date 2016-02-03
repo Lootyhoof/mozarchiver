@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://browser/content/places/places.css" ?>
+<?xml-stylesheet href="chrome://browser/skin/places/places.css" ?>
+<?xul-overlay href="chrome://browser/content/places/placesOverlay.xul" ?>
+<!DOCTYPE overlay>
+<!--
+   - This overlay is required to link to the correct platform overlays and
+   -  provide the required compatibility code for the different Places
+   -  implementations in the Firefox and SeaMonkey applications.
+   -
+   - This file is in the public domain :-)
+   -->
+<overlay
+ id="archivesDialogBrowserOverlay"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" />

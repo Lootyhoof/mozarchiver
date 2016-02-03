@@ -1,0 +1,22 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "Ողջույն">
+<!ENTITY welcome.label "Շնորհակալություն MozArchiver-ը նախընտրելու համար։">
+<!ENTITY features.header.label "Այս հավելումը ընդլայնում է $brandShortName-ի հնարավորությունները։">
+<!ENTITY features.headerfromupdate.label "Հավելումը թարմացվել է մինչ վերջին հասանելի տարբերակը։">
+<!ENTITY features.item1.label "Վեբ էջերը ավելի խնամքով են պահպանվել, քան դրանք երևում են։">
+<!ENTITY features.item2.label "Կարող եք պահպանել մեկ կամ մի քանի էջերը մեկ ֆայլում (վեբ արխիվում)։">
+<!ENTITY features.item3.label "Փաստաթղթի անունը ծրագրայինն է։">
+<!ENTITY features.item4.label "Կարող եք պահպանել HTML5-ի տեսանյութը և ձայնը, և ավելին։">
+<!ENTITY features.footer.label "Կարող եք կառավարել հնարավորությունները հավելումների ընտրանքներից։">
+<!ENTITY features.link.label "Մանրամասների համար այցելեք ծրագրի վեբ կայքը։">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "Բացե՞լ վեբ արխիվի այս տեսակները $brandShortName-ով։">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "Եթե համոզված չեք, մի ընտրեք սա։">
+<!ENTITY associate.explanation2.label "Ցանկացած պահի կարող եք փոփոխել կարգավորումները օպերացիոն համակարգի control panel-ից։">
+<!ENTITY associate.error.title "Սխալ՝ ասոցիացումների ժամանակ">
+<!ENTITY associate.error.msg "Սխալ՝ ֆայլային կառավարիչը կարգավորելիս. $1">
+<!ENTITY associate.errortip.msg "Վեբ արխիվները $brandShortName-ով բացելու համար, Դուք պետք է ինքներդ կատարեք ֆայլերի ասոցիացումները օպերացիոն համակարգի control panel-ից և կրկնել գործողությունը MozArchiver-ի կարգավորումերի պատուհանում։">

@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "Zu archivierende Tabs markieren">
+<!ENTITY savebutton.label "Speichern">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "Titel">
+<!ENTITY tabs.location.header "Adresse">
+<!ENTITY tabs.all.label "Alle Tabs im Fenster">

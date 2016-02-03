@@ -1,0 +1,37 @@
+<!-- Shortcut keys -->
+<!ENTITY command.browseopenarchives.key "M">
+<!ENTITY command.browseopenarchives.modifiers "alt">
+<!-- Menu items for general MozArchiver commands -->
+<!ENTITY menuitem.mafsubmenu.label "MozArchiver">
+<!ENTITY menuitem.mafsubmenu.accesskey.toolsmenu "M">
+<!ENTITY menuitem.browseopenarchives.label "Sfoglia archivi aperti…">
+<!ENTITY menuitem.browseopenarchives.accesskey.toolsmenu "r">
+<!ENTITY menuitem.convertsavedpages.label "Converti pagine salvate…">
+<!ENTITY menuitem.convertsavedpages.accesskey.toolsmenu "C">
+<!ENTITY menuitem.convertsavedpages.accesskey.filemenu "o">
+<!ENTITY menuitem.options.label "Opzioni…">
+<!ENTITY menuitem.options.accesskey.toolsmenu "O">
+<!-- Additional menu items for the "Save As" command -->
+<!ENTITY menuitem.savetabsinarchiveas.label "Salva schede in archivio con nome…">
+<!ENTITY menuitem.savetabsinarchive.label "Salva schede in archivio…">
+<!ENTITY menuitem.savetabsinarchive.accesskey.filemenu "h">
+<!ENTITY menuitem.savetabsinarchive.accesskey.toolsmenu "h">
+<!ENTITY menuitem.savetabsinarchive.accesskey.pagecontextmenu "h">
+<!ENTITY menuitem.savetabsinarchive.accesskey.tabscontextmenu "h">
+<!ENTITY menuitem.savealltabsinarchiveas.label "Salva tutte le schede in archivio con nome…">
+<!ENTITY menuitem.savealltabsinarchive.label "Salva tutte le schede in archivio">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.filemenu "u">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.toolsmenu "u">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.pagecontextmenu "u">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.tabscontextmenu "u">
+<!-- Additional menu items for the "Save In Archive" command -->
+<!ENTITY menuitem.savepageinarchiveas.label "Salva pagina in archivio con nome…">
+<!ENTITY menuitem.savepageinarchive.label.v2 "Salva pagina in archivio">
+<!ENTITY menuitem.savepageinarchive.accesskey.filemenu "g">
+<!ENTITY menuitem.savepageinarchive.accesskey.toolsmenu "g">
+<!ENTITY menuitem.savepageinarchive.accesskey.pagecontextmenu "l">
+<!ENTITY menuitem.saveframeinarchiveas.label "Salva riquadro in archivio con nome…">
+<!ENTITY menuitem.saveframeinarchive.label.v2 "Salva riquadro in archivio">
+<!ENTITY menuitem.saveframeinarchive.accesskey.filemenu "q">
+<!ENTITY menuitem.saveframeinarchive.accesskey.toolsmenu "q">
+<!ENTITY menuitem.saveframeinarchive.accesskey.pagecontextmenu "q">

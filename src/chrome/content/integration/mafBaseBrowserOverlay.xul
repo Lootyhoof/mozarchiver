@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?xul-overlay href="chrome://mza/content/integration/mafCommandsOverlay.xul" ?>
+<?xul-overlay href="chrome://mza/content/integration/mafInterfaceOverlay.xul" ?>
+<!DOCTYPE overlay>
+<!--
+   - This overlay provides an anchor for the MAF submenu in the Tools menu of
+   -  the Firefox application, and includes the other browser window overlays.
+   -
+   - This file is in the public domain :-)
+   -->
+<overlay
+ id="mafBaseBrowserOverlay"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ >
+
+  <!-- Browser's Tools menu -->
+  <menupopup id="menu_ToolsPopup">
+    <menu id=         "mafMenuMafSubMenu_toolsMenu"
+          insertafter="devToolsSeparator"
+          />
+  </menupopup>
+</overlay>

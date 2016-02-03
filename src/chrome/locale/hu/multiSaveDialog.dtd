@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "Kiválasztott lapok mentése">
+<!ENTITY savebutton.label "Mentés">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "Cím">
+<!ENTITY tabs.location.header "Hely">
+<!ENTITY tabs.all.label "Minden lap az ablakban">

@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "Vyberte panely, které chcete uložit">
+<!ENTITY savebutton.label "Uložit">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "Hlavička">
+<!ENTITY tabs.location.header "Adresa">
+<!ENTITY tabs.all.label "Všechny panely">

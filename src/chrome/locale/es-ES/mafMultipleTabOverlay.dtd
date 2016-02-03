@@ -1,0 +1,3 @@
+<!-- Additional menu items for "Multiple Tab Handler" integration -->
+<!ENTITY menuitem.saveselectedtabsinarchiveas.label "Guardar las pestañas seleccionadas en archivo como...">
+<!ENTITY menuitem.saveselectedtabsinarchive.accesskey.tabselectionmenu "s">

@@ -1,0 +1,72 @@
+<!-- *** Note *** -->
+<!-- This page is a wizard. When assigning access keys, pay attention to the possible conflicts with the default access keys for the Back, Next, Continue and Finish buttons. -->
+<!-- *** General window controls *** -->
+<!ENTITY window.title "Saved Pages Conversion Wizard">
+<!ENTITY browsebutton.label "Browse...">
+<!ENTITY continue.label "To continue, click $1.">
+<!-- *** Introduction *** -->
+<!ENTITY introduction.pagelabel "Welcome to the Saved Pages Conversion Wizard">
+<!ENTITY introduction.para1.description "This wizard will guide you through the conversion of your previously saved web pages to a different file format.">
+<!ENTITY introduction.para2.description "This procedure is suitable for converting many pages at a time. If you wish to convert single pages, just open them in the browser and save them in another format.">
+<!ENTITY introduction.visitwebsite.description "Although the conversion process works smoothly in most cases, sometimes the result may not be completely faithful to the original, depending on the selected file formats and save options. In addition, when converting a multi-page archive to a single-page format, only the first page is preserved. It is recommended that you keep a copy of your original files even after a successful conversion.">
+<!ENTITY introduction.visitwebsite.label "Read the online documentation for details.">
+<!ENTITY introduction.continue.label "To begin, click $1.">
+<!-- *** File format selection *** -->
+<!ENTITY formats.pagelabel "Input and Output Formats">
+<!ENTITY formats.source.grouplabel "Convert from:">
+<!ENTITY formats.source.complete.label "Complete web pages (with support folders for data files)">
+<!ENTITY formats.source.complete.accesskey "o">
+<!ENTITY formats.source.plain.label "All web pages (with or without support folders for data files)">
+<!ENTITY formats.source.plain.accesskey "A">
+<!ENTITY formats.source.mhtml.label "MHTML archives">
+<!ENTITY formats.source.mhtml.accesskey "M">
+<!ENTITY formats.source.maff.label "MAFF archives">
+<!ENTITY formats.source.maff.accesskey "F">
+<!ENTITY formats.dest.grouplabel "Convert to:">
+<!ENTITY formats.dest.maff.label "MAFF archives">
+<!ENTITY formats.dest.maff.accesskey "r">
+<!ENTITY formats.dest.mhtml.label "MHTML archives">
+<!ENTITY formats.dest.mhtml.accesskey "H">
+<!ENTITY formats.dest.complete.label "Complete web pages (with support folders if required)">
+<!ENTITY formats.dest.complete.accesskey "p">
+<!ENTITY formats.invalid.label "Please select two different file formats.">
+<!-- *** Source folder selection *** -->
+<!ENTITY folders.source.pagelabel "Source Folder">
+<!ENTITY folders.source.label "Search this folder for source files:">
+<!ENTITY folders.source.accesskey "e">
+<!ENTITY folders.source.subfolders.label "Include subfolders">
+<!ENTITY folders.source.subfolders.accesskey "s">
+<!ENTITY folders.source.invalid.label "Please select an existing source folder.">
+<!-- *** Destination folder selection *** -->
+<!ENTITY folders.dest.pagelabel "Destination Folders">
+<!ENTITY folders.dest.grouplabel "Place converted files:">
+<!ENTITY folders.dest.original.label "In the same folder as the original files">
+<!ENTITY folders.dest.original.accesskey "s">
+<!ENTITY folders.dest.folder.label "In this folder (preserving relative paths):">
+<!ENTITY folders.dest.folder.accesskey "t">
+<!ENTITY folders.bin.grouplabel "After a successful conversion:">
+<!ENTITY folders.bin.original.label "Leave the originals in place">
+<!ENTITY folders.bin.original.accesskey "L">
+<!ENTITY folders.bin.folder.label "Move the originals to this folder (preserving relative paths):">
+<!ENTITY folders.bin.folder.accesskey "M">
+<!ENTITY folders.dest.invalid.label "Please specify the complete folder name.">
+<!-- *** Candidates selection and conversion *** -->
+<!ENTITY candidates.pagelabel "Conversion">
+<!ENTITY candidates.description "Please review the list below, and select the files you wish to convert.">
+<!ENTITY candidates.sourcename.header "Source file name">
+<!ENTITY candidates.sourcedatafoldername.header "Support folder name">
+<!ENTITY candidates.relativepath.header "Subfolder">
+<!ENTITY candidates.sourcepath.header "Source path">
+<!ENTITY candidates.destpath.header "Destination path">
+<!ENTITY candidates.binpath.header "Move to path">
+<!ENTITY candidates.all.label "All files">
+<!ENTITY candidates.searchingcounts.label "$1 total, $2 already converted, $3 selected">
+<!ENTITY candidates.convertingcounts.label "$1 total, $2 already converted, $3 selected, $4 successfully converted, $5 failed">
+<!ENTITY candidates.searching.label "Searching for source files...">
+<!ENTITY candidates.none.label "No convertible files found. To modify the search parameters, click $1.">
+<!ENTITY candidates.invalid.label "Please select at least one file to convert.">
+<!ENTITY candidates.convert.label "Click Convert to convert your files.">
+<!ENTITY candidates.converting.label "Converting your files...">
+<!ENTITY candidates.finish.label "Please review the conversion results, then click $1 to close the window.">
+<!ENTITY candidates.convertbutton.label "Convert">
+<!ENTITY candidates.convertbutton.accesskey "C">

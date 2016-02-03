@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "Salvare file în arhivă">
+<!ENTITY savebutton.label "Salvează">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "Titlu">
+<!ENTITY tabs.location.header "Adresă">
+<!ENTITY tabs.all.label "Toate filele din fereastră">

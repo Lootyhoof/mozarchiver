@@ -1,0 +1,22 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "Bun venit">
+<!ENTITY welcome.label "Vă mulțumim pentru că ați instalat MozArchiver!">
+<!ENTITY features.header.label "Acest supliment îmbunătățește multe dintre caracteristicile $brandShortName.">
+<!ENTITY features.headerfromupdate.label "Suplimentul pe care l-ați instalat este actualizat la ultima versiune majoră.">
+<!ENTITY features.item1.label "Paginile web pot fi salvate cu mai multă acuratețe, ceea ce vedeți este ceea ce veți obține.">
+<!ENTITY features.item2.label "Se pot salva una sau mai multe file într-un singur fișier (arhivă web).">
+<!ENTITY features.item3.label "Denumirea implicită a arhivei este titlul documentului.">
+<!ENTITY features.item4.label "Se pot salva elemente video și audio HTML5, și multe altele!">
+<!ENTITY features.footer.label "Caracteristicile pot fi controlate din caseta de opțiuni a suplimentului.">
+<!ENTITY features.link.label "Vizitați saitul web pentru a descoperi toate celelalte funcționalități (în limba engleză).">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "Care dintre următoarele tipuri de arhive web doriți să fie deschise cu $brandShortName?">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "Dacă nu știți, lăsați amândouă tipurile selectate. Asocierea va deveni efectivă atunci când pagina se va închide.">
+<!ENTITY associate.explanation2.label "Puteți modifica aceste asocieri în orice moment din panoul de control al sistemului de operare.">
+<!ENTITY associate.error.title "Eroare la crearea asocierilor tipurilor de fișiere">
+<!ENTITY associate.error.msg "O eroare a apărut în timpul configurării gestionarului de fișiere: $1.">
+<!ENTITY associate.errortip.msg "Pentru a deschide arhivele web cu $brandShortName trebuie să creați manual asocierile necesare pentru tipurile de fișiere, din panoul de control al sistemului de operare, sau să încercați din nou operațiunea, din caseta de opțiuni MozArchiver.">

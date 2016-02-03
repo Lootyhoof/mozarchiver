@@ -1,0 +1,13 @@
+<!-- *** Archive information popup *** -->
+
+<!-- Status of the current page -->
+<!ENTITY archiveinfo.status.normal.label "This page is not contained in an archive.">
+<!ENTITY archiveinfo.status.archived.label "This is an archived page.">
+
+<!-- Original address the page was saved from -->
+<!ENTITY archiveinfo.maforiginalurl.label "Saved from:">
+<!ENTITY archiveinfo.maforiginalurl.missing.label "(not available)">
+
+<!-- Date and time the page was archived -->
+<!ENTITY archiveinfo.mafdatearchived.label "Saved on:">
+<!ENTITY archiveinfo.mafdatearchived.missing.label "(not available)">

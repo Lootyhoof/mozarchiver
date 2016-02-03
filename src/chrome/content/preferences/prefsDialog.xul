@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+<?xml-stylesheet href="chrome://mza/skin/preferences/prefsDialog.css" type="text/css"?>
+<!DOCTYPE prefwindow SYSTEM "chrome://mza/locale/prefsDialog.dtd">
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1/GPL 2.0/LGPL 2.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Mozilla Archive Format.
+   -
+   - The Initial Developer of the Original Code is
+   - Paolo Amadini <http://www.amadzone.org/>.
+   - Portions created by the Initial Developer are Copyright (C) 2008
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - Alternatively, the contents of this file may be used under the terms of
+   - either the GNU General Public License Version 2 or later (the "GPL"), or
+   - the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+   - in which case the provisions of the GPL or the LGPL are applicable instead
+   - of those above. If you wish to allow use of your version of this file only
+   - under the terms of either the GPL or the LGPL, and not to allow others to
+   - use your version of this file under the terms of the MPL, indicate your
+   - decision by deleting the provisions above and replace them with the notice
+   - and other provisions required by the LGPL or the GPL. If you do not delete
+   - the provisions above, a recipient may use your version of this file under
+   - the terms of any one of the MPL, the GPL or the LGPL.
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<!--
+   - This dialog allows modification of the extension's preferences.
+   -
+   - When adding a preference here, also update "prefsObject.js" accordingly.
+   -
+   - The window type "Maf:Prefs" is used to find and focus the window if it is
+   -  already opened, instead of opening a new one.
+   -->
+
+<prefwindow
+ id=        "prefsDialog"
+ title=     "&window.title.v2;"
+ windowtype="Maf:Prefs"
+ buttons=   "accept,cancel"
+ xmlns=     "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ persist=   "lastSelected screenX screenY"
+ onload=    "PrefsDialog.onLoadDialog();"
+ >
+
+  <!-- Main pane -->
+  <prefpane id=   "paneMain"
+            label="&pane.main.label;"
+            >
+    <preferences>
+      <preference id=      "prefSaveFormat"
+                  name=    "extensions.mza.current.save.filterindex"
+                  type=    "int"
+                  />
+      <preference id=      "prefSaveMethod"
+                  name=    "extensions.mza.save.method"
+                  type=    "string"
+                  onchange="PrefsDialog.onSaveMethodChange();"
+                  />
+      <preference id=      "prefSaveNamingStrategy"
+                  name=    "extensions.mza.save.namingstrategy"
+                  type=    "string"
+                  />
+    </preferences>
+    <label control="rgrSaveFormats"
+           value=  "&save.format.grouplabel;"
+           class=  "header"
+           />
+    <radiogroup id=        "rgrSaveFormats"
+                preference="prefSaveFormat"
+                >
+      <radio value=    "0"
+             label=    "&save.format.maff.label;"
+             accesskey="&save.format.maff.accesskey;"
+             />
+      <radio id=          "radioSaveFormatMhtml"
+             value=       "1"
+             labelfull=   "&save.format.mhtml.full.label;"
+             labelpartial="&save.format.mhtml.partial.label;"
+             accesskey=   "&save.format.mhtml.accesskey;"
+             />
+    </radiogroup>
+    <spacer height="10" />
+    <label control="rgrSaveMethods"
+           value=  "&save.method.grouplabel;"
+           class=  "header"
+           />
+    <radiogroup id=        "rgrSaveMethods"
+                preference="prefSaveMethod"
+                >
+      <radio value=    "snapshot"
+             label=    "&save.method.snapshot.label;"
+             accesskey="&save.method.snapshot.accesskey;"
+             />
+      <radio value=    "standard"
+             label=    "&save.method.standard.label;"
+             accesskey="&save.method.standard.accesskey;"
+             />
+    </radiogroup>
+    <spacer height="10" />
+    <label control="rgrSaveNamingStrategy"
+           value=  "&save.namingstrategy.grouplabel;"
+           class=  "header"
+           />
+    <radiogroup id=        "rgrSaveNamingStrategy"
+                preference="prefSaveNamingStrategy"
+                >
+      <radio value=    "pagetitle"
+             label=    "&save.namingstrategy.title.label;"
+             accesskey="&save.namingstrategy.title.accesskey;"
+             />
+      <radio value=    "standard"
+             label=    "&save.namingstrategy.standard.label;"
+             accesskey="&save.namingstrategy.standard.accesskey;"
+             />
+    </radiogroup>
+  </prefpane>
+
+  <!-- Interface pane -->
+  <prefpane id=   "paneInterface"
+            label="&pane.interface.label;"
+            >
+    <preferences>
+      <preference id=      "prefInterfaceInfoIcon"
+                  name=    "extensions.mza.interface.info.icon"
+                  type=    "bool"
+                  />
+      <preference id=      "prefInterfaceInfoBar"
+                  name=    "extensions.mza.interface.info.bar"
+                  type=    "bool"
+                  />
+      <preference id=      "prefInterfaceMenuApp"
+                  name=    "extensions.mza.interface.menu.app"
+                  type=    "bool"
+                  />
+      <preference id=      "prefInterfaceMenuFile"
+                  name=    "extensions.mza.interface.menu.file"
+                  type=    "bool"
+                  />
+      <preference id=      "prefInterfaceMenuTools"
+                  name=    "extensions.mza.interface.menu.tools"
+                  type=    "bool"
+                  />
+      <preference id=      "prefInterfaceMenuPageContext"
+                  name=    "extensions.mza.interface.menu.pagecontext"
+                  type=    "bool"
+                  onchange="PrefsDialog.onInterfaceMenuPageContextChange();"
+                  />
+      <preference id=      "prefInterfaceMenuPageContextForTabs"
+                  name=    "extensions.mza.interface.menu.pagecontext.tabs"
+                  type=    "bool"
+                  />
+      <preference id=      "prefInterfaceMenuTabsContext"
+                  name=    "extensions.mza.interface.menu.tabscontext"
+                  type=    "bool"
+                  />
+    </preferences>
+    <label control="rgrInterfaceInfo"
+           value=  "&info.grouplabel;"
+           class=  "header"
+           />
+    <checkbox preference="prefInterfaceInfoIcon" 
+              label=     "&info.icon.label;"
+              accesskey= "&info.icon.accesskey;"
+              />
+    <checkbox preference="prefInterfaceInfoBar" 
+              label=     "&info.bar.label;"
+              accesskey= "&info.bar.accesskey;"
+              />
+    <spacer height="10" />
+    <label value="&menu.grouplabel;"
+           class="header"
+           />
+    <checkbox id=        "cbInterfaceMenuApp"
+              preference="prefInterfaceMenuApp" 
+              label=     "&menu.app.label;"
+              accesskey= "&menu.app.accesskey;"
+              />
+    <checkbox preference="prefInterfaceMenuFile" 
+              label=     "&menu.file.label;"
+              accesskey= "&menu.file.accesskey;"
+              />
+    <checkbox preference="prefInterfaceMenuTools" 
+              label=     "&menu.tools.label;"
+              accesskey= "&menu.tools.accesskey;"
+              />
+    <checkbox preference="prefInterfaceMenuPageContext" 
+              label=     "&menu.pagecontext.label;"
+              accesskey= "&menu.pagecontext.accesskey;"
+              />
+    <checkbox id=        "cbInterfaceMenuPageContextForTabs"
+              preference="prefInterfaceMenuPageContextForTabs" 
+              label=     "&menu.pagecontext.tabs.label;"
+              accesskey= "&menu.pagecontext.tabs.accesskey;"
+              class=     "indent"
+              />
+    <checkbox preference="prefInterfaceMenuTabsContext" 
+              label=     "&menu.tabscontext.label;"
+              accesskey= "&menu.tabscontext.accesskey;"
+              />
+  </prefpane>
+
+  <!-- Actions pane -->
+  <prefpane id=   "paneActions"
+            label="&pane.actions.label;"
+            >
+    <label value=    "&action.convertsavedpages.label;"
+           onclick=  "PrefsDialog.onActionConvertSavedPagesClick();"
+           class=    "text-link header"
+           />
+    <description class="indent">
+      &action.convertsavedpages.description;
+    </description>
+    <spacer height="10" />
+    <vbox id="boxShowWelcomePage">
+      <label value=  "&action.showwelcomepage.label;"
+             onclick="PrefsDialog.onActionShowWelcomePageClick();"
+             class=  "text-link header"
+             />
+      <description class="indent">
+        &action.showwelcomepage.description;
+      </description>
+    </vbox>
+    <vbox id="boxShowWelcomePageAssociate" hidden="true">
+      <label value=  "&action.showwelcomepageassociate.label;"
+             onclick="PrefsDialog.onActionShowWelcomePageClick();"
+             class=  "text-link header"
+             />
+      <description id=   "descShowWelcomePageAssociate"
+                   class="indent"
+                   >
+        &action.showwelcomepageassociate.description;
+      </description>
+    </vbox>
+    <spacer height="10" />
+    <label value="&action.visitwebsite.label;"
+           href= "http://mza.mozdev.org/"
+           class="text-link header"
+           />
+    <description id=   "descVisitWebsite"
+                 class="indent"
+                 >
+      &action.visitwebsite.description;
+    </description>
+  </prefpane>
+
+  <!--
+     - Preferences window machinery. These elements must be placed after the
+     -  prefpanes for the prefwindow to work correctly.
+     -->
+  <script type="application/x-javascript"
+          src= "prefsDialog.js"
+          />
+</prefwindow>

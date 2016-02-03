@@ -1,0 +1,22 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "Приветствие MAF">
+<!ENTITY welcome.label "Спасибо за выбор MozArchiver!">
+<!ENTITY features.header.label "Это дополнение улучшает многие функции $brandShortName.">
+<!ENTITY features.headerfromupdate.label "Ваше дополнение обновлено до последней основной версии.">
+<!ENTITY features.item1.label "Страницы сохраняются более точно, они останутся такими, какими вы их видите.">
+<!ENTITY features.item2.label "В единственном файле (веб-архиве) можно сохранить одну или несколько вкладок.">
+<!ENTITY features.item3.label "Название документа теперь используется как имя файла по умолчанию.">
+<!ENTITY features.item4.label "Возможно сохранение HTML5 видео и аудио. И другое!">
+<!ENTITY features.footer.label "Включайте нужные вам функции в настройках дополнения.">
+<!ENTITY features.link.label "Полное описание возможностей дополнения вы найдете на домашней странице MAF (на английском).">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "Хотите ли вы открывать файлы веб-архивов этих форматов с помощью $brandShortName?">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "Если сомневаетесь, отметьте оба формата. Изменения вступят в силу, когда вы закроете эту страницу.">
+<!ENTITY associate.explanation2.label "Вы можете изменить эти настройки через панель управления вашей операционной системы.">
+<!ENTITY associate.error.title "Ошибка при создании файловых ассоциаций">
+<!ENTITY associate.error.msg "При изменении настроек файлового менеджера произошла ошибка: $1.">
+<!ENTITY associate.errortip.msg "Чтобы открывать файлы веб-архивов с помощью $brandShortName, попробуйте создать нужные файловые ассоциации вручную через панель управления вашей операционной системы или повторите попытку в окне настроек MozArchiver.">

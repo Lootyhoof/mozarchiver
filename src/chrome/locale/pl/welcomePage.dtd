@@ -1,0 +1,22 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "Witamy!">
+<!ENTITY welcome.label "Dziękujemy za zainstalowanie MozArchiver!">
+<!ENTITY features.header.label "Ten dodatek wprowadza wiele udoskonaleń funkcji programu $brandShortName.">
+<!ENTITY features.headerfromupdate.label "Dodatek został zaktualizowany do najnowszej wersji.">
+<!ENTITY features.item1.label "Strony internetowe są teraz zapisywane jeszcze dokładniej – otrzymujesz, to co widzisz.">
+<!ENTITY features.item2.label "Można zapisać jedną lub kilka kart w jednym pliku (archiwum sieciowe).">
+<!ENTITY features.item3.label "Tytuł dokumentu jest teraz domyślną nazwą pliku.">
+<!ENTITY features.item4.label "Można zapisać HTML5 audio i wideo i wiele więcej!">
+<!ENTITY features.footer.label "Z poziomu ustawień rozszerzenia można kontrolować włączanie/wyłączanie funkcji.">
+<!ENTITY features.link.label "Przejdź na witrynę dodatku, by poznać jego wszystkie funkcje.">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "Czy chcesz, by te typy archiwów sieciowych były otwierane za pomocą programu $brandShortName?">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "Jeśli nie masz pewności, który typ wybrać – pozostaw zaznaczone oba typy. Funkcja będzie aktywna po zamknięciu tej strony.">
+<!ENTITY associate.explanation2.label "W każdej chwili można zmienić preferencje z poziomu panelu sterowania używanego systemu operacyjnego.">
+<!ENTITY associate.error.title "Błąd tworzenia skojarzeń plików">
+<!ENTITY associate.error.msg "Podczas konfigurowania menedżera plików wystąpił błąd: $1.">
+<!ENTITY associate.errortip.msg "By otwierać archiwa sieciowe za pomocą programu $brandShortName, należy ręcznie, z poziomu panelu sterowania używanego systemu operacyjnego, utworzyć wymagane skojarzenia plików lub z poziomu okna ustawień dokonać ponownej konfiguracji MozArchiver.">

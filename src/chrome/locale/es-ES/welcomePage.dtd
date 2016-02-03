@@ -1,0 +1,22 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "Bienvenido">
+<!ENTITY welcome.label "Guardar por instalar MozArchiver">
+<!ENTITY features.header.label "Muchas características de $brandShortName se han mejorado con este complemento.">
+<!ENTITY features.headerfromupdate.label "Su complemento se ha actualizado a la última versión.">
+<!ENTITY features.item1.label "Las páginas web se guardan con mayor precisión, lo que ve es lo que tiene.">
+<!ENTITY features.item2.label "Puede guardar una más pestañas en un único archivo (archivo web).">
+<!ENTITY features.item3.label "El título del documento es el nombre por defecto del archivo.">
+<!ENTITY features.item4.label "Puede guardar vídeo y audio HTML5, y más!">
+<!ENTITY features.footer.label "Puede controlar qué opciones están habilitadas desde las opciones de la extensión.">
+<!ENTITY features.link.label "Visite la página web para descubrir el resto de características.">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "¿Quiere abrir los archivos de tipo web con $brandShortName?">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "Si no está seguro, deje ambas ocpiones seleccionadas. Se harán efectivas cuando se cierre esta página.">
+<!ENTITY associate.explanation2.label "Puede cambiar esta opción en cualquier momento desde el panel de control de su sistema operativo.">
+<!ENTITY associate.error.title "Error al crear las asociaciones de archivos">
+<!ENTITY associate.error.msg "Se ha producido un error al configurar su administrador de archivos: $1.">
+<!ENTITY associate.errortip.msg "Para poder abrir archivos web con $brandShortName, debe crear la asociación manualmente desde el panel de control de su sistema operativo, o reintentar la operación desde la ventana de opciones de MozArchiver.">

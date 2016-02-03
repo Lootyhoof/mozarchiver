@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "Sélectionner les onglets à enregistrer">
+<!ENTITY savebutton.label "Enregistrer">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "Titre">
+<!ENTITY tabs.location.header "Adresse">
+<!ENTITY tabs.all.label "Tous les onglets de la fenêtre">

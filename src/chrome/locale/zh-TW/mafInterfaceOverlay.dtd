@@ -1,0 +1,10 @@
+<!-- *** Archive information popup *** -->
+<!-- Status of the current page -->
+<!ENTITY archiveinfo.status.normal.label "這頁不是在檔案集之內。">
+<!ENTITY archiveinfo.status.archived.label "這頁是在檔案集之內。">
+<!-- Original address the page was saved from -->
+<!ENTITY archiveinfo.maforiginalurl.label "源自：">
+<!ENTITY archiveinfo.maforiginalurl.missing.label "（不適用）">
+<!-- Date and time the page was archived -->
+<!ENTITY archiveinfo.mafdatearchived.label "檔案集建立時間：">
+<!ENTITY archiveinfo.mafdatearchived.missing.label "（不適用）">

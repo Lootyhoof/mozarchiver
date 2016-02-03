@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "Избери јазичиња за зачувување">
+<!ENTITY savebutton.label "Зачувај">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "Наслов">
+<!ENTITY tabs.location.header "Локација">
+<!ENTITY tabs.all.label "Сите јазичиња во нов прозорец">

@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "Selecione as abas a serem salvas">
+<!ENTITY savebutton.label "Salvar">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "Título">
+<!ENTITY tabs.location.header "Endereço">
+<!ENTITY tabs.all.label "Todas as abas da janela">

@@ -1,0 +1,50 @@
+<!-- General window controls -->
+<!ENTITY window.title.v2 "MozArchiver 설정">
+<!-- Main pane -->
+<!ENTITY pane.main.label "메인">
+<!ENTITY save.format.grouplabel "단일 파일로 저장할 때의 기본 형식:">
+<!ENTITY save.format.maff.label "MAFF (ZIP 기반, 비디오와 오디오 지원)">
+<!ENTITY save.format.maff.accesskey "M">
+<!ENTITY save.format.mhtml.full.label "MHTML (다른 브라우저에서 바로 열 수 있음)">
+<!ENTITY save.format.mhtml.partial.label "MHTML (variant with limited compatibility)">
+<!ENTITY save.format.mhtml.accesskey "H">
+<!ENTITY save.method.grouplabel "전체 페이지를 저장할 때:">
+<!ENTITY save.method.snapshot.label "정확한 스냅샷을 취하기">
+<!ENTITY save.method.snapshot.accesskey "k">
+<!ENTITY save.method.standard.label "브라우저의 기본 저장 사용하기">
+<!ENTITY save.method.standard.accesskey "b">
+<!ENTITY save.namingstrategy.grouplabel "파일 이름을 정하는 방식:">
+<!ENTITY save.namingstrategy.title.label "페이지의 제목 사용">
+<!ENTITY save.namingstrategy.title.accesskey "g">
+<!ENTITY save.namingstrategy.standard.label "브라우저 기본 방식으로">
+<!ENTITY save.namingstrategy.standard.accesskey "w">
+<!-- Interface pane -->
+<!ENTITY pane.interface.label "인터페이스">
+<!ENTITY info.grouplabel "아카이브 페이지가 열려 있을 때:">
+<!ENTITY info.icon.label "주소창에 아이콘 보이기">
+<!ENTITY info.icon.accesskey "S">
+<!ENTITY info.bar.label "정보 막대를 보이기">
+<!ENTITY info.bar.accesskey "D">
+<!ENTITY menu.grouplabel "MozArchiver의 메뉴 항목을 표시할 곳:">
+<!ENTITY menu.app.label "$brandShortName menu">
+<!ENTITY menu.app.accesskey "m">
+<!ENTITY menu.file.label "파일 메뉴">
+<!ENTITY menu.file.accesskey "F">
+<!ENTITY menu.tools.label "도구 메뉴">
+<!ENTITY menu.tools.accesskey "l">
+<!ENTITY menu.pagecontext.label "페이지 오른쪽 클릭 메뉴">
+<!ENTITY menu.pagecontext.accesskey "p">
+<!ENTITY menu.pagecontext.tabs.label "Show items for saving tabs">
+<!ENTITY menu.pagecontext.tabs.accesskey "h">
+<!ENTITY menu.tabscontext.label "탭바 오른쪽 클릭 메뉴">
+<!ENTITY menu.tabscontext.accesskey "x">
+<!-- File associations pane. This pane is visible only on Windows. -->
+<!ENTITY pane.actions.label "동작">
+<!ENTITY action.convertsavedpages.label "저장된 페이지 변환하기">
+<!ENTITY action.convertsavedpages.description "저장된 페이지 변환 마법사가 이전에 저장한 웹 페이지들을 다른 파일 형식으로 변환하는 것을 안내할 것입니다.">
+<!ENTITY action.showwelcomepage.label "환영 페이지 보이기">
+<!ENTITY action.showwelcomepage.description "부가기능을 처음 설치했을 때 나타나는 환영 페이지입니다. 번역가에게 유용한 기능입니다.">
+<!ENTITY action.showwelcomepageassociate.label "파일 연결 새로 고침">
+<!ENTITY action.showwelcomepageassociate.description "환영 페이지에서, 웹 아카이브 파일 형식을 $brandShortName로 열 것인지를 선택할 수 있습니다. 다른 애플리케이션에 의해 파일 연결이 변경된 경우 새로 고칠 수 있습니다.">
+<!ENTITY action.visitwebsite.label "웹사이트 방문">
+<!ENTITY action.visitwebsite.description "MozArchiver은 $brandShortName와 원활하게 통합되어 눈에 띄는 기능의 향상을 제공합니다. 확장 기능에 대한 포괄적인 설명, MAFF 파일 형식에 대한 정보, 고급 설정을 위한 문서를 읽기 위해 공식 웹사이트를 방문할 수 있습니다.">

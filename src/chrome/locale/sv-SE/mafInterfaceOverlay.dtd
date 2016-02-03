@@ -1,0 +1,10 @@
+<!-- *** Archive information popup *** -->
+<!-- Status of the current page -->
+<!ENTITY archiveinfo.status.normal.label "Den här sidan är inte inkluderad i något arkiv.">
+<!ENTITY archiveinfo.status.archived.label "Det här är en arkiverad sida.">
+<!-- Original address the page was saved from -->
+<!ENTITY archiveinfo.maforiginalurl.label "Sparad från:">
+<!ENTITY archiveinfo.maforiginalurl.missing.label "(ingen uppgift)">
+<!-- Date and time the page was archived -->
+<!ENTITY archiveinfo.mafdatearchived.label "Sparad den:">
+<!ENTITY archiveinfo.mafdatearchived.missing.label "(ingen uppgift)">

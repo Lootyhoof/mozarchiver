@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "Выберите вкладки для сохранения">
+<!ENTITY savebutton.label "Сохранить">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "Заголовок">
+<!ENTITY tabs.location.header "Адрес">
+<!ENTITY tabs.all.label "Все вкладки в окне">

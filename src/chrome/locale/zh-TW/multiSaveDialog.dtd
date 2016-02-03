@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "請選擇需要儲存的分頁">
+<!ENTITY savebutton.label "儲存">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "分頁標題">
+<!ENTITY tabs.location.header "位置">
+<!ENTITY tabs.all.label "視窗中的全部分頁">

@@ -1,0 +1,32 @@
+h1 {
+  margin-top: -0.2em;
+  color: blue;
+}
+
+#errorPageContainer {
+  max-width: 55em;
+  background-image: url("chrome://mza-icons/skin/icon64.png");
+  background-color: white;
+  color: black;
+}
+
+#errorTitle, #errorLongContent {
+  -moz-margin-start: 94px;
+}
+
+#errorShortDesc > p {
+  font-weight: bold;
+}
+
+#errorLongDesc {
+  padding-bottom: 0.5em;
+}
+
+#securityOverrideContent {
+  padding: 1px 10px;
+  border: 1px solid ThreeDLightShadow;
+}
+
+.question, .choice {
+  font-weight: bold;
+}

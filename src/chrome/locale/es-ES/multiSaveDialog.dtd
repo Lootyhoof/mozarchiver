@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "Seleccionar las pestañas a guardar">
+<!ENTITY savebutton.label "Guardar">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "Título">
+<!ENTITY tabs.location.header "Ubicación">
+<!ENTITY tabs.all.label "Todas las pestañas en la ventana">

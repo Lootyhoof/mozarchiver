@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "Seleziona schede da salvare">
+<!ENTITY savebutton.label "Salva">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "Titolo">
+<!ENTITY tabs.location.header "Indirizzo">
+<!ENTITY tabs.all.label "Tutte le schede nella finestra">

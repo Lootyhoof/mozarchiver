@@ -1,0 +1,72 @@
+<!-- *** Note *** -->
+<!-- This page is a wizard. When assigning access keys, pay attention to the possible conflicts with the default access keys for the Back, Next, Continue and Finish buttons. -->
+<!-- *** General window controls *** -->
+<!ENTITY window.title "已保存页面转换向导">
+<!ENTITY browsebutton.label "浏览…">
+<!ENTITY continue.label "要继续，请单击“$1”。">
+<!-- *** Introduction *** -->
+<!ENTITY introduction.pagelabel "欢迎使用已保存页面转换向导">
+<!ENTITY introduction.para1.description "本向导将引导您完成自已保存的旧页面到新文件格式的转换过程。">
+<!ENTITY introduction.para2.description "本操作适合于一次性转换多个页面。如果您希望一次性转换一个页面，建议将其打开并直接在浏览器中将其另存为新文件格式。">
+<!ENTITY introduction.visitwebsite.description "Although the conversion process works smoothly in most cases, sometimes the result may not be completely faithful to the original, depending on the selected file formats and save options. In addition, when converting a multi-page archive to a single-page format, only the first page is preserved. It is recommended that you keep a copy of your original files even after a successful conversion.">
+<!ENTITY introduction.visitwebsite.label "Read the online documentation for details.">
+<!ENTITY introduction.continue.label "单击 $1 以开始向导。">
+<!-- *** File format selection *** -->
+<!ENTITY formats.pagelabel "输入与输出的格式">
+<!ENTITY formats.source.grouplabel "转换自：">
+<!ENTITY formats.source.complete.label "完整网页（HTML，包含“files”文件夹）(o)">
+<!ENTITY formats.source.complete.accesskey "o">
+<!ENTITY formats.source.plain.label "一切 HTML 网页（可带“files”文件夹） (o)">
+<!ENTITY formats.source.plain.accesskey "A">
+<!ENTITY formats.source.mhtml.label "MHTML 档案">
+<!ENTITY formats.source.mhtml.accesskey "M">
+<!ENTITY formats.source.maff.label "MAFF 档案">
+<!ENTITY formats.source.maff.accesskey "F">
+<!ENTITY formats.dest.grouplabel "转换至：">
+<!ENTITY formats.dest.maff.label "MAFF 档案 (r)">
+<!ENTITY formats.dest.maff.accesskey "r">
+<!ENTITY formats.dest.mhtml.label "MHTML 档案">
+<!ENTITY formats.dest.mhtml.accesskey "H">
+<!ENTITY formats.dest.complete.label "完整网页（HTML，需要时包含“files”文件夹）(p)">
+<!ENTITY formats.dest.complete.accesskey "p">
+<!ENTITY formats.invalid.label "请选择两不同的文件格式。">
+<!-- *** Source folder selection *** -->
+<!ENTITY folders.source.pagelabel "来源文件夹">
+<!ENTITY folders.source.label "自此文件夹搜寻原始文件 (e)：">
+<!ENTITY folders.source.accesskey "e">
+<!ENTITY folders.source.subfolders.label "包含子文件夹 (s)">
+<!ENTITY folders.source.subfolders.accesskey "s">
+<!ENTITY folders.source.invalid.label "请选择包含原始文件的文件夹。">
+<!-- *** Destination folder selection *** -->
+<!ENTITY folders.dest.pagelabel "目标文件夹">
+<!ENTITY folders.dest.grouplabel "放置转换后的文件：">
+<!ENTITY folders.dest.original.label "与原始文件所在文件夹相同 (s)">
+<!ENTITY folders.dest.original.accesskey "s">
+<!ENTITY folders.dest.folder.label "在这个文件夹（保持相对路径） (t)：">
+<!ENTITY folders.dest.folder.accesskey "t">
+<!ENTITY folders.bin.grouplabel "成功转换后：">
+<!ENTITY folders.bin.original.label "保持原始文件位置（什么也不做）">
+<!ENTITY folders.bin.original.accesskey "L">
+<!ENTITY folders.bin.folder.label "将原始文件移动至（保留相对路径）：">
+<!ENTITY folders.bin.folder.accesskey "M">
+<!ENTITY folders.dest.invalid.label "请指定完整文件夹地址。">
+<!-- *** Candidates selection and conversion *** -->
+<!ENTITY candidates.pagelabel "转换">
+<!ENTITY candidates.description "请查看下面的列表，并选择您想要转换的文件：">
+<!ENTITY candidates.sourcename.header "原始文件名称">
+<!ENTITY candidates.sourcedatafoldername.header "“files”文件夹名">
+<!ENTITY candidates.relativepath.header "所在子文件夹">
+<!ENTITY candidates.sourcepath.header "来源全路径">
+<!ENTITY candidates.destpath.header "目标全路径">
+<!ENTITY candidates.binpath.header "“来源移动至”全路径">
+<!ENTITY candidates.all.label "所有文件">
+<!ENTITY candidates.searchingcounts.label "共找到$1个网页，$2个已转换，$3个被选择（待转换）">
+<!ENTITY candidates.convertingcounts.label "共$1个网页，$2个以前已转换，$3个被选择本次转换，其中$4个成功，$5个失败">
+<!ENTITY candidates.searching.label "正在查找待转换文件…">
+<!ENTITY candidates.none.label "未找到可转换文件。要改变搜寻选项，单击 $1。">
+<!ENTITY candidates.invalid.label "请至少选择一个文件以便转换。">
+<!ENTITY candidates.convert.label "单击转换按钮以转换上面的文件。">
+<!ENTITY candidates.converting.label "转换中，请稍候……">
+<!ENTITY candidates.finish.label "请复检转换结果，并单击 $1 按钮以结束转换过程。">
+<!ENTITY candidates.convertbutton.label "转换">
+<!ENTITY candidates.convertbutton.accesskey "C">

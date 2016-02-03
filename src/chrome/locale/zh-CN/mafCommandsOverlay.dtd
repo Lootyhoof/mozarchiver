@@ -1,0 +1,37 @@
+<!-- Shortcut keys -->
+<!ENTITY command.browseopenarchives.key "M">
+<!ENTITY command.browseopenarchives.modifiers "alt">
+<!-- Menu items for general MozArchiver commands -->
+<!ENTITY menuitem.mafsubmenu.label "MozArchiver">
+<!ENTITY menuitem.mafsubmenu.accesskey.toolsmenu "M">
+<!ENTITY menuitem.browseopenarchives.label "浏览已装载档案 (r)…">
+<!ENTITY menuitem.browseopenarchives.accesskey.toolsmenu "r">
+<!ENTITY menuitem.convertsavedpages.label "转换已保存页面…">
+<!ENTITY menuitem.convertsavedpages.accesskey.toolsmenu "C">
+<!ENTITY menuitem.convertsavedpages.accesskey.filemenu "r">
+<!ENTITY menuitem.options.label "选项…">
+<!ENTITY menuitem.options.accesskey.toolsmenu "O">
+<!-- Additional menu items for the "Save As" command -->
+<!ENTITY menuitem.savetabsinarchiveas.label "选择标签页并保存为 (b)…">
+<!ENTITY menuitem.savetabsinarchive.label "选择标签页并保存为 (b)…">
+<!ENTITY menuitem.savetabsinarchive.accesskey.filemenu "b">
+<!ENTITY menuitem.savetabsinarchive.accesskey.toolsmenu "b">
+<!ENTITY menuitem.savetabsinarchive.accesskey.pagecontextmenu "b">
+<!ENTITY menuitem.savetabsinarchive.accesskey.tabscontextmenu "b">
+<!ENTITY menuitem.savealltabsinarchiveas.label "另存所有标签页为 (S)…">
+<!ENTITY menuitem.savealltabsinarchive.label "另存所有标签页为 (S)…">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.filemenu "S">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.toolsmenu "S">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.pagecontextmenu "A">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.tabscontextmenu "S">
+<!-- Additional menu items for the "Save In Archive" command -->
+<!ENTITY menuitem.savepageinarchiveas.label "另存页面为档案 (g)…">
+<!ENTITY menuitem.savepageinarchive.label.v2 "另存页面为档案 (g)…">
+<!ENTITY menuitem.savepageinarchive.accesskey.filemenu "g">
+<!ENTITY menuitem.savepageinarchive.accesskey.toolsmenu "g">
+<!ENTITY menuitem.savepageinarchive.accesskey.pagecontextmenu "g">
+<!ENTITY menuitem.saveframeinarchiveas.label "保存框架页至档案 (h)…">
+<!ENTITY menuitem.saveframeinarchive.label.v2 "保存框架页至档案 (h)…">
+<!ENTITY menuitem.saveframeinarchive.accesskey.filemenu "h">
+<!ENTITY menuitem.saveframeinarchive.accesskey.toolsmenu "h">
+<!ENTITY menuitem.saveframeinarchive.accesskey.pagecontextmenu "h">

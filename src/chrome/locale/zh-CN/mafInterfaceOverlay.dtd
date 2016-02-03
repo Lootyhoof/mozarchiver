@@ -1,0 +1,10 @@
+<!-- *** Archive information popup *** -->
+<!-- Status of the current page -->
+<!ENTITY archiveinfo.status.normal.label "本页不属于任何一个已载入 MAF 的档案。">
+<!ENTITY archiveinfo.status.archived.label "这是一个 Web 档案中的页面。">
+<!-- Original address the page was saved from -->
+<!ENTITY archiveinfo.maforiginalurl.label "原始地址：">
+<!ENTITY archiveinfo.maforiginalurl.missing.label "（未知位置）">
+<!-- Date and time the page was archived -->
+<!ENTITY archiveinfo.mafdatearchived.label "存档时间：">
+<!ENTITY archiveinfo.mafdatearchived.missing.label "（未知时间）">

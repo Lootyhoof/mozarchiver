@@ -1,0 +1,62 @@
+<!-- *** General window controls *** -->
+<!ENTITY window.title "Arkiv">
+<!-- *** Column names in the archive list *** -->
+<!-- Title of the page -->
+<!ENTITY archives.placestitle.header "Sidrubrik">
+<!-- Name of the archive the page is located into -->
+<!ENTITY archives.mafarchivename.header "Arkivnamn">
+<!-- Address of the archive the page is located into -->
+<!ENTITY archives.placesurl.header "Arkivplats">
+<!-- Title of the page in the archive -->
+<!ENTITY archives.maftitle.header "Ursprunglig sidrubrik">
+<!-- Original address the page was saved from -->
+<!ENTITY archives.maforiginalurl.header "Ursprunglig plats">
+<!-- Date and time the page was archived -->
+<!ENTITY archives.mafdatearchived.header "Arkiverad">
+<!-- Temporary local URL that can be used to display the page -->
+<!ENTITY archives.maftempuri.header "Sidans temporära URL">
+<!-- URL that can be used to display the page accessing the archive directly -->
+<!ENTITY archives.mafdirectarchiveuri.header "Sidans direkt-URL">
+<!-- *** Column names in the details panel *** -->
+<!ENTITY details.placestitle.label "Sidrubrik:">
+<!ENTITY details.placestitle.accesskey "S">
+<!ENTITY details.mafarchivename.label "Arkivnamn:">
+<!ENTITY details.mafarchivename.accesskey "r">
+<!ENTITY details.placesurl.label "Arkivplats:">
+<!ENTITY details.placesurl.accesskey "k">
+<!ENTITY details.maftitle.label "Ursprunglig sidrubrik:">
+<!ENTITY details.maftitle.accesskey "i">
+<!ENTITY details.maforiginalurl.label "Ursprunglig plats:">
+<!ENTITY details.maforiginalurl.accesskey "g">
+<!ENTITY details.mafdatearchived.label "Arkiverad:">
+<!ENTITY details.mafdatearchived.accesskey "v">
+<!ENTITY details.maftempuri.label "Sidans temporära URL:">
+<!ENTITY details.maftempuri.accesskey "t">
+<!ENTITY details.mafdirectarchiveuri.label "Sidans direkt-URL:">
+<!ENTITY details.mafdirectarchiveuri.accesskey "d">
+<!-- *** Details panel *** -->
+<!ENTITY details.caption "Detaljer">
+<!ENTITY morebutton.label "Mer detaljerat">
+<!-- Note: If possible, keep the same as "lessbutton.accesskey" -->
+<!ENTITY morebutton.accesskey "e">
+<!ENTITY lessbutton.label "Mindre detaljerat">
+<!-- Note: If possible, keep the same as "morebutton.accesskey" -->
+<!ENTITY lessbutton.accesskey "e">
+<!-- Displayed in the details textboxes when multiple items are selected -->
+<!ENTITY multipleitems.text "(fler än ett objekt har markerats)">
+<!-- The following button is repeated for every URL field -->
+<!ENTITY openintabsbutton.label "Öppna i flikar">
+<!ENTITY openintabsbutton.accesskey.placesurl "Ö">
+<!ENTITY openintabsbutton.accesskey.originalurl "n">
+<!ENTITY openintabsbutton.accesskey.tempuri "f">
+<!ENTITY openintabsbutton.accesskey.directarchiveuri "l">
+<!-- *** Other controls *** -->
+<!-- Allows the user to add archives to the list, without opening them -->
+<!ENTITY addbutton.label "Lägg till…">
+<!ENTITY addbutton.accesskey "L">
+<!-- Title of the add archives dialog -->
+<!ENTITY addfilepicker.title "Lägg till fler webbarkiv">
+<!-- Removes an archive from the list, without deleting the file -->
+<!ENTITY deletebutton.label "Stryk">
+<!ENTITY deletebutton.accesskey "y">
+<!ENTITY deletebutton.accesskey.placescontextmenu "y">

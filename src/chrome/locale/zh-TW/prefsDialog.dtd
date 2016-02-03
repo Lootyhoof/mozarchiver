@@ -1,0 +1,50 @@
+<!-- General window controls -->
+<!ENTITY window.title.v2 "MozArchiver 選項">
+<!-- Main pane -->
+<!ENTITY pane.main.label "主要">
+<!ENTITY save.format.grouplabel "當儲存單一檔案時的默認格式：">
+<!ENTITY save.format.maff.label "MAFF 網絡檔案集 (基於 ZIP 格式；支援影片和音訊)">
+<!ENTITY save.format.maff.accesskey "M">
+<!ENTITY save.format.mhtml.full.label "MHTML (can be opened directly by some other browsers)">
+<!ENTITY save.format.mhtml.partial.label "MHTML (variant with limited compatibility)">
+<!ENTITY save.format.mhtml.accesskey "H">
+<!ENTITY save.method.grouplabel "When saving a complete page:">
+<!ENTITY save.method.snapshot.label "Take an exact snapshot">
+<!ENTITY save.method.snapshot.accesskey "k">
+<!ENTITY save.method.standard.label "Use browser's standard save system">
+<!ENTITY save.method.standard.accesskey "b">
+<!ENTITY save.namingstrategy.grouplabel "建議檔案名稱：">
+<!ENTITY save.namingstrategy.title.label "Use the title of the page">
+<!ENTITY save.namingstrategy.title.accesskey "g">
+<!ENTITY save.namingstrategy.standard.label "使用瀏覽器的標準命名方法">
+<!ENTITY save.namingstrategy.standard.accesskey "w">
+<!-- Interface pane -->
+<!ENTITY pane.interface.label "介面">
+<!ENTITY info.grouplabel "When an archived page is opened:">
+<!ENTITY info.icon.label "Show icon in the location bar">
+<!ENTITY info.icon.accesskey "S">
+<!ENTITY info.bar.label "Display an information bar">
+<!ENTITY info.bar.accesskey "D">
+<!ENTITY menu.grouplabel "顯示 MozArchiver 選單項於：">
+<!ENTITY menu.app.label "$brandShortName 選單">
+<!ENTITY menu.app.accesskey "m">
+<!ENTITY menu.file.label "「檔案」選單">
+<!ENTITY menu.file.accesskey "F">
+<!ENTITY menu.tools.label "「工具」選單">
+<!ENTITY menu.tools.accesskey "l">
+<!ENTITY menu.pagecontext.label "網頁內容選單">
+<!ENTITY menu.pagecontext.accesskey "P">
+<!ENTITY menu.pagecontext.tabs.label "顯示儲存分頁的項目">
+<!ENTITY menu.pagecontext.tabs.accesskey "h">
+<!ENTITY menu.tabscontext.label "分頁工具列內容選單">
+<!ENTITY menu.tabscontext.accesskey "x">
+<!-- File associations pane. This pane is visible only on Windows. -->
+<!ENTITY pane.actions.label "功能">
+<!ENTITY action.convertsavedpages.label "轉換已存網頁">
+<!ENTITY action.convertsavedpages.description "轉換已存網頁精靈會指導你如何轉換你以前儲存過的網頁到其他檔案格式。">
+<!ENTITY action.showwelcomepage.label "顯示歡迎頁面">
+<!ENTITY action.showwelcomepage.description "歡迎頁面會在這個附加元件首次安裝時被顯示，而且會提供這個元件功能的概要。對翻譯者要檢查自己的工作品質來說，這是非常重要。">
+<!ENTITY action.showwelcomepageassociate.label "重新連繫檔案類型關聯">
+<!ENTITY action.showwelcomepageassociate.description "從歡迎頁面，你可以選擇哪個網頁檔案集你希望用 $brandShortName 來開啟。另外，如果其他程式改變了檔案類型關䏈，你亦可以重新載入檔案類型關聯。">
+<!ENTITY action.visitwebsite.label "瀏覽網站">
+<!ENTITY action.visitwebsite.description "MozArchiver 與 $brandShortName 結合爲一體來爲大部份顯而易見的的功能提供許多進步。你可以瀏覽官方網站來細看廣泛的功能介紹、有關 MAFF 檔案格式的資料和高階設置選項的使用說明。">

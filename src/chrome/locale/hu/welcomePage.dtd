@@ -1,0 +1,22 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "Üdvözlet">
+<!ENTITY welcome.label "Köszönet a MozArchiver telepítéséért!">
+<!ENTITY features.header.label "A $brandShortName böngésző több jellemzőjét terjeszti ki ez a kiegészítő.">
+<!ENTITY features.headerfromupdate.label "A kiegészítő a legfrissebb fő verzióra frissített.">
+<!ENTITY features.item1.label "A weblapok mentése pontosabb lett, azt kapod, amit látsz.">
+<!ENTITY features.item2.label "Egy vagy több lapot el tudsz menteni egyetlen fájlba (webarchívumba).">
+<!ENTITY features.item3.label "Mostantól a weboldal címe lett az alapértelmezett fájlnév.">
+<!ENTITY features.item4.label "Képes menteni a HTML5 videót, hangot és más elemeket!">
+<!ENTITY features.footer.label "Irányíthatod, hogy mely jellemzők legyenek elérhetők a kiegészítés beállításai közül.">
+<!ENTITY features.link.label "Látogasd meg a honlapot, hogy felfedezhesd az összes jellemzőt">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "A $brandShortName böngészőben akarod megnyitni a következő webarchívum fájltípusokat?">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "Ha bizonytalan vagy, hagyd mindkét opciót kiválasztva. Az oldal bezárásával lépnek életbe a változások.">
+<!ENTITY associate.explanation2.label "Bármikor meg tudod változtatni a beállításaid az operációs rendszer vezérlőpultjáról.">
+<!ENTITY associate.error.title "Hiba a fájltársítás létrehozásakor">
+<!ENTITY associate.error.msg "Hiba történt a fájlkezelés beállításakor: $1.">
+<!ENTITY associate.errortip.msg "A webarchívum $brandShortName böngészőben megnyitásához manuálisan létre kell hoznod a szükséges fájltársításokat az operációs rendszer vezérlőpultján, vagy újra meg kell próbálnod a MozArchiver beállítások ablakában a társítást.">

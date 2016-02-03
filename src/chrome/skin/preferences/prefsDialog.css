@@ -1,0 +1,33 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/*
+ * Note: This stylesheet references content stored outside of the extension's
+ * skin. It might not be compatible with all versions of Firefox or all Firefox
+ * themes.
+ */
+
+prefwindow radio[pane] {
+  /* This image is overridden with the one from the current theme in Firefox. */
+  list-style-image: url(Options.png);
+  padding: 5px 3px 1px;
+}
+
+prefwindow radio[pane="paneMain"] {
+  -moz-image-region: rect(0px, 32px,  32px, 0px)
+}
+
+prefwindow radio[pane="paneInterface"] {
+  -moz-image-region: rect(0px, 96px,  32px, 64px)
+}
+
+prefwindow radio[pane="paneActions"] {
+  -moz-image-region: rect(0px, 128px,  32px, 96px)
+}
+
+/**
+ * This style constrains the default prefwindow width, and is required because
+ * of the presence of long wrappable text.
+ */
+prefwindow description {
+  width: 30em;
+}

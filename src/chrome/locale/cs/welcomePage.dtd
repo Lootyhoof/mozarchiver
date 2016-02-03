@@ -1,0 +1,22 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "Zdravím!">
+<!ENTITY welcome.label "Díky za instalaci rozšíření MozArchiver!">
+<!ENTITY features.header.label "Toto rozšíření vylepšuje mnoho funkcí v prohlížeči $brandShortName.">
+<!ENTITY features.headerfromupdate.label "Vaše rozšíření bylo aktualizováno na nejnovější hlavní verzi.">
+<!ENTITY features.item1.label "Webové stránky jsou uloženy přesněji, dostanete to, co vidíte.">
+<!ENTITY features.item2.label "Jeden nebo více panelů můžete uložit do jednoho archívu.">
+<!ENTITY features.item3.label "Výchozím jménem souboru je nyní název dokumentu.">
+<!ENTITY features.item4.label "Uložit můžete video a audio a více v HTML5!">
+<!ENTITY features.footer.label "Můžete určit, které funkce jsou v rozšíření povoleny.">
+<!ENTITY features.link.label "Navštivte webové stránky rozšíření a objevte i všechny ostatní funkce.">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "Chcete tyto webové archívy otevírat pomocí prohlížeče $brandShortName?">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "Pokud si nejste jisti, ponechte výběr obou možností. Výsledek se projeví po zavření této stránky.">
+<!ENTITY associate.explanation2.label "Své předvolby můžete kdykoli změnit z ovládacích panelů operačního systému.">
+<!ENTITY associate.error.title "Chyba při vytváření asociací souborů">
+<!ENTITY associate.error.msg "Došlo k chybě při nastavení Vašeho souborového správce: $1.">
+<!ENTITY associate.errortip.msg "Aby bylo možné otevřít webové archivy pomocí prohlížeče $brandShortName, je nutné nastavit asociaci souboru ručně z ovládacích panelů operačního systému nebo zopakovat akci z menu Možností MozArchiver.">

@@ -1,0 +1,10 @@
+<!-- *** Archive information popup *** -->
+<!-- Status of the current page -->
+<!ENTITY archiveinfo.status.normal.label "Оваа страница не е содржана во архива.">
+<!ENTITY archiveinfo.status.archived.label "Ова е архивирана страница.">
+<!-- Original address the page was saved from -->
+<!ENTITY archiveinfo.maforiginalurl.label "Зачувано од:">
+<!ENTITY archiveinfo.maforiginalurl.missing.label "(не е достапно)">
+<!-- Date and time the page was archived -->
+<!ENTITY archiveinfo.mafdatearchived.label "Зачувано на:">
+<!ENTITY archiveinfo.mafdatearchived.missing.label "(не е достапно)">

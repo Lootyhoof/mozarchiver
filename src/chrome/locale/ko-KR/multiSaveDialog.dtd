@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "선택된 탭 저장">
+<!ENTITY savebutton.label "저장">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "제목">
+<!ENTITY tabs.location.header "위치">
+<!ENTITY tabs.all.label "이 창의 모든 탭">
