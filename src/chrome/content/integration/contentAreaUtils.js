@@ -453,9 +453,21 @@ function internalPersist(persistArgs, /* For MAF */ aSkipPrompt)
                                     .getInterface(Components.interfaces.nsIWebNavigation)
                                     .QueryInterface(Components.interfaces.nsILoadContext);
 
-    persist.saveURI(persistArgs.sourceURI,
-                    persistArgs.sourceCacheKey, persistArgs.sourceReferrer, persistArgs.sourcePostData, null,
-                    targetFileURL, privacyContext);
+    // Checks if the host application runs a platform version prior to Goanna version 3.
+    let platformVersion = Cc["@mozilla.org/xre/app-info;1"]
+                            .getService(Ci.nsIXULAppInfo).platformVersion;
+    if (Cc["@mozilla.org/xpcom/version-comparator;1"]
+          .getService(Ci.nsIVersionComparator)
+          .compare(platformVersion, "3.*") <= 0) {
+      persist.saveURI(persistArgs.sourceURI,
+                      persistArgs.sourceCacheKey, persistArgs.sourceReferrer, persistArgs.sourcePostData, null,
+                      targetFileURL, privacyContext);
+    } else {
+      persist.saveURI(persistArgs.sourceURI,
+                      persistArgs.sourceCacheKey, persistArgs.sourceReferrer,
+                      Components.interfaces.nsIHttpChannel.REFERRER_POLICY_NO_REFERRER_WHEN_DOWNGRADE,
+                      persistArgs.sourcePostData, null, targetFileURL, privacyContext);
+    }
   }
 }
 
