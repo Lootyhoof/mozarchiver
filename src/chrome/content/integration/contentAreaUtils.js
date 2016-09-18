@@ -458,7 +458,7 @@ function internalPersist(persistArgs, /* For MAF */ aSkipPrompt)
                             .getService(Ci.nsIXULAppInfo).platformVersion;
     if (Cc["@mozilla.org/xpcom/version-comparator;1"]
           .getService(Ci.nsIVersionComparator)
-          .compare(platformVersion, "3.*") <= 0) {
+          .compare(platformVersion, "3.0.0") < 0) {
       persist.saveURI(persistArgs.sourceURI,
                       persistArgs.sourceCacheKey, persistArgs.sourceReferrer, persistArgs.sourcePostData, null,
                       targetFileURL, privacyContext);
