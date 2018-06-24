@@ -17,8 +17,6 @@ pref("extensions.mza.interface.menu.tools", true);
 pref("extensions.mza.interface.menu.pagecontext", false);
 pref("extensions.mza.interface.menu.pagecontext.tabs", false);
 pref("extensions.mza.interface.menu.tabscontext", true);
-pref("extensions.mza.other.beta", false);
-pref("extensions.mza.other.displayupdatebetapage", true);
 pref("extensions.mza.other.displaywelcome", true);
 pref("extensions.mza.other.displaywelcomepage", true);
 pref("extensions.mza.other.displayE10Snotice", true);

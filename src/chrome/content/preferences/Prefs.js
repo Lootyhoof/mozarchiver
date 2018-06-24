@@ -148,27 +148,6 @@ var Prefs = {
   },
 
   /**
-   * Set to true if a beta version of the add-on has previously been installed.
-   */
-  get otherBeta() {
-    return this.prefBranchForMaf.getBoolPref("other.beta");
-  },
-  set otherBeta(aValue) {
-    this.prefBranchForMaf.setBoolPref("other.beta", aValue);
-  },
-
-  /**
-   * Returns true if the page offering the update to the Beta Channel was never
-   * displayed on startup.
-   */
-  get otherDisplayUpdateBetaPage() {
-    return this.prefBranchForMaf.getBoolPref("other.displayupdatebetapage");
-  },
-  set otherDisplayUpdateBetaPage(aValue) {
-    this.prefBranchForMaf.setBoolPref("other.displayupdatebetapage", aValue);
-  },
-
-  /**
    * Returns false only if a previous version of the extension was installed on
    * the same profile, indicating that the header of the welcome page should be
    * changed accordingly.
