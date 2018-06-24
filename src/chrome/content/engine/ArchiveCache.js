@@ -68,8 +68,6 @@ var ArchiveCache = {
       if (page.directArchiveUri) {
         this._pagesByDirectArchiveUri[page.directArchiveUri.spec] = page;
       }
-      // Add places annotations for the cached page.
-      ArchiveAnnotations.setAnnotationsForPage(page);
     }
   },
 
@@ -98,8 +96,6 @@ var ArchiveCache = {
       if (page.directArchiveUri) {
         delete this._pagesByDirectArchiveUri[page.directArchiveUri.spec];
       }
-      // Clear the obsolete places annotations for the page.
-      ArchiveAnnotations.removeAnnotationsForPage(page);
     }
   },
 

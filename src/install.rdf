@@ -5,17 +5,35 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>mozarchiver@lootyhoof-pm</em:id>
-    <em:version>1.0.2</em:version>
+    <em:version>2.0.0b1</em:version>
     <em:type>2</em:type>
+    <em:multiprocessCompatible>false</em:multiprocessCompatible>
 
     <!-- Target Application this extension can install into,
         with minimum and maximum supported versions. -->
+     <!-- Basilisk/Waterfox -->
     <em:targetApplication>
       <Description>
-        <!-- Pale Moon -->
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+        <em:minVersion>52.0</em:minVersion>
+        <em:maxVersion>56.*</em:maxVersion>
+        <em:basilisk>true</em:basilisk>
+      </Description>
+    </em:targetApplication>
+    <!-- Pale Moon -->
+    <em:targetApplication>
+      <Description>
         <em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
-        <em:minVersion>26.0</em:minVersion>
-        <em:maxVersion>27.*</em:maxVersion>
+        <em:minVersion>27.0</em:minVersion>
+        <em:maxVersion>28.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+     <!-- SeaMonkey -->
+    <em:targetApplication>
+      <Description>
+        <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+        <em:minVersion>2.46</em:minVersion>
+        <em:maxVersion>2.49.*</em:maxVersion>
       </Description>
     </em:targetApplication>
 
@@ -24,7 +42,7 @@
     <em:description>Save exactly what you see, in a single file. MAFF (based on ZIP) is compact and exceptional for video and audio. MHT (Internet Explorer's format) allows easy exchange with IE users. Store many tabs, find original, and more!</em:description>
     <em:creator>Lootyhoof</em:creator>
     <em:developer>Paolo Amadini</em:developer>
-	<em:developer>Christopher Ottley</em:developer>
+    <em:developer>Christopher Ottley</em:developer>
     <em:contributor>Ueli Lezzi</em:contributor>
     <!-- Translators using BabelZilla -->
     <em:translator>cs: hooonza</em:translator>
@@ -41,6 +59,7 @@
     <em:translator>pt-BR: petruc</em:translator>
     <em:translator>ro: Cătălin ZAMFIRESCU (x10firefox)</em:translator>
     <em:translator>ru: Hr. Burunduk</em:translator>
+    <em:translator>sl-SI: Peter Klofutar</em:translator>
     <em:translator>sv-SE: Mikael Hiort af Ornäs</em:translator>
     <em:translator>tr: Ersen Yoldaç</em:translator>
     <em:translator>zh-CN: 虞海</em:translator>

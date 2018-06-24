@@ -55,38 +55,133 @@ function SaveContentJob(aEventListener, aDocument, aTargetDir) {
 
 SaveContentJob.prototype = {
   __proto__: Job.prototype,
+  QueryInterface: XPCOMUtils.generateQI([
+    Ci.nsIWebProgressListener,
+    Ci.nsIWebProgressListener2,
+  ]),
+
+  /**
+   * If set to true, resources that were not originally loaded will be
+   * downloaded and included when saving.
+   */
+  saveWithNotLoadedResources: false,
 
   // Job
   _executeStart: function() {
+    let document = this._document;
+    let contentType = document.contentType;
+
+    // Find the leaf name of the file to be saved. If the content we are saving
+    // has a known document type, use the well-known extension for that type,
+    // and save the complete web page if necessary.
+    let saveCompletePage = true;
+    let indexLeafName = "index";
+    switch (contentType) {
+      case "text/html":
+        indexLeafName += ".html";
+        break;
+      case "application/xhtml+xml":
+        indexLeafName += ".xhtml";
+        break;
+      case "image/svg+xml":
+        indexLeafName += ".svg";
+        break;
+      case "text/xml":
+      case "application/xml":
+        indexLeafName += ".xml";
+        break;
+      case "text/plain":
+      case "application/octet-stream":
+        saveCompletePage = false;
+        break;
+      default:
+        saveCompletePage = false;
+        let primaryExtension = Cc["@mozilla.org/mime;1"]
+         .getService(Ci.nsIMIMEService).getPrimaryExtension(contentType, "");
+        if (primaryExtension) {
+          indexLeafName += "." + primaryExtension;
+        }
+    }
+
+    let targetFile = this._targetDir.clone();
+    targetFile.append(indexLeafName);
+
     // Create a new MAFF or MHTML archive.
     if (this.targetType == "TypeMHTML") {
       this._archive = new MhtmlArchive(this.targetFile);
     } else {
       this._archive = new MaffArchive(this.targetFile);
     }
+
     // Prepare a new page object for saving the current page in the archive.
     // This operation must be executed immediately since the metadata for the
     // page may not be available later, for example if the browser window where
     // the document is loaded is closed while the document is being saved.
-    var page = this._archive.addPage();
+    let page = this._archive.addPage();
     page.tempDir = this._targetDir;
-    page.setMetadataFromDocumentAndBrowser(this._document, this.targetBrowser);
-    // Create the target folder.
+    page.indexLeafName = indexLeafName;
+    page.setMetadataFromDocumentAndBrowser(document, this.targetBrowser);
+
+    let persist;
+    if (contentType == "text/html" || contentType == "application/xhtml+xml") {
+      // The ExactPersist component can also save XML and SVG, but not as
+      // accurately as the browser's standard save system.
+      persist = new ExactPersist();
+      persist.saveWithMedia = this.targetType == "TypeMAFF";
+      persist.saveWithContentLocation = this.targetType == "TypeMHTML";
+      persist.saveWithNotLoadedResources = this.saveWithNotLoadedResources;
+      // Use the data from the persist object for proper archiving later.
+      this._persistObject = persist;
+    } else {
+      persist = Cc["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"]
+       .createInstance(Ci.nsIWebBrowserPersist);
+    }
+    persist.progressListener = this;
+    persist.persistFlags =
+     Ci.nsIWebBrowserPersist.PERSIST_FLAGS_REPLACE_EXISTING_FILES |
+     Ci.nsIWebBrowserPersist.PERSIST_FLAGS_FORCE_ALLOW_COOKIES |
+     Ci.nsIWebBrowserPersist.PERSIST_FLAGS_FROM_CACHE |
+     Ci.nsIWebBrowserPersist.PERSIST_FLAGS_AUTODETECT_APPLY_CONVERSION;
+
     this._targetDir.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
-    // Find the browser window associated with the document being saved.
-    var browserWindow = this._document.defaultView.
-     QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIWebNavigation).
-     QueryInterface(Ci.nsIDocShellTreeItem).rootTreeItem.
-     QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindow);
-    // Save the document in the target folder.
-    browserWindow.wrappedJSObject.saveDocument(this._document, {
-      saveDir: this._targetDir,
-      saveWithMedia: (this.targetType == "TypeMAFF"),
-      saveWithContentLocation: (this.targetType == "TypeMHTML"),
-      mafEventListener: this
-    });
-    // Wait for the save completed callback.
-    this._asyncWorkStarted();
+    try {
+      if (saveCompletePage) {
+        let filesFolder = this._targetDir.clone();
+        filesFolder.append("index_files");
+        persist.saveDocument(
+          document,
+          NetUtil.newURI(targetFile),
+          filesFolder,
+          null,
+          Ci.nsIWebBrowserPersist.ENCODE_FLAGS_ENCODE_BASIC_ENTITIES,
+          80
+        );
+      } else {
+        let postData = null;
+        try {
+          postData = document.defaultView
+           .QueryInterface(Ci.nsIInterfaceRequestor)
+           .getInterface(Ci.nsIWebNavigation)
+           .QueryInterface(Ci.nsIWebPageDescriptor)
+           .currentDescriptor
+           .QueryInterface(Ci.nsISHEntry)
+           .postData;
+        } catch (ex) { }
+        persist.savePrivacyAwareURI(
+          document.documentURIObject,
+          null,
+          document.referrer ? NetUtil.newURI(document.referrer) : null,
+          Ci.nsIHttpChannel.REFERRER_POLICY_NO_REFERRER_WHEN_DOWNGRADE,
+          postData,
+          null,
+          NetUtil.newURI(targetFile),
+          PrivateBrowsingUtils.isContentWindowPrivate(document.defaultView)
+        );
+      }
+    } catch (ex) {
+      this._removeTargetDir();
+      throw ex;
+    }
   },
 
   // Job
@@ -95,80 +190,69 @@ SaveContentJob.prototype = {
     // cancellation.
   },
 
-  // Job
-  _executeDispose: function() {
-    // Delete the target folder if it was created successfully.
-    if(this._targetDir.exists()) {
-      this._targetDir.remove(true);
-    }
+  // nsIWebProgressListener
+  onStateChange: function(aWebProgress, aRequest, aStateFlags, aStatus) {
+    this._handleAsyncCallback(function() {
+      if (this._persistCompleted) {
+        return;
+      }
+
+      if (aStatus != Cr.NS_OK) {
+        this._persistCompleted = true;
+
+        // Cancel the operation because the download failed.
+        Cu.reportError(new Components.Exception("Download failed.", aStatus));
+        this._removeTargetDir();
+        this.cancel(aStatus);
+
+      } else if ((aStateFlags & Ci.nsIWebProgressListener.STATE_STOP) &&
+       (aStateFlags & Ci.nsIWebProgressListener.STATE_IS_NETWORK)) {
+        this._persistCompleted = true;
+
+        // The save operation completed and we can add the files to the archive.
+        try {
+          // Add to an existing MAFF archive if required.
+          if (this.addToArchive) {
+            this._archive.load();
+          }
+          this._archive.pages[0].save(this._persistObject);
+        } finally {
+          this._removeTargetDir();
+        }
+        this._invalidateCachedArchive();
+        this._notifyCompletion();
+      }
+    }, this);
   },
 
-  // MafEventListener
-  onSaveNameDetermined: function(aSaveName) {
-    // Remember the name that the save component has chosen for the index file.
-    this._archive.pages[0].indexLeafName = aSaveName;
-  },
-
-  // MafEventListener
-  onDownloadProgressChange: function(aWebProgress, aRequest, aCurSelfProgress,
+  // nsIWebProgressListener
+  onProgressChange: function(aWebProgress, aRequest, aCurSelfProgress,
    aMaxSelfProgress, aCurTotalProgress, aMaxTotalProgress) {
-    // Update job progress and propagate the event to our listener.
-    this._notifyJobProgressChange(aWebProgress, aRequest, aCurSelfProgress,
+    this.onProgressChange64(aWebProgress, aRequest, aCurSelfProgress,
      aMaxSelfProgress, aCurTotalProgress, aMaxTotalProgress);
   },
 
-  // MafEventListener
-  onDownloadStatusChange: function(aWebProgress, aRequest, aStatus, aMessage) {
-    // Propagate the event to our listener.
+  // nsIWebProgressListener
+  onLocationChange: function() {},
+
+  // nsIWebProgressListener
+  onStatusChange: function(aWebProgress, aRequest, aStatus, aMessage) {
     this._eventListener.onStatusChange(aWebProgress, aRequest, aStatus,
      aMessage);
   },
 
-  // MafEventListener
-  onDownloadFailed: function(aStatus) {
-    this._handleAsyncCallback(function() {
-      // Cancel the operation because the download failed.
-      Cu.reportError(new Components.Exception("Download failed.", aStatus));
-      this.cancel(aStatus);
-    }, this);
+  // nsIWebProgressListener
+  onSecurityChange: function() {},
+
+  // nsIWebProgressListener2
+  onProgressChange64: function(aWebProgress, aRequest, aCurSelfProgress,
+   aMaxSelfProgress, aCurTotalProgress, aMaxTotalProgress) {
+    this._notifyJobProgressChange(aWebProgress, aRequest, aCurSelfProgress,
+     aMaxSelfProgress, aCurTotalProgress, aMaxTotalProgress);
   },
 
-  // MafEventListener
-  onDownloadComplete: function() {
-    this._handleAsyncCallback(function() {
-      // Add to an existing MAFF archive if required.
-      if (this.addToArchive) {
-        this._archive.load();
-      }
-      // If the page can be saved asynchronously
-      var page = this._archive.pages[0];
-      if (page.asyncSave) {
-        // Save and wait for the callback from the worker object.
-        this._expectAsyncCallback(function() {
-          page.asyncSave(this);
-        }, this);
-      } else {
-        // Save the page synchronously.
-        page.save();
-        this._invalidateCachedArchive();
-        this._notifyCompletion();
-      }
-    }, this);
-  },
-
-  // ArchivePageCallback
-  onArchivingComplete: function(code) {
-    this._handleAsyncCallback(function() {
-      if (code != 0) {
-        // Cancel the operation if archiving failed.
-        this.cancel(Cr.NS_ERROR_FAILURE);
-      } else {
-        // Archiving completed.
-        this._invalidateCachedArchive();
-        this._notifyCompletion();
-      }
-    }, this);
-  },
+  // nsIWebProgressListener2
+  onRefreshAttempted: function() {},
 
   /**
    * At the end of the save operation of each page, this function is called to
@@ -181,7 +265,20 @@ SaveContentJob.prototype = {
     }
   },
 
+  /**
+   * Remove the temporary folder after completion or failure.
+   */
+  _removeTargetDir: function() {
+    try {
+      this._targetDir.remove(true);
+    } catch (ex) {
+      Cu.reportError(ex);
+    }
+  },
+
   _archive: null,
   _document: null,
   _targetDir: null,
+  _persistObject: null,
+  _persistCompleted: false,
 }

@@ -69,7 +69,7 @@ SourceFragment.prototype = {
     }
 
     // Reconstruct the source data from the parsed objects.
-    return [fragment.sourceData for each (fragment in this)].join("");
+    return [for (fragment of Iterator(this)) fragment.sourceData].join("");
   },
   set sourceData(aValue) {
     // When there is new data, it is initially unparsed.

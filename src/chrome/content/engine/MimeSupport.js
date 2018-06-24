@@ -650,7 +650,7 @@ var MimeSupport = {
                 // except that the underscore ("_") must be translated to space
                 // before the operation.
                 octets = MimeSupport.decodeQuotedPrintable(
-                 aText.replace("_", "=20", "g"));
+                 aText.replace(/_/g, "=20"));
                 break;
               default:
                 // The encoding is unknown, stop now and don't alter the word.

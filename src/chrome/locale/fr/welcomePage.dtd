@@ -5,7 +5,6 @@
 <!ENTITY features.headerfromupdate.label "Votre extension a été mise à jour à la dernière version majeure.">
 <!ENTITY features.item1.label "Les pages web sont enregistrées plus correctement, ce que vous voyez est ce que vous obtenez.">
 <!ENTITY features.item2.label "Vous pouvez enregistrer plus qu'un onglet dans un seul fichier (archive web)">
-<!ENTITY features.item3.label "Le titre du document est maintenant le nom du fichier par défaut.">
 <!ENTITY features.item4.label "Vous pouvez enregistrer les sons et vidéos HTML5, et bien plus encore !">
 <!ENTITY features.footer.label "Vous pouvez contrôler quelles fonctionnalités sont activées depuis les options de l'extension.">
 <!ENTITY features.link.label "Visitez le site web pour découvrir toutes les autres fonctionnalités.">

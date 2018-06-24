@@ -235,7 +235,7 @@ PersistFolder.prototype = {
     if (!extension) {
       // Ensure that the base name does not contain parts that may be mistaken
       // as a file extension, and return an empty extension.
-      return [aFileName.replace(".", "_", "g"), ""];
+      return [aFileName.replace(/\./g, "_"), ""];
     }
     // If not empty, the returned extension includes a leading dot.
     extension = "." + extension;

@@ -1,0 +1,21 @@
+<!-- *** Welcome message and feature presentation *** -->
+<!ENTITY page.title "Pozdravljeni">
+<!ENTITY welcome.label "Hvala za namestitev dodatka MozArchiver!">
+<!ENTITY features.header.label "Ta dodatek izboljša številne funkcije $brandShortNamea.">
+<!ENTITY features.headerfromupdate.label "Vaš dodatek je posodobljen na najnovejšo večjo različico,">
+<!ENTITY features.item1.label "Spletne strani so shranjene bolj natančno, kar vidite, to dobite.">
+<!ENTITY features.item2.label "Lahko shranite enega ali več zavihkov v eno datoteko (spletni arhiv).">
+<!ENTITY features.item4.label "Lahko shranite video in zvok HTML5 in več!">
+<!ENTITY features.footer.label "Lahko nadzirate, katere značilnosti so omogočene iz možnosti dodatka.">
+<!ENTITY features.link.label "Obiščite spletno mesto, da odkrijete vse ostale značilnosti.">
+<!-- *** File associations *** -->
+<!ENTITY associate.question.label "Ali želite odpreti te vrste datotek spletnih arhivov s $brandShortNameom?">
+<!ENTITY associate.maff.label "MAFF">
+<!ENTITY associate.maff.accesskey "M">
+<!ENTITY associate.mhtml.label "MHTML">
+<!ENTITY associate.mhtml.accesskey "H">
+<!ENTITY associate.explanation1.label "Če niste prepričani, pustite obe možnosti izbrane. Začele bodo veljati, ko bo ta stran zaprta.">
+<!ENTITY associate.explanation2.label "Vaše nastavitve lahko spremenite kadarkoli iz nadzorne plošče vašega operacijskega sistema.">
+<!ENTITY associate.error.title "Napaka pri ustavrjanju datotečnih povezav">
+<!ENTITY associate.error.msg "Med nastavljanjem vašega upravljalca datotek je prišlo do napake: $1.">
+<!ENTITY associate.errortip.msg "Za odpiranje spletnih arhivov s $brandShortNameom morate ročno ustvariti datotečne povezave iz nadzorne plošče vašega operacijskega sistema ali pa to ponovno poskusite opraviti iz okna možnosti dodatka MozArchiver.">

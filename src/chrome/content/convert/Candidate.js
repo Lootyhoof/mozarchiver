@@ -472,30 +472,44 @@ Candidate.prototype = {
    * Starts the save operation, which is the second step of the conversion.
    */
   _startSaving: function() {
-    // Select the save behavior that is appropriate for the destination format.
-    var saveBehavior;
-    switch (this.destFormat) {
-      case "mhtml":
-        saveBehavior = this.conversionWindow.gMafMhtmlSaveBehavior;
-        break;
-      case "maff":
-        saveBehavior = this.conversionWindow.gMafMaffSaveBehavior;
-        break;
-      default:
-        saveBehavior =
-         this.conversionWindow.MozillaArchiveFormat.CompleteSaveBehavior;
-    }
     // Set the state variables appropriately before starting the save operation.
     this._listeningException = null;
     this._isListeningForSave = true;
     try {
-      // Use the global saveDocument function with the special MAF parameters.
-      this.conversionWindow.saveDocument(
-       this.conversionFrame.contentDocument, {
-        targetFile: this.location.dest,
-        saveBehavior: saveBehavior,
-        mafProgressListener: this
-      });
+      let document = this.conversionFrame.contentDocument;
+
+      let persist;
+      if (this.destFormat == "mhtml") {
+        persist = new MafArchivePersist(null, "TypeMHTML");
+        persist.saveWithNotLoadedResources = true;
+      } else if (this.destFormat == "maff") {
+        persist = new MafArchivePersist(null, "TypeMAFF");
+        persist.saveWithNotLoadedResources = true;
+      } else if (document.contentType == "text/html" ||
+       document.contentType == "application/xhtml+xml") {
+        // The ExactPersist component can also save XML and SVG, but not as
+        // accurately as the browser's standard save system.
+        persist = new ExactPersist();
+        persist.saveWithMedia = true;
+        persist.saveWithNotLoadedResources = true;
+      } else {
+        persist = Cc["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"]
+         .createInstance(Ci.nsIWebBrowserPersist);
+      }
+      persist.progressListener = this;
+      persist.persistFlags =
+       Ci.nsIWebBrowserPersist.PERSIST_FLAGS_REPLACE_EXISTING_FILES |
+       Ci.nsIWebBrowserPersist.PERSIST_FLAGS_FORCE_ALLOW_COOKIES |
+       Ci.nsIWebBrowserPersist.PERSIST_FLAGS_FROM_CACHE |
+       Ci.nsIWebBrowserPersist.PERSIST_FLAGS_AUTODETECT_APPLY_CONVERSION;
+      persist.saveDocument(
+        document,
+        NetUtil.newURI(this.location.dest),
+        this.dataFolderLocation && this.dataFolderLocation.dest,
+        null,
+        Ci.nsIWebBrowserPersist.ENCODE_FLAGS_ENCODE_BASIC_ENTITIES,
+        80
+      );
     } catch (e) {
       // If the operation failed before starting, reset the listening state.
       this._isListeningForSave = false;

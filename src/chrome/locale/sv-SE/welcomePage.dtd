@@ -5,7 +5,6 @@
 <!ENTITY features.headerfromupdate.label "Ditt tillägg har uppdaterats till den senaste huvudversionen.">
 <!ENTITY features.item1.label "Webbsidor sparas mer exakt, vad du ser är vad du får.">
 <!ENTITY features.item2.label "Du kan spara en eller flera flikar i en enda fil (webbarkiv).">
-<!ENTITY features.item3.label "Rubriken på dokumentet är numera standardfilnamn.">
 <!ENTITY features.item4.label "Du kan spara HTML5-video och -ljud, och mycket mer!">
 <!ENTITY features.footer.label "Du kan styra vilka funktioner som är aktiverade i tilläggets inställningar.">
 <!ENTITY features.link.label "Besök webbplatsen för att upptäcka alla de andra funktionerna.">

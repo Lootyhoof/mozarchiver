@@ -62,39 +62,25 @@
             label="&pane.main.label;"
             >
     <preferences>
-      <preference id=      "prefSaveFormat"
-                  name=    "extensions.mza.current.save.filterindex"
-                  type=    "int"
-                  />
       <preference id=      "prefSaveMethod"
                   name=    "extensions.mza.save.method"
                   type=    "string"
                   onchange="PrefsDialog.onSaveMethodChange();"
                   />
-      <preference id=      "prefSaveNamingStrategy"
-                  name=    "extensions.mza.save.namingstrategy"
-                  type=    "string"
+      <preference id=      "prefSaveFormat"
+                  name=    "extensions.mza.current.save.filterindex"
+                  type=    "int"
+                  />
+      <preference id=      "prefInterfaceInfoIcon"
+                  name=    "extensions.mza.interface.info.icon"
+                  type=    "bool"
+                  />
+      <preference id=      "prefInterfaceInfoBar"
+                  name=    "extensions.mza.interface.info.bar"
+                  type=    "bool"
                   />
     </preferences>
-    <label control="rgrSaveFormats"
-           value=  "&save.format.grouplabel;"
-           class=  "header"
-           />
-    <radiogroup id=        "rgrSaveFormats"
-                preference="prefSaveFormat"
-                >
-      <radio value=    "0"
-             label=    "&save.format.maff.label;"
-             accesskey="&save.format.maff.accesskey;"
-             />
-      <radio id=          "radioSaveFormatMhtml"
-             value=       "1"
-             labelfull=   "&save.format.mhtml.full.label;"
-             labelpartial="&save.format.mhtml.partial.label;"
-             accesskey=   "&save.format.mhtml.accesskey;"
-             />
-    </radiogroup>
-    <spacer height="10" />
+    <vbox id="boxMain">
     <label control="rgrSaveMethods"
            value=  "&save.method.grouplabel;"
            class=  "header"
@@ -112,63 +98,25 @@
              />
     </radiogroup>
     <spacer height="10" />
-    <label control="rgrSaveNamingStrategy"
-           value=  "&save.namingstrategy.grouplabel;"
+    <label control="rgrSaveFormats"
+           value=  "&save.format.grouplabel;"
            class=  "header"
            />
-    <radiogroup id=        "rgrSaveNamingStrategy"
-                preference="prefSaveNamingStrategy"
+    <radiogroup id=        "rgrSaveFormats"
+                preference="prefSaveFormat"
                 >
-      <radio value=    "pagetitle"
-             label=    "&save.namingstrategy.title.label;"
-             accesskey="&save.namingstrategy.title.accesskey;"
+      <radio id=       "radioSaveFormatMaff"
+             value=    "0"
+             label=    "&save.format.maff.label;"
+             accesskey="&save.format.maff.accesskey;"
              />
-      <radio value=    "standard"
-             label=    "&save.namingstrategy.standard.label;"
-             accesskey="&save.namingstrategy.standard.accesskey;"
+      <radio id=       "radioSaveFormatMhtml"
+             value=    "1"
+             label=    "&save.format.mhtml.full.label;"
+             accesskey="&save.format.mhtml.accesskey;"
              />
     </radiogroup>
-  </prefpane>
-
-  <!-- Interface pane -->
-  <prefpane id=   "paneInterface"
-            label="&pane.interface.label;"
-            >
-    <preferences>
-      <preference id=      "prefInterfaceInfoIcon"
-                  name=    "extensions.mza.interface.info.icon"
-                  type=    "bool"
-                  />
-      <preference id=      "prefInterfaceInfoBar"
-                  name=    "extensions.mza.interface.info.bar"
-                  type=    "bool"
-                  />
-      <preference id=      "prefInterfaceMenuApp"
-                  name=    "extensions.mza.interface.menu.app"
-                  type=    "bool"
-                  />
-      <preference id=      "prefInterfaceMenuFile"
-                  name=    "extensions.mza.interface.menu.file"
-                  type=    "bool"
-                  />
-      <preference id=      "prefInterfaceMenuTools"
-                  name=    "extensions.mza.interface.menu.tools"
-                  type=    "bool"
-                  />
-      <preference id=      "prefInterfaceMenuPageContext"
-                  name=    "extensions.mza.interface.menu.pagecontext"
-                  type=    "bool"
-                  onchange="PrefsDialog.onInterfaceMenuPageContextChange();"
-                  />
-      <preference id=      "prefInterfaceMenuPageContextForTabs"
-                  name=    "extensions.mza.interface.menu.pagecontext.tabs"
-                  type=    "bool"
-                  />
-      <preference id=      "prefInterfaceMenuTabsContext"
-                  name=    "extensions.mza.interface.menu.tabscontext"
-                  type=    "bool"
-                  />
-    </preferences>
+    <spacer height="10" />
     <label control="rgrInterfaceInfo"
            value=  "&info.grouplabel;"
            class=  "header"
@@ -181,51 +129,39 @@
               label=     "&info.bar.label;"
               accesskey= "&info.bar.accesskey;"
               />
+    </vbox>
+    <vbox id="boxMultiprocess">
     <spacer height="10" />
-    <label value="&menu.grouplabel;"
-           class="header"
-           />
-    <checkbox id=        "cbInterfaceMenuApp"
-              preference="prefInterfaceMenuApp" 
-              label=     "&menu.app.label;"
-              accesskey= "&menu.app.accesskey;"
-              />
-    <checkbox preference="prefInterfaceMenuFile" 
-              label=     "&menu.file.label;"
-              accesskey= "&menu.file.accesskey;"
-              />
-    <checkbox preference="prefInterfaceMenuTools" 
-              label=     "&menu.tools.label;"
-              accesskey= "&menu.tools.accesskey;"
-              />
-    <checkbox preference="prefInterfaceMenuPageContext" 
-              label=     "&menu.pagecontext.label;"
-              accesskey= "&menu.pagecontext.accesskey;"
-              />
-    <checkbox id=        "cbInterfaceMenuPageContextForTabs"
-              preference="prefInterfaceMenuPageContextForTabs" 
-              label=     "&menu.pagecontext.tabs.label;"
-              accesskey= "&menu.pagecontext.tabs.accesskey;"
-              class=     "indent"
-              />
-    <checkbox preference="prefInterfaceMenuTabsContext" 
-              label=     "&menu.tabscontext.label;"
-              accesskey= "&menu.tabscontext.accesskey;"
-              />
+    <label value="Disable multi-process to use the MozArchiver add-on"
+           class="header"/>
+    <description>
+      Multi-process mode should have been disabled automatically when the add-on
+      was installed. This did not happen, probably because you are using a
+      pre-release version of the browser or you have configured multi-process to
+      be always enabled. To continue using the add-on, ensure multi-process is
+      disabled.
+    </description>
+    <spacer height="20" />
+    <description>
+      Read-only access to web archives is possible if sandboxing is disabled.
+    </description>
+    </vbox>
   </prefpane>
 
   <!-- Actions pane -->
   <prefpane id=   "paneActions"
             label="&pane.actions.label;"
             >
-    <label value=    "&action.convertsavedpages.label;"
-           onclick=  "PrefsDialog.onActionConvertSavedPagesClick();"
-           class=    "text-link header"
-           />
-    <description class="indent">
-      &action.convertsavedpages.description;
-    </description>
-    <spacer height="10" />
+    <vbox id="boxConvertSavedPages">
+      <label value=    "&action.convertsavedpages.label;"
+             onclick=  "PrefsDialog.onActionConvertSavedPagesClick();"
+             class=    "text-link header"
+             />
+      <description class="indent">
+        &action.convertsavedpages.description;
+      </description>
+      <spacer height="10" />
+    </vbox>
     <vbox id="boxShowWelcomePage">
       <label value=  "&action.showwelcomepage.label;"
              onclick="PrefsDialog.onActionShowWelcomePageClick();"
@@ -248,7 +184,7 @@
     </vbox>
     <spacer height="10" />
     <label value="&action.visitwebsite.label;"
-           href= "http://mza.mozdev.org/"
+           href= "http://maf.mozdev.org/"
            class="text-link header"
            />
     <description id=   "descVisitWebsite"

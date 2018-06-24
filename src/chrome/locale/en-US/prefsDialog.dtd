@@ -7,39 +7,17 @@
 <!ENTITY save.format.maff.label "MAFF (based on ZIP, supports video and audio)">
 <!ENTITY save.format.maff.accesskey "M">
 <!ENTITY save.format.mhtml.full.label "MHTML (can be opened directly by some other browsers)">
-<!ENTITY save.format.mhtml.partial.label "MHTML (variant with limited compatibility)">
 <!ENTITY save.format.mhtml.accesskey "H">
 <!ENTITY save.method.grouplabel "When saving a complete page:">
 <!ENTITY save.method.snapshot.label "Take an exact snapshot">
 <!ENTITY save.method.snapshot.accesskey "k">
 <!ENTITY save.method.standard.label "Use browser's standard save system">
 <!ENTITY save.method.standard.accesskey "b">
-<!ENTITY save.namingstrategy.grouplabel "For the suggested file name:">
-<!ENTITY save.namingstrategy.title.label "Use the title of the page">
-<!ENTITY save.namingstrategy.title.accesskey "g">
-<!ENTITY save.namingstrategy.standard.label "Use browser's standard naming strategy">
-<!ENTITY save.namingstrategy.standard.accesskey "w">
-
-<!-- Interface pane -->
-<!ENTITY pane.interface.label "Interface">
 <!ENTITY info.grouplabel "When an archived page is opened:">
 <!ENTITY info.icon.label "Show icon in the location bar">
 <!ENTITY info.icon.accesskey "S">
 <!ENTITY info.bar.label "Display an information bar">
 <!ENTITY info.bar.accesskey "D">
-<!ENTITY menu.grouplabel "Show MozArchiver menu items in:">
-<!ENTITY menu.app.label "$brandShortName menu">
-<!ENTITY menu.app.accesskey "m">
-<!ENTITY menu.file.label "File menu">
-<!ENTITY menu.file.accesskey "F">
-<!ENTITY menu.tools.label "Tools menu">
-<!ENTITY menu.tools.accesskey "l">
-<!ENTITY menu.pagecontext.label "Page context menu">
-<!ENTITY menu.pagecontext.accesskey "p">
-<!ENTITY menu.pagecontext.tabs.label "Show items for saving tabs">
-<!ENTITY menu.pagecontext.tabs.accesskey "h">
-<!ENTITY menu.tabscontext.label "Tab bar context menu">
-<!ENTITY menu.tabscontext.accesskey "x">
 
 <!-- Actions pane -->
 <!ENTITY pane.actions.label "Actions">

@@ -63,7 +63,7 @@ var MafInterfaceOverlay = {
     gBrowser.addProgressListener(MafInterfaceOverlay.webProgressListener);
 
     // Register a preference observer to update the visibility of the icons.
-    MozillaArchiveFormat.Prefs.prefBranchForMaf.addObserver(
+    MozArchiver.Prefs.prefBranchForMaf.addObserver(
      "interface.info.icon", MafInterfaceOverlay.prefObserver, false);
 
     // Listen for when the browser window closes, to perform shutdown.
@@ -78,7 +78,7 @@ var MafInterfaceOverlay = {
     window.removeEventListener("unload", MafInterfaceOverlay.onUnload, false);
 
     // Remove the preference observer defined in this object.
-    MozillaArchiveFormat.Prefs.prefBranchForMaf.removeObserver(
+    MozArchiver.Prefs.prefBranchForMaf.removeObserver(
      "interface.info.icon", MafInterfaceOverlay.prefObserver);
 
     // Remove the web progress listener defined in this object.
@@ -131,24 +131,39 @@ var MafInterfaceOverlay = {
    */
   _refreshCurrentPage: function() {
     // Get a direct reference to the ArchivePage object, or use an empty object.
-    let pageInfo = MozillaArchiveFormat.ArchiveCache.pageFromUri(
+    let pageInfo = MozArchiver.ArchiveCache.pageFromUri(
      gBrowser.currentURI) || {};
     this._currentPageInfo = pageInfo;
 
     // Format the original address for display, if present.
     if (pageInfo.originalUrl && !pageInfo.originalUrlForDisplay) {
-      // Ensure the address is unescaped.
-      var originalUrl = new String(pageInfo.originalUrl);
-      originalUrl.isEscapedAsUri = true;
-      pageInfo.originalUrlForDisplay = MozillaArchiveFormat.Interface.
-       formatValueForDisplay(originalUrl);
+      try {
+        pageInfo.originalUrlForDisplay =
+         Cc["@mozilla.org/intl/texttosuburi;1"].
+         getService(Ci.nsITextToSubURI).
+         unEscapeURIForUI("UTF-8", pageInfo.originalUrl);
+      } catch (e) {
+        // In case of errors, display the unescaped URI.
+        pageInfo.originalUrlForDisplay = pageInfo.originalUrl;
+      }
       pageInfo.hasValues = true;
     }
 
     // Format the save date for display, if present.
     if (pageInfo.dateArchived && !pageInfo.dateArchivedForDisplay) {
-      pageInfo.dateArchivedForDisplay = MozillaArchiveFormat.Interface.
-       formatValueForDisplay(pageInfo.dateArchived);
+      // Use the date formatting service to display the localized date. We
+      // cannot use the native JavaScript date formatting functions, like
+      // "toLocaleString", because this code may be called at startup when the
+      // service that converts the operating-system-provided date string to
+      // Unicode is not available in the JavaScript context.
+      let dateValue = pageInfo.dateArchived;
+      pageInfo.dateArchivedForDisplay = 
+       Cc["@mozilla.org/intl/scriptabledateformat;1"].
+       getService(Ci.nsIScriptableDateFormat).FormatDateTime("",
+       Ci.nsIScriptableDateFormat.dateFormatLong,
+       Ci.nsIScriptableDateFormat.timeFormatSeconds,
+       dateValue.getFullYear(), dateValue.getMonth() + 1, dateValue.getDate(),
+       dateValue.getHours(), dateValue.getMinutes(), dateValue.getSeconds());
       pageInfo.hasValues = true;
     }
   },
@@ -159,7 +174,7 @@ var MafInterfaceOverlay = {
    */
   _checkArchiveInfoIcons: function() {
     this._archiveInfoUrlbarButton.hidden = !this._currentPageInfo.hasValues ||
-     !MozillaArchiveFormat.Prefs.interfaceInfoIcon;
+     !MozArchiver.Prefs.interfaceInfoIcon;
   },
 
   /**
@@ -214,11 +229,12 @@ var MafInterfaceOverlay = {
     // Change the label of the widget based on the document type.
     var labelText;
     var contentDocument = getBrowser().selectedBrowser.contentDocument;
-    if (MozillaArchiveFormat.DynamicPrefs.saveFilterIndexHtml < 2 && (
+    if (MozArchiver.Prefs.saveEnabled &&
+     MozArchiver.DynamicPrefs.saveFilterIndexHtml < 2 && (
      contentDocument.contentType == "text/html" ||
      contentDocument.contentType == "application/xhtml+xml")) {
       labelText = document.
-       getElementById("mafMenuSavePageInArchive_pageContextMenu").
+       getElementById("mafMenuSavePageInArchive_fileMenu").
        getAttribute("labelsave");
     } else {
       labelText = CustomizableUI.getLocalizedProperty(savePageWidget, "label");
@@ -232,7 +248,7 @@ var MafInterfaceOverlay = {
   _checkArchiveInfoNotification: function() {
     // Show a notification for the page only if required.
     if (!this._currentPageInfo.hasValues ||
-     !MozillaArchiveFormat.Prefs.interfaceInfoBar) {
+     !MozArchiver.Prefs.interfaceInfoBar) {
       return;
     }
 
@@ -380,5 +396,8 @@ var MafInterfaceOverlay = {
 };
 
 // Now that the MafInterfaceOverlay object is defined, add the event listener
-// that will trigger the initialization when all of the overlays are loaded.
-window.addEventListener("load", MafInterfaceOverlay.onLoad, false);
+// that will trigger the initialization when all of the overlays are loaded,
+// unless we are running in a multi-process browser.
+if (!Services.appinfo.browserTabsRemoteAutostart) {
+  window.addEventListener("load", MafInterfaceOverlay.onLoad, false);
+}

@@ -63,30 +63,6 @@ var MafCommandsOverlay = {
     // Listen for when the browser window closes, to perform shutdown.
     window.addEventListener("unload", MafCommandsOverlay.onUnload, false);
 
-    // If the "Save Page As" command exists in the application menu, use its
-    // label for the main item of the extended save menu.
-    var appMenuSavePageItem = document.getElementById("appmenu_savePage");
-    if (appMenuSavePageItem) {
-      var saveAsLabel = appMenuSavePageItem.getAttribute("label");
-      document.getElementById("mafMenuSavePage_appMenu").setAttribute("label",
-       saveAsLabel);
-      document.getElementById("mafMenuSavePage_appMenu_popup").setAttribute(
-       "label", saveAsLabel);
-      // Since we detected that an application button is present, store the
-      // information in a variable that can be read by the preferences dialog.
-      MozillaArchiveFormat.StartupInitializer.hasAppMenu = true;
-    }
-
-    // Manually add the "Save Frame In Archive" menu item to the "This Frame"
-    // context menu. The menu item after which the new item is added has a
-    // different name in "navigator.xul" and in "browser.xul".
-    var frameContextSubmenu = document.getElementById("frame").firstChild;
-    var frameContextSubmenuAfterItem = document.getElementById("saveframeas") ||
-     document.getElementById("context-saveframe");
-    frameContextSubmenu.insertBefore(
-     document.getElementById("mafMenuSaveFrameInArchive_pageContextMenu"),
-     frameContextSubmenuAfterItem.nextSibling);
-
     // Get a reference to the tab bar context menu.
     var tabContextMenu = gBrowser.tabContextMenu;
     if (!tabContextMenu) {
@@ -118,10 +94,7 @@ var MafCommandsOverlay = {
     // <https://developer.mozilla.org/en/XUL/PopupGuide/PopupEvents> (retrieved
     // 2009-03-01).
     [
-     document.getElementById("appmenu-popup"),
      document.getElementById("menu_FilePopup"),
-     document.getElementById("mafMenuMafSubMenu_toolsMenu").parentNode,
-     document.getElementById("contentAreaContextMenu"),
      tabContextMenu
     ].forEach(function(element) {
       if (element) {
@@ -157,16 +130,6 @@ var MafCommandsOverlay = {
       return;
     }
 
-    // For the application menu, when the related preference is set, an extended
-    // submenu replaces the standard "Save Page As" menu item.
-    if (aEvent.target.id == "appmenu-popup") {
-      document.getElementById("mafMenuSavePage_appMenu").hidden =
-       !MozillaArchiveFormat.Prefs.interfaceMenuApp;
-      document.getElementById("appmenu_savePage").hidden =
-       MozillaArchiveFormat.Prefs.interfaceMenuApp;
-      return;
-    }
-
     // On SeaMonkey, if the preference to save pages automatically is set, we
     // have to change the labels of the save commands appropriately.
     var autoSave = Cc["@mozilla.org/preferences-service;1"].
@@ -175,34 +138,8 @@ var MafCommandsOverlay = {
      Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo).ID ==
      "{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}";
 
-    // For the other menus, a preference controls whether any MAF menu item is
-    // visible at all in that particular menu. Even if the preference is true
-    // for the menu, the single items must still be checked for visibility based
-    // on the context.
-    var isVisibleInMenu;
-    switch (aEvent.target.id) {
-      case "menu_FilePopup":
-        isVisibleInMenu = MozillaArchiveFormat.Prefs.interfaceMenuFile;
-        break;
-      case "more-tools-menupopup":
-        // This identifier is used by the More Tools Menu add-on. See
-        // <https://addons.mozilla.org/firefox/addon/more-tools-menu/>
-        // (retrieved 2012-03-22).
-      case "menu_ToolsPopup":
-      case "taskPopup":
-        isVisibleInMenu = MozillaArchiveFormat.Prefs.interfaceMenuTools;
-        // The visibility of the MAF submenu in the Tools menu depends only on
-        // the related preference.
-        document.getElementById("mafMenuMafSubMenu_toolsMenu").hidden =
-         !MozillaArchiveFormat.Prefs.interfaceMenuTools;
-        break;
-      case "contentAreaContextMenu":
-        isVisibleInMenu = MozillaArchiveFormat.Prefs.interfaceMenuPageContext;
-        break;
-      default: // Assume this is the tab bar context menu, which has no ID
-        isVisibleInMenu = MozillaArchiveFormat.Prefs.interfaceMenuTabsContext;
-        break;
-    }
+    // Show the menu items only if we have the ability to save web archives.
+    var isVisibleInMenu = MozArchiver.Prefs.saveEnabled;
 
     // Now check every menu item and, if it is linked to one of the MAF
     // commands, set its visibility appropriately.
@@ -211,14 +148,7 @@ var MafCommandsOverlay = {
 
       // Determine which class of MAF menu item we are handling.
       var command = element.getAttribute("command");
-      var isSaveTabs = ([
-       "mafCmdSaveTabsInArchive",
-       "mafCmdSaveAllTabsInArchive",
-       ].indexOf(command) >= 0);
-
-      // Do not handle unrelated menu items.
-      if (command.slice(0, "mafCmd".length) == "mafCmd" &&
-          command != "mafCmdBrowseOpenArchives") {
+      if (command.slice(0, "mafCmd".length) == "mafCmd") {
 
         // If the element has a different label based on whether the page will
         // be saved automatically, change the label accordingly.
@@ -229,36 +159,7 @@ var MafCommandsOverlay = {
         }
 
         // Check for overall MAF element visibility in this menu.
-        if (!isVisibleInMenu) {
-          element.hidden = true;
-
-        // The "Save Frame" commands appear only if there is a focused frame.
-        // The "mafCmdSaveFrameInArchiveFromContext" command is not checked
-        // because its parent menu item is already hidden if no frame is
-        // selected when the context menu is shown.
-        } else if (command == "mafCmdSaveFrameInArchiveFromWindow") {
-          // Set the visibility using the same checks done in "browser.js".
-          element.hidden = !content || !content.frames.length ||
-            !isContentFrame(document.commandDispatcher.focusedWindow);
-
-        // Tab-related menu items appear in the page context menu only if a
-        // specific preference is set.
-        } else if (aEvent.target.id == "contentAreaContextMenu" && isSaveTabs &&
-         !MozillaArchiveFormat.Prefs.interfaceMenuPageContextForTabs) {
-          element.hidden = true;
-
-        // The "Save Page In Archive" menu item appears in the context menu only
-        // if the "Save Page As" item also appears.
-        } else if (aEvent.target.id == "contentAreaContextMenu" &&
-         command == "mafCmdSavePageInArchive") {
-          // The event that checked for the "context-savepage" item visibility
-          // has already been processed when we get here.
-          element.hidden = document.getElementById("context-savepage").hidden;
-
-        // All the other items have standard visibility.
-        } else {
-          element.hidden = false;
-        }
+        element.hidden = !isVisibleInMenu;
       }
     });
 
@@ -277,25 +178,6 @@ var MafCommandsOverlay = {
       }
 
     });
-  },
-
-  /**
-   * Displays the "Browse open archives" window.
-   */
-  browseOpenArchives: function() {
-    // If the archives window is already opened
-    var archivesDialog = Cc["@mozilla.org/appshell/window-mediator;1"].
-     getService(Ci.nsIWindowMediator).getMostRecentWindow("Maf:Archives");
-    if (archivesDialog) {
-      // Bring the window to the foreground.
-      archivesDialog.focus();
-    } else {
-      // Open a new window to display the available archives.
-      window.open(
-       "chrome://mza/content/archives/archivesDialog.xul",
-       "maf-archivesDialog",
-       "chrome,titlebar,centerscreen,resizable=yes");
-    }
   },
 
   /**
@@ -318,42 +200,11 @@ var MafCommandsOverlay = {
   },
 
   /**
-   * Displays the preferences window.
-   */
-  preferences: function() {
-    // If the preferences window is already opened
-    var prefsDialog = Cc["@mozilla.org/appshell/window-mediator;1"].
-     getService(Ci.nsIWindowMediator).getMostRecentWindow("Maf:Prefs");
-    if (prefsDialog) {
-      // Bring the window to the foreground.
-      prefsDialog.focus();
-    } else {
-      // Determine the expected behavior of preferences windows.
-      try {
-        var instantApply =
-         Components.classes["@mozilla.org/preferences-service;1"]
-         .getService(Components.interfaces.nsIPrefService)
-         .getBranch("").getBoolPref("browser.preferences.instantApply");
-      } catch(e) {
-        instantApply = false;
-      }
-      // Open the preferences window. If instant apply is on, the window will be
-      // minimizable (dialog=no), conversely if instant apply is not enabled the
-      // window will be modal and not minimizable.
-      window.openDialog(
-       "chrome://mza/content/preferences/prefsDialog.xul",
-       "maf-prefsDialog",
-       "chrome,titlebar,toolbar,centerscreen," +
-       (instantApply ? "dialog=no" : "modal"));
-    }
-  },
-
-  /**
    * Asks the user to select which of the open tabs will be saved in an archive.
    */
   saveTabsInArchive: function() {
     // Ensure all the background tabs are loaded while the selection is made.
-    for (var [, browser] in Iterator(getBrowser().browsers)) {
+    for (let browser of gBrowser.browsers) {
       if (browser.hasAttribute("pending")) {
         browser.reload();
       }
@@ -380,7 +231,7 @@ var MafCommandsOverlay = {
    */
   saveAllTabsInArchive: function() {
     // Ensure all the background tabs are loaded while the selection is made.
-    for (var [, browser] in Iterator(getBrowser().browsers)) {
+    for (let browser of gBrowser.browsers) {
       if (browser.hasAttribute("pending")) {
         browser.reload();
       }
@@ -396,27 +247,6 @@ var MafCommandsOverlay = {
   savePageInArchive: function() {
     // Use the global saveDocument function with the special MAF parameters.
     saveDocument(getBrowser().selectedBrowser.contentDocument,
-     {mafAskSaveArchive: true});
-  },
-
-  /**
-   * Saves the focused frame in an archive.
-   */
-  saveFrameInArchiveFromWindow: function() {
-    var focusedWindow = document.commandDispatcher.focusedWindow;
-    if (isContentFrame(focusedWindow)) {
-      // Use the global saveDocument function with the special MAF parameters.
-      saveDocument(focusedWindow.document,
-       {mafAskSaveArchive: true});
-    }
-  },
-
-  /**
-   * Saves the selected frame in an archive.
-   */
-  saveFrameInArchiveFromContext: function() {
-    // Use the global saveDocument function with the special MAF parameters.
-    saveDocument(gContextMenu.target.ownerDocument,
      {mafAskSaveArchive: true});
   },
 }

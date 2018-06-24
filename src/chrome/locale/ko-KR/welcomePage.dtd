@@ -5,7 +5,6 @@
 <!ENTITY features.headerfromupdate.label "최신 정규 버전으로 업데이트 되었습니다.">
 <!ENTITY features.item1.label "웹페이지를 더욱 정확하게, 보이는 그대로 저장합니다.">
 <!ENTITY features.item2.label "하나 혹은 그 이상의 탭을 단일 파일로 저장할 수 있습니다(웹아카이브).">
-<!ENTITY features.item3.label "파일 이름은 이제 문서 제목으로 기본 지정됩니다.">
 <!ENTITY features.item4.label "HTML5 형식의 동영상과 오디오, 그 밖의 것들을 저장할 수 있습니다!">
 <!ENTITY features.footer.label "확장 설정에서 지원되는 기능을 조절할 수 있습니다.">
 <!ENTITY features.link.label "웹사이트를 방문하여 다른 모든 기능에 대해 알아보세요.">

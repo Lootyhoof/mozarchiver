@@ -6,39 +6,18 @@
 <!ENTITY save.format.maff.label "MAFF (basé sur ZIP, supporte l'audio et la vidéo)">
 <!ENTITY save.format.maff.accesskey "M">
 <!ENTITY save.format.mhtml.full.label "MHTML (peut être ouvert directement par certains autres navigateurs)">
-<!ENTITY save.format.mhtml.partial.label "MHTML (variante à compatibilité limitée)">
 <!ENTITY save.format.mhtml.accesskey "H">
 <!ENTITY save.method.grouplabel "Lors de la sauvegarde d'une page complète :">
 <!ENTITY save.method.snapshot.label "Prendre une capture exacte">
 <!ENTITY save.method.snapshot.accesskey "c">
 <!ENTITY save.method.standard.label "Utiliser le système de sauvegarde par défaut du navigateur">
 <!ENTITY save.method.standard.accesskey "d">
-<!ENTITY save.namingstrategy.grouplabel "Pour le nom de fichier suggéré :">
-<!ENTITY save.namingstrategy.title.label "Utiliser le titre de la page">
-<!ENTITY save.namingstrategy.title.accesskey "g">
-<!ENTITY save.namingstrategy.standard.label "Utiliser la stratégie de nommage standard du navigateur">
-<!ENTITY save.namingstrategy.standard.accesskey "d">
-<!-- Interface pane -->
-<!ENTITY pane.interface.label "Interface">
 <!ENTITY info.grouplabel "Lorsqu'une page archivée est ouverte :">
 <!ENTITY info.icon.label "Afficher une icône dans la barre d'adresse">
 <!ENTITY info.icon.accesskey "s">
 <!ENTITY info.bar.label "Afficher une barre d'information">
 <!ENTITY info.bar.accesskey "d">
-<!ENTITY menu.grouplabel "Afficher les menus MAF dans :">
-<!ENTITY menu.app.label "menu $brandShortName">
-<!ENTITY menu.app.accesskey "m">
-<!ENTITY menu.file.label "Menu Fichier">
-<!ENTITY menu.file.accesskey "F">
-<!ENTITY menu.tools.label "Menu Outils">
-<!ENTITY menu.tools.accesskey "O">
-<!ENTITY menu.pagecontext.label "Menu contextuel des pages">
-<!ENTITY menu.pagecontext.accesskey "p">
-<!ENTITY menu.pagecontext.tabs.label "Afficher les éléments pour enregistrer les onglets">
-<!ENTITY menu.pagecontext.tabs.accesskey "f">
-<!ENTITY menu.tabscontext.label "Menu contextuel de la barre d'onglets">
-<!ENTITY menu.tabscontext.accesskey "x">
-<!-- File associations pane. This pane is visible only on Windows. -->
+<!-- Interface pane -->
 <!ENTITY pane.actions.label "Actions">
 <!ENTITY action.convertsavedpages.label "Convertir les pages enregistrées">
 <!ENTITY action.convertsavedpages.description "L'assistant de conversion de pages enregistrées vous guidera à travers le processus de conversion de pages web enregistrées précédemment dans un autre format.">

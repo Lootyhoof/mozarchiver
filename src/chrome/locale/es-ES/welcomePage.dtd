@@ -5,7 +5,6 @@
 <!ENTITY features.headerfromupdate.label "Su complemento se ha actualizado a la última versión.">
 <!ENTITY features.item1.label "Las páginas web se guardan con mayor precisión, lo que ve es lo que tiene.">
 <!ENTITY features.item2.label "Puede guardar una más pestañas en un único archivo (archivo web).">
-<!ENTITY features.item3.label "El título del documento es el nombre por defecto del archivo.">
 <!ENTITY features.item4.label "Puede guardar vídeo y audio HTML5, y más!">
 <!ENTITY features.footer.label "Puede controlar qué opciones están habilitadas desde las opciones de la extensión.">
 <!ENTITY features.link.label "Visite la página web para descubrir el resto de características.">

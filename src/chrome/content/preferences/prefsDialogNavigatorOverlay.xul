@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE overlay>
+<!--
+   - This overlay loads the global utility functions of SeaMonkey.
+   -
+   - This file is in the public domain :-)
+   -->
+<overlay
+ id="prefsDialogBrowserOverlay"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ >
+  <script type="application/javascript"
+          src= "chrome://communicator/content/utilityOverlay.js"
+          />
+  <script type="application/javascript"
+          src= "chrome://communicator/content/contentAreaUtils.js"
+          />
+</overlay>

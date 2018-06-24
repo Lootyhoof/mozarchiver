@@ -51,6 +51,12 @@ function SaveJob(eventListener) {
 SaveJob.prototype = {
   __proto__: JobRunner.prototype,
 
+  /**
+   * If set to true, resources that were not originally loaded will be
+   * downloaded and included when saving.
+   */
+  saveWithNotLoadedResources: false,
+
   /*
    * Adds new save jobs to the current operation, starting from a list of web
    * browser objects. Depending on the target archive type, a single archive is
@@ -77,7 +83,8 @@ SaveJob.prototype = {
       var maffArchiveJob = new SaveArchiveJob(this, aTargetFile, aTargetType);
       aBrowsers.forEach(function(curBrowser, curIndex) {
         maffArchiveJob.addContentFromDocumentAndBrowser(
-         curBrowser.contentDocument, curBrowser, pageFolderNames[curIndex]);
+         curBrowser.contentDocument, curBrowser, pageFolderNames[curIndex],
+         this.saveWithNotLoadedResources);
       });
       this._addJob(maffArchiveJob);
 
@@ -92,7 +99,8 @@ SaveJob.prototype = {
         var mhtmlArchiveJob = new SaveArchiveJob(this, curTargetFile,
          aTargetType);
         mhtmlArchiveJob.addContentFromDocumentAndBrowser(
-         curBrowser.contentDocument, curBrowser);
+         curBrowser.contentDocument, curBrowser, null,
+         this.saveWithNotLoadedResources);
         this._addJob(mhtmlArchiveJob);
 
         // Get the next target file name.
@@ -109,7 +117,8 @@ SaveJob.prototype = {
   addJobFromDocument: function(aDocument, aTargetFile, aTargetType) {
     // Create a single archive with the selected page.
     var maffArchiveJob = new SaveArchiveJob(this, aTargetFile, aTargetType);
-    maffArchiveJob.addContentFromDocumentAndBrowser(aDocument, null);
+    maffArchiveJob.addContentFromDocumentAndBrowser(aDocument, null, null,
+     this.saveWithNotLoadedResources);
     this._addJob(maffArchiveJob);
   },
 

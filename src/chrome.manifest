@@ -17,6 +17,7 @@ locale mza pl chrome/locale/pl/
 locale mza pt-BR chrome/locale/pt-BR/
 locale mza ro chrome/locale/ro/
 locale mza ru chrome/locale/ru/
+locale mza sl-SI chrome/locale/sl-SI/
 locale mza sv-SE chrome/locale/sv-SE/
 locale mza tr chrome/locale/tr/
 locale mza zh-CN chrome/locale/zh-CN/
@@ -25,30 +26,26 @@ locale mza zh-TW chrome/locale/zh-TW/
 skin mza classic/1.0 chrome/skin/
 skin mza-icons classic/1.0 ./
 
-component {3b2f1177-d918-44ee-91a6-ba95954064bb} components/DocumentLoaderFactory.js
-contract @mozarchiver/document-loader-factory;1 {3b2f1177-d918-44ee-91a6-ba95954064bb}
-
-component {37116274-8df3-4d48-8533-00eae60c844c} components/Startup.js
-contract @mozarchiver/startup;1 {37116274-8df3-4d48-8533-00eae60c844c}
-category profile-after-change MozArchiver @mozarchiver/startup;1
-
-component {7380f280-ab36-4a23-b213-35c64f8586a0} components/ContentPolicy.js
-contract @mozarchiver/content-policy;1 {7380f280-ab36-4a23-b213-35c64f8586a0}
-category content-policy MozArchiver @mozarchiver/content-policy;1
+component {549e4a8b-58de-446e-836a-02fdf54a8220} components/Startup.js
+contract @mozarchiver.ext/startup;1 {549e4a8b-58de-446e-836a-02fdf54a8220}
+category profile-after-change MozArchiver @mozarchiver.ext/startup;1
 
 # Integration with the browsing windows
-overlay chrome://browser/content/browser.xul chrome://mza/content/integration/mafBaseBrowserOverlay.xul
+overlay chrome://browser/content/browser.xul chrome://mza/content/integration/mafCommandsOverlay.xul
+overlay chrome://browser/content/browser.xul chrome://mza/content/integration/mafInterfaceOverlay.xul
+overlay chrome://navigator/content/navigator.xul chrome://mza/content/integration/mafCommandsOverlay.xul
+overlay chrome://navigator/content/navigator.xul chrome://mza/content/integration/mafInterfaceOverlay.xul
 
 # Integration with the "Multiple Tab Handler" extension
 overlay chrome://multipletab/content/multipletab.xul chrome://mza/content/integration/mafMultipleTabOverlay.xul
 
-# The Archives dialog
-overlay chrome://mza/content/archives/archivesDialog.xul chrome://mza/content/archives/archivesDialogBrowserOverlay.xul application={8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}
-
-# The preferences dialog
+# The preferences dialog has a different integration with Pale Moon/Basilisk and SeaMonkey
+overlay chrome://mza/content/preferences/prefsDialog.xul chrome://mza/content/preferences/prefsDialogBrowserOverlay.xul application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
 overlay chrome://mza/content/preferences/prefsDialog.xul chrome://mza/content/preferences/prefsDialogBrowserOverlay.xul application={8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}
+overlay chrome://mza/content/preferences/prefsDialog.xul chrome://mza/content/preferences/prefsDialogNavigatorOverlay.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
 
-# Use the preferences image file from the current theme
+# In Pale Moon/Basilisk, use the preferences image file from the current theme
+override chrome://mza/skin/preferences/Options.png chrome://browser/skin/preferences/Options.png application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
 override chrome://mza/skin/preferences/Options.png chrome://browser/skin/preferences/Options.png application={8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}
 
 # Once loaded, use the 48x48 pixels application icon instead of the 32x32 pixels one

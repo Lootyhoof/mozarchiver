@@ -1,37 +1,16 @@
 <!-- Shortcut keys -->
-<!ENTITY command.browseopenarchives.key "M">
-<!ENTITY command.browseopenarchives.modifiers "alt">
-<!-- Menu items for general MozArchiver commands -->
-<!ENTITY menuitem.mafsubmenu.label "MozArchiver (MAFF)">
-<!ENTITY menuitem.mafsubmenu.accesskey.toolsmenu "M">
-<!ENTITY menuitem.browseopenarchives.label "Bläddra öppna arkiv…">
-<!ENTITY menuitem.browseopenarchives.accesskey.toolsmenu "r">
 <!ENTITY menuitem.convertsavedpages.label "Konvertera sparade sidor…">
-<!ENTITY menuitem.convertsavedpages.accesskey.toolsmenu "K">
 <!ENTITY menuitem.convertsavedpages.accesskey.filemenu "r">
-<!ENTITY menuitem.options.label "Inställningar…">
-<!ENTITY menuitem.options.accesskey.toolsmenu "I">
-<!-- Additional menu items for the "Save As" command -->
+<!-- Menu items for general MozArchiver commands -->
 <!ENTITY menuitem.savetabsinarchiveas.label "Spara flikar i arkiv som…">
 <!ENTITY menuitem.savetabsinarchive.label "Spara flikar i arkiv…">
 <!ENTITY menuitem.savetabsinarchive.accesskey.filemenu "f">
-<!ENTITY menuitem.savetabsinarchive.accesskey.toolsmenu "f">
-<!ENTITY menuitem.savetabsinarchive.accesskey.pagecontextmenu "f">
 <!ENTITY menuitem.savetabsinarchive.accesskey.tabscontextmenu "f">
 <!ENTITY menuitem.savealltabsinarchiveas.label "Spara alla flikar i arkiv som…">
 <!ENTITY menuitem.savealltabsinarchive.label "Spara alla flikar i arkiv">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.filemenu "S">
-<!ENTITY menuitem.savealltabsinarchive.accesskey.toolsmenu "S">
-<!ENTITY menuitem.savealltabsinarchive.accesskey.pagecontextmenu "a">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.tabscontextmenu "S">
-<!-- Additional menu items for the "Save In Archive" command -->
+<!-- Additional menu items for the "Save As" command -->
 <!ENTITY menuitem.savepageinarchiveas.label "Spara sida i arkiv som…">
 <!ENTITY menuitem.savepageinarchive.label.v2 "Spara sida i arkiv">
 <!ENTITY menuitem.savepageinarchive.accesskey.filemenu "d">
-<!ENTITY menuitem.savepageinarchive.accesskey.toolsmenu "d">
-<!ENTITY menuitem.savepageinarchive.accesskey.pagecontextmenu "d">
-<!ENTITY menuitem.saveframeinarchiveas.label "Spara ram i arkiv som…">
-<!ENTITY menuitem.saveframeinarchive.label.v2 "Spara ram i arkiv">
-<!ENTITY menuitem.saveframeinarchive.accesskey.filemenu "v">
-<!ENTITY menuitem.saveframeinarchive.accesskey.toolsmenu "v">
-<!ENTITY menuitem.saveframeinarchive.accesskey.pagecontextmenu "v">

@@ -5,7 +5,6 @@
 <!ENTITY features.headerfromupdate.label "Your add-on is updated to the latest major version.">
 <!ENTITY features.item1.label "Web pages are saved more accurately, what you see is what you get.">
 <!ENTITY features.item2.label "You can save one or more tabs in a single file (web archive).">
-<!ENTITY features.item3.label "The title of the document is now the default file name.">
 <!ENTITY features.item4.label "You can save HTML5 video and audio, and more!">
 <!ENTITY features.footer.label "You can control which features are enabled from the extension's options.">
 <!ENTITY features.link.label "Visit the website to discover all the other features.">

@@ -1,0 +1,3 @@
+<!-- Additional menu items for "Multiple Tab Handler" integration -->
+<!ENTITY menuitem.saveselectedtabsinarchiveas.label "Shrani izbrane zavihke v arhiv kot ...">
+<!ENTITY menuitem.saveselectedtabsinarchive.accesskey.tabselectionmenu "i">

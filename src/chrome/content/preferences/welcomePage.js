@@ -37,7 +37,7 @@
 
 const { classes: Cc, interfaces: Ci, utils: Cu, results: Cr } = Components;
 
-Cu.import("chrome://mza/content/MozillaArchiveFormat.jsm");
+Cu.import("chrome://mza/content/MozArchiver.jsm");
 
 /**
  * Handles the MAF welcome page.

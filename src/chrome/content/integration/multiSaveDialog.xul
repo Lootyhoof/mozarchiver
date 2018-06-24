@@ -58,6 +58,9 @@
   <!-- Dialog machinery -->
   <script type="application/x-javascript" src="multiSaveDialog.js" />
 
+  <!-- Workaround until selection with left mouse button is fixed. -->
+  <description style="font-weight: bold;">Use SPACE BAR to select.</description>
+
   <!-- Tab selection tree -->
   <!--
      - This tree is designed to work with the tabs data source. The tree view

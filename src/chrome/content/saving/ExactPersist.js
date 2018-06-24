@@ -98,7 +98,8 @@ ExactPersist.prototype = {
 
       // Create a job to save the given document, and listen to its events.
       var persistJob = new ExactPersistJob(this, aDocument, targetFile,
-       aDataPath, this.saveWithMedia, this.saveWithContentLocation);
+       aDataPath, this.saveWithMedia, this.saveWithContentLocation,
+       this.saveWithNotLoadedResources);
 
       // Store a reference to the PersistBundle object for the save operation.
       this.persistBundle = persistJob.bundle;
@@ -146,6 +147,12 @@ ExactPersist.prototype = {
    * If set to true, the page will be saved for inclusion in an MHTML file.
    */
   saveWithContentLocation: false,
+
+  /**
+   * If set to true, resources that were not originally loaded will be
+   * downloaded and included when saving.
+   */
+  saveWithNotLoadedResources: false,
 
   /**
    * PersistBundle object referencing the resources that have been saved.

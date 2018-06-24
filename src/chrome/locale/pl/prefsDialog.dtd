@@ -6,39 +6,18 @@
 <!ENTITY save.format.maff.label "MAFF (bazuje na ZIP, obsługuje wideo i audio)">
 <!ENTITY save.format.maff.accesskey "M">
 <!ENTITY save.format.mhtml.full.label "MHTML (może być otwierany bezpośrednio przez inne przeglądarki)">
-<!ENTITY save.format.mhtml.partial.label "MHTML (wariant z ograniczoną kompatybilnością)">
 <!ENTITY save.format.mhtml.accesskey "H">
 <!ENTITY save.method.grouplabel "Podczas zapisu całej strony:">
 <!ENTITY save.method.snapshot.label "wykonaj dokładny zrzut">
 <!ENTITY save.method.snapshot.accesskey "K">
 <!ENTITY save.method.standard.label "zastosuj standardowy system zapisu przeglądarki">
 <!ENTITY save.method.standard.accesskey "N">
-<!ENTITY save.namingstrategy.grouplabel "Dla sugerowanej nazwy pliku użyj:">
-<!ENTITY save.namingstrategy.title.label "tytułu strony">
-<!ENTITY save.namingstrategy.title.accesskey "T">
-<!ENTITY save.namingstrategy.standard.label "systemu nazw przeglądarki">
-<!ENTITY save.namingstrategy.standard.accesskey "N">
-<!--    Interface pane    -->
-<!ENTITY pane.interface.label "Interfejs">
 <!ENTITY info.grouplabel "Gdy zarchiwizowana strona jest wyświetlana:">
 <!ENTITY info.icon.label "wyświetlaj ikonę w pasku adresu">
 <!ENTITY info.icon.accesskey "k">
 <!ENTITY info.bar.label "wyświetlaj pasek informacyjny">
 <!ENTITY info.bar.accesskey "S">
-<!ENTITY menu.grouplabel "Wyświetlaj element MozArchiver w:">
-<!ENTITY menu.app.label "menu programu $brandShortName">
-<!ENTITY menu.app.accesskey "m">
-<!ENTITY menu.file.label "menu Plik">
-<!ENTITY menu.file.accesskey "P">
-<!ENTITY menu.tools.label "menu Narzędzia">
-<!ENTITY menu.tools.accesskey "N">
-<!ENTITY menu.pagecontext.label "menu kontekstowym strony">
-<!ENTITY menu.pagecontext.accesskey "K">
-<!ENTITY menu.pagecontext.tabs.label "wyświetlaj elementy służące do zapisywania kart">
-<!ENTITY menu.pagecontext.tabs.accesskey "k">
-<!ENTITY menu.tabscontext.label "menu kontekstowym paska kart">
-<!ENTITY menu.tabscontext.accesskey "M">
-<!-- Actions pane -->
+<!--    Interface pane    -->
 <!ENTITY pane.actions.label "Czynności">
 <!ENTITY action.convertsavedpages.label "Konwertuj zapisane strony">
 <!ENTITY action.convertsavedpages.description "Asystent konwersji zapisanych stron poprowadzi cię przez proces konwersji poprzednio zapisanych stron na inny format.">

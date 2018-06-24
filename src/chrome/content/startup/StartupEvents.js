@@ -35,6 +35,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+XPCOMUtils.defineLazyModuleGetter(this, "UpdateUtils",
+                                  "resource://gre/modules/UpdateUtils.jsm");
+
 /**
  * This object handles extension startup and shutdown, and acts as bookkeeper
  * for the related observer registrations. Actual work is delegated to the
@@ -60,10 +63,62 @@ var StartupEvents = {
    * Called when a user profile has fully loaded.
    */
   afterProfileChange: function() {
+    try {
+      if (!Prefs.otherRestartingAsWorkaround) {
+        // Multi-process should have been disabled automatically on Release, but
+        // because of bug 1374653 it may remain enabled after installation until
+        // the browser is restarted again. In this case, we apply a workaround.
+        let isReleaseBrowser = /^(release|default)($|\-)/.test(
+         UpdateUtils.UpdateChannel);
+        if (isReleaseBrowser && Services.appinfo.browserTabsRemoteAutostart) {
+          // Only attempt this workaround once. If it fails, or if the user has
+          // just enabled multi-process manually from internal preferences, the
+          // multi-process welcome dialog will show relevant instructions.
+          Prefs.otherRestartingAsWorkaround = true;
+          Cc["@mozilla.org/toolkit/app-startup;1"].getService(Ci.nsIAppStartup)
+           .quit(Ci.nsIAppStartup.eForceQuit | Ci.nsIAppStartup.eRestart);
+          return;
+        }
+      } else if (!Services.appinfo.browserTabsRemoteAutostart) {
+        // The workaround was effective, reset the preference so we can use the
+        // workaround again if the add-on is uninstalled and reinstalled.
+        Prefs.otherRestartingAsWorkaround = false;
+      }
+    } catch (e) {
+      // Just continue with normal initialization in case any error occurs.
+    }
+
     for (let topic of this._notificationTopics) {
       Services.obs.addObserver(this, topic, false);
     }
+
+    // Start the asynchronous operation that prepares the version information
+    // that will be used when saving web archives.
+    this._setAddonVersion();
+
     StartupInitializer.initFromCurrentProfile();
+  },
+
+  /**
+   * This promise is resolved with the add-on version when it is known.
+   */
+  _promiseAddonVersion: null,
+
+  /**
+   * Populates the StartupInitializer.addonVersion property with the version of
+   * the installed extension asynchronously.
+   */
+  _setAddonVersion: function() {
+    // Get the object with the version information of Mozilla Archive Format.
+    var addonId = "mozarchiver@lootyhoof-pm";
+    let { AddonManager } =
+     Cu.import("resource://gre/modules/AddonManager.jsm", {});
+    this._promiseAddonVersion = new Promise(resolve => {
+      AddonManager.getAddonByID(addonId, function (aAddon) {
+        StartupInitializer.addonVersion = aAddon.version;
+        resolve(aAddon.version);
+      });
+    });
   },
 
   /**
@@ -79,7 +134,7 @@ var StartupEvents = {
    * Called after all the browser windows have been shown.
    */
   onWindowsRestored: function() {
-    if (Prefs.otherDisplayWelcomePage) {
+    this.shouldUpdateToBeta().then(shouldUpdateToBeta => {
       let browserWindow = Services.wm.getMostRecentWindow("navigator:browser");
       if (!browserWindow) {
         // Very rarely, it might happen that at this time all browser windows
@@ -87,12 +142,29 @@ var StartupEvents = {
         // welcome page again on the next startup.
         return;
       }
-      // Load the page in foreground.
       let browser = browserWindow.getBrowser();
-      browser.loadTabs(["chrome://mza/content/preferences/welcomePage.xhtml"],
-                       false, false);
-      Prefs.otherDisplayWelcomePage = false;
-    }
+      if (shouldUpdateToBeta && Prefs.otherDisplayUpdateBetaPage) {
+        // Display the request to update to the Beta Channel as an alternative
+        // welcome page. The normal welcome page with file associations will be
+        // displayed on the next startup if was not shown before.
+        browser.loadTabs(
+         ["chrome://mza/content/preferences/updateBetaPage.xhtml"],
+         false, false);
+        Prefs.otherDisplayUpdateBetaPage = false;
+      } else if (Prefs.otherDisplayWelcomePage) {
+        // Load the page in foreground.
+        browser.loadTabs(["chrome://mza/content/preferences/welcomePage.xhtml"],
+                         false, false);
+        Prefs.otherDisplayWelcomePage = false;
+      }
+      if (Services.appinfo.browserTabsRemoteAutostart &&
+       Prefs.otherDisplayWelcomeMultiprocess) {
+        browserWindow.openDialog(
+         "chrome://mza/content/preferences/prefsDialog.xul", "",
+         "chrome,titlebar,toolbar,centerscreen,modal");
+        Prefs.otherDisplayWelcomeMultiprocess = false;
+      }
+    }).catch(Cu.reportError);
   },
 
   /**
@@ -100,5 +172,27 @@ var StartupEvents = {
    */
   onAppQuit: function() {
     StartupInitializer.terminate();
+  },
+
+  /**
+   * Returns a promise that resolves to true if the add-on is installed from the
+   * Release channel on a pre-release version of the browser.
+   */
+  shouldUpdateToBeta: function() {
+    return this._promiseAddonVersion.then(version => {
+      try {
+        let isReleaseBrowser = /^(release|esr)($|\-)/.test(
+         UpdateUtils.UpdateChannel);
+        let isBetaAddon = /a|b|rc/.test(version);
+        if (isBetaAddon) {
+          Prefs.otherBeta = true;
+        }
+        return !isReleaseBrowser && !isBetaAddon;
+      } catch (e) {
+        // UpdateUtils.jsm is not available on Firefox 38 ESR, so in case of
+        // exception we assume the browser is a release version.
+        return false;
+      }
+    });
   },
 };

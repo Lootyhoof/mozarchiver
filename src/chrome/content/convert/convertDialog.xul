@@ -490,13 +490,7 @@
       This text node will be replaced with the value to be displayed.
     </description>
 
-    <!-- Hidden frame and support scripts used for conversion -->
-    <script type="application/x-javascript"
-            src= "chrome://global/content/contentAreaUtils.js"
-            />
-    <script type="application/x-javascript"
-            src= "chrome://mza/content/integration/contentAreaUtils.js"
-            />
+    <!-- Hidden frame used for conversion -->
     <iframe id=    "frmConvert"
             type=  "content"
             hidden="true"

@@ -6,39 +6,18 @@
 <!ENTITY save.format.maff.label "MAFF (založen na ZIP, podporuje audio a video)">
 <!ENTITY save.format.maff.accesskey "M">
 <!ENTITY save.format.mhtml.full.label "MHTML (lze přímo otevřít v některých jiných prohlížečích)">
-<!ENTITY save.format.mhtml.partial.label "MHTML (varianta s omezenou kompatibilitou)">
 <!ENTITY save.format.mhtml.accesskey "H">
 <!ENTITY save.method.grouplabel "Při ukládání celé stránky:">
 <!ENTITY save.method.snapshot.label "Získat přesný snímek">
 <!ENTITY save.method.snapshot.accesskey "Z">
 <!ENTITY save.method.standard.label "Použít standardní způsob uložení v prohlížeči">
 <!ENTITY save.method.standard.accesskey "P">
-<!ENTITY save.namingstrategy.grouplabel "Navrhování názvů souborů:">
-<!ENTITY save.namingstrategy.title.label "Použít titulek stránky">
-<!ENTITY save.namingstrategy.title.accesskey "t">
-<!ENTITY save.namingstrategy.standard.label "Použít standardní metodu prohlížeče">
-<!ENTITY save.namingstrategy.standard.accesskey "o">
-<!-- Interface pane -->
-<!ENTITY pane.interface.label "Rozhraní">
 <!ENTITY info.grouplabel "Když je otevřena archivovaná stránka:">
 <!ENTITY info.icon.label "Zobrazit ikonku v řádku adresy">
 <!ENTITY info.icon.accesskey "i">
 <!ENTITY info.bar.label "Zobrazit informační řádek">
 <!ENTITY info.bar.accesskey "f">
-<!ENTITY menu.grouplabel "Zobrazit položky menu MAF v:">
-<!ENTITY menu.app.label "Menu $brandShortName">
-<!ENTITY menu.app.accesskey "m">
-<!ENTITY menu.file.label "Soubor">
-<!ENTITY menu.file.accesskey "o">
-<!ENTITY menu.tools.label "Nástroje">
-<!ENTITY menu.tools.accesskey "r">
-<!ENTITY menu.pagecontext.label "Kontextové menu stránky">
-<!ENTITY menu.pagecontext.accesskey "K">
-<!ENTITY menu.pagecontext.tabs.label "Zobrazit položky pro ukládání karet">
-<!ENTITY menu.pagecontext.tabs.accesskey "Z">
-<!ENTITY menu.tabscontext.label "Kontextové menu panelu">
-<!ENTITY menu.tabscontext.accesskey "x">
-<!-- File associations pane. This pane is visible only on Windows. -->
+<!-- Interface pane -->
 <!ENTITY pane.actions.label "Akce">
 <!ENTITY action.convertsavedpages.label "Konverze uložených stránek">
 <!ENTITY action.convertsavedpages.description "Pomocník konverze uložených stránek Vám pomůže dříve uložené stránky převést do jiného formátu">

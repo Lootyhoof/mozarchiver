@@ -6,39 +6,18 @@
 <!ENTITY save.format.maff.label "MAFF (based on ZIP, supports video and audio)">
 <!ENTITY save.format.maff.accesskey "M">
 <!ENTITY save.format.mhtml.full.label "MHTML (can be opened directly by some other browsers)">
-<!ENTITY save.format.mhtml.partial.label "MHTML (variant with limited compatibility)">
 <!ENTITY save.format.mhtml.accesskey "H">
 <!ENTITY save.method.grouplabel "When saving a complete page:">
 <!ENTITY save.method.snapshot.label "Take an exact snapshot">
 <!ENTITY save.method.snapshot.accesskey "k">
 <!ENTITY save.method.standard.label "Use browser's standard save system">
 <!ENTITY save.method.standard.accesskey "b">
-<!ENTITY save.namingstrategy.grouplabel "For the suggested file name:">
-<!ENTITY save.namingstrategy.title.label "Use the title of the page">
-<!ENTITY save.namingstrategy.title.accesskey "g">
-<!ENTITY save.namingstrategy.standard.label "Use browser's standard naming strategy">
-<!ENTITY save.namingstrategy.standard.accesskey "w">
-<!-- Interface pane -->
-<!ENTITY pane.interface.label "Arayüz">
 <!ENTITY info.grouplabel "When an archived page is opened:">
 <!ENTITY info.icon.label "Show icon in the location bar">
 <!ENTITY info.icon.accesskey "S">
 <!ENTITY info.bar.label "Display an information bar">
 <!ENTITY info.bar.accesskey "D">
-<!ENTITY menu.grouplabel "Mozilla Arşiv Biçimi menü ögelerini şunda göster:">
-<!ENTITY menu.app.label "$brandShortName menu">
-<!ENTITY menu.app.accesskey "m">
-<!ENTITY menu.file.label "Dosya menüsü">
-<!ENTITY menu.file.accesskey "F">
-<!ENTITY menu.tools.label "Araçlar menüsü">
-<!ENTITY menu.tools.accesskey "l">
-<!ENTITY menu.pagecontext.label "Sayfa içeriği menüsü">
-<!ENTITY menu.pagecontext.accesskey "P">
-<!ENTITY menu.pagecontext.tabs.label "Show items for saving tabs">
-<!ENTITY menu.pagecontext.tabs.accesskey "h">
-<!ENTITY menu.tabscontext.label "Sekme çubuğu içerik menüsü">
-<!ENTITY menu.tabscontext.accesskey "x">
-<!-- File associations pane. This pane is visible only on Windows. -->
+<!-- Interface pane -->
 <!ENTITY pane.actions.label "Actions">
 <!ENTITY action.convertsavedpages.label "Convert Saved Pages">
 <!ENTITY action.convertsavedpages.description "The Saved Pages Conversion Wizard will guide you through the conversion of your previously saved web pages to a different file format.">

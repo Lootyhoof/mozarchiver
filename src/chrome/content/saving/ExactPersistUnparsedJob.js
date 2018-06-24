@@ -76,41 +76,38 @@ ExactPersistUnparsedJob.prototype = {
 
   // Job
   _executeStart: function() {
-    // If the download starts successfully, wait asynchronously for completion.
-    this._expectAsyncCallback(function() {
-      try {
-        // Create the channel for the download. This operation may throw an
-        // exception if a channel cannot be created for the specified URI.
-        var channel = Cc["@mozilla.org/network/io-service;1"].
-         getService(Ci.nsIIOService).newChannelFromURI(
-         this.resource.originalUri);
-        if ("nsIPrivateBrowsingChannel" in Ci &&
-         channel instanceof Ci.nsIPrivateBrowsingChannel) {
-          channel.setPrivate(this.isPrivate);
-        }
-        // Load the content from the cache if possible.
-        channel.loadFlags |= Ci.nsIRequest.LOAD_FROM_CACHE;
-        // Receive progress notifications through the nsIProgressEventSink
-        // interface. For more information on this interface, see
-        // <http://mxr.mozilla.org/mozilla-central/source/netwerk/base/public/nsIProgressEventSink.idl>
-        // (retrieved 2009-12-23).
-        channel.notificationCallbacks = this;
-        // Start the download asynchronously. This operation may throw an
-        // exception if the channel for the specified URI cannot be opened.
-        channel.asyncOpen(this, null);
-      } catch (e) {
-        var result = (e instanceof Ci.nsIException) ? e.result :
-         Cr.NS_ERROR_FAILURE;
-        // Report unexpected errors, excluding expected error codes.
-        if (result != Cr.NS_ERROR_NO_CONTENT) {
-          this._reportDownloadFailure();
-          this.resource.statusCode = result;
-        }
-        // Indicate that the file was not saved and the job is completed.
-        this.resource.file = null;
-        this._notifyCompletion();
+    try {
+      // Create the channel for the download. This operation may throw an
+      // exception if a channel cannot be created for the specified URI.
+      var channel = Cc["@mozilla.org/network/io-service;1"].
+       getService(Ci.nsIIOService).newChannelFromURI(
+       this.resource.originalUri);
+      if ("nsIPrivateBrowsingChannel" in Ci &&
+       channel instanceof Ci.nsIPrivateBrowsingChannel) {
+        channel.setPrivate(this.isPrivate);
       }
-    }, this);
+      // Load the content from the cache if possible.
+      channel.loadFlags |= Ci.nsIRequest.LOAD_FROM_CACHE;
+      // Receive progress notifications through the nsIProgressEventSink
+      // interface. For more information on this interface, see
+      // <http://mxr.mozilla.org/mozilla-central/source/netwerk/base/public/nsIProgressEventSink.idl>
+      // (retrieved 2009-12-23).
+      channel.notificationCallbacks = this;
+      // Start the download asynchronously. This operation may throw an
+      // exception if the channel for the specified URI cannot be opened.
+      channel.asyncOpen(this, null);
+    } catch (e) {
+      var result = (e instanceof Ci.nsIException) ? e.result :
+       Cr.NS_ERROR_FAILURE;
+      // Report unexpected errors, excluding expected error codes.
+      if (result != Cr.NS_ERROR_NO_CONTENT) {
+        this._reportDownloadFailure();
+        this.resource.statusCode = result;
+      }
+      // Indicate that the file was not saved and the job is completed.
+      this.resource.file = null;
+      this._notifyCompletion();
+    }
   },
 
   // Job

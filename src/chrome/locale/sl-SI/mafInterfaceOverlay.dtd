@@ -1,0 +1,10 @@
+<!-- *** Archive information popup *** -->
+<!-- Status of the current page -->
+<!ENTITY archiveinfo.status.normal.label "Ta stran ni vključena v arhiv.">
+<!ENTITY archiveinfo.status.archived.label "To je arhivirana stran.">
+<!-- Original address the page was saved from -->
+<!ENTITY archiveinfo.maforiginalurl.label "Shranjeno iz:">
+<!ENTITY archiveinfo.maforiginalurl.missing.label "(ni na voljo)">
+<!-- Date and time the page was archived -->
+<!ENTITY archiveinfo.mafdatearchived.label "Shranjeno:">
+<!ENTITY archiveinfo.mafdatearchived.missing.label "(ni na voljo)">

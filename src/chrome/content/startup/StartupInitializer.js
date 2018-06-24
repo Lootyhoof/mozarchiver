@@ -35,8 +35,6 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-Cu.import("resource://gre/modules/AddonManager.jsm");
-
 /**
  * This object handles all the tasks related to extension initialization and
  * termination.
@@ -66,18 +64,32 @@ var StartupInitializer = {
    *   <https://developer.mozilla.org/en/How_Mozilla_determines_MIME_Types>
    */
   initFromCurrentProfile: function() {
-    // Firstly, start the asynchronous operation that prepares the version
-    // information that will be used when saving web archives.
-    this._setAddonVersion();
-
     // Retrieve a reference to the history service that is now available.
     this._historyService = ("nsINavHistoryService" in Ci) &&
      Cc["@mozilla.org/browser/nav-history-service;1"].
      getService(Ci.nsINavHistoryService);
 
-    // Register the listener that handles page annotations asynchronously.
-    this._historyService.addObserver(ArchiveHistoryObserver, false);
+    // The Services.ppmm getter is not available in Firefox 38.
+    let ppmm = Cc["@mozilla.org/parentprocessmessagemanager;1"].
+     getService(Ci.nsIMessageBroadcaster).
+     QueryInterface(Ci.nsIProcessScriptLoader);
 
+    // Register listeners for global messages from the content processes.
+    ppmm.addMessageListener(
+     "MozArchiver:ComputeDefaultTempFolderPath",
+     () => Prefs.computeDefaultTempFolderPath());
+
+    // Continue initialization in the parent and all the child processes.
+    ppmm.loadProcessScript(`data:,
+      Components.utils.import("chrome://mza/content/MozArchiver.jsm");
+      StartupInitializer.initForEachProcess();
+    `, true);
+  },
+
+  /**
+   * This function is called by a process script when the profile is ready.
+   */
+  initForEachProcess: function() {
     // For each available archive type, define the file extensions and the MIME
     // media types that are recognized as being associated with the file type.
     var archiveTypesToRegister = [
@@ -88,42 +100,6 @@ var StartupInitializer = {
        fileExtensions: ["mht", "mhtml"],
        mimeTypes:      ["application/x-mht", "message/rfc822"] },
     ];
-
-    // Firstly, clean up the permanent file extension associations created by
-    // MAF 0.7.1 and earlier, that collapsed the MIME types for MAFF and MHTML.
-    var helperApps = new HelperAppsWrapper.HelperApps();
-    var mimeTypesModified = false;
-    for (let [, mimeType] in Iterator(["application/x-maf", "application/maf"])) {
-      if (helperApps.mimeHandlerExists(mimeType)) {
-        let handlerOverride = new HelperAppsWrapper.HandlerOverride(
-         HelperAppsWrapper.MIME_URI(mimeType), helperApps._inner);
-        // Clear the list of extensions only if it is not already empty.
-        if (handlerOverride.extensions) {
-          handlerOverride.clearExtensions();
-          mimeTypesModified = true;
-        }
-      }
-    }
-    for (let [, mimeType] in Iterator(["application/octet-stream",
-     "application/x-octet-stream", "application/x-mht", "message/rfc822"])) {
-      if (helperApps.mimeHandlerExists(mimeType)) {
-        let handlerOverride = new HelperAppsWrapper.HandlerOverride(
-         HelperAppsWrapper.MIME_URI(mimeType), helperApps._inner);
-        // Remove the extensions from the list only if one of them is present,
-        // to avoid flushing the changes to disk if it is not necessary.
-        if (/\b(maf|maff|maff\.zip)\b/.test(handlerOverride.extensions)) {
-          handlerOverride.removeExtension("maf");
-          handlerOverride.removeExtension("maff");
-          handlerOverride.removeExtension("maff.zip");
-          mimeTypesModified = true;
-        }
-      }
-    }
-    // Flush the changes to disk if we had to modify some data. This typically
-    // occurs only the first time that the legacy associations are inspected.
-    if (mimeTypesModified) {
-      helperApps.flush();
-    }
 
     // Build a list of MIME types and associated archive types. This list will
     // be used by the archive loader to determine how to handle web archives.
@@ -163,13 +139,33 @@ var StartupInitializer = {
        "?from=" + mimeType + "&to=*/*", "");
     }
 
+    // This component detects which resources have been loaded in a document.
+    this._componentRegistrar.registerFactory(
+     ContentPolicy.prototype.classID,
+     "MozArchiver Content Policy",
+     "@mozarchiver.ext/content-policy;1",
+     ContentPolicy.prototype._xpcom_factory);
+    this._addCategoryEntryForSession("content-policy",
+     "MozArchiver",
+     "@mozarchiver.ext/content-policy;1");
+
     // Register this extension's document loader factory, which is used for
     // complex web content in order to display the original location of the
     // archive in the address bar, and still use the actual content location
     // for resolving relative references inside the archive.
-    this._addCategoryEntryForSession("Goanna-Content-Viewers",
+    this._componentRegistrar.registerFactory(
+     DocumentLoaderFactory.prototype.classID,
+     "MozArchiver Document Loader Factory",
+     "@mozarchiver.ext/document-loader-factory;1",
+     DocumentLoaderFactory.prototype._xpcom_factory);
+    this._addCategoryEntryForSession(this.contentViewers(),
      "*/preprocessed-web-archive",
-     "@mozarchiver/document-loader-factory;1");
+     "@mozarchiver.ext/document-loader-factory;1");
+
+    // In SeaMonkey, we have to disable the mail document loader factory in
+    // order to allow our loading process to occur.
+    this._categoryManager.deleteCategoryEntry(this.contentViewers(),
+     "message/rfc822", false);
   },
 
   /**
@@ -180,9 +176,6 @@ var StartupInitializer = {
    * permissions, that would be lost.
    */
   terminate: function() {
-    // Unregister the page annotations history listener.
-    this._historyService.removeObserver(ArchiveHistoryObserver);
-
     if (Prefs.tempClearOnExit) {
       // Find the temporary directory.
       var dir = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
@@ -212,22 +205,21 @@ var StartupInitializer = {
   addonVersion: "",
 
   /**
-   * Indicates whether the host has an application menu in the title bar of the
-   * main window. This variable is only set after the first browser window is
-   * shown, but is only used in the preferences dialog.
+   * Checks if we are on Goanna 3 or below, which used "Goanna-Content-Viewers"
+   * instead of "Gecko-Content-Viewers".
    */
-  hasAppMenu: false,
-
-  /**
-   * Populates the addonVersion property with the version of the installed
-   * extension asynchronously.
-   */
-  _setAddonVersion: function() {
-    // Get the object with the version information of Mozilla Archive Format.
-    var addonId = "mozarchiver@lootyhoof-pm";
-    AddonManager.getAddonByID(addonId, function (aAddon) {
-      StartupInitializer.addonVersion = aAddon.version;
-    });
+  contentViewers: function() {
+    var viewer;
+    var appID = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo).ID;
+    var platformVersion = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo).platformVersion;
+    if ((appID == "{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}") && 
+     (Cc["@mozilla.org/xpcom/version-comparator;1"].getService(Ci.nsIVersionComparator)
+          .compare(platformVersion, "4.0.0") < 0)) {
+      viewer = "Goanna-Content-Viewers";
+    } else {
+      viewer = "Gecko-Content-Viewers";
+    }
+    return viewer;
   },
 
   /**

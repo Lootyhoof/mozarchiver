@@ -129,7 +129,13 @@ CandidateFinder.prototype = {
     // names, and a string containing the concatenation of all the file names,
     // for faster access when searching for a particular file name in folders
     // containing many files.
-    var dirEntries = aLocation.source.directoryEntries;
+    var dirEntries;
+    try {
+      dirEntries = aLocation.source.directoryEntries;
+    } catch (e) {
+      // The specified source directory may be inaccessible.
+      return;
+    }
     var subdirs = {};
     var files = {};
     var filesList = "::";
@@ -143,10 +149,9 @@ CandidateFinder.prototype = {
           files[dirEntry.leafName] = true;
           filesList += dirEntry.leafName + "::";
         }
-      } catch (e if (e instanceof Ci.nsIException && e.result ==
-       Cr.NS_ERROR_FILE_NOT_FOUND)) {
-        // In rare cases, invalid file names may generate this exception when
-        // checking isDirectory, even if they were returned by the iterator.
+      } catch (e) {
+        // Inaccessible directories or invalid file names returned by the
+        // iterator may generate an exception when checking isDirectory.
       }
       // Avoid blocking the user interface while scanning crowded folders.
       yield null;

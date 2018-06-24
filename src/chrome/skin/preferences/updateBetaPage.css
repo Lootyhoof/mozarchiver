@@ -1,0 +1,29 @@
+#installLink, #installPlaceholder {
+  display: block;
+  margin: 1em 0;
+  border: 1px solid #888;
+  border-radius: 8px;
+  background: transparent linear-gradient(#90EE90, #3D3) repeat scroll 0% 0%;
+  color: #900;
+  padding: 10px 20px;
+  line-height: 1.4em;
+  font-weight: bold;
+  font-size: x-large;
+  text-align: center;
+}
+
+#installPlaceholder {
+  border-color: #ddd;
+  background: #eee;
+  color: #999;
+  line-height: 2.8em;
+}
+
+#installLink:not(:hover) {
+  text-decoration: none;
+}
+
+#installBox.installing #installLink,
+#installBox:not(.installing) #installPlaceholder {
+  display: none;
+}

@@ -1,44 +1,23 @@
 <!-- General window controls -->
-<!ENTITY window.title.v2 "MozArchiver 选项">
+<!ENTITY window.title.v2 "Mozilla 档案格式（MAF）选项">
 <!-- Main pane -->
 <!ENTITY pane.main.label "一般">
 <!ENTITY save.format.grouplabel "默认格式（页面存档时）：">
 <!ENTITY save.format.maff.label "MAFF（基于 Zip，支持音视频）">
 <!ENTITY save.format.maff.accesskey "M">
 <!ENTITY save.format.mhtml.full.label "MHTML（与类 IE 浏览器兼容）">
-<!ENTITY save.format.mhtml.partial.label "MHTML（MAF 变更版本，兼容性有限）">
 <!ENTITY save.format.mhtml.accesskey "H">
 <!ENTITY save.method.grouplabel "完整保存页面时：">
 <!ENTITY save.method.snapshot.label "制作可信快照 (k)">
 <!ENTITY save.method.snapshot.accesskey "k">
 <!ENTITY save.method.standard.label "使用浏览器标准保存系统">
 <!ENTITY save.method.standard.accesskey "b">
-<!ENTITY save.namingstrategy.grouplabel "默认文件名：">
-<!ENTITY save.namingstrategy.title.label "页面标题 (g)">
-<!ENTITY save.namingstrategy.title.accesskey "g">
-<!ENTITY save.namingstrategy.standard.label "使用浏览器的标准命名策略 (w)">
-<!ENTITY save.namingstrategy.standard.accesskey "w">
-<!-- Interface pane -->
-<!ENTITY pane.interface.label "界面">
 <!ENTITY info.grouplabel "当归档页面被打开后：">
-<!ENTITY info.icon.label "在位置栏显示 MozArchiver 图标">
+<!ENTITY info.icon.label "在位置栏显示 MAF 图标">
 <!ENTITY info.icon.accesskey "S">
 <!ENTITY info.bar.label "显示一行通知栏">
 <!ENTITY info.bar.accesskey "D">
-<!ENTITY menu.grouplabel "显示 MozArchiver 菜单项于：">
-<!ENTITY menu.app.label "$brandShortName 菜单">
-<!ENTITY menu.app.accesskey "m">
-<!ENTITY menu.file.label "“文件(F)”菜单">
-<!ENTITY menu.file.accesskey "F">
-<!ENTITY menu.tools.label "“工具”菜单 (l)">
-<!ENTITY menu.tools.accesskey "l">
-<!ENTITY menu.pagecontext.label "页面内容菜单">
-<!ENTITY menu.pagecontext.accesskey "P">
-<!ENTITY menu.pagecontext.tabs.label "同时显示保存多个标签页的菜单项">
-<!ENTITY menu.pagecontext.tabs.accesskey "h">
-<!ENTITY menu.tabscontext.label "标签栏内容菜单 (x)">
-<!ENTITY menu.tabscontext.accesskey "x">
-<!-- File associations pane. This pane is visible only on Windows. -->
+<!-- Interface pane -->
 <!ENTITY pane.actions.label "操作">
 <!ENTITY action.convertsavedpages.label "转换已保存页面">
 <!ENTITY action.convertsavedpages.description "已保存页面转换向导将引导您把以前保存的网页转换成您所需要的其它格式。">
@@ -47,4 +26,4 @@
 <!ENTITY action.showwelcomepageassociate.label "刷新文件关联">
 <!ENTITY action.showwelcomepageassociate.description "在欢迎页面中，您可以选择用 $brandShortName 打开哪些文件类型；当其他程序重置了您的相应文件关联时您需要使用本功能。">
 <!ENTITY action.visitwebsite.label "访问网站">
-<!ENTITY action.visitwebsite.description "MozArchiver 与 $brandShortName 无缝集成，除可见特性外还为 $brandShortName 提供了很多其他改进。要查看完整的介绍、MAFF 文件格式信息以及关于高级设置选项的文档，请访问本插件官方网站。">
+<!ENTITY action.visitwebsite.description "Mozilla 档案格式（MAF）与 $brandShortName 无缝集成，除可见特性外还为 $brandShortName 提供了很多其他改进。要查看完整的介绍、MAFF 文件格式信息以及关于高级设置选项的文档，请访问本插件官方网站。">

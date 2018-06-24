@@ -84,12 +84,14 @@ Cu.import("resource://gre/modules/PrivateBrowsingUtils.jsm");
  *        The nsIFile of the support folder for data files.
  */
 function ExactPersistJob(aEventListener, aDocument, aTargetFile,
- aTargetDataFolder, aSaveWithMedia, aSaveWithContentLocation) {
+ aTargetDataFolder, aSaveWithMedia, aSaveWithContentLocation,
+ aSaveWithNotLoadedResources) {
   // Never save resources in parallel. This is necessary because unparsed jobs
   // must be completed before parsed jobs can be started.
   JobRunner.call(this, aEventListener, false);
   this.saveWithMedia = aSaveWithMedia;
   this.saveWithContentLocation = aSaveWithContentLocation;
+  this.saveWithNotLoadedResources = aSaveWithNotLoadedResources;
 
   // Initialize the state of the object.
   this.bundle = new PersistBundle();
@@ -164,6 +166,12 @@ ExactPersistJob.prototype = {
   saveWithContentLocation: false,
 
   /**
+   * If set to true, resources that were not originally loaded will be
+   * downloaded and included when saving.
+   */
+  saveWithNotLoadedResources: false,
+
+  /**
    * PersistBundle object containing all the resources for this save operation.
    */
   bundle: null,
@@ -225,9 +233,10 @@ ExactPersistJob.prototype = {
        URIChainHasFlags(aReferenceUri,
        Ci.nsIProtocolHandler.URI_NON_PERSISTABLE)) {
         // Do not create unparsed save jobs for resources that have not been
-        // actually loaded to display the document.
+        // actually loaded to display the document, unless overridden.
         var loadedUriSpecs = aReference.sourceDomDocument.loadedUriSpecs;
-        if (loadedUriSpecs && loadedUriSpecs[aReferenceUri.spec]) {
+        if ((loadedUriSpecs && loadedUriSpecs[aReferenceUri.spec]) ||
+            this.saveWithNotLoadedResources) {
           // The resource will be saved by an unparsed job, unless a parsed job
           // gets associated with the resource meanwhile.
           aReference.resource.needsUnparsedJob = true;

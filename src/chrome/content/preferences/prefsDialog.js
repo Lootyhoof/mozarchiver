@@ -37,7 +37,7 @@
 
 const { classes: Cc, interfaces: Ci, utils: Cu, results: Cr } = Components;
 
-Cu.import("chrome://mza/content/MozillaArchiveFormat.jsm");
+Cu.import("chrome://mza/content/MozArchiver.jsm");
 
 /**
  * Handles the MAF preferences dialog.
@@ -48,21 +48,27 @@ var PrefsDialog = {
    */
   onLoadDialog: function() {
     // Apply brand names to the dialog elements.
-    for (var [, elementName] in Iterator(["cbInterfaceMenuApp",
-     "descVisitWebsite", "descShowWelcomePageAssociate"])) {
+    for (var [, elementName] in Iterator(["descVisitWebsite",
+     "descShowWelcomePageAssociate"])) {
       Interface.applyBranding(document.getElementById(elementName));
     }
-    // Check to see if the application menu is present.
-    document.getElementById("cbInterfaceMenuApp").hidden =
-     !StartupInitializer.hasAppMenu;
     // Determines if the welcome page handles file associations.
     if (this._isOnWindows()) {
       document.getElementById("boxShowWelcomePage").hidden = true;
       document.getElementById("boxShowWelcomePageAssociate").hidden = false;
     }
+    // The preferences do not apply if multi-process is enabled.
+    var isMultiprocess = Services.appinfo.browserTabsRemoteAutostart;
+    document.getElementById("boxMain").hidden = isMultiprocess;
+    document.getElementById("boxMultiprocess").hidden = !isMultiprocess;
     // Updates the status of the dialog controls.
     this.onSaveMethodChange();
-    this.onInterfaceMenuPageContextChange();
+  },
+
+  /**
+   * Updates the window size after some elements may have been added or removed.
+   */
+  sizeToContent: function() {
     // At this point, we must ensure that the height of the visible description
     // elements is taken into account when calculating the window height.
     for (let [, d] in Iterator(document.getElementsByTagName("description"))) {
@@ -83,18 +89,12 @@ var PrefsDialog = {
    * Enables other dialog controls depending on the selected save method.
    */
   onSaveMethodChange: function() {
-    var saveMethod = document.getElementById("prefSaveMethod").value;
-    let r = document.getElementById("radioSaveFormatMhtml");
-    let attribute = (saveMethod == "snapshot") ? "labelfull" : "labelpartial";
-    r.setAttribute("label", r.getAttribute(attribute));
-  },
-
-  /**
-   * Enables other dialog controls depending on the page context menu option.
-   */
-  onInterfaceMenuPageContextChange: function() {
-    document.getElementById("cbInterfaceMenuPageContextForTabs").disabled =
-     !document.getElementById("prefInterfaceMenuPageContext").value;
+    var enabled = document.getElementById("prefSaveMethod").value == "snapshot";
+    document.getElementById("radioSaveFormatMaff").disabled = !enabled;
+    document.getElementById("radioSaveFormatMhtml").disabled = !enabled;
+    document.getElementById("boxConvertSavedPages").hidden = !enabled ||
+     Services.appinfo.browserTabsRemoteAutostart;
+    this.sizeToContent();
   },
 
   /**

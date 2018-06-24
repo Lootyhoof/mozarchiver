@@ -6,39 +6,18 @@
 <!ENTITY save.format.maff.label "MAFF (ZIPベース、動画と音声に対応)">
 <!ENTITY save.format.maff.accesskey "M">
 <!ENTITY save.format.mhtml.full.label "MHTML (他のブラウザで直接開ける)">
-<!ENTITY save.format.mhtml.partial.label "MHTML (部分的な互換性)">
 <!ENTITY save.format.mhtml.accesskey "H">
 <!ENTITY save.method.grouplabel "完全なページを保存する際に:">
 <!ENTITY save.method.snapshot.label "正確なスナップショットを撮る">
 <!ENTITY save.method.snapshot.accesskey "k">
 <!ENTITY save.method.standard.label "ブラウザ標準の保存機構を使う">
 <!ENTITY save.method.standard.accesskey "b">
-<!ENTITY save.namingstrategy.grouplabel "既定のファイル名:">
-<!ENTITY save.namingstrategy.title.label "ページのタイトルを使用する">
-<!ENTITY save.namingstrategy.title.accesskey "g">
-<!ENTITY save.namingstrategy.standard.label "ブラウザ標準の名称決定方法を使う">
-<!ENTITY save.namingstrategy.standard.accesskey "w">
-<!-- Interface pane -->
-<!ENTITY pane.interface.label "画面">
 <!ENTITY info.grouplabel "アーカイブページを開いた際に:">
 <!ENTITY info.icon.label "ロケーションバーにアイコンを表示する">
 <!ENTITY info.icon.accesskey "S">
 <!ENTITY info.bar.label "情報バーを表示する">
 <!ENTITY info.bar.accesskey "D">
-<!ENTITY menu.grouplabel "MozArchiver メニューの表示:">
-<!ENTITY menu.app.label "$brandShortName メニュー">
-<!ENTITY menu.app.accesskey "m">
-<!ENTITY menu.file.label "ファイルメニュー">
-<!ENTITY menu.file.accesskey "F">
-<!ENTITY menu.tools.label "ツールメニュー">
-<!ENTITY menu.tools.accesskey "l">
-<!ENTITY menu.pagecontext.label "ページのコンテキストメニュー">
-<!ENTITY menu.pagecontext.accesskey "p">
-<!ENTITY menu.pagecontext.tabs.label "タブを保存するコマンドも表示する">
-<!ENTITY menu.pagecontext.tabs.accesskey "h">
-<!ENTITY menu.tabscontext.label "タブバーのコンテキストメニュー">
-<!ENTITY menu.tabscontext.accesskey "x">
-<!-- Actions pane -->
+<!-- Interface pane -->
 <!ENTITY pane.actions.label "処理">
 <!ENTITY action.convertsavedpages.label "保存したページを変換する">
 <!ENTITY action.convertsavedpages.description "保存ページ変換ウィザードを使うと以前に保存した Web ページを別のファイル形式に変換できます。">

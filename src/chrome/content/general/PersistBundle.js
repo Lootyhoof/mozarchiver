@@ -112,12 +112,8 @@ PersistBundle.prototype = {
    *
    * @param aFolder
    *        nsIFile representing the folder to be examined.
-   * @param aOriginalUriByPath
-   *        Object mapping each file path to the original URI the file was saved
-   *        from. The metadata from this map will be set on the resource
-   *        objects.
    */
-  scanFolder: function(aFolder, aOriginalUriByPath) {
+  scanFolder: function(aFolder) {
     // Find the local file URL associated with the given folder.
     var folderUrl = Cc["@mozilla.org/network/io-service;1"].
      getService(Ci.nsIIOService).newFileURI(aFolder).
@@ -128,18 +124,10 @@ PersistBundle.prototype = {
       var resource = new PersistResource();
       resource.initFromFile(file);
       resource.readFromFile();
-      // Determine if more information about the file is available.
-      var originalUri = aOriginalUriByPath && aOriginalUriByPath[file.path];
-      if (originalUri) {
-        // Set the known original URI and use the absolute content location.
-        resource.originalUri = originalUri;
-        resource.contentLocation = originalUri.spec;
-      } else {
-        // There is no original URI, and the content location is relative.
-        var fileUri = Cc["@mozilla.org/network/io-service;1"].
-         getService(Ci.nsIIOService).newFileURI(file);
-        resource.contentLocation = folderUrl.getRelativeSpec(fileUri);
-      }
+      // We have to use a relative content location since we have no metadata.
+      var fileUri = Cc["@mozilla.org/network/io-service;1"].
+       getService(Ci.nsIIOService).newFileURI(file);
+      resource.contentLocation = folderUrl.getRelativeSpec(fileUri);
       // Add the resource object to the bundle.
       this.resources.push(resource);
     }

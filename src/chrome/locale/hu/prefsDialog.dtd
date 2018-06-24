@@ -1,44 +1,23 @@
 <!-- General window controls -->
-<!ENTITY window.title.v2 "MozArchiver beállítások">
+<!ENTITY window.title.v2 "Mozilla Archív Formátum beállítások">
 <!-- Main pane -->
 <!ENTITY pane.main.label "Főoldal">
 <!ENTITY save.format.grouplabel "Alapértelmezett formátum egyetlen fájlba mentéskor:">
 <!ENTITY save.format.maff.label "MAFF (ZIP alapú, videót és hangot is ment)">
 <!ENTITY save.format.maff.accesskey "M">
 <!ENTITY save.format.mhtml.full.label "MHTML (néhány másik böngészőben közvetlen megnyitható)">
-<!ENTITY save.format.mhtml.partial.label "MHTML (csökkentett kompatibilitású variáns)">
 <!ENTITY save.format.mhtml.accesskey "H">
 <!ENTITY save.method.grouplabel "Egy teljes oldal mentésekor:">
 <!ENTITY save.method.snapshot.label "Készítsen pontos felvételt">
 <!ENTITY save.method.snapshot.accesskey "p">
 <!ENTITY save.method.standard.label "Használja a böngésző alap mentési módszerét">
 <!ENTITY save.method.standard.accesskey "b">
-<!ENTITY save.namingstrategy.grouplabel "Javaslatok a fájl nevére:">
-<!ENTITY save.namingstrategy.title.label "Használja az oldal címét">
-<!ENTITY save.namingstrategy.title.accesskey "o">
-<!ENTITY save.namingstrategy.standard.label "Használja a böngésző névadási módszerét">
-<!ENTITY save.namingstrategy.standard.accesskey "n">
-<!-- Interface pane -->
-<!ENTITY pane.interface.label "Kezelőfelület">
 <!ENTITY info.grouplabel "Egy teljes oldal mentésekor:">
 <!ENTITY info.icon.label "Ikon mutatása a címsorban">
 <!ENTITY info.icon.accesskey "c">
 <!ENTITY info.bar.label "Információs eszközsáv megjelenítése">
 <!ENTITY info.bar.accesskey "I">
-<!ENTITY menu.grouplabel "A MozArchiver menüelemei megjelenjen:">
-<!ENTITY menu.app.label "$brandShortName menü">
-<!ENTITY menu.app.accesskey "m">
-<!ENTITY menu.file.label "Fájl menüben">
-<!ENTITY menu.file.accesskey "F">
-<!ENTITY menu.tools.label "Eszközök menüben">
-<!ENTITY menu.tools.accesskey "E">
-<!ENTITY menu.pagecontext.label "Oldal helyi menüjében">
-<!ENTITY menu.pagecontext.accesskey "O">
-<!ENTITY menu.pagecontext.tabs.label "Mentett fülek elemeinek mutatása">
-<!ENTITY menu.pagecontext.tabs.accesskey "h">
-<!ENTITY menu.tabscontext.label "Lap eszköztár helyi menüjében">
-<!ENTITY menu.tabscontext.accesskey "L">
-<!-- File associations pane. This pane is visible only on Windows. -->
+<!-- Interface pane -->
 <!ENTITY pane.actions.label "Akciók">
 <!ENTITY action.convertsavedpages.label "Mentett oldalak konvertálása">
 <!ENTITY action.convertsavedpages.description "A Mentett Oldalak Konvertáló Varázslója végigvezet a korábban elmentett weboldalak különböző fájlformátumokká konvertálásán.">
@@ -47,4 +26,4 @@
 <!ENTITY action.showwelcomepageassociate.label "Fájltársítások frissítése">
 <!ENTITY action.showwelcomepageassociate.description "Az üdvözlő oldalon ki tudod választani, hogy melyik webarchívum fájltípust akarod a $brandShortName böngészővel megnyitni, és itt tudod frissíteni a fájltársításokat is, ha egy másik alkalmazás megváltoztatta.">
 <!ENTITY action.visitwebsite.label "Weboldal meglátogatása">
-<!ENTITY action.visitwebsite.description "MozArchiver zökkenőmentesen integrálható a $brandShortName böngészőbe és a hozzáadás több jellemző kiterjesztését eredményezi. A jellemzők átfogó leírásáért, a MAFF fájlformátummal kapcsolatos információért és a haladó beállítási lehetőségek dokumentációjáért látogasd meg a hivatalos weboldalt.">
+<!ENTITY action.visitwebsite.description "Mozilla Archív Formátum zökkenőmentesen integrálható a $brandShortName böngészőbe és a hozzáadás több jellemző kiterjesztését eredményezi. A jellemzők átfogó leírásáért, a MAFF fájlformátummal kapcsolatos információért és a haladó beállítási lehetőségek dokumentációjáért látogasd meg a hivatalos weboldalt.">

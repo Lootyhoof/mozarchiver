@@ -5,7 +5,6 @@
 <!ENTITY features.headerfromupdate.label "アドオンは最新版に更新されました。">
 <!ENTITY features.item1.label "Web ページはより正確に保存されます。見たままが手に入る (WYSIWYG) のです。">
 <!ENTITY features.item2.label "複数のタブもひとつのファイル (Web アーカイブ) に保存されます。">
-<!ENTITY features.item3.label "ページのタイトルが既定のファイル名になります。">
 <!ENTITY features.item4.label "HTML5 の動画や音声などを保存できます!">
 <!ENTITY features.footer.label "どの機能を有効にするかは拡張機能のオプションから指定できます。">
 <!ENTITY features.link.label "ぜひ Web サイトを訪れて他の機能を知ってください。">

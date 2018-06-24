@@ -1,0 +1,29 @@
+<!-- General window controls -->
+<!ENTITY window.title.v2 "Možnosti dodatka MozArchiver">
+<!-- Main pane -->
+<!ENTITY pane.main.label "Glavno">
+<!ENTITY save.format.grouplabel "Privzeta oblika med shranjevanjem v eno datoteko:">
+<!ENTITY save.format.maff.label "MAFF (osnovan na ZIP, podpira video in zvok)">
+<!ENTITY save.format.maff.accesskey "M">
+<!ENTITY save.format.mhtml.full.label "MHTML (se lahko neposredno odpre v drugih brskalnikih)">
+<!ENTITY save.format.mhtml.accesskey "H">
+<!ENTITY save.method.grouplabel "Med shranjevanjem celotne strani:">
+<!ENTITY save.method.snapshot.label "Naredi natančen posnetek">
+<!ENTITY save.method.snapshot.accesskey "N">
+<!ENTITY save.method.standard.label "Uporabi brskalnikov običajni sistem">
+<!ENTITY save.method.standard.accesskey "U">
+<!ENTITY info.grouplabel "Kadar je odprta arhivirana stran:">
+<!ENTITY info.icon.label "Prikaži ikono v naslovni vrstici">
+<!ENTITY info.icon.accesskey "r">
+<!ENTITY info.bar.label "Prikaži podatkovno vrstico">
+<!ENTITY info.bar.accesskey "k">
+<!-- Actions pane -->
+<!ENTITY pane.actions.label "Dejanja">
+<!ENTITY action.convertsavedpages.label "Pretvori shranjene strani">
+<!ENTITY action.convertsavedpages.description "Čarovnik za pretvorbo shranjenih strani vas bo vodil skozi pretvorbo vaših shranjenih strani v drugo datotečno obliko.">
+<!ENTITY action.showwelcomepage.label "Prikaži pozdravno stran">
+<!ENTITY action.showwelcomepage.description "Pozdravna stran je prikazana ob prvi namestitvi tega dodatka in prikaže pregled njegovih značilnosti. Njen ponovni prikaz je zelo uporaben za prevajalce, ki želijo preveriti kakovost njihovega dela.">
+<!ENTITY action.showwelcomepageassociate.label "Osveži datotečne povezave">
+<!ENTITY action.showwelcomepageassociate.description "Iz pozdravne strani lahko izberete katere vrste datotek spletnih arhivov želite odpreti s $brandShortNameom in osvežite datotečne povezave v primeru, da jih je spremenil drug program.">
+<!ENTITY action.visitwebsite.label "Obiščite spletno mesto">
+<!ENTITY action.visitwebsite.description "Dodatek MozArchiver se tekoče združuje s $brandShortNameom in poleg najbolj vidnih značilnosti zagotavlja veliko izboljšav. Za obširen opis značilnosti, podatke o datotečni obliki MAFF in dokumentacijo o naprednih nastavitvenih možnosti lahko obiščete uradno spletno mesto.">

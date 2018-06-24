@@ -35,6 +35,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+Cu.import("resource://gre/modules/FileUtils.jsm");
+
 /**
  * Defines the Prefs global object, that can be used to retrieve the values of
  * all the MAF user customizable options. The values are managed by the standard
@@ -103,46 +105,24 @@ var Prefs = {
   },
 
   /**
-   * Returns true if MAF menu items should be shown in the application menu.
+   * Set to true if a beta version of the add-on has previously been installed.
    */
-  get interfaceMenuApp() {
-    return this.prefBranchForMaf.getBoolPref("interface.menu.app");
+  get otherBeta() {
+    return this.prefBranchForMaf.getBoolPref("other.beta");
+  },
+  set otherBeta(aValue) {
+    this.prefBranchForMaf.setBoolPref("other.beta", aValue);
   },
 
   /**
-   * Returns true if MAF menu items should be shown in the File menu.
+   * Returns true if the page offering the update to the Beta Channel was never
+   * displayed on startup.
    */
-  get interfaceMenuFile() {
-    return this.prefBranchForMaf.getBoolPref("interface.menu.file");
+  get otherDisplayUpdateBetaPage() {
+    return this.prefBranchForMaf.getBoolPref("other.displayupdatebetapage");
   },
-
-  /**
-   * Returns true if MAF menu items should be shown in the Tools menu.
-   */
-  get interfaceMenuTools() {
-    return this.prefBranchForMaf.getBoolPref("interface.menu.tools");
-  },
-
-  /**
-   * Returns true if MAF menu items should be shown in the page context menu.
-   */
-  get interfaceMenuPageContext() {
-    return this.prefBranchForMaf.getBoolPref("interface.menu.pagecontext");
-  },
-
-  /**
-   * Returns true if MAF menu items related to tab saving should be shown in the
-   * page context menu.
-   */
-  get interfaceMenuPageContextForTabs() {
-    return this.prefBranchForMaf.getBoolPref("interface.menu.pagecontext.tabs");
-  },
-
-  /**
-   * Returns true if MAF menu items should be shown in the tab bar context menu.
-   */
-  get interfaceMenuTabsContext() {
-    return this.prefBranchForMaf.getBoolPref("interface.menu.tabscontext");
+  set otherDisplayUpdateBetaPage(aValue) {
+    this.prefBranchForMaf.setBoolPref("other.displayupdatebetapage", aValue);
   },
 
   /**
@@ -168,11 +148,24 @@ var Prefs = {
   },
 
   /**
-   * Returns true if the integrated "Save Complete" code should be used to
-   * preserve scripts and source when saving complete web page contents.
+   * Returns true if the multi-process welcome dialog should be displayed.
    */
-  get saveKeepScripts() {
-    return this.prefBranchForMaf.getBoolPref("save.keepscripts");
+  get otherDisplayWelcomeMultiprocess() {
+    return this.prefBranchForMaf.getBoolPref("other.displayE10Snotice");
+  },
+  set otherDisplayWelcomeMultiprocess(aValue) {
+    this.prefBranchForMaf.setBoolPref("other.displayE10Snotice", aValue);
+  },
+
+  /**
+   * Returns true if the browser was already restarted as a workaround for
+   * multi-process being erroneously enabled on the Firefox Release channel.
+   */
+  get otherRestartingAsWorkaround() {
+    return this.prefBranchForMaf.getBoolPref("other.restartingasworkaround");
+  },
+  set otherRestartingAsWorkaround(aValue) {
+    this.prefBranchForMaf.setBoolPref("other.restartingasworkaround", aValue);
   },
 
   /**
@@ -183,25 +176,12 @@ var Prefs = {
     return this.prefBranchForMaf.getBoolPref("advanced.maff.extendedmetadata");
   },
 
-  /** Enumeration for saveMethod */
-  SAVEMETHOD_SNAPSHOT: "snapshot",
-  SAVEMETHOD_STANDARD: "standard",
-
   /**
-   * Returns the method to use when saving pages from the web to a local folder,
-   * before archiving the saved elements.
-   *
-   * Possible values:
-   *   SAVEMETHOD_SNAPSHOT (default)
-   *     Take a snapshot of the page, using either the ExactPersist component or
-   *     the integrated "Save Complete" code.
-   *   SAVEMETHOD_STANDARD
-   *     Use the browser's native "save complete web page" functionality.
-   *   (other)
-   *     If the user has customized the preference.
+   * Returns true if the commands to save web archives should be available.
    */
-  get saveMethod() {
-    return this.prefBranchForMaf.getCharPref("save.method");
+  get saveEnabled() {
+    return this.prefBranchForMaf.getCharPref("save.method") == "snapshot" &&
+           !Services.appinfo.browserTabsRemoteAutostart;
   },
 
   /** Enumeration for saveMaffCompression */
@@ -227,26 +207,6 @@ var Prefs = {
    */
   get saveMaffCompression() {
     return this.prefBranchForMaf.getCharPref("advanced.maff.compression");
-  },
-
-  /** Enumeration for saveNamingStrategy */
-  NAMINGSTRATEGY_PAGETITLE: "pagetitle",
-  NAMINGSTRATEGY_STANDARD:  "standard",
-
-  /**
-   * Determines how the default file name in the "Save As" dialogs is chosen.
-   *
-   * Possible values:
-   *   NAMINGSTRATEGY_PAGETITLE (default)
-   *     Use the title of the document instead of the source file name if
-   *     possible.
-   *   NAMINGSTRATEGY_STANDARD
-   *     Use the browser's default behavior.
-   *   (other)
-   *     If the user has customized the preference.
-   */
-  get saveNamingStrategy() {
-    return this.prefBranchForMaf.getCharPref("save.namingstrategy");
   },
 
   /**
@@ -302,7 +262,7 @@ var Prefs = {
   },
 
   /*
-   * Other public properties
+   * Other properties
    */
 
   /**
@@ -315,15 +275,26 @@ var Prefs = {
    getService(Ci.nsIPrefService).getBranch("extensions.mza.").
    QueryInterface(Ci.nsIPrefBranch2),
 
-  /*
-   * Private methods and properties
-   */
-
   /**
    * Returns the default temporary folder path, located in the system temporary
    * directory and different for each user profile.
    */
   get _defaultTempFolderPath() {
+    // The Services.cpmm getter is not available in Firefox 38.
+    let cpmm = Cc["@mozilla.org/childprocessmessagemanager;1"].
+     getService(Ci.nsIMessageSender);
+
+    // Do not recalculate the value the second time this property is read.
+    delete this._defaultTempFolderPath;
+    return (this._defaultTempFolderPath = cpmm.sendSyncMessage(
+     "MozArchiver:ComputeDefaultTempFolderPath")[0]);
+  },
+
+  /**
+   * Computes the default temporary folder path, located in the system temporary
+   * directory and different for each user profile.
+   */
+  computeDefaultTempFolderPath: function() {
     // Since the temporary folder is cleared when the browser exits, we need to
     // return a path that is different for each concurrent user. We also want
     // the temporary path to be the same for every browsing session of the same
@@ -335,9 +306,7 @@ var Prefs = {
     var profilePath = this._dirService.get("ProfD", Ci.nsIFile).path;
     var tempDir = this._dirService.get("TmpD", Ci.nsIFile);
     tempDir.append("maftemp-" + this._getHexHashMD5(profilePath).slice(0, 8));
-    // Do not recalculate the value the second time this property is read.
-    delete this._defaultTempFolderPath;
-    return (this._defaultTempFolderPath = tempDir.path);
+    return tempDir.path;
   },
 
   /**
@@ -356,8 +325,8 @@ var Prefs = {
     cryptoHash.update(octets, octets.length);
     var hashOctets = cryptoHash.finish(false);
     // Return the hash as a hexadecimal string.
-    return [("0" + hashOctets.charCodeAt(i).toString(16)).slice(-2) for
-     (i in hashOctets)].join("");
+    return [for (c of hashOctets)
+     ("0" + c.charCodeAt(0).toString(16)).slice(-2)].join("");
   },
 
   _dirService: Cc["@mozilla.org/file/directory_service;1"]

@@ -51,9 +51,6 @@ function Job(aEventListener) {
   this.result = Cr.NS_OK;
   this.curJobProgress = 0;
   this.maxJobProgress = 0;
-  this._deferDisposal = false;
-  this._isWorkingAsynchronously = false;
-  this._asyncDisposalRequested = false;
 }
 
 Job.prototype = {
@@ -96,8 +93,7 @@ Job.prototype = {
        Cr.NS_ERROR_ALREADY_INITIALIZED);
     }
 
-    // If the start process fails, cancel the operation and dispose of
-    // resources.
+    // If the start process fails, cancel the operation.
     this._executeAndCancelOnException(function() {
       // Execute the implementation-specific start process.
       this._executeStart();
@@ -135,36 +131,6 @@ Job.prototype = {
   },
 
   /**
-   * Free the operation's results. This method must be called only if the job is
-   * designed to maintain some resources available to the caller, and the job
-   * has not been canceled.
-   *
-   * If the onJobComplete event is raised with a success code, and the job set
-   * _deferDisposal, this method should be called either in the onJobComplete
-   * implementation or asynchronously at a later time.
-   */
-  dispose: function() {
-    // A job must be canceled before its resources can be disposed of.
-    if (!this.isCompleted) {
-      throw Components.Exception("Dispose attempted before job completed.",
-       Cr.NS_ERROR_NOT_INITIALIZED);
-    }
-
-    // If the resources cannot be disposed of now, defer until later.
-    if (this._isWorkingAsynchronously) {
-      this._asyncDisposalRequested = true;
-      return;
-    }
-
-    // Execute the implementation-specific disposal process.
-    try {
-      this._executeDispose();
-    } catch(e) {
-      Cu.reportError(e);
-    }
-  },
-
-  /**
    * Called when the operation is started. Implementations must throw
    * exceptions if starting the operation is not possible. If the function
    * succeeds, implementations must call _notifyPossibleCompletion() when the
@@ -192,21 +158,6 @@ Job.prototype = {
   _checkIfCompleted: function() {
     return false;
   },
-
-  /**
-   * Called when the job results are not needed anymore, to free any resources.
-   * In some cases, this method may be called more than once.
-   *
-   * Any exception raised by this method is caught and reported.
-   */
-  _executeDispose: function() { },
-
-  /**
-   * Implementations may set this property to true to indicate that after the
-   * job is completed _executeDispose() should not be called immediately, but
-   * only after dispose() is explicitly called.
-   */
-  _deferDisposal: false,
 
   /**
    * The event listener specified on construction. Subclasses may send custom
@@ -242,47 +193,8 @@ Job.prototype = {
           this._eventListener.onJobComplete(this, this.result);
         } catch(e) {
           Cu.reportError(e);
-          // Handling the notification failed; dispose of the object and exit.
-          this.dispose();
-          return;
-        }
-        // If handling the notification succeeded, the job completed
-        // successfully, and deferred disposal is required, do not dispose of
-        // the object now.
-        if(this.result != Cr.NS_OK || !this._deferDisposal) {
-          this.dispose();
         }
       }.bind(this), Ci.nsIThread.DISPATCH_NORMAL);
-    }
-  },
-
-  /**
-   * This function may be called by implementations to indicate that operations
-   * like disposing of job resources should be deferred until after a callback
-   * from a worker object is called.
-   */
-  _asyncWorkStarted: function() {
-    this._isWorkingAsynchronously = true;
-  },
-
-  /**
-   * Execute the given inner function, and defer operations like disposing of
-   * job resources until after a callback from a worker object is called, unless
-   * the function raises an exception.
-   *
-   * The callback may also be called during the execution of the inner function.
-   */
-  _expectAsyncCallback: function(innerFunction, thisObject) {
-    // Defer disposal of this object until a completion callback is called.
-    this._asyncWorkStarted();
-    try {
-      innerFunction.apply(thisObject);
-    } catch(e) {
-      // If the function raised an exception, assume that the callback will not
-      // be called later, and execute any deferred operations immediately.
-      this._asyncWorkCompleted();
-      // Forward the exception to the caller.
-      throw e;
     }
   },
 
@@ -294,10 +206,6 @@ Job.prototype = {
    * has been canceled meanwhile, the handler function is not called.
    */
   _handleAsyncCallback: function(handlerFunction, thisObject) {
-    // Indicate that the callback has been called, and perform the deferred
-    // operations now that the worker objects terminated their execution.
-    this._asyncWorkCompleted();
-
     // If the operation was not already canceled or completed
     if (!this.isCompleted) {
       // Execute the callback handler. If the handler raises an exception,
@@ -320,33 +228,6 @@ Job.prototype = {
     this._eventListener.onJobProgressChange(this, aWebProgress, aRequest,
      aCurSelfProgress, aMaxSelfProgress, aCurTotalProgress,
      aMaxTotalProgress);
-  },
-
-  /**
-   * True while we are expecting that a callback function from a worker object
-   * will be called, and some operations should be deferred meanwhile.
-   */
-  _isWorkingAsynchronously: false,
-
-  /**
-   * True if resource disposal was requested while _isWorkingAsynchronously was
-   * true.
-   */
-  _asyncDisposalRequested: false,
-
-  /**
-   * Indicate that the asynchronous work is completed, and execute the deferred
-   * operations.
-   */
-  _asyncWorkCompleted: function() {
-    if (this._isWorkingAsynchronously) {
-      this._isWorkingAsynchronously = false;
-
-      // Execute the deferred disposal of resources.
-      if (this._asyncDisposalRequested) {
-        this.dispose();
-      }
-    }
   },
 
   /**

@@ -99,6 +99,7 @@ MafArchivePersist.prototype = {
 
       // Create a save job and listen to its events.
       var saveJob = new SaveJob(this);
+      saveJob.saveWithNotLoadedResources = this.saveWithNotLoadedResources;
 
       // Save the selected pages or the given document in the web archive.
       if (this._saveBrowsers) {
@@ -129,6 +130,12 @@ MafArchivePersist.prototype = {
   cancelSave: function() {
     this.cancel(Cr.NS_BINDING_ABORTED);
   },
+
+  /**
+   * If set to true, resources that were not originally loaded will be
+   * downloaded and included when saving.
+   */
+  saveWithNotLoadedResources: false,
 
   // JobEventListener
   onJobProgressChange: function(aJob, aWebProgress, aRequest, aCurSelfProgress,

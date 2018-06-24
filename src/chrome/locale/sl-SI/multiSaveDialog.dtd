@@ -1,0 +1,7 @@
+<!-- General window controls -->
+<!ENTITY window.title "Izberite zavihke za shranjevanje">
+<!ENTITY savebutton.label "Shrani">
+<!-- Tab selection -->
+<!ENTITY tabs.title.header "Naziv">
+<!ENTITY tabs.location.header "Naslov">
+<!ENTITY tabs.all.label "Vse zavihke v oknu">

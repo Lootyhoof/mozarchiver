@@ -6,39 +6,18 @@
 <!ENTITY save.format.maff.label "MAFF (based on ZIP, supports video and audio)">
 <!ENTITY save.format.maff.accesskey "M">
 <!ENTITY save.format.mhtml.full.label "MHTML (can be opened directly by some other browsers)">
-<!ENTITY save.format.mhtml.partial.label "MHTML (variant with limited compatibility)">
 <!ENTITY save.format.mhtml.accesskey "H">
 <!ENTITY save.method.grouplabel "When saving a complete page:">
 <!ENTITY save.method.snapshot.label "Take an exact snapshot">
 <!ENTITY save.method.snapshot.accesskey "k">
 <!ENTITY save.method.standard.label "Use browser's standard save system">
 <!ENTITY save.method.standard.accesskey "b">
-<!ENTITY save.namingstrategy.grouplabel "Para el nombre de archivo sugerido:">
-<!ENTITY save.namingstrategy.title.label "Use the title of the page">
-<!ENTITY save.namingstrategy.title.accesskey "g">
-<!ENTITY save.namingstrategy.standard.label "Usar la estrategia de nombrado estándar del navegador">
-<!ENTITY save.namingstrategy.standard.accesskey "t">
-<!-- Interface pane -->
-<!ENTITY pane.interface.label "Interfaz">
 <!ENTITY info.grouplabel "When an archived page is opened:">
 <!ENTITY info.icon.label "Show icon in the location bar">
 <!ENTITY info.icon.accesskey "S">
 <!ENTITY info.bar.label "Display an information bar">
 <!ENTITY info.bar.accesskey "D">
-<!ENTITY menu.grouplabel "Mostrar los elementos de menú de MozArchiver en:">
-<!ENTITY menu.app.label "Menú de $brandShortName">
-<!ENTITY menu.app.accesskey "m">
-<!ENTITY menu.file.label "Menú Archivo">
-<!ENTITY menu.file.accesskey "A">
-<!ENTITY menu.tools.label "Menú Herramientas">
-<!ENTITY menu.tools.accesskey "H">
-<!ENTITY menu.pagecontext.label "Menú contextual">
-<!ENTITY menu.pagecontext.accesskey "c">
-<!ENTITY menu.pagecontext.tabs.label "Mostrar elementos para guardar pestañas">
-<!ENTITY menu.pagecontext.tabs.accesskey "o">
-<!ENTITY menu.tabscontext.label "Menú contextual de la barra de pestañas">
-<!ENTITY menu.tabscontext.accesskey "x">
-<!-- File associations pane. This pane is visible only on Windows. -->
+<!-- Interface pane -->
 <!ENTITY pane.actions.label "Acciones">
 <!ENTITY action.convertsavedpages.label "Convertir las páginas guardadas">
 <!ENTITY action.convertsavedpages.description "El asistente de conversión de páginas guardadas le ayudará a convertir una página web guardada anteriormente a un formato diferente.">

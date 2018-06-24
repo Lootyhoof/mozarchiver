@@ -6,39 +6,18 @@
 <!ENTITY save.format.maff.label "MAFF (based on ZIP, supports video and audio)">
 <!ENTITY save.format.maff.accesskey "M">
 <!ENTITY save.format.mhtml.full.label "MHTML (can be opened directly by some other browsers)">
-<!ENTITY save.format.mhtml.partial.label "MHTML (variant with limited compatibility)">
 <!ENTITY save.format.mhtml.accesskey "H">
 <!ENTITY save.method.grouplabel "When saving a complete page:">
 <!ENTITY save.method.snapshot.label "Take an exact snapshot">
 <!ENTITY save.method.snapshot.accesskey "k">
 <!ENTITY save.method.standard.label "Use browser's standard save system">
 <!ENTITY save.method.standard.accesskey "b">
-<!ENTITY save.namingstrategy.grouplabel "За предложеното име на датотеката:">
-<!ENTITY save.namingstrategy.title.label "Use the title of the page">
-<!ENTITY save.namingstrategy.title.accesskey "g">
-<!ENTITY save.namingstrategy.standard.label "Користи ја стандардната стратегија за именување на прелистувачот">
-<!ENTITY save.namingstrategy.standard.accesskey "ч">
-<!-- Interface pane -->
-<!ENTITY pane.interface.label "Интерфејс">
 <!ENTITY info.grouplabel "When an archived page is opened:">
 <!ENTITY info.icon.label "Show icon in the location bar">
 <!ENTITY info.icon.accesskey "S">
 <!ENTITY info.bar.label "Display an information bar">
 <!ENTITY info.bar.accesskey "D">
-<!ENTITY menu.grouplabel "Покажи ги елементите на менито на Mozilla форматот на архиви во:">
-<!ENTITY menu.app.label "$brandShortName menu">
-<!ENTITY menu.app.accesskey "m">
-<!ENTITY menu.file.label "Мени на датотеката">
-<!ENTITY menu.file.accesskey "М">
-<!ENTITY menu.tools.label "Мени на алатките">
-<!ENTITY menu.tools.accesskey "н">
-<!ENTITY menu.pagecontext.label "Контекстуално мени на страницата">
-<!ENTITY menu.pagecontext.accesskey "с">
-<!ENTITY menu.pagecontext.tabs.label "Show items for saving tabs">
-<!ENTITY menu.pagecontext.tabs.accesskey "h">
-<!ENTITY menu.tabscontext.label "Контекстуално мени на лентата со јазичиња">
-<!ENTITY menu.tabscontext.accesskey "у">
-<!-- File associations pane. This pane is visible only on Windows. -->
+<!-- Interface pane -->
 <!ENTITY pane.actions.label "Actions">
 <!ENTITY action.convertsavedpages.label "Convert Saved Pages">
 <!ENTITY action.convertsavedpages.description "The Saved Pages Conversion Wizard will guide you through the conversion of your previously saved web pages to a different file format.">

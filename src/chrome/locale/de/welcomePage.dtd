@@ -5,7 +5,6 @@
 <!ENTITY features.headerfromupdate.label "Dieses Add-on wurde auf die neueste Version aktualisiert.">
 <!ENTITY features.item1.label "Webseiten werden nun quasi 1:1 gespeichert - What You See Is What You Get.">
 <!ENTITY features.item2.label "Mehrere Tabs können in einer Datei (Webarchiv) gespeichert werden.">
-<!ENTITY features.item3.label "Der Standardname des Webarchives ist der Titel der Webseite.">
 <!ENTITY features.item4.label "HMTL5 kann inklusive Video und Audio gespeichert werden und noch vieles mehr!">
 <!ENTITY features.footer.label "Welche Funktionen aktiv sein sollen, kann in den Add-on-Einstellungen gewählt werden.">
 <!ENTITY features.link.label "Besuchen Sie die MAF-Website, um alle Funktionen kennen zu lernen.">

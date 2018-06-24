@@ -58,7 +58,8 @@ function SaveArchiveJob(aEventListener, aTargetFile, aTargetType) {
 SaveArchiveJob.prototype = {
   __proto__: JobRunner.prototype,
 
-  addContentFromDocumentAndBrowser: function(aDocument, aBrowser, aFolderName) {
+  addContentFromDocumentAndBrowser: function(aDocument, aBrowser, aFolderName,
+                                             aSaveWithNotLoadedResources) {
     // Determine the leaf name of the directory where the page will be saved.
     // This name will also be used for the first-level folder in the archive.
     var folderLeafName = aFolderName ||
@@ -74,6 +75,7 @@ SaveArchiveJob.prototype = {
     job.targetBrowser = aBrowser;
     job.targetType = this._targetType;
     job.targetFile = this._targetFile;
+    job.saveWithNotLoadedResources = aSaveWithNotLoadedResources;
     // Create a new archive if this is the first job in the list.
     job.addToArchive = !!this._jobs.length;
 

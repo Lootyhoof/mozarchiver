@@ -64,11 +64,9 @@ function ExactPersistParsedJob(aEventListener, aResource) {
   Job.call(this, aEventListener);
   this.resource = aResource;
 
-  // Initialize the unique identifier for this save job.
-  this._uniqueId = "job" + Math.floor(Math.random() * 1000000000);
-
   // Initialize other member variables explicitly.
   this.references = [];
+  this.referencesForNode = new WeakMap();
 }
 
 ExactPersistParsedJob.prototype = {
@@ -102,6 +100,11 @@ ExactPersistParsedJob.prototype = {
    * contained in the document associated with this object.
    */
   references: [],
+
+  /**
+   * WeakMap associating DOM nodes to multiple ExactPersistReference objects.
+   */
+  referencesForNode: null,
 
   /**
    * Finds web references in the given DOM document. The document will then be
@@ -172,13 +175,6 @@ ExactPersistParsedJob.prototype = {
   },
 
   /**
-   * Unique identifier used to distinguish this job from others that may be
-   * running at the same time. This value is used as an entry name in the
-   * exactPersistData property with which the involved DOM nodes are augmented.
-   */
-  _uniqueId: "",
-
-  /**
    * This function performs all the operations required to create a new
    * ExactPersistReference object, cross-referencing it with its source DOM node
    * if required, and finally adding it to the references list for the document
@@ -229,25 +225,16 @@ ExactPersistParsedJob.prototype = {
     // ExactPersistReference object. This allows for a very fast lookup of the
     // reference during the node fixup phase that is executed later.
     if (reference.sourceDomNode) {
-      // Get a reference to the exactPersistData property of the DOM node, or
-      // augment the node with the property if it doesn't exist already. Since
-      // this property is set on an XPCNativeWrapper, it will not be available
-      // to the content documents.
-      var exactPersistData = reference.sourceDomNode.exactPersistData;
-      if (!exactPersistData) {
-        exactPersistData = {};
-        reference.sourceDomNode.exactPersistData = exactPersistData;
-      }
       // Get a reference to the object, specific to this save job, that contains
       // the list of references for the DOM node. If the object does not exist,
       // a new object is created and the property is set accordingly.
-      var jobPersistData = exactPersistData[this._uniqueId];
+      var jobPersistData = this.referencesForNode.get(reference.sourceDomNode);
       if (!jobPersistData) {
         jobPersistData = {
           attributeReferences: [],
           replaceChildReference: null,
         };
-        exactPersistData[this._uniqueId] = jobPersistData;
+        this.referencesForNode.set(reference.sourceDomNode, jobPersistData);
       }
       // Finally, add the reference to the object.
       if (reference.sourceAttribute) {
@@ -843,24 +830,6 @@ ExactPersistParsedJob.prototype = {
     // No special action is required since this object works synchronously.
   },
 
-  // Job
-  _executeDispose: function(aReason) {
-    // Free the cross-references previously set in DOM nodes.
-    for (var [, reference] in Iterator(this.references)) {
-      var node = reference.sourceDomNode;
-      if (node && node.exactPersistData) {
-        // Delete the entry specific for this save job. The exactPersistData
-        // property set on the node itself cannot be deleted even if it does
-        // not contain data, since the XPCNativeWrapper object does not support
-        // this operation, and would throw NS_ERROR_XPC_SECURITY_MANAGER_VETO.
-        // For more information, see
-        // <https://developer.mozilla.org/en/XPCNativeWrapper#Limitations_of_XPCNativeWrapper>
-        // (retrieved 2009-12-21).
-        delete node.exactPersistData[this._uniqueId];
-      }
-    }
-  },
-
   // nsIDocumentEncoderNodeFixup
   fixupNode: function(aNode, aSerializeCloneKids) {
     // If an instruction to replace the child elements with other content is
@@ -871,7 +840,7 @@ ExactPersistParsedJob.prototype = {
     try {
       // Wrap all the generated scripts and stylesheets with a comment tag.
       return this._document.createComment("\r\n" + this._escapeCssComment(
-       aNode.parentNode.exactPersistData[this._uniqueId].replaceChildReference.
+       this.referencesForNode.get(aNode.parentNode).replaceChildReference.
        targetFragment.sourceData));
     } catch (e) {
       // If any one of the properties in the above reference chain is null,
@@ -911,7 +880,8 @@ ExactPersistParsedJob.prototype = {
     }
 
     // Remove the attributes that may prevent URLs to be resolved correctly.
-    if ((aNode instanceof Ci.nsIDOMHTMLAppletElement) ||
+    if ((Ci.nsIDOMHTMLAppletElement &&
+     (aNode instanceof Ci.nsIDOMHTMLAppletElement)) ||
      (aNode instanceof Ci.nsIDOMHTMLObjectElement)) {
       // Remove the "codebase" attribute on applets and objects.
       newNode.removeAttribute("codebase");
@@ -921,8 +891,7 @@ ExactPersistParsedJob.prototype = {
     }
 
     // Determine if some other attributes of this node should be updated.
-    var jobPersistData = aNode.exactPersistData && aNode.
-     exactPersistData[this._uniqueId];
+    var jobPersistData = this.referencesForNode.get(aNode);
     if (jobPersistData && jobPersistData.attributeReferences) {
       // Since we are potentially updating attributes that may trigger an image
       // load, ensure that this feature is disabled in the temporary node.

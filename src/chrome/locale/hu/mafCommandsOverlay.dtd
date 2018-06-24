@@ -1,37 +1,16 @@
 <!-- Shortcut keys -->
-<!ENTITY command.browseopenarchives.key "J">
-<!ENTITY command.browseopenarchives.modifiers "alt">
-<!-- Menu items for general MozArchiver commands -->
-<!ENTITY menuitem.mafsubmenu.label "Mozilla Archív Formátum">
-<!ENTITY menuitem.mafsubmenu.accesskey.toolsmenu "M">
-<!ENTITY menuitem.browseopenarchives.label "Megnyitott archívumok böngészése...">
-<!ENTITY menuitem.browseopenarchives.accesskey.toolsmenu "a">
 <!ENTITY menuitem.convertsavedpages.label "Mentett oldalak konvertálása...">
-<!ENTITY menuitem.convertsavedpages.accesskey.toolsmenu "M">
 <!ENTITY menuitem.convertsavedpages.accesskey.filemenu "M">
-<!ENTITY menuitem.options.label "Beállítások...">
-<!ENTITY menuitem.options.accesskey.toolsmenu "B">
-<!-- Additional menu items for the "Save As" command -->
+<!-- Menu items for general MozArchiver commands -->
 <!ENTITY menuitem.savetabsinarchiveas.label "Kiválasztott lapok mentése...">
 <!ENTITY menuitem.savetabsinarchive.label "Kiválasztott lapok mentése archívumba">
 <!ENTITY menuitem.savetabsinarchive.accesskey.filemenu "K">
-<!ENTITY menuitem.savetabsinarchive.accesskey.toolsmenu "K">
-<!ENTITY menuitem.savetabsinarchive.accesskey.pagecontextmenu "K">
 <!ENTITY menuitem.savetabsinarchive.accesskey.tabscontextmenu "K">
 <!ENTITY menuitem.savealltabsinarchiveas.label "Minden lap mentése...">
 <!ENTITY menuitem.savealltabsinarchive.label "Minden lap mentése archívumba">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.filemenu "M">
-<!ENTITY menuitem.savealltabsinarchive.accesskey.toolsmenu "M">
-<!ENTITY menuitem.savealltabsinarchive.accesskey.pagecontextmenu "A">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.tabscontextmenu "M">
-<!-- Additional menu items for the "Save In Archive" command -->
+<!-- Additional menu items for the "Save As" command -->
 <!ENTITY menuitem.savepageinarchiveas.label "Lap mentése...">
 <!ENTITY menuitem.savepageinarchive.label.v2 "Lap mentése archívumba">
 <!ENTITY menuitem.savepageinarchive.accesskey.filemenu "L">
-<!ENTITY menuitem.savepageinarchive.accesskey.toolsmenu "L">
-<!ENTITY menuitem.savepageinarchive.accesskey.pagecontextmenu "L">
-<!ENTITY menuitem.saveframeinarchiveas.label "Keret mentése...">
-<!ENTITY menuitem.saveframeinarchive.label.v2 "Keret mentése archívumba">
-<!ENTITY menuitem.saveframeinarchive.accesskey.filemenu "K">
-<!ENTITY menuitem.saveframeinarchive.accesskey.toolsmenu "K">
-<!ENTITY menuitem.saveframeinarchive.accesskey.pagecontextmenu "K">

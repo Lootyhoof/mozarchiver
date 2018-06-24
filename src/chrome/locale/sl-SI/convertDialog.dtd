@@ -1,0 +1,72 @@
+<!-- *** Note *** -->
+<!-- This page is a wizard. When assigning access keys, pay attention to the possible conflicts with the default access keys for the Back, Next, Continue and Finish buttons. -->
+<!-- *** General window controls *** -->
+<!ENTITY window.title "Čarovnik za pretvorbo shranjenih strani">
+<!ENTITY browsebutton.label "Brskaj ...">
+<!ENTITY continue.label "Za nadaljevanje pritisnite $1.">
+<!-- *** Introduction *** -->
+<!ENTITY introduction.pagelabel "Dobrodošli v Čarovnika za pretvorbo shranjenih strani">
+<!ENTITY introduction.para1.description "Ta čarovnik vas bo vodil skozi pretvorbo vaših shranjenih spletnih strani v drugo datotečno obliko.">
+<!ENTITY introduction.para2.description "Ta postopek je primeren za pretvorbo več strani naenkrat. Če želite pretvoriti posamezne strani, jih odprite v brskalniku in shranite v drugi obliki.">
+<!ENTITY introduction.visitwebsite.description "Čeprav postopek pretvarjanja deluje v večini primerov gladko, včasih rezultati niso povsem skladni z izvirnikom, odvisno od izbranih datotečnih oblik in možnosti shranjevanja. Poleg tega je med pretvarjanjem arhiva z več stranmi v obliko ene strani ohranjena samo prva stran. Priporočeno je, da ohranite kopijo izvirnih datotek tudi po uspešni pretvorbi.">
+<!ENTITY introduction.visitwebsite.label "Za podrobnosti si preberite spletno dokumentacijo.">
+<!ENTITY introduction.continue.label "Če želite začeti, kliknite $1.">
+<!-- *** File format selection *** -->
+<!ENTITY formats.pagelabel "Vhodne in izhodne oblike">
+<!ENTITY formats.source.grouplabel "Pretvori iz:">
+<!ENTITY formats.source.complete.label "Celotnih spletnih strani (s podpornimi mapami za podatkovne datoteke)">
+<!ENTITY formats.source.complete.accesskey "C">
+<!ENTITY formats.source.plain.label "Vseh spletnih strani (s ali brez podpornih map za podatkovne datoteke)">
+<!ENTITY formats.source.plain.accesskey "V">
+<!ENTITY formats.source.mhtml.label "Arhivov MHTML">
+<!ENTITY formats.source.mhtml.accesskey "H">
+<!ENTITY formats.source.maff.label "Arhivov MAFF">
+<!ENTITY formats.source.maff.accesskey "M">
+<!ENTITY formats.dest.grouplabel "Pretvori v:">
+<!ENTITY formats.dest.maff.label "Arhive MAFF">
+<!ENTITY formats.dest.maff.accesskey "F">
+<!ENTITY formats.dest.mhtml.label "Arhive MHTML">
+<!ENTITY formats.dest.mhtml.accesskey "T">
+<!ENTITY formats.dest.complete.label "Celotne spletne strani (s podpornimi mapami, če je to zahtevano)">
+<!ENTITY formats.dest.complete.accesskey "e">
+<!ENTITY formats.invalid.label "Izberite dve različni datotečni obliki.">
+<!-- *** Source folder selection *** -->
+<!ENTITY folders.source.pagelabel "Izvirna mapa">
+<!ENTITY folders.source.label "Preišči to mapo za izvirne datoteke:">
+<!ENTITY folders.source.accesskey "P">
+<!ENTITY folders.source.subfolders.label "Vključi podmape">
+<!ENTITY folders.source.subfolders.accesskey "V">
+<!ENTITY folders.source.invalid.label "Izberite obstoječo izvirno mapo.">
+<!-- *** Destination folder selection *** -->
+<!ENTITY folders.dest.pagelabel "Ciljne mape">
+<!ENTITY folders.dest.grouplabel "Vstavi pretvorjene datoteke:">
+<!ENTITY folders.dest.original.label "V isto mapo kot izvirnik">
+<!ENTITY folders.dest.original.accesskey "s">
+<!ENTITY folders.dest.folder.label "V to mapo (z ohranjanjem relativnih poti):">
+<!ENTITY folders.dest.folder.accesskey "t">
+<!ENTITY folders.bin.grouplabel "Po uspešni pretvorbi:">
+<!ENTITY folders.bin.original.label "Pusti izvirnike na svojem mestu">
+<!ENTITY folders.bin.original.accesskey "u">
+<!ENTITY folders.bin.folder.label "Premakni izvirnike v to mapo (z ohranjanjem relativnih poti):">
+<!ENTITY folders.bin.folder.accesskey "r">
+<!ENTITY folders.dest.invalid.label "Navedite celotno ime mape.">
+<!-- *** Candidates selection and conversion *** -->
+<!ENTITY candidates.pagelabel "Pretvorba">
+<!ENTITY candidates.description "Oglejte si spodnji seznam in izberite datoteke, ki jih želite pretvoriti.">
+<!ENTITY candidates.sourcename.header "Izvirno ime datoteke">
+<!ENTITY candidates.sourcedatafoldername.header "Ime podporne mape">
+<!ENTITY candidates.relativepath.header "Podmapa">
+<!ENTITY candidates.sourcepath.header "Izvirna pot">
+<!ENTITY candidates.destpath.header "Ciljna pot">
+<!ENTITY candidates.binpath.header "Premakni na pot">
+<!ENTITY candidates.all.label "Vse datoteke">
+<!ENTITY candidates.searchingcounts.label "Skupno $1, že pretvorjeno $2, izbrano $3">
+<!ENTITY candidates.convertingcounts.label "Skupno $1, že pretvorjeno $2, izbrano $3, uspešno pretvorjeno $4, spodletelo $5">
+<!ENTITY candidates.searching.label "Iskanje izvirnih datotek ...">
+<!ENTITY candidates.none.label "Pretvorljivih datotek ni bilo mogoče najti. Za spremembo iskalnih parametrov kliknite $1.">
+<!ENTITY candidates.invalid.label "Izberite vsaj eno datoteke za pretvorbo.">
+<!ENTITY candidates.convert.label "Kliknite Pretvori za pretvorbo vaših datotek.">
+<!ENTITY candidates.converting.label "Pretvorba vaših datotek ...">
+<!ENTITY candidates.finish.label "Oglejte si rezultate pretvorbe in potem kliknite $1 za zapiranje okna.">
+<!ENTITY candidates.convertbutton.label "Pretvori">
+<!ENTITY candidates.convertbutton.accesskey "P">
