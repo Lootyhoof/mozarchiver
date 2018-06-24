@@ -12,12 +12,27 @@
 <!ENTITY save.method.snapshot.accesskey "k">
 <!ENTITY save.method.standard.label "브라우저의 기본 저장 사용하기">
 <!ENTITY save.method.standard.accesskey "b">
+<!-- Interface pane -->
+<!ENTITY pane.interface.label "인터페이스">
 <!ENTITY info.grouplabel "아카이브 페이지가 열려 있을 때:">
 <!ENTITY info.icon.label "주소창에 아이콘 보이기">
 <!ENTITY info.icon.accesskey "S">
 <!ENTITY info.bar.label "정보 막대를 보이기">
 <!ENTITY info.bar.accesskey "D">
-<!-- Interface pane -->
+<!ENTITY menu.grouplabel "MozArchiver의 메뉴 항목을 표시할 곳:">
+<!ENTITY menu.app.label "응용 프로그램 메뉴">
+<!ENTITY menu.app.accesskey "m">
+<!ENTITY menu.file.label "파일 메뉴">
+<!ENTITY menu.file.accesskey "F">
+<!ENTITY menu.tools.label "도구 메뉴">
+<!ENTITY menu.tools.accesskey "l">
+<!ENTITY menu.pagecontext.label "페이지 오른쪽 클릭 메뉴">
+<!ENTITY menu.pagecontext.accesskey "p">
+<!ENTITY menu.pagecontext.tabs.label "Show items for saving tabs">
+<!ENTITY menu.pagecontext.tabs.accesskey "h">
+<!ENTITY menu.tabscontext.label "탭바 오른쪽 클릭 메뉴">
+<!ENTITY menu.tabscontext.accesskey "x">
+<!-- File associations pane. This pane is visible only on Windows. -->
 <!ENTITY pane.actions.label "동작">
 <!ENTITY action.convertsavedpages.label "저장된 페이지 변환하기">
 <!ENTITY action.convertsavedpages.description "저장된 페이지 변환 마법사가 이전에 저장한 웹 페이지들을 다른 파일 형식으로 변환하는 것을 안내할 것입니다.">

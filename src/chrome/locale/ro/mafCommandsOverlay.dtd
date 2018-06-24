@@ -1,16 +1,30 @@
 <!-- Menu items for general MozArchiver commands -->
+<!ENTITY menuitem.mafsubmenu.label "MozArchiver">
+<!ENTITY menuitem.mafsubmenu.accesskey.toolsmenu "M">
 <!ENTITY menuitem.convertsavedpages.label "Convertește paginile arhivate…">
+<!ENTITY menuitem.convertsavedpages.accesskey.toolsmenu "C">
 <!ENTITY menuitem.convertsavedpages.accesskey.filemenu "r">
+<!ENTITY menuitem.options.label "Opțiuni…">
+<!ENTITY menuitem.options.accesskey.toolsmenu "O">
 <!-- Additional menu items for the "Save Tabs In Archive" command -->
 <!ENTITY menuitem.savetabsinarchiveas.label "Salvează filele în arhivă…">
 <!ENTITY menuitem.savetabsinarchive.label "Salvează filele în arhivă…">
 <!ENTITY menuitem.savetabsinarchive.accesskey.filemenu "f">
+<!ENTITY menuitem.savetabsinarchive.accesskey.toolsmenu "f">
+<!ENTITY menuitem.savetabsinarchive.accesskey.pagecontextmenu "f">
 <!ENTITY menuitem.savetabsinarchive.accesskey.tabscontextmenu "f">
 <!ENTITY menuitem.savealltabsinarchiveas.label "Salvează toate filele în arhivă ca…">
 <!ENTITY menuitem.savealltabsinarchive.label "Salvează toate filele în arhivă">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.filemenu "S">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.toolsmenu "S">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.pagecontextmenu "t">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.tabscontextmenu "S">
 <!-- Additional menu items for the "Save In Archive" command -->
 <!ENTITY menuitem.savepageinarchiveas.label "Salvează pagina în arhivă ca…">
 <!ENTITY menuitem.savepageinarchive.label.v2 "Salvează filele în arhivă">
 <!ENTITY menuitem.savepageinarchive.accesskey.filemenu "g">
+<!ENTITY menuitem.savepageinarchive.accesskey.toolsmenu "g">
+<!ENTITY menuitem.savepageinarchive.accesskey.pagecontextmenu "g">
+<!ENTITY menuitem.saveframeinarchiveas.label "Salvează cadrul în arhivă ca…">
+<!ENTITY menuitem.saveframeinarchive.label.v2 "Salvează cadrul în arhivă">
+<!ENTITY menuitem.saveframeinarchive.accesskey.pagecontextmenu "c">

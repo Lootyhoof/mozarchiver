@@ -1,16 +1,30 @@
 <!-- Menu items for general MozArchiver commands -->
+<!ENTITY menuitem.mafsubmenu.label "MozArchiver">
+<!ENTITY menuitem.mafsubmenu.accesskey.toolsmenu "M">
 <!ENTITY menuitem.convertsavedpages.label "Փոխարկել պահպանված էջերը…">
+<!ENTITY menuitem.convertsavedpages.accesskey.toolsmenu "C">
 <!ENTITY menuitem.convertsavedpages.accesskey.filemenu "r">
+<!ENTITY menuitem.options.label "Կարգավորումներ…">
+<!ENTITY menuitem.options.accesskey.toolsmenu "O">
 <!-- Additional menu items for the "Save Tabs In Archive" command -->
 <!ENTITY menuitem.savetabsinarchiveas.label "Պահպանել էջերը արխիվով որպես…">
 <!ENTITY menuitem.savetabsinarchive.label "Պահպանել էջերը արխիվներով…">
 <!ENTITY menuitem.savetabsinarchive.accesskey.filemenu "b">
+<!ENTITY menuitem.savetabsinarchive.accesskey.toolsmenu "b">
+<!ENTITY menuitem.savetabsinarchive.accesskey.pagecontextmenu "b">
 <!ENTITY menuitem.savetabsinarchive.accesskey.tabscontextmenu "b">
 <!ENTITY menuitem.savealltabsinarchiveas.label "Պահպանել բոլոր էջերը արխիվներով որպես…">
 <!ENTITY menuitem.savealltabsinarchive.label "Պահպանել բոլոր էջերը արխիվներով…">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.filemenu "S">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.toolsmenu "S">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.pagecontextmenu "A">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.tabscontextmenu "S">
 <!-- Additional menu items for the "Save In Archive" command -->
 <!ENTITY menuitem.savepageinarchiveas.label "Պահպանել էջը արխիվով որպես…">
 <!ENTITY menuitem.savepageinarchive.label.v2 "Պահպանել էջը արխիվով">
 <!ENTITY menuitem.savepageinarchive.accesskey.filemenu "g">
+<!ENTITY menuitem.savepageinarchive.accesskey.toolsmenu "g">
+<!ENTITY menuitem.savepageinarchive.accesskey.pagecontextmenu "g">
+<!ENTITY menuitem.saveframeinarchiveas.label "Պահպանել շրջանակը արխիվով որպես…">
+<!ENTITY menuitem.saveframeinarchive.label.v2 "Պահպանել շրջանակը արխիվով">
+<!ENTITY menuitem.saveframeinarchive.accesskey.pagecontextmenu "h">

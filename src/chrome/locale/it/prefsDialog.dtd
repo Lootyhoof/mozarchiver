@@ -12,12 +12,27 @@
 <!ENTITY save.method.snapshot.accesskey "E">
 <!ENTITY save.method.standard.label "Usa il sistema di salvataggio standard del browser">
 <!ENTITY save.method.standard.accesskey "U">
+<!-- Interface pane -->
+<!ENTITY pane.interface.label "Interfaccia">
 <!ENTITY info.grouplabel "Quando si apre una pagina archiviata:">
 <!ENTITY info.icon.label "Mostra una icona nella barra degli indirizzi">
 <!ENTITY info.icon.accesskey "a">
 <!ENTITY info.bar.label "Visualizza una barra delle informazioni">
 <!ENTITY info.bar.accesskey "V">
-<!-- Interface pane -->
+<!ENTITY menu.grouplabel "Mostra voci di menu di MozArchiver in:">
+<!ENTITY menu.app.label "Menu dell'applicazione">
+<!ENTITY menu.app.accesskey "M">
+<!ENTITY menu.file.label "Menu File">
+<!ENTITY menu.file.accesskey "F">
+<!ENTITY menu.tools.label "Menu Strumenti">
+<!ENTITY menu.tools.accesskey "n">
+<!ENTITY menu.pagecontext.label "Menu contestuale della pagina">
+<!ENTITY menu.pagecontext.accesskey "o">
+<!ENTITY menu.pagecontext.tabs.label "Mostra voci per salvare le schede">
+<!ENTITY menu.pagecontext.tabs.accesskey "t">
+<!ENTITY menu.tabscontext.label "Menu contestuale della barra delle schede">
+<!ENTITY menu.tabscontext.accesskey "b">
+<!-- File associations pane. This pane is visible only on Windows. -->
 <!ENTITY pane.actions.label "Azioni">
 <!ENTITY action.convertsavedpages.label "Converti pagine salvate">
 <!ENTITY action.convertsavedpages.description "La conversione guidata pagine salvate permette di convertire le pagine web salvate in precedenza in un formato di file differente.">

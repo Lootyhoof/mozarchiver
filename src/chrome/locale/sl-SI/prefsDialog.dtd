@@ -12,11 +12,26 @@
 <!ENTITY save.method.snapshot.accesskey "N">
 <!ENTITY save.method.standard.label "Uporabi brskalnikov običajni sistem">
 <!ENTITY save.method.standard.accesskey "U">
+<!-- Interface pane -->
+<!ENTITY pane.interface.label "Interface">
 <!ENTITY info.grouplabel "Kadar je odprta arhivirana stran:">
 <!ENTITY info.icon.label "Prikaži ikono v naslovni vrstici">
 <!ENTITY info.icon.accesskey "r">
 <!ENTITY info.bar.label "Prikaži podatkovno vrstico">
 <!ENTITY info.bar.accesskey "k">
+<!ENTITY menu.grouplabel "Show MozArchiver menu items in:">
+<!ENTITY menu.app.label "Application menu">
+<!ENTITY menu.app.accesskey "m">
+<!ENTITY menu.file.label "File menu">
+<!ENTITY menu.file.accesskey "F">
+<!ENTITY menu.tools.label "Tools menu">
+<!ENTITY menu.tools.accesskey "l">
+<!ENTITY menu.pagecontext.label "Page context menu">
+<!ENTITY menu.pagecontext.accesskey "p">
+<!ENTITY menu.pagecontext.tabs.label "Show items for saving tabs">
+<!ENTITY menu.pagecontext.tabs.accesskey "h">
+<!ENTITY menu.tabscontext.label "Tab bar context menu">
+<!ENTITY menu.tabscontext.accesskey "x">
 <!-- Actions pane -->
 <!ENTITY pane.actions.label "Dejanja">
 <!ENTITY action.convertsavedpages.label "Pretvori shranjene strani">

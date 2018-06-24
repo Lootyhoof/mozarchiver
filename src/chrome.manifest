@@ -31,10 +31,8 @@ contract @mozarchiver.ext/startup;1 {549e4a8b-58de-446e-836a-02fdf54a8220}
 category profile-after-change MozArchiver @mozarchiver.ext/startup;1
 
 # Integration with the browsing windows
-overlay chrome://browser/content/browser.xul chrome://mza/content/integration/mafCommandsOverlay.xul
-overlay chrome://browser/content/browser.xul chrome://mza/content/integration/mafInterfaceOverlay.xul
-overlay chrome://navigator/content/navigator.xul chrome://mza/content/integration/mafCommandsOverlay.xul
-overlay chrome://navigator/content/navigator.xul chrome://mza/content/integration/mafInterfaceOverlay.xul
+overlay chrome://browser/content/browser.xul chrome://mza/content/integration/mafBaseBrowserOverlay.xul
+overlay chrome://navigator/content/navigator.xul chrome://mza/content/integration/mafBaseNavigatorOverlay.xul
 
 # Integration with the "Multiple Tab Handler" extension
 overlay chrome://multipletab/content/multipletab.xul chrome://mza/content/integration/mafMultipleTabOverlay.xul

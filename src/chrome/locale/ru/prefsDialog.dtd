@@ -12,12 +12,27 @@
 <!ENTITY save.method.snapshot.accesskey "т">
 <!ENTITY save.method.standard.label "Использовать стандартную систему сохранения браузера">
 <!ENTITY save.method.standard.accesskey "с">
+<!-- Interface pane -->
+<!ENTITY pane.interface.label "Вид">
 <!ENTITY info.grouplabel "Когда открыта архивная страница:">
 <!ENTITY info.icon.label "Показать значок в адресной строке">
 <!ENTITY info.icon.accesskey "а">
 <!ENTITY info.bar.label "Показать информационную панель">
 <!ENTITY info.bar.accesskey "п">
-<!-- Interface pane -->
+<!ENTITY menu.grouplabel "Показывать пункты меню MozArchiver:">
+<!ENTITY menu.app.label "Меню приложения">
+<!ENTITY menu.app.accesskey "м">
+<!ENTITY menu.file.label "в меню Файл">
+<!ENTITY menu.file.accesskey "Ф">
+<!ENTITY menu.tools.label "в меню Инструменты">
+<!ENTITY menu.tools.accesskey "И">
+<!ENTITY menu.pagecontext.label "в контекстном меню страницы">
+<!ENTITY menu.pagecontext.accesskey "к">
+<!ENTITY menu.pagecontext.tabs.label "Показывать пункты сохранения вкладок">
+<!ENTITY menu.pagecontext.tabs.accesskey "л">
+<!ENTITY menu.tabscontext.label "в контекстном меню вкладки">
+<!ENTITY menu.tabscontext.accesskey "в">
+<!-- Actions pane -->
 <!ENTITY pane.actions.label "Действия">
 <!ENTITY action.convertsavedpages.label "Преобразовать сохраненные страницы">
 <!ENTITY action.convertsavedpages.description "Мастер преобразования сохраненных страниц поможет вам пересохранить имеющиеся архивы в другом файловом формате.">

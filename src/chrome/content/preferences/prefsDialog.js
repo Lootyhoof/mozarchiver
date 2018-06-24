@@ -52,6 +52,9 @@ var PrefsDialog = {
      "descShowWelcomePageAssociate"])) {
       Interface.applyBranding(document.getElementById(elementName));
     }
+    // Check to see if the application menu is present.
+    document.getElementById("cbInterfaceMenuApp").hidden =
+     !StartupInitializer.hasAppMenu;
     // Determines if the welcome page handles file associations.
     if (this._isOnWindows()) {
       document.getElementById("boxShowWelcomePage").hidden = true;
@@ -63,6 +66,7 @@ var PrefsDialog = {
     document.getElementById("boxMultiprocess").hidden = !isMultiprocess;
     // Updates the status of the dialog controls.
     this.onSaveMethodChange();
+    this.onInterfaceMenuPageContextChange();
   },
 
   /**
@@ -95,6 +99,14 @@ var PrefsDialog = {
     document.getElementById("boxConvertSavedPages").hidden = !enabled ||
      Services.appinfo.browserTabsRemoteAutostart;
     this.sizeToContent();
+  },
+
+  /**
+   * Enables other dialog controls depending on the page context menu option.
+   */
+  onInterfaceMenuPageContextChange: function() {
+    document.getElementById("cbInterfaceMenuPageContextForTabs").disabled =
+     !document.getElementById("prefInterfaceMenuPageContext").value;
   },
 
   /**

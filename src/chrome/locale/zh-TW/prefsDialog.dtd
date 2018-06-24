@@ -3,21 +3,36 @@
 <!-- Main pane -->
 <!ENTITY pane.main.label "主要">
 <!ENTITY save.format.grouplabel "當儲存單一檔案時的默認格式：">
-<!ENTITY save.format.maff.label "MAFF 網絡檔案集（基於 ZIP 格式；支援影片和音訊）">
+<!ENTITY save.format.maff.label "MAFF 網絡檔案集 (基於 ZIP 格式；支援影片和音訊)">
 <!ENTITY save.format.maff.accesskey "M">
-<!ENTITY save.format.mhtml.full.label "MHTML（支援其他瀏覽器）">
+<!ENTITY save.format.mhtml.full.label "MHTML (can be opened directly by some other browsers)">
 <!ENTITY save.format.mhtml.accesskey "H">
 <!ENTITY save.method.grouplabel "When saving a complete page:">
 <!ENTITY save.method.snapshot.label "Take an exact snapshot">
 <!ENTITY save.method.snapshot.accesskey "k">
 <!ENTITY save.method.standard.label "Use browser's standard save system">
 <!ENTITY save.method.standard.accesskey "b">
+<!-- Interface pane -->
+<!ENTITY pane.interface.label "介面">
 <!ENTITY info.grouplabel "When an archived page is opened:">
 <!ENTITY info.icon.label "Show icon in the location bar">
 <!ENTITY info.icon.accesskey "S">
 <!ENTITY info.bar.label "Display an information bar">
 <!ENTITY info.bar.accesskey "D">
-<!-- Interface pane -->
+<!ENTITY menu.grouplabel "顯示 MozArchiver 選單項於：">
+<!ENTITY menu.app.label "應用菜單">
+<!ENTITY menu.app.accesskey "m">
+<!ENTITY menu.file.label "「檔案」選單">
+<!ENTITY menu.file.accesskey "F">
+<!ENTITY menu.tools.label "「工具」選單">
+<!ENTITY menu.tools.accesskey "l">
+<!ENTITY menu.pagecontext.label "網頁內容選單">
+<!ENTITY menu.pagecontext.accesskey "P">
+<!ENTITY menu.pagecontext.tabs.label "顯示儲存分頁的項目">
+<!ENTITY menu.pagecontext.tabs.accesskey "h">
+<!ENTITY menu.tabscontext.label "分頁工具列內容選單">
+<!ENTITY menu.tabscontext.accesskey "x">
+<!-- File associations pane. This pane is visible only on Windows. -->
 <!ENTITY pane.actions.label "功能">
 <!ENTITY action.convertsavedpages.label "轉換已存網頁">
 <!ENTITY action.convertsavedpages.description "轉換已存網頁精靈會指導你如何轉換你以前儲存過的網頁到其他檔案格式。">

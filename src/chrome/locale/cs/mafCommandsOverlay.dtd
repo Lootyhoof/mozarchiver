@@ -1,16 +1,37 @@
 <!-- Shortcut keys -->
-<!ENTITY menuitem.convertsavedpages.label "Konvertovat uložené stránky...">
-<!ENTITY menuitem.convertsavedpages.accesskey.filemenu "r">
+<!ENTITY command.browseopenarchives.key "M">
+<!ENTITY command.browseopenarchives.modifiers "alt">
 <!-- Menu items for general MozArchiver commands -->
+<!ENTITY menuitem.mafsubmenu.label "MozArchiver">
+<!ENTITY menuitem.mafsubmenu.accesskey.toolsmenu "o">
+<!ENTITY menuitem.browseopenarchives.label "Prohlížet otevřené archivy...">
+<!ENTITY menuitem.browseopenarchives.accesskey.toolsmenu "r">
+<!ENTITY menuitem.convertsavedpages.label "Konvertovat uložené stránky...">
+<!ENTITY menuitem.convertsavedpages.accesskey.toolsmenu "K">
+<!ENTITY menuitem.convertsavedpages.accesskey.filemenu "r">
+<!ENTITY menuitem.options.label "Možnosti">
+<!ENTITY menuitem.options.accesskey.toolsmenu "o">
+<!-- Additional menu items for the "Save As" command -->
 <!ENTITY menuitem.savetabsinarchiveas.label "Uložit panely do archivu jako...">
 <!ENTITY menuitem.savetabsinarchive.label "Uložit panely do archivu...">
 <!ENTITY menuitem.savetabsinarchive.accesskey.filemenu "k">
+<!ENTITY menuitem.savetabsinarchive.accesskey.toolsmenu "k">
+<!ENTITY menuitem.savetabsinarchive.accesskey.pagecontextmenu "k">
 <!ENTITY menuitem.savetabsinarchive.accesskey.tabscontextmenu "k">
 <!ENTITY menuitem.savealltabsinarchiveas.label "Uložit všechny panely do archivu jako...">
 <!ENTITY menuitem.savealltabsinarchive.label "Uložit všechny panely do archivu">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.filemenu "v">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.toolsmenu "v">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.pagecontextmenu "v">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.tabscontextmenu "v">
-<!-- Additional menu items for the "Save As" command -->
+<!-- Additional menu items for the "Save In Archive" command -->
 <!ENTITY menuitem.savepageinarchiveas.label "Uložit stránku do archivu jako...">
 <!ENTITY menuitem.savepageinarchive.label.v2 "Uložit stránku do archivu">
 <!ENTITY menuitem.savepageinarchive.accesskey.filemenu "c">
+<!ENTITY menuitem.savepageinarchive.accesskey.toolsmenu "a">
+<!ENTITY menuitem.savepageinarchive.accesskey.pagecontextmenu "a">
+<!ENTITY menuitem.saveframeinarchiveas.label "Uložit rám do archivu jako...">
+<!ENTITY menuitem.saveframeinarchive.label.v2 "Uložit rám do archivu">
+<!ENTITY menuitem.saveframeinarchive.accesskey.filemenu "r">
+<!ENTITY menuitem.saveframeinarchive.accesskey.toolsmenu "r">
+<!ENTITY menuitem.saveframeinarchive.accesskey.pagecontextmenu "r">

@@ -12,11 +12,26 @@
 <!ENTITY save.method.snapshot.accesskey "x">
 <!ENTITY save.method.standard.label "Se salvează o copie prin metoda standard a navigatorului">
 <!ENTITY save.method.standard.accesskey "s">
+<!-- Interface pane -->
+<!ENTITY pane.interface.label "Interfață">
 <!ENTITY info.grouplabel "La deschiderea unei pagini arhivate:">
 <!ENTITY info.icon.label "Se afișează o pictogramă în bara de adrese">
 <!ENTITY info.icon.accesskey "p">
 <!ENTITY info.bar.label "Se afișează o bară cu informații">
 <!ENTITY info.bar.accesskey "b">
+<!ENTITY menu.grouplabel "Meniul MozArchiver se afișează în:">
+<!ENTITY menu.app.label "Meniul aplicației">
+<!ENTITY menu.app.accesskey "M">
+<!ENTITY menu.file.label "Meniul „Fișier”">
+<!ENTITY menu.file.accesskey "F">
+<!ENTITY menu.tools.label "Meniul „Unelte”">
+<!ENTITY menu.tools.accesskey "U">
+<!ENTITY menu.pagecontext.label "Meniul contextual al paginii">
+<!ENTITY menu.pagecontext.accesskey "c">
+<!ENTITY menu.pagecontext.tabs.label "Se afișează opțiuni de salvare a filelor">
+<!ENTITY menu.pagecontext.tabs.accesskey "s">
+<!ENTITY menu.tabscontext.label "Meniul contextual al filei">
+<!ENTITY menu.tabscontext.accesskey "x">
 <!-- Actions pane -->
 <!ENTITY pane.actions.label "Acțiuni">
 <!ENTITY action.convertsavedpages.label "Conversie pagini salvate">

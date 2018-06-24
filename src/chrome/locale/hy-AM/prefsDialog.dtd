@@ -12,11 +12,26 @@
 <!ENTITY save.method.snapshot.accesskey "k">
 <!ENTITY save.method.standard.label "Օգտագործել դիտարկիչի ստանդարտ համակարգը">
 <!ENTITY save.method.standard.accesskey "b">
+<!-- Interface pane -->
+<!ENTITY pane.interface.label "Տեսքը">
 <!ENTITY info.grouplabel "Երբ արխիվի էջը բացված է.">
 <!ENTITY info.icon.label "Ցուցադրել պատկերը տեղադրության վահանակում">
 <!ENTITY info.icon.accesskey "S">
 <!ENTITY info.bar.label "Ցուցադրել տեղեկացման վահանակը">
 <!ENTITY info.bar.accesskey "D">
+<!ENTITY menu.grouplabel "Ցուցադրել MozArchiver-ը.">
+<!ENTITY menu.app.label "Դիմումի ցանկը">
+<!ENTITY menu.app.accesskey "m">
+<!ENTITY menu.file.label "Ֆայլ ընտրացանկում">
+<!ENTITY menu.file.accesskey "F">
+<!ENTITY menu.tools.label "Գործիքներ ընտրացանկում">
+<!ENTITY menu.tools.accesskey "l">
+<!ENTITY menu.pagecontext.label "Էջի ընտրացանկում">
+<!ENTITY menu.pagecontext.accesskey "p">
+<!ENTITY menu.pagecontext.tabs.label "Ցուցադրել պահպանվող էջերի կետերը">
+<!ENTITY menu.pagecontext.tabs.accesskey "h">
+<!ENTITY menu.tabscontext.label "Էջի ընտրացանկի վահանակում">
+<!ENTITY menu.tabscontext.accesskey "x">
 <!-- Actions pane -->
 <!ENTITY pane.actions.label "Գործողությունները">
 <!ENTITY action.convertsavedpages.label "Փոխարկել պահպանված էջերը">

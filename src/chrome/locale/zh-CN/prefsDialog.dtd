@@ -12,12 +12,27 @@
 <!ENTITY save.method.snapshot.accesskey "k">
 <!ENTITY save.method.standard.label "使用浏览器标准保存系统">
 <!ENTITY save.method.standard.accesskey "b">
+<!-- Interface pane -->
+<!ENTITY pane.interface.label "界面">
 <!ENTITY info.grouplabel "当归档页面被打开后：">
 <!ENTITY info.icon.label "在位置栏显示 MAF 图标">
 <!ENTITY info.icon.accesskey "S">
 <!ENTITY info.bar.label "显示一行通知栏">
 <!ENTITY info.bar.accesskey "D">
-<!-- Interface pane -->
+<!ENTITY menu.grouplabel "显示 MAF 菜单项于：">
+<!ENTITY menu.app.label "应用菜单">
+<!ENTITY menu.app.accesskey "m">
+<!ENTITY menu.file.label "“文件(F)”菜单">
+<!ENTITY menu.file.accesskey "F">
+<!ENTITY menu.tools.label "“工具”菜单 (l)">
+<!ENTITY menu.tools.accesskey "l">
+<!ENTITY menu.pagecontext.label "页面内容菜单">
+<!ENTITY menu.pagecontext.accesskey "P">
+<!ENTITY menu.pagecontext.tabs.label "同时显示保存多个标签页的菜单项">
+<!ENTITY menu.pagecontext.tabs.accesskey "h">
+<!ENTITY menu.tabscontext.label "标签栏内容菜单 (x)">
+<!ENTITY menu.tabscontext.accesskey "x">
+<!-- File associations pane. This pane is visible only on Windows. -->
 <!ENTITY pane.actions.label "操作">
 <!ENTITY action.convertsavedpages.label "转换已保存页面">
 <!ENTITY action.convertsavedpages.description "已保存页面转换向导将引导您把以前保存的网页转换成您所需要的其它格式。">

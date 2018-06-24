@@ -116,7 +116,63 @@
              accesskey="&save.format.mhtml.accesskey;"
              />
     </radiogroup>
+    </vbox>
+    <vbox id="boxMultiprocess">
     <spacer height="10" />
+    <label value="Disable multi-process to use the MozArchiver add-on"
+           class="header"/>
+    <description>
+      Multi-process mode should have been disabled automatically when the add-on
+      was installed. This did not happen, probably because you have
+      configured multi-process to be always enabled. To continue using the 
+      add-on, ensure multi-process is disabled.
+    </description>
+    <spacer height="20" />
+    <description>
+      Read-only access to web archives is possible if sandboxing is disabled.
+    </description>
+    </vbox>
+  </prefpane>
+
+  <!-- Interface pane -->
+  <prefpane id=   "paneInterface"
+            label="&pane.interface.label;"
+            >
+    <preferences>
+      <preference id=      "prefInterfaceInfoIcon"
+                  name=    "extensions.mza.interface.info.icon"
+                  type=    "bool"
+                  />
+      <preference id=      "prefInterfaceInfoBar"
+                  name=    "extensions.mza.interface.info.bar"
+                  type=    "bool"
+                  />
+      <preference id=      "prefInterfaceMenuApp"
+                  name=    "extensions.mza.interface.menu.app"
+                  type=    "bool"
+                  />
+      <preference id=      "prefInterfaceMenuFile"
+                  name=    "extensions.mza.interface.menu.file"
+                  type=    "bool"
+                  />
+      <preference id=      "prefInterfaceMenuTools"
+                  name=    "extensions.mza.interface.menu.tools"
+                  type=    "bool"
+                  />
+      <preference id=      "prefInterfaceMenuPageContext"
+                  name=    "extensions.mza.interface.menu.pagecontext"
+                  type=    "bool"
+                  onchange="PrefsDialog.onInterfaceMenuPageContextChange();"
+                  />
+      <preference id=      "prefInterfaceMenuPageContextForTabs"
+                  name=    "extensions.mza.interface.menu.pagecontext.tabs"
+                  type=    "bool"
+                  />
+      <preference id=      "prefInterfaceMenuTabsContext"
+                  name=    "extensions.mza.interface.menu.tabscontext"
+                  type=    "bool"
+                  />
+    </preferences>
     <label control="rgrInterfaceInfo"
            value=  "&info.grouplabel;"
            class=  "header"
@@ -129,23 +185,36 @@
               label=     "&info.bar.label;"
               accesskey= "&info.bar.accesskey;"
               />
-    </vbox>
-    <vbox id="boxMultiprocess">
-    <spacer height="10" />
-    <label value="Disable multi-process to use the MozArchiver add-on"
-           class="header"/>
-    <description>
-      Multi-process mode should have been disabled automatically when the add-on
-      was installed. This did not happen, probably because you are using a
-      pre-release version of the browser or you have configured multi-process to
-      be always enabled. To continue using the add-on, ensure multi-process is
-      disabled.
-    </description>
-    <spacer height="20" />
-    <description>
-      Read-only access to web archives is possible if sandboxing is disabled.
-    </description>
-    </vbox>
+    <label value="&menu.grouplabel;"
+           class="header"
+           />
+    <checkbox id=        "cbInterfaceMenuApp"
+              preference="prefInterfaceMenuApp" 
+              label=     "&menu.app.label;"
+              accesskey= "&menu.app.accesskey;"
+              />
+    <checkbox preference="prefInterfaceMenuFile" 
+              label=     "&menu.file.label;"
+              accesskey= "&menu.file.accesskey;"
+              />
+    <checkbox preference="prefInterfaceMenuTools" 
+              label=     "&menu.tools.label;"
+              accesskey= "&menu.tools.accesskey;"
+              />
+    <checkbox preference="prefInterfaceMenuPageContext" 
+              label=     "&menu.pagecontext.label;"
+              accesskey= "&menu.pagecontext.accesskey;"
+              />
+    <checkbox id=        "cbInterfaceMenuPageContextForTabs"
+              preference="prefInterfaceMenuPageContextForTabs" 
+              label=     "&menu.pagecontext.tabs.label;"
+              accesskey= "&menu.pagecontext.tabs.accesskey;"
+              class=     "indent"
+              />
+    <checkbox preference="prefInterfaceMenuTabsContext" 
+              label=     "&menu.tabscontext.label;"
+              accesskey= "&menu.tabscontext.accesskey;"
+              />
   </prefpane>
 
   <!-- Actions pane -->

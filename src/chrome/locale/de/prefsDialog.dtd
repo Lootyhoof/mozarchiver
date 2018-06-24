@@ -12,12 +12,27 @@
 <!ENTITY save.method.snapshot.accesskey "p">
 <!ENTITY save.method.standard.label "Standard Browserspeichersystem verwenden">
 <!ENTITY save.method.standard.accesskey "B">
+<!-- Interface pane -->
+<!ENTITY pane.interface.label "Benutzeroberfläche">
 <!ENTITY info.grouplabel "Beim Öffnen eines Webarchives:">
 <!ENTITY info.icon.label "Zeige Icon in">
 <!ENTITY info.icon.accesskey "i">
 <!ENTITY info.bar.label "Zeige Hinweisleiste">
 <!ENTITY info.bar.accesskey "Z">
-<!-- Interface pane -->
+<!ENTITY menu.grouplabel "Menüeinträge für Mozilla Archiv Format anzeigen:">
+<!ENTITY menu.app.label "Anwendungsmenü">
+<!ENTITY menu.app.accesskey "M">
+<!ENTITY menu.file.label "im Datei-Menü">
+<!ENTITY menu.file.accesskey "D">
+<!ENTITY menu.tools.label "im Extras-Menü">
+<!ENTITY menu.tools.accesskey "x">
+<!ENTITY menu.pagecontext.label "im Seitenkontextmenü">
+<!ENTITY menu.pagecontext.accesskey "S">
+<!ENTITY menu.pagecontext.tabs.label "zusätzlich Einträge zum Speichern von Tabs">
+<!ENTITY menu.pagecontext.tabs.accesskey "T">
+<!ENTITY menu.tabscontext.label "im Kontextmenü der Tab-Leiste">
+<!ENTITY menu.tabscontext.accesskey "K">
+<!-- File associations pane. This pane is visible only on Windows. -->
 <!ENTITY pane.actions.label "Aktionen">
 <!ENTITY action.convertsavedpages.label "Gespeicherte Webseiten konvertieren">
 <!ENTITY action.convertsavedpages.description "Dieser Assistent führt Sie durch die Konvertierung gespeicherter Webseiten in ein anderes Dateiformat.">

@@ -1,16 +1,30 @@
-<!-- Shortcut keys -->
-<!ENTITY menuitem.convertsavedpages.label "Converter páginas salvas...">
-<!ENTITY menuitem.convertsavedpages.accesskey.filemenu "r">
 <!-- Menu items for general MozArchiver commands -->
+<!ENTITY menuitem.mafsubmenu.label "MozArchiver">
+<!ENTITY menuitem.mafsubmenu.accesskey.toolsmenu "M">
+<!ENTITY menuitem.convertsavedpages.label "Converter páginas salvas...">
+<!ENTITY menuitem.convertsavedpages.accesskey.toolsmenu "C">
+<!ENTITY menuitem.convertsavedpages.accesskey.filemenu "r">
+<!ENTITY menuitem.options.label "Options…">
+<!ENTITY menuitem.options.accesskey.toolsmenu "O">
+<!-- Additional menu items for the "Save As" command -->
 <!ENTITY menuitem.savetabsinarchiveas.label "Save Tabs In Archive As…">
 <!ENTITY menuitem.savetabsinarchive.label "Save Tabs In Archive…">
 <!ENTITY menuitem.savetabsinarchive.accesskey.filemenu "b">
+<!ENTITY menuitem.savetabsinarchive.accesskey.toolsmenu "b">
+<!ENTITY menuitem.savetabsinarchive.accesskey.pagecontextmenu "b">
 <!ENTITY menuitem.savetabsinarchive.accesskey.tabscontextmenu "b">
 <!ENTITY menuitem.savealltabsinarchiveas.label "Save All Tabs In Archive As…">
 <!ENTITY menuitem.savealltabsinarchive.label "Save All Tabs In Archive">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.filemenu "S">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.toolsmenu "S">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.pagecontextmenu "A">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.tabscontextmenu "S">
-<!-- Additional menu items for the "Save As" command -->
+<!-- Additional menu items for the "Save In Archive" command -->
 <!ENTITY menuitem.savepageinarchiveas.label "Save Page In Archive As…">
 <!ENTITY menuitem.savepageinarchive.label.v2 "Save Page In Archive">
 <!ENTITY menuitem.savepageinarchive.accesskey.filemenu "w">
+<!ENTITY menuitem.savepageinarchive.accesskey.toolsmenu "w">
+<!ENTITY menuitem.savepageinarchive.accesskey.pagecontextmenu "w">
+<!ENTITY menuitem.saveframeinarchiveas.label "Save Frame In Archive As…">
+<!ENTITY menuitem.saveframeinarchive.label.v2 "Save Frame In Archive">
+<!ENTITY menuitem.saveframeinarchive.accesskey.pagecontextmenu "q">

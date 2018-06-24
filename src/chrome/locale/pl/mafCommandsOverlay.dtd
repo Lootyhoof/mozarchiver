@@ -1,16 +1,30 @@
-<!--    Shortcut keys    -->
-<!ENTITY menuitem.convertsavedpages.label "Konwertuj zapisane strony…">
-<!ENTITY menuitem.convertsavedpages.accesskey.filemenu "r">
 <!--    Menu items for general MozArchiver commands    -->
+<!ENTITY menuitem.mafsubmenu.label "MozArchiver">
+<!ENTITY menuitem.mafsubmenu.accesskey.toolsmenu "M">
+<!ENTITY menuitem.convertsavedpages.label "Konwertuj zapisane strony…">
+<!ENTITY menuitem.convertsavedpages.accesskey.toolsmenu "N">
+<!ENTITY menuitem.convertsavedpages.accesskey.filemenu "r">
+<!ENTITY menuitem.options.label "Ustawienia…">
+<!ENTITY menuitem.options.accesskey.toolsmenu "U">
+<!-- Additional menu items for the "Save Tabs In Archive" command -->
 <!ENTITY menuitem.savetabsinarchiveas.label "Zapisz karty w archiwum jako…">
 <!ENTITY menuitem.savetabsinarchive.label "Zapisz karty w archiwum…">
 <!ENTITY menuitem.savetabsinarchive.accesskey.filemenu "k">
+<!ENTITY menuitem.savetabsinarchive.accesskey.toolsmenu "k">
+<!ENTITY menuitem.savetabsinarchive.accesskey.pagecontextmenu "k">
 <!ENTITY menuitem.savetabsinarchive.accesskey.tabscontextmenu "k">
 <!ENTITY menuitem.savealltabsinarchiveas.label "Zapisz wszystkie karty w archiwum jako…">
 <!ENTITY menuitem.savealltabsinarchive.label "Zapisz wszystkie karty w archiwum">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.filemenu "Z">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.toolsmenu "Z">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.pagecontextmenu "Z">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.tabscontextmenu "Z">
-<!-- Additional menu items for the "Save Tabs In Archive" command -->
+<!-- Additional menu items for the "Save In Archive" command -->
 <!ENTITY menuitem.savepageinarchiveas.label "Zapisz stronę w archiwum jako…">
 <!ENTITY menuitem.savepageinarchive.label.v2 "Zapisz stronę w archiwum">
 <!ENTITY menuitem.savepageinarchive.accesskey.filemenu "a">
+<!ENTITY menuitem.savepageinarchive.accesskey.toolsmenu "a">
+<!ENTITY menuitem.savepageinarchive.accesskey.pagecontextmenu "a">
+<!ENTITY menuitem.saveframeinarchiveas.label "Zapisz ramkę w archiwum jako…">
+<!ENTITY menuitem.saveframeinarchive.label.v2 "Zapisz ramkę w archiwum">
+<!ENTITY menuitem.saveframeinarchive.accesskey.pagecontextmenu "R">

@@ -1,16 +1,30 @@
-<!-- Shortcut keys -->
-<!ENTITY menuitem.convertsavedpages.label "Convertir páginas guardardas...">
-<!ENTITY menuitem.convertsavedpages.accesskey.filemenu "r">
 <!-- Menu items for general MozArchiver commands -->
+<!ENTITY menuitem.mafsubmenu.label "MozArchiver">
+<!ENTITY menuitem.mafsubmenu.accesskey.toolsmenu "M">
+<!ENTITY menuitem.convertsavedpages.label "Convertir páginas guardardas...">
+<!ENTITY menuitem.convertsavedpages.accesskey.toolsmenu "C">
+<!ENTITY menuitem.convertsavedpages.accesskey.filemenu "r">
+<!ENTITY menuitem.options.label "Opciones...">
+<!ENTITY menuitem.options.accesskey.toolsmenu "O">
+<!-- Additional menu items for the "Save As" command -->
 <!ENTITY menuitem.savetabsinarchiveas.label "Guardar pestañas en archivo como...">
 <!ENTITY menuitem.savetabsinarchive.label "Guardar pestañas en archivo...">
 <!ENTITY menuitem.savetabsinarchive.accesskey.filemenu "p">
+<!ENTITY menuitem.savetabsinarchive.accesskey.toolsmenu "p">
+<!ENTITY menuitem.savetabsinarchive.accesskey.pagecontextmenu "p">
 <!ENTITY menuitem.savetabsinarchive.accesskey.tabscontextmenu "p">
 <!ENTITY menuitem.savealltabsinarchiveas.label "Guardar todas las pestañas en archivo como...">
 <!ENTITY menuitem.savealltabsinarchive.label "Guardar todas las pestañas en archivo">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.filemenu "G">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.toolsmenu "G">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.pagecontextmenu "t">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.tabscontextmenu "G">
-<!-- Additional menu items for the "Save As" command -->
+<!-- Additional menu items for the "Save In Archive" command -->
 <!ENTITY menuitem.savepageinarchiveas.label "Guardar página en archivo como...">
 <!ENTITY menuitem.savepageinarchive.label.v2 "Guardar página en archivo">
 <!ENTITY menuitem.savepageinarchive.accesskey.filemenu "r">
+<!ENTITY menuitem.savepageinarchive.accesskey.toolsmenu "g">
+<!ENTITY menuitem.savepageinarchive.accesskey.pagecontextmenu "g">
+<!ENTITY menuitem.saveframeinarchiveas.label "Guardar marco en archivo como...">
+<!ENTITY menuitem.saveframeinarchive.label.v2 "Guardar marco en archivo">
+<!ENTITY menuitem.saveframeinarchive.accesskey.pagecontextmenu "h">

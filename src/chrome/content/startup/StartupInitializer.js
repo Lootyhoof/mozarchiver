@@ -205,6 +205,13 @@ var StartupInitializer = {
   addonVersion: "",
 
   /**
+   * Indicates whether the host has an application menu in the title bar of the
+   * main window. This variable is only set after the first browser window is
+   * shown, but is only used in the preferences dialog.
+   */
+  hasAppMenu: false,
+  
+  /**
    * Checks if we are on Goanna 3 or below, which used "Goanna-Content-Viewers"
    * instead of "Gecko-Content-Viewers".
    */

@@ -1,16 +1,30 @@
 <!-- Menu items for general MozArchiver commands -->
+<!ENTITY menuitem.mafsubmenu.label "MozArchiver">
+<!ENTITY menuitem.mafsubmenu.accesskey.toolsmenu "M">
 <!ENTITY menuitem.convertsavedpages.label "Pretvori shranjene strani ...">
+<!ENTITY menuitem.convertsavedpages.accesskey.toolsmenu "s">
 <!ENTITY menuitem.convertsavedpages.accesskey.filemenu "P">
+<!ENTITY menuitem.options.label "Options…">
+<!ENTITY menuitem.options.accesskey.toolsmenu "O">
 <!-- Additional menu items for the "Save Tabs In Archive" command -->
 <!ENTITY menuitem.savetabsinarchiveas.label "Shrani zavihke v arhiv kot ...">
 <!ENTITY menuitem.savetabsinarchive.label "Shrani zavihke v arhiv ...">
 <!ENTITY menuitem.savetabsinarchive.accesskey.filemenu "z">
+<!ENTITY menuitem.savetabsinarchive.accesskey.toolsmenu "z">
+<!ENTITY menuitem.savetabsinarchive.accesskey.pagecontextmenu "z">
 <!ENTITY menuitem.savetabsinarchive.accesskey.tabscontextmenu "z">
 <!ENTITY menuitem.savealltabsinarchiveas.label "Shrani vse zavihke v arhiv kot ...">
 <!ENTITY menuitem.savealltabsinarchive.label "Shrani vse zavihke v arhiv">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.filemenu "v">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.toolsmenu "v">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.pagecontextmenu "v">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.tabscontextmenu "v">
 <!-- Additional menu items for the "Save In Archive" command -->
 <!ENTITY menuitem.savepageinarchiveas.label "Shrani stran v arhiv kot ...">
 <!ENTITY menuitem.savepageinarchive.label.v2 "Shrani stran v arhiv">
 <!ENTITY menuitem.savepageinarchive.accesskey.filemenu "s">
+<!ENTITY menuitem.savepageinarchive.accesskey.toolsmenu "s">
+<!ENTITY menuitem.savepageinarchive.accesskey.pagecontextmenu "s">
+<!ENTITY menuitem.saveframeinarchiveas.label "Save Frame In Archive As…">
+<!ENTITY menuitem.saveframeinarchive.label.v2 "Save Frame In Archive">
+<!ENTITY menuitem.saveframeinarchive.accesskey.pagecontextmenu "h">

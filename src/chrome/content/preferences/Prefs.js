@@ -105,6 +105,49 @@ var Prefs = {
   },
 
   /**
+   * Returns true if MAF menu items should be shown in the application menu.
+   */
+  get interfaceMenuApp() {
+    return this.prefBranchForMaf.getBoolPref("interface.menu.app");
+  },
+
+  /**
+   * Returns true if MAF menu items should be shown in the File menu.
+   */
+  get interfaceMenuFile() {
+    return this.prefBranchForMaf.getBoolPref("interface.menu.file");
+  },
+
+  /**
+   * Returns true if MAF menu items should be shown in the Tools menu.
+   */
+  get interfaceMenuTools() {
+    return this.prefBranchForMaf.getBoolPref("interface.menu.tools");
+  },
+
+  /**
+   * Returns true if MAF menu items should be shown in the page context menu.
+   */
+  get interfaceMenuPageContext() {
+    return this.prefBranchForMaf.getBoolPref("interface.menu.pagecontext");
+  },
+
+  /**
+   * Returns true if MAF menu items related to tab saving should be shown in the
+   * page context menu.
+   */
+   get interfaceMenuPageContextForTabs() {
+    return this.prefBranchForMaf.getBoolPref("interface.menu.pagecontext.tabs");
+   },
+
+  /**
+   * Returns true if MAF menu items should be shown in the tab bar context menu.
+   */
+  get interfaceMenuTabsContext() {
+    return this.prefBranchForMaf.getBoolPref("interface.menu.tabscontext");
+  },
+
+  /**
    * Set to true if a beta version of the add-on has previously been installed.
    */
   get otherBeta() {

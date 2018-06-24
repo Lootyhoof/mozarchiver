@@ -12,12 +12,27 @@
 <!ENTITY save.method.snapshot.accesskey "K">
 <!ENTITY save.method.standard.label "zastosuj standardowy system zapisu przeglądarki">
 <!ENTITY save.method.standard.accesskey "N">
+<!--    Interface pane    -->
+<!ENTITY pane.interface.label "Interfejs">
 <!ENTITY info.grouplabel "Gdy zarchiwizowana strona jest wyświetlana:">
 <!ENTITY info.icon.label "wyświetlaj ikonę w pasku adresu">
 <!ENTITY info.icon.accesskey "k">
 <!ENTITY info.bar.label "wyświetlaj pasek informacyjny">
 <!ENTITY info.bar.accesskey "S">
-<!--    Interface pane    -->
+<!ENTITY menu.grouplabel "Wyświetlaj element MozArchiver w:">
+<!ENTITY menu.app.label "Menu aplikacji">
+<!ENTITY menu.app.accesskey "m">
+<!ENTITY menu.file.label "menu Plik">
+<!ENTITY menu.file.accesskey "P">
+<!ENTITY menu.tools.label "menu Narzędzia">
+<!ENTITY menu.tools.accesskey "N">
+<!ENTITY menu.pagecontext.label "menu kontekstowym strony">
+<!ENTITY menu.pagecontext.accesskey "K">
+<!ENTITY menu.pagecontext.tabs.label "wyświetlaj elementy służące do zapisywania kart">
+<!ENTITY menu.pagecontext.tabs.accesskey "k">
+<!ENTITY menu.tabscontext.label "menu kontekstowym paska kart">
+<!ENTITY menu.tabscontext.accesskey "M">
+<!-- Actions pane -->
 <!ENTITY pane.actions.label "Czynności">
 <!ENTITY action.convertsavedpages.label "Konwertuj zapisane strony">
 <!ENTITY action.convertsavedpages.description "Asystent konwersji zapisanych stron poprowadzi cię przez proces konwersji poprzednio zapisanych stron na inny format.">

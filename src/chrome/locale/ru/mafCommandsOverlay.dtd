@@ -1,16 +1,30 @@
-<!-- Shortcut keys -->
-<!ENTITY menuitem.convertsavedpages.label "Преобразовать сохраненные страницы…">
-<!ENTITY menuitem.convertsavedpages.accesskey.filemenu "П">
 <!-- Menu items for general MozArchiver commands -->
+<!ENTITY menuitem.mafsubmenu.label "MozArchiver">
+<!ENTITY menuitem.mafsubmenu.accesskey.toolsmenu "M">
+<!ENTITY menuitem.convertsavedpages.label "Преобразовать сохраненные страницы…">
+<!ENTITY menuitem.convertsavedpages.accesskey.toolsmenu "П">
+<!ENTITY menuitem.convertsavedpages.accesskey.filemenu "П">
+<!ENTITY menuitem.options.label "Настройки MAF…">
+<!ENTITY menuitem.options.accesskey.toolsmenu "Н">
+<!-- Additional menu items for the "Save As" command -->
 <!ENTITY menuitem.savetabsinarchiveas.label "Сохранить вкладки в архив как…">
 <!ENTITY menuitem.savetabsinarchive.label "Сохранить вкладки в архив…">
 <!ENTITY menuitem.savetabsinarchive.accesskey.filemenu "ь">
+<!ENTITY menuitem.savetabsinarchive.accesskey.toolsmenu "ь">
+<!ENTITY menuitem.savetabsinarchive.accesskey.pagecontextmenu "ь">
 <!ENTITY menuitem.savetabsinarchive.accesskey.tabscontextmenu "ь">
 <!ENTITY menuitem.savealltabsinarchiveas.label "Сохранить все вкладки в архив как…">
 <!ENTITY menuitem.savealltabsinarchive.label "Сохранить все вкладки в архив">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.filemenu "и">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.toolsmenu "и">
+<!ENTITY menuitem.savealltabsinarchive.accesskey.pagecontextmenu "и">
 <!ENTITY menuitem.savealltabsinarchive.accesskey.tabscontextmenu "и">
-<!-- Additional menu items for the "Save As" command -->
+<!-- Additional menu items for the "Save In Archive" command -->
 <!ENTITY menuitem.savepageinarchiveas.label "Сохранить страницу в архив как…">
 <!ENTITY menuitem.savepageinarchive.label.v2 "Сохранить страницу в архив">
 <!ENTITY menuitem.savepageinarchive.accesskey.filemenu "ц">
+<!ENTITY menuitem.savepageinarchive.accesskey.toolsmenu "ц">
+<!ENTITY menuitem.savepageinarchive.accesskey.pagecontextmenu "ц">
+<!ENTITY menuitem.saveframeinarchiveas.label "Сохранить фрейм в архив как…">
+<!ENTITY menuitem.saveframeinarchive.label.v2 "Сохранить фрейм в архив">
+<!ENTITY menuitem.saveframeinarchive.accesskey.pagecontextmenu "ф">

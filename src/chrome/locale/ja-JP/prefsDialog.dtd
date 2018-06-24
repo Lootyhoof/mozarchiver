@@ -12,12 +12,27 @@
 <!ENTITY save.method.snapshot.accesskey "k">
 <!ENTITY save.method.standard.label "ブラウザ標準の保存機構を使う">
 <!ENTITY save.method.standard.accesskey "b">
+<!-- Interface pane -->
+<!ENTITY pane.interface.label "画面">
 <!ENTITY info.grouplabel "アーカイブページを開いた際に:">
 <!ENTITY info.icon.label "ロケーションバーにアイコンを表示する">
 <!ENTITY info.icon.accesskey "S">
 <!ENTITY info.bar.label "情報バーを表示する">
 <!ENTITY info.bar.accesskey "D">
-<!-- Interface pane -->
+<!ENTITY menu.grouplabel "MozArchiver メニューの表示:">
+<!ENTITY menu.app.label "アプリケーションメニュー">
+<!ENTITY menu.app.accesskey "m">
+<!ENTITY menu.file.label "ファイルメニュー">
+<!ENTITY menu.file.accesskey "F">
+<!ENTITY menu.tools.label "ツールメニュー">
+<!ENTITY menu.tools.accesskey "l">
+<!ENTITY menu.pagecontext.label "ページのコンテキストメニュー">
+<!ENTITY menu.pagecontext.accesskey "p">
+<!ENTITY menu.pagecontext.tabs.label "タブを保存するコマンドも表示する">
+<!ENTITY menu.pagecontext.tabs.accesskey "h">
+<!ENTITY menu.tabscontext.label "タブバーのコンテキストメニュー">
+<!ENTITY menu.tabscontext.accesskey "x">
+<!-- Actions pane -->
 <!ENTITY pane.actions.label "処理">
 <!ENTITY action.convertsavedpages.label "保存したページを変換する">
 <!ENTITY action.convertsavedpages.description "保存ページ変換ウィザードを使うと以前に保存した Web ページを別のファイル形式に変換できます。">
