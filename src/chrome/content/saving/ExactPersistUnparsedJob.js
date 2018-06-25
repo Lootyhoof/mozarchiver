@@ -76,13 +76,13 @@ ExactPersistUnparsedJob.prototype = {
 
   // Job
   _executeStart: function() {
-    var ioService = Cc["@mozilla.org/network/io-service;1"].
-       getService(Ci.nsIIOService);
-    var scriptSecurityManager = Cc["@mozilla.org/scriptsecuritymanager;1"].
-        getService(Ci.nsIScriptSecurityManager);
     try {
       // Create the channel for the download. This operation may throw an
       // exception if a channel cannot be created for the specified URI.
+      var ioService = Cc["@mozilla.org/network/io-service;1"].
+         getService(Ci.nsIIOService);
+      var scriptSecurityManager = Cc["@mozilla.org/scriptsecuritymanager;1"].
+          getService(Ci.nsIScriptSecurityManager);
       var channel;
       if (ioService.newChannelFromURI2) {
         channel = ioService.newChannelFromURI2(
