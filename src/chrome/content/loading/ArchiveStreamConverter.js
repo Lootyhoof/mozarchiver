@@ -123,8 +123,18 @@ ArchiveStreamConverter.prototype = {
       // access the contents of the remote resource anymore, but we have to open
       // the channel anyway in order for the next phase of the document
       // dispatching process to work correctly.
-      var betterChannel = Cc['@mozilla.org/network/io-service;1']
-       .getService(Ci.nsIIOService).newChannelFromURI(betterUri);
+      var ioService = Cc["@mozilla.org/network/io-service;1"].
+         getService(Ci.nsIIOService);
+      var scriptSecurityManager = Cc["@mozilla.org/scriptsecuritymanager;1"].
+          getService(Ci.nsIScriptSecurityManager);
+      var betterChannel;
+      if (ioService.newChannelFromURI2) {
+        betterChannel = ioService.newChannelFromURI2(
+        betterUri, null, scriptSecurityManager.getSystemPrincipal(),
+        null, Ci.nsILoadInfo.SEC_NORMAL, Ci.nsIContentPolicy.TYPE_OTHER);
+      } else {
+        betterChannel = ioService.newChannelFromURI(betterUri);
+      }
       betterChannel.loadFlags = originalChannel.loadFlags;
       betterChannel.loadFlags |= Ci.nsIChannel.LOAD_REPLACE;
       betterChannel.loadFlags |= Ci.nsIChannel.LOAD_BACKGROUND;

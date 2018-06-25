@@ -146,8 +146,18 @@ DocumentLoaderFactory.prototype = {
   _startActualContentViewer: function(aContentURI, aContentType, aLoadGroup,
    aContainer, aExtraInfo) {
     // Create a new channel to feed the new content viewer
-    var contentChannel = Cc['@mozilla.org/network/io-service;1']
-     .getService(Ci.nsIIOService).newChannelFromURI(aContentURI);
+    var ioService = Cc["@mozilla.org/network/io-service;1"].
+       getService(Ci.nsIIOService);
+    var scriptSecurityManager = Cc["@mozilla.org/scriptsecuritymanager;1"].
+        getService(Ci.nsIScriptSecurityManager);
+    var contentChannel;
+    if (ioService.newChannelFromURI2) {
+      contentChannel = ioService.newChannelFromURI2(
+      aContentURI, null, scriptSecurityManager.getSystemPrincipal(),
+      null, Ci.nsILoadInfo.SEC_NORMAL, Ci.nsIContentPolicy.TYPE_OTHER);
+    } else {
+      contentChannel = ioService.newChannelFromURI(aContentURI);
+    }
 
     // The content type of the channel should match the content type of the
     // content viewer, otherwise the content might not be displayed correctly.
