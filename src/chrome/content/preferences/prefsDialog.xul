@@ -253,7 +253,7 @@
     </vbox>
     <spacer height="10" />
     <label value="&action.visitwebsite.label;"
-           href= "http://maf.mozdev.org/"
+           href= "https://github.com/Lootyhoof/mozarchiver/wiki"
            class="text-link header"
            />
     <description id=   "descVisitWebsite"

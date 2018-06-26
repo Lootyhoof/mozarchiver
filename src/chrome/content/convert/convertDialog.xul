@@ -76,7 +76,7 @@
       &introduction.visitwebsite.description;
     </description>
     <label value="&introduction.visitwebsite.label;"
-           href= "http://maf.mozdev.org/"
+           href= "https://github.com/Lootyhoof/mozarchiver/wiki"
            class="text-link header"
            />
 
