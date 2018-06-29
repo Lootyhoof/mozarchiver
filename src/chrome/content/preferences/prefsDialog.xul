@@ -185,6 +185,7 @@
               label=     "&info.bar.label;"
               accesskey= "&info.bar.accesskey;"
               />
+    <spacer height="10" />
     <label value="&menu.grouplabel;"
            class="header"
            />
