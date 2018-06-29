@@ -7,8 +7,7 @@
  */
 
 prefwindow radio[pane] {
-  /* This image is overridden with the one from the current theme in Firefox. */
-  list-style-image: url(Options.png);
+  list-style-image: url(chrome://mza/skin/preferences/Options.png);
   padding: 5px 3px 1px;
 }
 
