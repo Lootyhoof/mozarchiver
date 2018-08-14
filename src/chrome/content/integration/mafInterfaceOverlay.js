@@ -99,7 +99,7 @@ var MafInterfaceOverlay = {
 
     // Make sure that clicking outside the popup cannot reopen it accidentally.
     this._archiveInfoPopup.popupBoxObject.
-     setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_CONSUME);
+     setConsumeRollupEvent(PopupBoxObject.ROLLUP_CONSUME);
 
     // Open the popup near the address bar icon.
     this._archiveInfoPopup.openPopup(this._archiveInfoUrlbarButton,
