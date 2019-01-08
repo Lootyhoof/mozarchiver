@@ -1,5 +1,8 @@
 # Changelog
 
+### 2.0.1
+- fix urlbar button
+
 ### 2.0.0
 - re-base on MAF 4.1.4
 - (re-)add SeaMonkey and Basilisk support
