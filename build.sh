@@ -1,6 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 NAME=mozarchiver
 VER=${1:-dev}
-rm $NAME-$VER-pm.xpi
+FILE=$NAME-$VER-pm.xpi
+if test -f "$FILE"; then
+  rm $FILE
+fi
 cd src/
-zip -qr9XD ../$NAME-$VER-pm.xpi *
+zip -qr9XD ../$FILE *
