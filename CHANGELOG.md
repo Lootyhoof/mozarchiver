@@ -1,5 +1,10 @@
 # Changelog
 
+### 2.1.0
+- remove Basilisk support
+- support Pale Moon 30
+- use non-prefixed margin styling
+
 ### 2.0.1
 - fix urlbar button
 
