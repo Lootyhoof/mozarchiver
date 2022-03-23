@@ -11,7 +11,7 @@ h1 {
 }
 
 #errorTitle, #errorLongContent {
-  -moz-margin-start: 94px;
+  margin-inline-start: 94px;
 }
 
 #errorShortDesc > p {

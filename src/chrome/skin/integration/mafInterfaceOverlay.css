@@ -14,7 +14,7 @@
 
 #mafArchiveInfoPopupIcon {
   margin: 3px 0;
-  -moz-margin-end: 15px;
+  margin-inline-end: 15px;
   width: 64px;
   height: 64px;
   list-style-image: url("page-info.png");
