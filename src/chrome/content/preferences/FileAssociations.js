@@ -89,7 +89,7 @@ FileAssociationsCreator.prototype = {
    */
   createAssociationsForMAFF: function() {
     // Determine the ProgID name based on the host application.
-    var maffProgID = this._isOnSeaMonkey() ? "SeaMonkeyMAFF" : this._isOnPaleMoon() ? "PaleMoonMAFF" : "BasiliskMAFF";
+    var maffProgID = this._isOnSeaMonkey() ? "SeaMonkeyMAFF" : "PaleMoonMAFF";
     // Create a new ProgID for the MAFF format.
     this._createWindowsFileTypeForBrowser(maffProgID,
      this._str("associate.maff.sysfiletypedesc"));
@@ -102,7 +102,7 @@ FileAssociationsCreator.prototype = {
    */
   createAssociationsForMHTML: function() {
     // Determine the ProgID name based on the host application.
-    var mhtmlProgID = this._isOnSeaMonkey() ? "SeaMonkeyMHTML" : this._isOnPaleMoon() ? "PaleMoonMHTML" : "BasiliskMHTML";
+    var mhtmlProgID = this._isOnSeaMonkey() ? "SeaMonkeyMHTML" : "PaleMoonMHTML";
     // Create a new ProgID for the MHTML format handled by the host application.
     this._createWindowsFileTypeForBrowser(mhtmlProgID,
      this._str("associate.mhtml.sysfiletypedesc"));
@@ -130,14 +130,6 @@ FileAssociationsCreator.prototype = {
   _isOnSeaMonkey: function() {
     return Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo).ID ==
      "{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}";
-  },
-  
-  /**
-   * Returns true if the host application is Pale Moon.
-   */
-  _isOnPaleMoon: function() {
-    return Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo).ID ==
-     "{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}";
   },
 
   /**
