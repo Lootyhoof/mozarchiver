@@ -5,7 +5,7 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>mozarchiver@lootyhoof-pm</em:id>
-    <em:version>2.1.0</em:version>
+    <em:version>2.1.1</em:version>
     <em:type>2</em:type>
     <em:multiprocessCompatible>false</em:multiprocessCompatible>
 
@@ -24,7 +24,7 @@
       <Description>
         <em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
         <em:minVersion>27.0</em:minVersion>
-        <em:maxVersion>31.*</em:maxVersion>
+        <em:maxVersion>33.*</em:maxVersion>
       </Description>
     </em:targetApplication>
      <!-- SeaMonkey -->

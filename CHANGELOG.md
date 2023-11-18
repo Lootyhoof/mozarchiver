@@ -1,5 +1,8 @@
 # Changelog
 
+### 2.1.1
+- support Pale Moon 33
+
 ### 2.1.0
 - remove Basilisk support
 - support Pale Moon 30
