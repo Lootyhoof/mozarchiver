@@ -358,6 +358,21 @@ ExactPersistParsedJob.prototype = {
       }
     }
 
+    // Process "<img>" elements with a "srcset" attribute.
+    for (let node in this._htmlNodesGenerator("img", "srcset")) {
+      // Get the object required to process the inline attribute.
+      let fragment = new UrlListSourceFragment(node.getAttribute("srcset"), {
+        srcSet: true,
+      });
+      // Create the reference object.
+      this._createReference({
+        sourceDomNode: node,
+        sourceAttribute: "srcset",
+        targetFragment: fragment,
+      });
+      this._scanFragment(fragment, true);
+    }
+
     // Find direct references to media files that should be saved.
     for (let [, [elementName, attributeName]] in Iterator([
      ["audio",  "src"],

@@ -55,9 +55,11 @@ UrlListSourceFragment.prototype = {
   // SourceFragment
   _executeParse: function(aAddFn) {
     // Determine which regular expression to use based on the separator type.
-    var separatorRe = this._options.commaSeparated ?
-     /(.*?)(\s*,\s*|$)/g :
-     /(.*?)(\s+|$)/g;
+    var separatorRe = this._options.srcSet ?
+      /(\S+)(\s*(?:[\d.]+[wx])?(?:,\s*|$))/g :
+      this._options.commaSeparated ?
+        /(.*?)(\s*,\s*|$)/g :
+        /(.*?)(\s+|$)/g;
     // Apply the regular expression to retrieve the separated URLs.
     this._sourceData.replace(
       separatorRe,
