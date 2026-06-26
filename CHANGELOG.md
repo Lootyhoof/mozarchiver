@@ -1,5 +1,8 @@
 # Changelog
 
+### 2.1.2
+- support srcset in images (thanks adoxa)
+
 ### 2.1.1
 - support Pale Moon 33
 
