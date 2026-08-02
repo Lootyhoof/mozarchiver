@@ -92,11 +92,14 @@ MaffArchive.prototype = {
           // If the current entry is the name of a file directly contained in a
           // page folder, having a base name of "index" and a simple extension,
           // use the first of these files alphabetically as the suggested
-          // default document name for the page.
+          // default document name for the page. Always ignore the metadata
+          // file "index.rdf" if there are other index files in the folder.
           zipEntry.replace(/^([^/]+)\/(index\.[^/.]+)$/i,
             function(aAll, aPageFolderName, aIndexFileName) {
               if (!(aPageFolderName in indexLeafNames) ||
-               indexLeafNames[aPageFolderName] > aIndexFileName) {
+               indexLeafNames[aPageFolderName].toLowerCase() == "index.rdf" ||
+               (indexLeafNames[aPageFolderName] > aIndexFileName &&
+               aIndexFileName.toLowerCase() != "index.rdf")) {
                 indexLeafNames[aPageFolderName] = aIndexFileName;
               }
             }
@@ -123,8 +126,10 @@ MaffArchive.prototype = {
           if (!destFile.parent.exists()) {
             destFile.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
           }
-          // Extract the file in the temporary directory.
+          // Extract the file in the temporary directory and make sure it can be
+          // deleted regardless of the permissions stored in the archive.
           zipReader.extract(zipEntry, destFile);
+          destFile.permissions = 0o600;
         }
       }
     } finally {

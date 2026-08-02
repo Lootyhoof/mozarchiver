@@ -181,7 +181,17 @@ PersistFolder.prototype = {
       url = aUri.QueryInterface(Ci.nsIURL);
     } catch (e if (e instanceof Ci.nsIException && (e.result ==
      Cr.NS_NOINTERFACE))) {
-      // The provided URI cannot be parsed as an URL.
+      // The provided URI cannot be parsed as an URL. Try to remove the initial
+      // "urn:" portion added by Mozilla Archive Format, if present.
+      var matchResult = /^urn:[\w-]+:(.*)$/i.exec(aUri.spec);
+      if (matchResult) {
+        try {
+          aUri = NetUtil.newURI(matchResult[1]);
+          url = aUri.QueryInterface(Ci.nsIURL);
+        } catch (e) {
+          // The rest of the URI is not valid.
+        }
+      }
     }
     // If the URL interface is available
     if (url) {
