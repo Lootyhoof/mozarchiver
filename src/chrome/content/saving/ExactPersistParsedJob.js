@@ -67,6 +67,7 @@ function ExactPersistParsedJob(aEventListener, aResource) {
   // Initialize other member variables explicitly.
   this.references = [];
   this.referencesForNode = new WeakMap();
+  this._promotedLazyImages = new WeakMap();
 }
 
 ExactPersistParsedJob.prototype = {
@@ -340,6 +341,91 @@ ExactPersistParsedJob.prototype = {
     // types, see <http://www.w3.org/TR/REC-html40/index/attributes.html>
     // (retrieved 2009-12-19).
 
+    // Process the "data-src" and "data-srcset" custom attributes of the "<img>"
+    // elements. These attributes are used by web pages to defer the loading of
+    // the images until a script promotes the references to the standard "src"
+    // and "srcset" attributes, but the scripts are not saved in the archive, so
+    // the images would never be available unless the references are promoted to
+    // the standard attributes by the save operation. Since the "data-*"
+    // attributes are custom properties, this processing is applied only to the
+    // "<img>" elements, where these attributes conventionally reference the
+    // image to be displayed.
+    var lazyImages = [];
+    for (let node in this._htmlNodesGenerator("img", "data-src")) {
+      // Only the images that do not already reference a resource using the
+      // standard "src" attribute need the reference to be promoted. Since a
+      // "data:" URL in the "src" attribute is generally used as a placeholder,
+      // it is replaced with the URL in the "data-src" attribute.
+      var srcAttribute = node.getAttribute("src");
+      if (!srcAttribute || /^\s*data:/i.test(srcAttribute)) {
+        lazyImages.push(node);
+      }
+    }
+    for (let node in this._htmlNodesGenerator("img", "data-srcset")) {
+      // Only the images that do not already have a "srcset" attribute need the
+      // reference to be promoted.
+      if (!node.getAttribute("srcset") && lazyImages.indexOf(node) < 0) {
+        lazyImages.push(node);
+      }
+    }
+    for (var lazyIndex = 0; lazyIndex < lazyImages.length; lazyIndex++) {
+      var lazyImage = lazyImages[lazyIndex];
+      // Determine the URL of the image to be referenced by the standard "src"
+      // attribute, from the "data-src" attribute or from the first entry of the
+      // "data-srcset" attribute.
+      var srcUrlSpec = lazyImage.getAttribute("data-src");
+      var srcsetSpec = lazyImage.getAttribute("data-srcset");
+      var srcsetFragment = null;
+      if (srcsetSpec) {
+        // Get the object required to process the inline attribute.
+        srcsetFragment = new UrlListSourceFragment(srcsetSpec, {
+          srcSet: true,
+        });
+      }
+      if (!srcUrlSpec && srcsetFragment) {
+        // Use the URL of the first candidate of the "srcset" list as the URL of
+        // the image.
+        for (var curFragment in srcsetFragment) {
+          if (curFragment instanceof UrlSourceFragment) {
+            srcUrlSpec = curFragment.urlSpec;
+            break;
+          }
+        }
+      }
+      // Ignore the element if no valid reference can be promoted.
+      if (!srcUrlSpec && !srcsetFragment) {
+        continue;
+      }
+      // Record the image, so that the custom attributes are removed when the
+      // document is saved, and the standard attributes are set to the promoted
+      // references.
+      this._promotedLazyImages.set(lazyImage, true);
+      if (srcUrlSpec) {
+        // Create a source fragment for the URL of the image.
+        let srcFragment = new UrlSourceFragment(srcUrlSpec);
+        // Create a reference to the "src" attribute, and scan the fragment to
+        // find the reference to the web resource, that will be saved locally
+        // even if it was not loaded while displaying the page.
+        this._createReference({
+          sourceDomNode: lazyImage,
+          sourceAttribute: "src",
+          targetFragment: srcFragment,
+        });
+        this._scanFragment(srcFragment, true, null, true);
+      }
+      if (srcsetFragment) {
+        // Create a reference to the "srcset" attribute, and scan the fragment
+        // to find the references to the web resources, that will be saved
+        // locally even if they were not loaded while displaying the page.
+        this._createReference({
+          sourceDomNode: lazyImage,
+          sourceAttribute: "srcset",
+          targetFragment: srcsetFragment,
+        });
+        this._scanFragment(srcsetFragment, true, null, true);
+      }
+    }
+
     // Find direct references to images that should be saved.
     for (let [, [elementName, attributeName]] in Iterator([
      ["body",  "background"],
@@ -350,6 +436,12 @@ ExactPersistParsedJob.prototype = {
      ["tr",    "background"],
     ])) {
       for (let node in this._htmlNodesGenerator(elementName, attributeName)) {
+        // Skip the images whose lazy reference has been promoted from a custom
+        // "data-src" attribute, to avoid saving a placeholder image instead of
+        // the image that was actually referenced.
+        if (this._promotedLazyImages.has(node)) {
+          continue;
+        }
         this._createReference({
           sourceDomNode: node,
           sourceAttribute: attributeName,
@@ -360,6 +452,11 @@ ExactPersistParsedJob.prototype = {
 
     // Process "<img>" elements with a "srcset" attribute.
     for (let node in this._htmlNodesGenerator("img", "srcset")) {
+      // Skip the images whose "srcset" attribute has been created by promoting
+      // a custom "data-srcset" attribute.
+      if (this._promotedLazyImages.has(node)) {
+        continue;
+      }
       // Get the object required to process the inline attribute.
       let fragment = new UrlListSourceFragment(node.getAttribute("srcset"), {
         srcSet: true,
@@ -725,8 +822,11 @@ ExactPersistParsedJob.prototype = {
    *        If true, the resources will be saved locally.
    * @param aBaseUri
    *        Optional nsIURI object used for reference resolution.
+   * @param aForceSave
+   *        If true, the resources will be saved locally even if they were not
+   *        loaded while displaying the document.
    */
-  _scanFragment: function(aFragment, aSaveLocally, aBaseUri) {
+  _scanFragment: function(aFragment, aSaveLocally, aBaseUri, aForceSave) {
     // Search for all the URIs contained in the fragment.
     for (var curFragment in aFragment) {
       if (curFragment instanceof UrlSourceFragment) {
@@ -736,6 +836,7 @@ ExactPersistParsedJob.prototype = {
           targetUriSpec: curFragment.urlSpec,
           targetBaseUri: aBaseUri,
           saveLinkedResource: aSaveLocally,
+          forceSave: aForceSave,
         });
       }
     }
@@ -928,6 +1029,16 @@ ExactPersistParsedJob.prototype = {
          reference.targetFragment ? reference.targetFragment.sourceData :
          reference.resolvedTargetUriSpec);
       }
+    }
+
+    // Remove the attributes that are used to defer the loading of the images
+    // until the page scripts are executed, since the references have already
+    // been promoted to the standard attributes during the scan phase, and the
+    // scripts that would load the images are not saved in the archive.
+    if (this._promotedLazyImages.has(aNode)) {
+      newNode.removeAttribute("data-src");
+      newNode.removeAttribute("data-srcset");
+      newNode.removeAttribute("data-sizes");
     }
 
     // Blank all event handlers.

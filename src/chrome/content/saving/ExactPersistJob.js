@@ -236,7 +236,8 @@ ExactPersistJob.prototype = {
         // actually loaded to display the document, unless overridden.
         var loadedUriSpecs = aReference.sourceDomDocument.loadedUriSpecs;
         if ((loadedUriSpecs && loadedUriSpecs[aReferenceUri.spec]) ||
-            this.saveWithNotLoadedResources) {
+            this.saveWithNotLoadedResources ||
+            aReference.forceSave) {
           // The resource will be saved by an unparsed job, unless a parsed job
           // gets associated with the resource meanwhile.
           aReference.resource.needsUnparsedJob = true;
