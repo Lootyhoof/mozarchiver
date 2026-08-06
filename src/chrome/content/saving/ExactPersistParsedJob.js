@@ -793,28 +793,34 @@ ExactPersistParsedJob.prototype = {
     try {
       // If this save job is associated with a DOM document
       if (this._document) {
-        // Create a document encoder for the appropriate content type.
-        var mediaType = this._document.contentType;
-        var encoder = Cc["@mozilla.org/layout/documentEncoder;1?type=" +
-         mediaType].createInstance(Ci.nsIDocumentEncoder);
-        encoder.init(this._document, mediaType, 0);
-        // Because Firefox and SeaMonkey incorrectly wrap the text contained
-        // inside "<textarea>" elements, we have to disable text content
-        // wrapping entirely. Differently from using the raw output encoding
-        // flag, this solution preserves the newlines originally present in the
-        // text content between tags.
-        encoder.setWrapColumn(0x7FFFFFFF);
-        // Save the document using its original character set. Setting this
-        // property is required in order for the appropriate "<meta>"
-        // declaration to be saved in the document body.
-        encoder.setCharset(this.characterSet);
-        // Set the function that will transform the DOM nodes during save.
-        encoder.setNodeFixup(this);
-        // Encode the document directly to the output stream. Compared with
-        // encoding to a string, this function has the advantage that all the
-        // characters that cannot be encoded in the target character set are
-        // automatically converted to an HTML numeric character entity.
-        encoder.encodeToStream(outputStream);
+        this._ensureOriginalUrlComment();
+        this._ensureMetaUACompatible();
+        try {
+          // Create a document encoder for the appropriate content type.
+          var mediaType = this._document.contentType;
+          var encoder = Cc["@mozilla.org/layout/documentEncoder;1?type=" +
+           mediaType].createInstance(Ci.nsIDocumentEncoder);
+          encoder.init(this._document, mediaType, 0);
+          // Because Firefox and SeaMonkey incorrectly wrap the text contained
+          // inside "<textarea>" elements, we have to disable text content
+          // wrapping entirely. Differently from using the raw output encoding
+          // flag, this solution preserves the newlines originally present in
+          // the text content between tags.
+          encoder.setWrapColumn(0x7FFFFFFF);
+          // Save the document using its original character set. Setting this
+          // property is required in order for the appropriate "<meta>"
+          // declaration to be saved in the document body.
+          encoder.setCharset(this.characterSet);
+          // Set the function that will transform the DOM nodes during save.
+          encoder.setNodeFixup(this);
+          // Encode the document directly to the output stream. Compared with
+          // encoding to a string, this function has the advantage that all the
+          // characters that cannot be encoded in the target character set are
+          // automatically converted to an HTML numeric character entity.
+          encoder.encodeToStream(outputStream);
+        } finally {
+          this._revertDocumentChanges();
+        }
       } else {
         // This save job contains generated content stored in memory as an
         // Unicode string. Create and initialize a converter output stream to
@@ -936,6 +942,87 @@ ExactPersistParsedJob.prototype = {
 
     // Replace the original node with the modified version.
     return newNode;
+  },
+
+  /**
+   * Reference to the newly added <head> and <meta> nodes for "X-UA-Compatible"
+   * and to the comment for the original location.
+   */
+  _addedComment: null,
+  _addedHead: null,
+  _addedMeta: null,
+
+  /**
+   * Ensures that the saved document contains the comment indicating the
+   * original location, only when saving complete web pages.
+   */
+  _ensureOriginalUrlComment: function() {
+    try {
+      if (this.resource.includeOriginalUrl &&
+       (this._document instanceof Ci.nsIDOMHTMLDocument)) {
+        // Remove the original comment permanently, if present.
+        var firstCommentNode = this._document.evaluate('//comment()',
+         this._document, null, Ci.nsIDOMXPathResult.FIRST_ORDERED_NODE_TYPE,
+         null).singleNodeValue;
+        if (firstCommentNode && /^\s*(saved from url=|Source is )\S+\s*$/.
+         test(firstCommentNode.nodeValue)) {
+          firstCommentNode.remove();
+        }
+        // Add the new comment temporarily.
+        this._addedComment = this._document.createComment(" Source is " +
+         this.resource.contentLocation + " ");
+        this._document.documentElement.before(this._addedComment);
+      }
+    } catch (ex) {
+      Cu.reportError(ex);
+    }
+  },
+
+  /**
+   * Ensures that the saved document conatins the "X-UA-Compatible" metadata for
+   * compatibility with Internet Explorer, only when saving as MHTML.
+   */
+  _ensureMetaUACompatible: function() {
+    try {
+      if (this._eventListener.saveWithContentLocation &&
+       (this._document instanceof Ci.nsIDOMHTMLDocument) &&
+       !this._document.querySelector("meta[http-equiv='X-UA-Compatible']")) {
+        // In rare cases, the <head> element might be missing.
+        if (!this._document.head) {
+          this._addedHead = this._document.createElement("head");
+          if (this._document.body) {
+            this._document.body.insertAdjacentElement("beforebegin",
+             this._addedHead);
+          } else {
+            this._document.documentElement.insertAdjacentElement("afterbegin",
+             this._addedHead);
+          }
+        }
+
+        this._addedMeta = this._document.createElement("meta");
+        this._addedMeta.setAttribute("http-equiv", "X-UA-Compatible");
+        this._addedMeta.setAttribute("content", "IE=edge");
+        this._document.head.insertAdjacentElement("afterbegin",
+         this._addedMeta);
+      }
+    } catch (ex) {
+      Cu.reportError(ex);
+    }
+  },
+
+  /**
+   * Reverts the changes made by "_ensureMetaUACompatible".
+   */
+  _revertDocumentChanges: function() {
+    if (this._addedMeta) {
+      this._addedMeta.remove();
+    }
+    if (this._addedHead) {
+      this._addedHead.remove();
+    }
+    if (this._addedComment) {
+      this._addedComment.remove();
+    }
   },
 
   /**

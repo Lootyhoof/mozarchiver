@@ -114,6 +114,11 @@ ExactPersist.prototype = {
       persistJob.setResourceLocation(this.persistBundle.resources[0],
        (originalPage && originalPage.originalUrl) || aDocument.documentURI);
 
+      // Ensure we include the original location when saving as a complete page.
+      if (this.includeOriginalUrl) {
+        this.persistBundle.resources[0].includeOriginalUrl = true;
+      }
+
       // Save the given document.
       persistJob.start();
 
@@ -153,6 +158,12 @@ ExactPersist.prototype = {
    * downloaded and included when saving.
    */
   saveWithNotLoadedResources: false,
+
+  /**
+   * If set to true, a comment specifying the original location will be added to
+   * the main resource when saving.
+   */
+  includeOriginalUrl: false,
 
   /**
    * PersistBundle object referencing the resources that have been saved.

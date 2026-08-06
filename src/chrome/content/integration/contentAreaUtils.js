@@ -148,6 +148,7 @@ function mafPromiseTargetFile(aFpP, /* optional */ aSkipPrompt, /* optional */ a
         // The ExactPersist component can also save XML and SVG, but not as
         // accurately as the browser's standard save system.
         persistObject = new MozArchiver.ExactPersist();
+        persistObject.includeOriginalUrl = true;
       }
 
       // Wrap the persist object for propagation to makeWebBrowserPersist.

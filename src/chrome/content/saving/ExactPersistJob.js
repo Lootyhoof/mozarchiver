@@ -273,6 +273,11 @@ ExactPersistJob.prototype = {
       var textToSubUri = this._textToSubURI;
       aResource.contentLocation = aUriSpec.replace(/[^%#;\/?:@&=+$,\[\]]+/g,
        function(aPart) textToSubUri.ConvertAndEscape("utf-8", aPart));
+      // Don't use file URIs in MHTML for compatibility with Google Chrome.
+      if (aResource.contentLocation.startsWith("file:")) {
+        aResource.contentLocation =
+         this._addUniquePrefix(aResource.contentLocation, "file");
+      }
     } else {
       // Additional escaping is not required.
       aResource.contentLocation = aUriSpec;
@@ -354,19 +359,32 @@ ExactPersistJob.prototype = {
    * present in the same web archive.
    */
   _setUniqueResourceLocation: function(aResource) {
-    // Generate a unique URI by prepending a random prefix to the original
-    // location, for example "urn:snapshot-A6B7C8D9:http://www.example.com/".
-    var randomHexString = Math.floor(Math.random() * 0x100000000).toString(16);
-    var uniquePrefix = "urn:snapshot-" +
-     ("0000000" + randomHexString.toUpperCase()).slice(-8) + ":";
-    var uniqueUri = Cc["@mozilla.org/network/io-service;1"].
-     getService(Ci.nsIIOService).newURI(uniquePrefix +
-     aResource.referenceUri.spec, null, null);
+    var uniqueUri = NetUtil.newURI(this._addUniquePrefix(
+     aResource.referenceUri.spec, "snapshot"));
     // Modify the properties of the provided resource object.
     this.bundle.removeResourceFromIndex(aResource);
     aResource.originalUri = uniqueUri;
     this.setResourceLocation(aResource, uniqueUri.spec);
     this.bundle.addResourceToIndex(aResource);
+  },
+
+  /**
+   * Generates a unique URI by prepending a random prefix to the original one,
+   * for example "urn:snapshot-A6B7C8D9:http://www.example.com/". If the URI
+   * points to a local file, only the file name is preserved, for example
+   * "urn:file-A6B7C8D9:file:///index.txt".
+   */
+  _addUniquePrefix: function(aUriSpec, aPrefixType) {
+    var randomHexString = Math.floor(Math.random() * 0x100000000).toString(16);
+    var uniquePrefix = "urn:" + aPrefixType + "-" +
+     ("0000000" + randomHexString.toUpperCase()).slice(-8) + ":";
+    if (aUriSpec.startsWith("file:")) {
+      var matchResult = /\/([^\/]+)$/.exec(aUriSpec);
+      if (matchResult) {
+        return uniquePrefix + "file:///" + matchResult[1];
+      }
+    }
+    return uniquePrefix + aUriSpec;
   },
 
   /**
