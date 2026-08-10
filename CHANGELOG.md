@@ -1,5 +1,11 @@
 # Changelog
 
+### 2.2.0
+- process lazy-loaded images referenced by data-src attributes
+- strip noscript fallbacks and save favicons when archiving
+- emit MHTML snapshot metadata and urn:file content locations
+- fix index.rdf detection, urn: content locations, temp file permissions
+
 ### 2.1.2
 - support srcset in images (thanks adoxa)
 
