@@ -68,6 +68,8 @@ function ExactPersistParsedJob(aEventListener, aResource) {
   this.references = [];
   this.referencesForNode = new WeakMap();
   this._promotedLazyImages = new WeakMap();
+  this._noscriptFallbacks = [];
+  this._noscriptFallbackLocations = [];
 }
 
 ExactPersistParsedJob.prototype = {
@@ -352,19 +354,10 @@ ExactPersistParsedJob.prototype = {
     // image to be displayed.
     var lazyImages = [];
     for (let node in this._htmlNodesGenerator("img", "data-src")) {
-      // Only the images that do not already reference a resource using the
-      // standard "src" attribute need the reference to be promoted. Since a
-      // "data:" URL in the "src" attribute is generally used as a placeholder,
-      // it is replaced with the URL in the "data-src" attribute.
-      var srcAttribute = node.getAttribute("src");
-      if (!srcAttribute || /^\s*data:/i.test(srcAttribute)) {
-        lazyImages.push(node);
-      }
+      lazyImages.push(node);
     }
     for (let node in this._htmlNodesGenerator("img", "data-srcset")) {
-      // Only the images that do not already have a "srcset" attribute need the
-      // reference to be promoted.
-      if (!node.getAttribute("srcset") && lazyImages.indexOf(node) < 0) {
+      if (lazyImages.indexOf(node) < 0) {
         lazyImages.push(node);
       }
     }
@@ -423,6 +416,15 @@ ExactPersistParsedJob.prototype = {
           targetFragment: srcsetFragment,
         });
         this._scanFragment(srcsetFragment, true, null, true);
+      }
+      // Record the "<noscript>" element that provides the fallback image for
+      // this image, so that it can be removed when the document is saved,
+      // since it would be rendered in addition to the promoted image when the
+      // scripts are disabled.
+      var fallbackNode = lazyImage.nextElementSibling;
+      if (fallbackNode && fallbackNode.nodeName.toLowerCase() == "noscript" &&
+       fallbackNode.getElementsByTagName("img").length > 0) {
+        this._noscriptFallbacks.push(fallbackNode);
       }
     }
 
@@ -523,13 +525,16 @@ ExactPersistParsedJob.prototype = {
        node.getAttribute("rel"));
       // Creates the reference, and determines if the linked parsed stylesheet
       // should be saved locally by checking the "sheet" property on the DOM
-      // node object.
+      // node object. Since the icons are needed to display the archived page,
+      // they are saved locally even if they were not loaded while displaying
+      // the page.
       this._createReference({
         sourceDomNode: node,
         sourceAttribute: "href",
         saveLinkedResource: saveFavIcon,
         saveLinkedCssStyleSheet: node.sheet,
         saveLinkedFileCharacterSetHint: node.getAttribute("charset"),
+        forceSave: saveFavIcon,
       });
     }
 
@@ -896,6 +901,7 @@ ExactPersistParsedJob.prototype = {
       if (this._document) {
         this._ensureOriginalUrlComment();
         this._ensureMetaUACompatible();
+        this._removeNoscriptFallbacks();
         try {
           // Create a document encoder for the appropriate content type.
           var mediaType = this._document.contentType;
@@ -1090,7 +1096,7 @@ ExactPersistParsedJob.prototype = {
   },
 
   /**
-   * Ensures that the saved document conatins the "X-UA-Compatible" metadata for
+   * Ensures that the saved document contains the "X-UA-Compatible" metadata for
    * compatibility with Internet Explorer, only when saving as MHTML.
    */
   _ensureMetaUACompatible: function() {
@@ -1122,9 +1128,41 @@ ExactPersistParsedJob.prototype = {
   },
 
   /**
-   * Reverts the changes made by "_ensureMetaUACompatible".
+   * Removes the `<noscript>` fallbacks of the images whose lazy references
+   * have been promoted to the standard attributes, since they would be
+   * rendered in addition to the promoted images when the scripts are disabled.
+   */
+  _removeNoscriptFallbacks: function() {
+    try {
+      // Remove the `<noscript>` fallbacks from the document, remembering
+      // their position so that they can be restored when the save ends.
+      for (var noscriptIndex = 0;
+           noscriptIndex < this._noscriptFallbacks.length; noscriptIndex++) {
+        var noscript = this._noscriptFallbacks[noscriptIndex];
+        this._noscriptFallbackLocations.push({
+          noscript: noscript,
+          parent: noscript.parentNode,
+          nextSibling: noscript.nextSibling,
+        });
+        noscript.remove();
+      }
+    } catch (ex) {
+      Cu.reportError(ex);
+    }
+  },
+
+  /**
+   * Reverts the changes made to the document for the purpose of saving it.
    */
   _revertDocumentChanges: function() {
+    // Restore the "<noscript>" fallbacks that were removed.
+    for (var [, fallbackLocation] in Iterator(this._noscriptFallbackLocations)) {
+      if (fallbackLocation.parent) {
+        fallbackLocation.parent.insertBefore(fallbackLocation.noscript,
+         fallbackLocation.nextSibling);
+      }
+    }
+    this._noscriptFallbackLocations = [];
     if (this._addedMeta) {
       this._addedMeta.remove();
     }
